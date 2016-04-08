@@ -4,4 +4,5 @@ do
 	git add .
 	git commit -m 'Update'
 	git push
+	sleep 5
 done
