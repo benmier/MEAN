@@ -1,4 +1,7 @@
 #!/bin/bash
-git add .
-git commit -m 'Update'
-git push
+for i in {1..2}
+do
+	git add .
+	git commit -m 'Update'
+	git push
+done
