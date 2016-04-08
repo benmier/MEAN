@@ -4,6 +4,9 @@ var express = require("express");
 var app = express();
 // Require body-parser (to receive post data from clients)
 var bodyParser = require("body-parser");
+
+var mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost/basic_mongoose');
 // Integrate body-parser with our App
 app.use(bodyParser.urlencoded());
 // Require path
