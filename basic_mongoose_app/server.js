@@ -33,3 +33,10 @@ app.post('/users', function(req, res) {
 app.listen(8000, function() {
     console.log("listening on port 8000");
 })
+
+var UserSchema = new mongoose.Schema({
+	name: String,
+	age: Number
+})
+mongoose.model('User', UserSchema);
+var User = mongoose.model('User')
