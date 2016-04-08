@@ -34,7 +34,7 @@ app.post('/users', function(req, res) {
     	if(err)
     		console.log("Error")
     	else{
-    		console.log("Sucess")
+    		console.log("Success")
     		res.redirect('/');
     	}
     });
