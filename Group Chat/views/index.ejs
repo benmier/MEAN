@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html style="height: 100%; width: 100%;">
+<head>
+	<title>EPIC BUTTON GAME!</title>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script type ="text/javascript" src="/socket.io/socket.io.js"></script>
+	<script type="text/javascript">
+	        $(document).ready(function (){
+	            var socket = io.connect();
+	            var name = prompt('What is your name?');
+	            socket.emit("got_new_user", {name:name});
+	            $('#btn').click(function (){
+	                socket.emit("new_message", {name:name, message:$('#new_message').val()});
+	                $('#new_message').val("");
+	            });
+	            socket.on('existing_messages', function(data){
+	                for(i in data)
+	                	$("#chatbox").append("<p>"+data[i].name+": "+data[i].message+"</p>");
+	           	});
+	            socket.on('update_messages', function(data){
+	                $("#chatbox").append("<p>"+data.name+": "+data.message+"</p>");
+	           	});
+	           	socket.on('user_disconnect', function(data){
+	                $("#chatbox").append("<p style='color:red'>"+data.name+" has left the chat"+"</p>");
+	           	});
+	           	socket.on('display_new_user', function(data){
+	                $("#chatbox").append("<p style='color:green'>"+data.name+" has joined the chat"+"</p>");
+	           	});
+	        });
+	  </script>
+</head>
+<body style="height: 100%; width: 100%; margin: 20px;">
+	<h2 style="text-decoration: underline;">Conversation Board</h2>
+	<div id="chatbox" style="margin-bottom: 20px; padding:10px; width: 80%; height: 70%; border:2px solid black;">
+	</div>
+	<input id="new_message" placeholder="Enter your message here" style="width: 70%"></input><br><br>
+		<button id="btn">Send</button>
+</body>
+</html>
