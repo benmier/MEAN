@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+</head>
+<body>
+<button id="btn">Get Name</button>
+<script type="text/javascript">
+
+$('#btn').click(function(){
+	$.get("https://api.github.com/users/benmier", displayName);
+});
+	
+
+function displayName(data) {
+  $('body').append("<p>"+data.login+"</p>");
+}
+
+
+</script>
+</body>
+</html>

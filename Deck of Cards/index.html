@@ -1,0 +1,61 @@
+<script type="text/javascript">
+	
+function Deck(){
+	this.cards = 
+	['1H','2H','3H','4H','5H','6H','7H','8H','9H','10H','JH','QH','KH',
+	'1D','2D','3D','4D','5D','6D','7D','8D','9D','10D','JD','QD','KD',
+	'1S','2S','3S','4S','5S','6S','7S','8S','9S','10S','JS','QS','KS',
+	'1C','2C','3C','4C','5C','6C','7C','8C','9C','10C','JC','QC','KC'];
+}
+
+Deck.prototype.shuffle = function() {
+	var that = this;
+	var n = that.cards.length,i,temp;
+	while(n){
+		i = Math.floor(Math.random()*n--);
+		temp = that.cards[n];
+		that.cards[n] = that.cards[i];
+		that.cards[i] = temp;
+	}
+	return that.cards;
+}
+
+Deck.prototype.reset = function() {
+	var temp = new Deck();
+	this.cards = temp.cards;
+	return this.cards;
+};
+
+Deck.prototype.deal = function() {
+	return this.cards.splice(Math.floor(Math.random()*this.cards.length),1);
+};
+
+
+function Player(name){
+	this.name = name;
+	var newDeck = new Deck();
+	this.hand = [];
+	this.take_card = function(){
+		this.hand.push(newDeck.deal()[0]);
+		return this;
+	}
+	return this;
+};
+
+Player.prototype.discard = function() {
+	this.hand.pop();
+	return this;
+}
+
+// var newDeck = new Deck();
+// console.log(newDeck.cards)
+// console.log(newDeck.shuffle())
+// console.log(newDeck.reset());
+// console.log(newDeck.deal());
+// console.log(newDeck.cards)
+// var Ben = new Player();
+// Ben.take_card().take_card();
+// console.log(Ben.hand)
+// Ben.discard();
+// console.log(Ben.hand)
+</script>

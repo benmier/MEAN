@@ -1,0 +1,51 @@
+<script type="text/javascript">
+
+function personConstructor(name){
+	var person = {};
+	person.name = name;
+	person.distance_traveled = 0;
+	person.say_name = function(){alert("My name is "+person.name)};
+	person.say_something = function(string){alert(person.name+" says "+string)};
+	person.walk = function(){
+		alert(person.name+" is walking")
+		distance_traveled+=3;
+		console.log("Distance: "+person.distance_traveled);
+		return person;
+	}
+	person.run = function(){
+		alert(person.name+ " is running")
+		person.distance_traveled+=10;
+		console.log("Distance: "+person.distance_traveled);
+		return person;
+	}
+	person.crawl = function(){
+		alert(person.name+" is crawling")
+		person.distance_traveled+=1;
+		console.log("Distance: "+person.distance_traveled);
+		return person;
+	}
+	return person;
+}
+
+var Ben = personConstructor("Ben");
+Ben.run().run();
+
+
+function ninjaConstructor(name,cohort){
+	var ninja = {};
+	var belts = ['red','black'];
+	var belt_counter = 0;
+	ninja.name = name;
+	ninja.cohort = cohort;
+	ninja.belt_level = 'yellow';
+	ninja.level_up = function(){
+		ninja.belt_level = belts[belt_counter]
+		belt_counter++;
+	}
+	return ninja;
+}
+var BenBen = ninjaConstructor('Ben','MEAN')
+BenBen.level_up();
+console.log(BenBen)
+
+</script>

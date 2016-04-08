@@ -1,0 +1,35 @@
+use my_first_db
+db.createCollection("students")
+db.my_first_db.insert({name: "Ben",home_state:"Washington",lucky_number:12,birthday:{month:9,day:16,year:1991}})
+db.my_first_db.insert({name: "Joe",home_state:"Oregon",lucky_number:13,birthday:{month:9,day:17,year:1991}})
+db.my_first_db.insert({name: "Blah",home_state:"Cali",lucky_number:14,birthday:{month:9,day:18,year:1991}})
+db.my_first_db.insert({name: "Melissa",home_state:"Nevada",lucky_number:15,birthday:{month:9,day:19,year:1991}})
+db.my_first_db.insert({name: "Cow",home_state:"Texas",lucky_number:16,birthday:{month:9,day:20,year:1991}})
+db.my_first_db.find().pretty()
+db.my_first_db.find({$or:[{home_state:"Washington"},{home_state:"Oregon"}]}).pretty()
+db.my_first_db.find({lucky_number:{$gt:3}})
+db.my_first_db.find({lucky_number:{$lte:10}})
+db.my_first_db.find({$and:[{lucky_number:{$gte:1}},{lucky_number:{$lte:9}}]})
+db.my_first_db.update({},{$set:{interests:['coding', 'brunch', 'MongoDB']}},{multi:true})
+db.my_first_db.update({name:"Ben"},{$push:{interests:'weightlifting'}})
+db.my_first_db.update({name:"Joe"},{$push:{interests:'cooking'}})
+db.my_first_db.update({name:"Blah"},{$push:{interests:'texting'}})
+db.my_first_db.update({name:"Melissa"},{$push:{interests:'flying'}})
+db.my_first_db.update({name:"Cow"},{$push:{interests:'jumping'}})
+db.my_first_db.update({name:"Cow"},{$push:{interests:'taxes'}})
+db.my_first_db.update({name:"Cow"},{$pull:{interests:'jumping'}})
+db.my_first_db.remove({$or:[{home_state:"Washington"},{home_state:"Oregon"}]},true)
+db.my_first_db.remove({name:"Blah"})
+db.my_first_db.remove({lucky_number:{$gt:5}},true)
+db.my_first_db.insert({},{$set:{number_of_belts:0}},{multi:true})
+db.my_first_db.update({home_state:"Washington"},{$inc:{number_of_belts:1}},{multi:true})
+db.my_first_db.update({},{$rename:{number_of_belts:"belts_earned"}},{multi:true})
+db.my_first_db.update({},{$unset:{lucky_number:""}},{multi:true})
+db.my_first_db.update({},{$currentDate:{"updated_on":{$type:"date"}}},{multi:true})
+
+
+
+
+
+
+

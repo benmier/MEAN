@@ -1,0 +1,25 @@
+</script>
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+<script type="text/javascript">
+	
+var server = http.createServer(function (request, response){
+	if(request.url === '/') {
+    fs.readFile('index.html', 'utf8', function (errors, contents){
+        response.writeHead(200, {'Content-Type': 'text/html'});
+        response.write(contents); 
+        response.end();
+    });
+	}
+}
+
+
+
+</script>
+</head>
+<body>
+<h1>This is a dojo server!</h1>
+</body>
+</html>

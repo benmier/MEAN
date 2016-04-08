@@ -1,0 +1,23 @@
+<script type="text/javascript">
+
+function vehicleConstructor(name,wheels,passengers){
+	this.name = name;
+	this.wheels = wheels;
+	this.passengers = passengers;
+	this.make_noise = "None";
+	return this;
+}
+
+var Bike = new vehicleConstructor('Bike',2,1);
+Bike.make_noise = "Ring ring!";
+
+var Sedan = new vehicleConstructor('Sedan',4,5);
+Sedan.make_noise = "Honk honk!";
+
+var Bus = new vehicleConstructor('Bus',4,50);
+Bus.pickUpPassengers = function(passengers){
+	Bus.passengers+=passengers
+	return Bus;
+};
+
+</script>

@@ -1,0 +1,25 @@
+<html>
+  <head>
+    <!-- <link rel="stylesheet" href="/static/css/styles.css" type="text/css"> -->
+  </head>
+  <body>
+    <form action='/result' method='post'>
+            Your Name: <input type='text' name='name'><br><br>
+            Dojo Location: <select name="dojo">
+                <option value="San Jose">San Jose</option>
+                <option value="Seattle">Seattle</option>
+                <option value="New York">New York</option>
+                <option value="Houston">Houston</option>
+                <option value="Boston">Boston</option>
+            </select><br><br>
+            Favorite Language: <select name="lang">
+                <option value="Python">Python</option>
+                <option value="Javascript">Javascript</option>
+                <option value="Swift">Swift</option>
+                <option value="Ruby">Ruby</option>
+            </select><br><br>
+                Comment (optional):<br><textarea rows="3" name="comment"></textarea><br><br>
+            <input type='submit' value='Submit'>
+        </form>
+  </body>
+</html>

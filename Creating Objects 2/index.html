@@ -1,0 +1,35 @@
+<script type="text/javascript">
+
+function vehicleConstructor(name,wheels,passengers,speed){
+	this.name = name;
+	this.wheels = wheels;
+	this.passengers = passengers;
+	this.speed = speed;
+	this.make_noise = "None";
+	var distance_travelled = 0;
+	var updateDistanceTravelled = function(speed){distance_travelled+=speed}
+	this.move = function(){
+		updateDistanceTravelled(this.speed);
+		distance_travelled;
+		console.log(this.make_noise);
+		return this;
+	}
+	this.checkMiles = function(){console.log(distance_travelled)}
+	return this;
+}
+
+var Bike = new vehicleConstructor('Bike',2,1);
+Bike.make_noise = "Ring ring!";
+
+var Sedan = new vehicleConstructor('Sedan',4,5,60);
+Sedan.make_noise = "Honk honk!";
+Sedan.move();
+Sedan.checkMiles();
+
+var Bus = new vehicleConstructor('Bus',4,50);
+Bus.pickUpPassengers = function(passengers){
+	Bus.passengers+=passengers
+	return Bus;
+};
+
+</script>

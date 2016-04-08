@@ -1,0 +1,47 @@
+<html>
+  <head>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script type ="text/javascript" src="/socket.io/socket.io.js"></script>
+  <script type="text/javascript">
+        $(document).ready(function (){
+            var socket = io.connect();
+            $('#btn').click(function (){
+                socket.emit("posting_form",{
+                    name: $("#name").val(),
+                    dojo: $("#dojo").val(),
+                    lang: $("#lang").val(),
+                    comment: $("#comment").val()
+                });
+            });
+            socket.on('updated_message', function (data){
+                var object = JSON.stringify(data.info);
+                $("#header").append("<p>"+data.response+object+"</p>")
+            });
+            socket.on('random_number', function(data){
+                $("#header").append("<p>"+data.response+data.numb+".</p>");
+            });
+        });
+  </script>
+  </head>
+  <body>
+    <div id="header"></div>
+    <form action='/' method='post'>
+            Your Name: <input id="name" type='text' name='name'><br><br>
+            Dojo Location: <select name="dojo" id="dojo">
+                <option value="San Jose">San Jose</option>
+                <option value="Seattle">Seattle</option>
+                <option value="New York">New York</option>
+                <option value="Houston">Houston</option>
+                <option value="Boston">Boston</option>
+            </select><br><br>
+            Favorite Language: <select name="lang" id="lang">
+                <option value="Python">Python</option>
+                <option value="Javascript">Javascript</option>
+                <option value="Swift">Swift</option>
+                <option value="Ruby">Ruby</option>
+            </select><br><br>
+                Comment (optional):<br><textarea rows="3" name="comment" id="comment"></textarea><br><br>
+        </form>
+        <button id="btn">Submit</button>
+  </body>
+</html>

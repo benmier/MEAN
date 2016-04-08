@@ -1,0 +1,26 @@
+<script type="text/javascript">
+	
+var x = [3,5,'Dojo', 'rocks', 'Michael', 'Sensei'];
+for (i in x)
+	console.log(x[i]);
+x.push(100);
+x.push(['test','test','test']);
+var sum = 0;
+for(var i=1; i<=500; i++){
+	sum+=i;
+}
+console.log(sum);
+var arr = [1, 5, 90, 25, -3, 0];
+var min = arr[0];
+for(i in arr){
+	if(arr[i]<min)
+		min=arr[i]
+}
+console.log(min)
+var sum = 0;
+for(i in arr){
+	sum+=arr[i];
+}
+console.log(sum/arr.length)
+
+</script>

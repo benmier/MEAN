@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+<button id="btn">Click me!</button>
+<script type="text/javascript">
+var button = document.getElementById("btn");
+button.addEventListener("click",onClick);
+button.addEventListener("mouseover",onHoverIn);
+button.addEventListener("mouseout",onHoverOut);
+// button.addEventListener("keypress",onKeyPress);
+
+
+function onClick(){
+	if(!previous || previous=='blue')
+		button.style.backgroundColor='red'
+	else if(previous=='red')
+		button.style.backgroundColor='blue'
+	previous = button.style.backgroundColor;
+}
+
+function onHoverIn(){
+	previous = button.style.backgroundColor;
+	button.style.backgroundColor='green'
+}
+
+function onHoverOut(){
+	button.style.backgroundColor=previous
+}
+
+// function onKeyPress(){
+// 	// if(keyCode==13){
+// 		console.log("enter")		
+	// }
+}
+</script>
+</body>
+</html>

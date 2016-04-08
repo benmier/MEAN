@@ -1,0 +1,52 @@
+<script type="text/javascript">
+
+function sumAll(x,y){
+	var sum = 0;
+	for(var i=x; i<=y; i++){
+		sum+=i;
+	}
+	return sum;
+}
+
+function minimum(arr){
+	var min = arr[0];
+	for(i in arr){
+		if(arr[i]<min)
+			min=arr[i]
+	}
+	return min;
+}
+
+
+function average(arr){
+	var sum = 0;
+	for(i in arr){
+		sum+=arr[i];
+	}
+	return sum/arr.length;
+}
+
+function person(){
+	this.name = 'Ben';
+	this.distance_traveled = 0;
+	this.say_name = function(){alert("My name is "+this.name)};
+	this.say_something = function(string){alert(this.name+" says "+string)};
+	this.walk = function(){
+		alert(this.name+" is walking")
+		this.distance_traveled+=3;
+	}
+	this.run = function(){
+		alert(this.name+ " is running")
+		this.distance_traveled+=10;
+		console.log(this.distance_traveled);
+	}
+	this.crawl = function(){
+		alert(this.name+" is crawling")
+		this.distance_traveled+=1;
+	}
+	return this;
+}
+
+var Ben = new person();
+Ben.run();
+</script>

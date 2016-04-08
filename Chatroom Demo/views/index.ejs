@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>EPIC BUTTON GAME!</title>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script type ="text/javascript" src="/socket.io/socket.io.js"></script>
+	<script type="text/javascript">
+	        $(document).ready(function (){
+	            var socket = io.connect();
+	            var name = prompt('What is your name?');
+	            socket.emit("got_new_user", {name:name});
+	            // $('#btn').click(function (){
+	            //     socket.emit("button_click")
+	            // });
+	           	// $('#reset').click(function (){
+	            //     socket.emit("reset")
+	            // });
+	            socket.on('existing_users', function(data){
+	                console.log(data)
+	                for(i in data){
+	                	$("#body").append("<div style='height: 100px; width: 100px; margin: 20px; border: 1px solid black; display: inline-block;';><p>"+i.name+"</p><div>");
+	            	};
+	           	});
+	            socket.on('new_user', function(data){
+	                $("#body").append("<div style='height: 100px; width: 100px; margin: 20px; border: 1px solid black; display: inline-block;'><p>"+data.new_user_name+"</p><div>");
+	           	});
+	           	socket.on('disconnect_user', function(data){
+	                // $("#body").append("<div style='height: 100px; width: 100px; margin: 20px; border: 1px solid black; display: inline-block;'><p>"+data.new_user_name+"</p><div>");
+	           	});
+	        });
+	  </script>
+</head>
+<body id="body" style="margin: 20px; text-align: center; width: 100%">
+	
+</body>
+</html>

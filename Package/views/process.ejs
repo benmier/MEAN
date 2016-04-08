@@ -1,0 +1,15 @@
+<html>
+  <head>
+    <!-- <link rel="stylesheet" href="/static/css/styles.css" type="text/css"> -->
+  </head>
+  <body>
+    <p style="text-decoration: underline;font-weight: bold;">Submitted Information:</p>
+    
+    <p>Name: <%= info.name %></p>
+    <p>Dojo Location: {{session['dojo']}}</p>
+    <p>Favorite Language: {{session['lang']}}</p>
+    <p>Comment: {{session['comment']}}</p><br><br>
+    <form action='/'><input type="submit" value="Go Back"></input></form>
+    
+  </body>
+</html>

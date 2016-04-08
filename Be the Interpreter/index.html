@@ -1,0 +1,59 @@
+<script type="text/javascript">
+
+function example() {
+  var hello;
+  hello = "hi!"
+  console.log(hello)
+}	
+var hello;
+console.log(hello);
+hello = "interesting";
+example();
+console.log(hello)
+      // Example problem 2
+                           // rearranged code with output predictions
+var hello;                 // var hello declaration floats to the top
+console.log(hello);        // this will print undefined
+hello = "interesting";     // assignment stays where it is
+function example() {       // function is like a cage
+  var hello;               // variable declaration floats to the top of the cage
+  hello = "hi";            // notice that we split up the declaration and assignment
+  console.log(hello)       // this will print "hi"
+}
+example();                 // this actually runs the function
+console.log(hello);    
+
+console.log(first_variable);
+var first_variable = "Yipee I was first!";
+function firstFunc() {
+  first_variable = "Not anymore!!!";
+  console.log(first_variable)
+}
+console.log(first_variable);
+   
+
+
+
+// Problem 2
+var food;
+food = "Chicken";
+function eat() {
+  var food;
+  food = "half-chicken";
+  console.log(food);
+  food = "gone";       // NOTE: I'M TRYING TO TRICK YOU HERE!!!!
+}
+eat();
+console.log(food);
+                           
+
+// Problem 3
+var new_word;
+new_word = "NEW!";
+function lastFunc() {
+  new_word = "old";
+}
+console.log(new_word);
+
+
+</script>
