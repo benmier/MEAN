@@ -26,8 +26,18 @@ app.get('/', function(req, res) {
 // Add User Request 
 app.post('/users', function(req, res) {
     console.log("POST DATA", req.body);
-    // This is where we would add the user from req.body to the database.
-    res.redirect('/');
+    var user = new User({
+    	name: req.body.name,
+    	age: req.body.age
+    });
+    user.save(function(err){
+    	if(err)
+    		console.log("Error")
+    	else{
+    		console.log("Sucess")
+    		res.redirect('/');
+    	}
+    });
 })
 // Setting our Server to Listen on Port: 8000
 app.listen(8000, function() {
