@@ -20,8 +20,14 @@ app.set('view engine', 'ejs');
 // Routes
 // Root Request
 app.get('/', function(req, res) {
-    // This is where we will retrieve the users from the database and include them in the view page we will be rendering.
-    res.render('index');
+    User.find({},function(err,users){
+    	if(err)
+    		console.log("Error")
+    	else{
+    		console.log(users)
+    		res.render('index', {info: users});
+    	}
+    });
 })
 // Add User Request 
 app.post('/users', function(req, res) {
