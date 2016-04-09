@@ -23,10 +23,8 @@ app.get('/', function(req, res) {
     User.find({},function(err,users){
     	if(err)
     		console.log("Error")
-    	else{
-    		console.log(users)
+    	else
     		res.render('index', {info: users});
-    	}
     });
 })
 // Add User Request 
@@ -39,10 +37,8 @@ app.post('/users', function(req, res) {
     user.save(function(err){
     	if(err)
     		console.log("Error")
-    	else{
-    		console.log("Success")
+    	else
     		res.redirect('/');
-    	}
     });
 })
 // Setting our Server to Listen on Port: 8000
