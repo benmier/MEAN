@@ -22,7 +22,7 @@ app.set('view engine', 'ejs');
 app.get('/', function(req, res) {
     User.find({},function(err,users){
     	if(err)
-    		console.log("Error")
+    		console.log("Error matching DB request")
     	else
     		res.render('index', {info: users});
     });
@@ -36,12 +36,11 @@ app.post('/users', function(req, res) {
     });
     user.save(function(err){
     	if(err)
-    		console.log("Error")
+    		console.log("Error saving to DB")
     	else
     		res.redirect('/');
     });
 })
-// Setting our Server to Listen on Port: 8000
 app.listen(8000, function() {
     console.log("listening on port 8000");
 })
