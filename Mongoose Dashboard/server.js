@@ -3,7 +3,7 @@ var app = express();
 var bodyParser = require("body-parser");
 var mongoose = require('mongoose');
 var path = require("path");
-id = 0;
+var id = 0;
 
 app.use(bodyParser.urlencoded());
 app.use(express.static(__dirname + "./static"));
@@ -33,7 +33,7 @@ app.get('/', function(req, res) {
             console.log("Error matching DB request")
         else
             res.render('index', {kittens:kittens});
-    }).sort({_id:-1});
+    }).sort({id:-1});
 });
 
 app.get('/kittens/new', function(req, res) {
@@ -72,6 +72,7 @@ app.post('/kittens', function(req, res) {
     		console.log("Error inserting into DB")
         else{
             id++;
+            console.log("ID is now: "+id)
             res.redirect('kittens/:id');
         }
     });
