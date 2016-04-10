@@ -40,7 +40,7 @@ app.get('/kittens/new', function(req, res) {
     res.render('new');
 });
 
-app.get('/kittens/edit/:id', function(req, res) {
+app.post('/kittens/edit/:id', function(req, res) {
     Kitten.findOne({id:req.params.id},function(err,kitten){
         if(err)
             console.log("Error matching DB request");
@@ -50,12 +50,20 @@ app.get('/kittens/edit/:id', function(req, res) {
 });
 
 app.post('/kittens/edit_submit/:id', function(req, res) {
-    Kitten.findOne({id:req.params.id},function(err,kitten){
+    Kitten.update({id:req.params.id},{
+        name: req.body.name,
+        breed: req.body.breed,
+        color: req.body.color,
+        personality: req.body.personality,
+        age: req.body.age,
+        food: req.body.food,
+        toy: req.body.toy,
+    },function(err,kitten){
         if(err)
             console.log("Error matching DB request");
         else
-            res.redirect("/")
-    }).sort({id:-1});
+            res.redirect("/kittens/"+id);
+    });
 });
 
 app.post('/kittens/delete/:id', function(req, res) {

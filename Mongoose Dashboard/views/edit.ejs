@@ -10,19 +10,19 @@
 	<h2>Edit A Kitten</h2>
 	<form action="/kittens/edit_submit/<%= kitten.id %>" method="post" class="form-group">
 		<label>Name: </label>
-		<input type="text" name="name" class="form-control"></input>
+		<input type="text" name="name" class="form-control" value="<%= kitten.name %>"></input>
 		<label>Breed: </label>
-		<input type="text" name="breed" class="form-control"></input>
+		<input type="text" name="breed" class="form-control" value="<%= kitten.breed %>"></input>
 		<label>Color: </label>
-		<input type="text" name="color" class="form-control"></input>
+		<input type="text" name="color" class="form-control" value="<%= kitten.color %>"></input>
 		<label>Personality: </label>
-		<input type="text" name="personality" class="form-control"></input>
+		<input type="text" name="personality" class="form-control" value="<%= kitten.personality %>"></input>
 		<label>Age: </label>
-		<input type="number" name="age" class="form-control"></input>
+		<input type="number" name="age" class="form-control" value="<%= kitten.age %>"></input>
 		<label>Favorite Food: </label>
-		<input type="text" name="food" class="form-control"></input>
+		<input type="text" name="food" class="form-control" value="<%= kitten.food %>"></input>
 		<label>Favorite Toy: </label>
-		<input type="text" name="toy" class="form-control"></input><br>
+		<input type="text" name="toy" class="form-control" value="<%= kitten.toy %>"></input><br>
 		<input type="submit" class="btn btn-default" value="Update"></input>
 	</form>
 	<form action="/" method="get">
