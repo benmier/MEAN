@@ -28,17 +28,17 @@ app.post('/quotes', function(req, res) {
         if(err)
             console.log("Error matching DB request")
         else
-            res.render('quote', {info: users});
+            all_quotes=quotes;
     });
     var new_quote = new Quote({
     	name: req.body.name,
-    	age: req.body.quote
+    	quote: req.body.quote
     });
     new_quote.save(function(err){
     	if(err)
     		res.render('quote', {error: err});
     	else
-    		res.render('quote');
+    		res.render('quote', {all_quotes: all_quotes});
 
     });
 })
