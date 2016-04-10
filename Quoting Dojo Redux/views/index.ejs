@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script type ="text/javascript" src="/socket.io/socket.io.js"></script>
+	<script type="text/javascript">
+	        $(document).ready(function (){
+	  
+	        });
+	</script>
+</head>
+<body>
+	<form action="/users" method="post">
+		Name: <input id="name" name="name" type="text"></input><br><br>
+		Age: <input id="age" name="age" type="number"></input><br><br>
+		<input type="submit" value="Submit"></input>
+	</form>
+	<div>
+		<br><hr><h3>Previous users:</h3>
+		<% for (var i in info) { %>
+			<p>Name: <%= info[i].name %></p>
+			<p>Age: <%= info[i].age %></p><br><hr><br>
+		<% } %>
+	</div>
+</body>
+</html>
