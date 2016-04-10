@@ -40,6 +40,24 @@ app.get('/kittens/new', function(req, res) {
     res.render('new');
 });
 
+app.get('/kittens/edit/:id', function(req, res) {
+    Kitten.findOne({id:req.params.id},function(err,kitten){
+        if(err)
+            console.log("Error matching DB request");
+        else
+            res.render('edit', {kitten:kitten});
+    }).sort({id:-1});
+});
+
+app.post('/kittens/edit_submit/:id', function(req, res) {
+    Kitten.findOne({id:req.params.id},function(err,kitten){
+        if(err)
+            console.log("Error matching DB request");
+        else
+            res.render('edit', {kitten:kitten});
+    }).sort({id:-1});
+});
+
 app.post('/kittens/delete/:id', function(req, res) {
     Kitten.remove({id:req.params.id},function(err,kitten){
         res.redirect('/');
@@ -48,7 +66,6 @@ app.post('/kittens/delete/:id', function(req, res) {
 
 app.get('/kittens/:id', function(req, res) {
     Kitten.findOne({id:req.params.id},function(err,kitten){
-        console.log(kitten);
         if(err)
             console.log("Error matching DB request");
         else
