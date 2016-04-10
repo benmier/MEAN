@@ -16,14 +16,14 @@
 	<h4>Favorite Food: <%= kitten.food %></h4>
 	<h4>Favorite Toy: <%= kitten.toy %></h4>
 	
-	<form action="/kittens/delete/<%= kitten.id %>" method="post">
+	<form action="/kittens/delete/<%= kitten.id %>" method="post" style='display: inline-block;'>
 		<button style="margin-top: 30px;" class="btn btn-default">Delete Kitten</button>
 	</form>
-	<form action="/kittens/edit/<%= kitten.id %>" method="post">
-		<button style="margin-top: 10px;" class="btn btn-default">Edit Kitten</button>
+	<form action="/kittens/edit/<%= kitten.id %>" method="post" style='display: inline-block;'>
+		<button style="margin-top: 30px;" class="btn btn-default">Edit Kitten</button>
 	</form>
-	<form action="/" method="get">
-		<button style="margin-top: 10px;" class="btn btn-default">Back to Dashboard</button>
+	<form action="/" method="get" style='display: inline-block;'>
+		<button style="margin-top: 30px;" class="btn btn-default">Back to Dashboard</button>
 	</form>
 </body>
 </html>

@@ -62,7 +62,7 @@ app.post('/kittens/edit_submit/:id', function(req, res) {
         if(err)
             console.log("Error matching DB request");
         else
-            res.redirect("/kittens/"+id);
+            res.redirect("/kittens/"+req.params.id);
     });
 });
 
