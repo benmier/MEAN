@@ -47,7 +47,7 @@ app.get('/kittens/:id', function(req, res) {
             console.log("Error matching DB request");
         else
             res.render('show', {kitten:kitten});
-    });
+    }).sort({id:-1});
 });
 
 app.post('/kittens', function(req, res) {
@@ -64,13 +64,9 @@ app.post('/kittens', function(req, res) {
     new_kitten.save(function(err){
     	if(err)
     		console.log("Error inserting into DB")
-        else
+        else{
             id++;
+            res.redirect('kittens/:id');
+        }
     });
-    Kitten.findOne({},function(err,kitten){
-        if(err)
-            console.log("Error matching DB request")
-        else
-            res.render('show', {kitten:kitten});
-    }).sort({id:-1});
 })
