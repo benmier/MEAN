@@ -15,8 +15,7 @@ app.listen(8000, function(){})
 var Schema = new mongoose.Schema({
     name: String,
     quote: String,
-    timestamps: true
-})
+},{timestamps: true})
 mongoose.model('Quote', Schema);
 var Quote = mongoose.model('Quote')
 
