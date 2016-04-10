@@ -24,12 +24,17 @@ app.get('/', function(req, res) {
 });
 
 app.post('/quotes', function(req, res) {
-    var quote = new Quote({
+    Quote.find({},function(err,quotes){
+        if(err)
+            console.log("Error matching DB request")
+        else
+            res.render('quote', {info: users});
+    });
+    var new_quote = new Quote({
     	name: req.body.name,
     	age: req.body.quote
     });
-    
-    quote.save(function(err){
+    new_quote.save(function(err){
     	if(err)
     		res.render('quote', {error: err});
     	else
