@@ -16,8 +16,11 @@
 	<h3>Favorite Food: <%= kitten.food %></h3>
 	<h3>Favorite Toy: <%= kitten.toy %></h3>
 	
+	<form action="/kittens/delete/<%= kitten.id %>" method="post">
+		<button style="margin-top: 30px;" class="btn btn-default">Delete Kitten</button>
+	</form>
 	<form action="/" method="get">
-		<button style="margin-top: 30px;" class="btn btn-default">Back to Dashboard</button>
+		<button style="margin-top: 10px;" class="btn btn-default">Back to Dashboard</button>
 	</form>
 </body>
 </html>

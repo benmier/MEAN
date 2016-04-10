@@ -40,6 +40,12 @@ app.get('/kittens/new', function(req, res) {
     res.render('new');
 });
 
+app.post('/kittens/delete/:id', function(req, res) {
+    Kitten.remove({id:req.params.id},function(err,kitten){
+        res.redirect('/');
+    })
+});
+
 app.get('/kittens/:id', function(req, res) {
     Kitten.findOne({id:req.params.id},function(err,kitten){
         console.log(kitten);
