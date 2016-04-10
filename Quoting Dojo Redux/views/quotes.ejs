@@ -15,9 +15,9 @@
 	<h1>Welcome to Quoting Dojo</h1>
 	<form action="/quotes" method="post" class="form-group">
 		<label>Your Name: </label>
-		<input id="name" type="text" class="form-control"></input>
+		<input name="name" type="text" class="form-control"></input>
 		<label>Your Quote: </label>
-		<textarea class="form-control"> id="quote" rows='4'></textarea>
+		<textarea class="form-control" name="quote"> id="quote" rows='4'></textarea>
 		<input type="submit" value="Add my quote" class="btn btn-default"></input>
 	</form>
 	<form action="/quotes" method="get">

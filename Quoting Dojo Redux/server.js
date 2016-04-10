@@ -12,28 +12,28 @@ app.set('view engine', 'ejs');
 mongoose.connect('mongodb://localhost/quoting_dojo');
 
 app.listen(8000, function(){})
-var UserSchema = new mongoose.Schema({
+var Schema = new mongoose.Schema({
     name: String,
-    age: Number
+    quote: String
 })
-mongoose.model('User', UserSchema);
-var User = mongoose.model('User')
+mongoose.model('Quote', Schema);
+var Quote = mongoose.model('Quote')
 
 app.get('/', function(req, res) {
     res.render('index');
 });
 
-// Add User Request 
-app.post('/users', function(req, res) {
-    console.log("POST DATA", req.body);
-    var user = new User({
+app.post('/quotes', function(req, res) {
+    var quote = new Quote({
     	name: req.body.name,
-    	age: req.body.age
+    	age: req.body.quote
     });
-    user.save(function(err){
+    
+    quote.save(function(err){
     	if(err)
-    		console.log("Error saving to DB")
+    		res.render('quote', {error: err});
     	else
-    		res.redirect('/');
+    		res.render('quote');
+
     });
 })
