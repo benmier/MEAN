@@ -73,7 +73,7 @@ app.post('/kittens', function(req, res) {
         else{
             id++;
             console.log("ID is now: "+id)
-            res.redirect('kittens/:id');
+            res.redirect('kittens/'+(id-1));
         }
     });
 })
