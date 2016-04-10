@@ -7,14 +7,14 @@
 	<script type ="text/javascript" src="/socket.io/socket.io.js"></script>
 </head>
 <body>
-	<img src="/static/<%= kitten.id %>.jpg"><br>
-	<h3>Name: <%= kitten.name %></h3>
-	<h3>Breed: <%= kitten.breed %></h3>
-	<h3>Color: <%= kitten.color %></h3>
-	<h3>Personality: <%= kitten.personality %></h3>
-	<h3>Age: <%= kitten.age %></h3>
-	<h3>Favorite Food: <%= kitten.food %></h3>
-	<h3>Favorite Toy: <%= kitten.toy %></h3>
+	<img src="/<%= kitten.id %>.jpg"><br>
+	<h4>Name: <%= kitten.name %></h4>
+	<h4>Breed: <%= kitten.breed %></h4>
+	<h4>Color: <%= kitten.color %></h4>
+	<h4>Personality: <%= kitten.personality %></h4>
+	<h4>Age: <%= kitten.age %></h4>
+	<h4>Favorite Food: <%= kitten.food %></h4>
+	<h4>Favorite Toy: <%= kitten.toy %></h4>
 	
 	<form action="/kittens/delete/<%= kitten.id %>" method="post">
 		<button style="margin-top: 30px;" class="btn btn-default">Delete Kitten</button>

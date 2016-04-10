@@ -6,7 +6,7 @@ var app = express();
 
 // lets handle the base route "/" and respond with "Hello Express"
 app.get('/', function(request, response) {
-  response.send("Hello");
+  response.render('users')
 })
 // notice that the function is app.get(...) why do you think the function is called get?
 

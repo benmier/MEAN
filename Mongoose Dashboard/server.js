@@ -6,7 +6,7 @@ var path = require("path");
 var id = 0;
 
 app.use(bodyParser.urlencoded());
-app.use(express.static(__dirname + "./static"));
+app.use(express.static(__dirname + "/static"));
 app.set('views', path.join(__dirname, './views'));
 app.set('view engine', 'ejs');
 
@@ -72,7 +72,6 @@ app.post('/kittens', function(req, res) {
     		console.log("Error inserting into DB")
         else{
             id++;
-            console.log("ID is now: "+id)
             res.redirect('kittens/'+(id-1));
         }
     });
