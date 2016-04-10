@@ -28,7 +28,7 @@ var Kitten = mongoose.model('Kitten')
 
 app.get('/', function(req, res) {
     Kitten.find({},function(err,kittens){
-        console.log(kittens)
+        console.log(id)
         if(err)
             console.log("Error matching DB request")
         else
