@@ -54,7 +54,7 @@ app.post('/kittens/edit_submit/:id', function(req, res) {
         if(err)
             console.log("Error matching DB request");
         else
-            res.render('edit', {kitten:kitten});
+            res.redirect("/")
     }).sort({id:-1});
 });
 
