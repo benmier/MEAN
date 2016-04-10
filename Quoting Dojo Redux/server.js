@@ -23,22 +23,28 @@ app.get('/', function(req, res) {
     res.render('index');
 });
 
-app.post('/quotes', function(req, res) {
+app.get('/quotes', function(req, res) {
     Quote.find({},function(err,quotes){
         if(err)
             console.log("Error matching DB request")
         else
-            all_quotes=quotes;
+            res.render('quotes', {all_quotes:quotes});
     });
+});
+
+app.post('/quotes', function(req, res) {
     var new_quote = new Quote({
     	name: req.body.name,
     	quote: req.body.quote
     });
     new_quote.save(function(err){
     	if(err)
-    		res.render('quote', {error: err});
-    	else
-    		res.render('quote', {all_quotes: all_quotes});
-
+    		errors = err;
+    });
+    Quote.find({},function(err,quotes){
+        if(err)
+            console.log("Error matching DB request")
+        else
+            res.render('quotes', {all_quotes:quotes});
     });
 })
