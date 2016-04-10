@@ -1,7 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html style="margin:20px;">
 <head>
 	<title>Kitten Dashboard</title>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	<script type ="text/javascript" src="/socket.io/socket.io.js"></script>
 </head>
 <body>
 	<img src="static/<%= kitten.id %>"><br>
@@ -14,7 +17,7 @@
 	<h3>Favorite Toy: <%= kitten.toy %></h3>
 	
 	<form action="/" method="get">
-		<button style="margin-top: 30px;">Back to Dashboard</button>
+		<button style="margin-top: 30px;" class="btn btn-default">Back to Dashboard</button>
 	</form>
 </body>
 </html>
