@@ -24,7 +24,8 @@ app.get('/', function(req, res) {
 });
 
 app.get('/quotes', function(req, res) {
-    Quote.find({},function(err,quotes){
+    Quote.find({},sort:{name:-1},function(err,quotes){
+        console.log(quotes)
         if(err)
             console.log("Error matching DB request")
         else
@@ -46,5 +47,5 @@ app.post('/quotes', function(req, res) {
             console.log("Error matching DB request")
         else
             res.render('quotes', {all_quotes:quotes});
-    });
+    },sort:{name:-1});
 })
