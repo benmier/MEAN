@@ -47,5 +47,5 @@ app.post('/quotes', function(req, res) {
             console.log("Error matching DB request")
         else
             res.render('quotes', {all_quotes:quotes});
-    });
+    }).sort({_id:-1});
 })
