@@ -1,5 +1,6 @@
 var mongoose = require('mongoose');
 var Kitten = mongoose.model('Kitten')
+
 module.exports = function(app){
 
 	app.get('/', function(req, res) {
