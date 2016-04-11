@@ -28,20 +28,20 @@
 	<% for (var i in messages) { %>
 		<p>Name: <%= messages[i].name %></p>
 		<p>Message: <%= messages[i].message %></p>
-		<% if (messages[i].comments) {} %>
-		<% for (var j in messages[i].comments) { %>
-			<div style="margin-left: 20px;">
-				<p>Name: <%= messages[i].comments[j].name %></p>
-				<p>Comment: <%= messages[i].comments[j].comment %></p>
-				<form action="/new_comment" method="post" class="form-group">
-					<label>Name: </label><br>
-					<input type="text" name="name" class="form-control"></input>
-					<label>Comment: </label><br>
-					<textarea name="comment" class="form-control" rows="4"></textarea>
-					<input type="submit" style="float: right;" value="Post Comment"></input>
-				</form>
-			</div>
-		<% } %>
+		<% if (messages[i].comments) { %>
+			<% for (var j in messages[i].comments) { %>
+				<div style="margin-left: 30px;">
+					<p>Name: <%= messages[i].comments[j].name %></p>
+					<p>Comment: <%= messages[i].comments[j].comment %></p>
+				</div>
+			<% } %>
+			<form style="margin-left: 30px;" action="/new_comment/<%= messages[i]._id %>" method="post" class="form-group">
+						<label>Name: </label><br>
+						<input type="text" name="name" class="form-control"></input>
+						<label>Comment: </label><br>
+						<textarea name="comment" class="form-control" rows="4"></textarea><br>
+						<input type="submit" style="float: right;" value="Post Comment"></input>
+					</form><br><br>
 		<% } %>
 	<% } %>
 

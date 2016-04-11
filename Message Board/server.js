@@ -34,26 +34,26 @@ mongoose.model('Comment', commentSchema)
 var Message = mongoose.model('Message')
 var Comment = mongoose.model('Comment')
 
-app.get('/messages/:id', function (req, res){
-    Message.findOne({_id: req.params.id})
-    .populate('comments')
-    .exec(function(err, message) {
-        res.render('index', {message: message});
-    });
-});
-app.post('/messages/:id', function (req, res){
-    Message.findOne({_id: req.params.id}, function(err, message){
-        var comment = new Comment(req.body);
-        comment._message = message._id;
-        message.comments.push(comment);
-        comment.save(function(err){
-            message.save(function(err){
-            if(err) { console.log('Error'); } 
-            else { res.redirect('/'); }
-            });
-        });
-    });
-});
+// app.get('/messages/:id', function (req, res){
+//     Message.findOne({_id: req.params.id})
+//     .populate('comments')
+//     .exec(function(err, message) {
+//         res.render('index', {message: message});
+//     });
+// });
+// app.post('/messages/:id', function (req, res){
+//     Message.findOne({_id: req.params.id}, function(err, message){
+//         var comment = new Comment(req.body);
+//         comment._message = message._id;
+//         message.comments.push(comment);
+//         comment.save(function(err){
+//             message.save(function(err){
+//             if(err) { console.log('Error'); } 
+//             else { res.redirect('/'); }
+//             });
+//         });
+//     });
+// });
 
 
 app.post('/new_message',function(req,res){
@@ -66,18 +66,18 @@ app.post('/new_message',function(req,res){
     })
 })
 
-app.get('/new_comment/:id',function(req,res){
+app.post('/new_comment/:id',function(req,res){
     Message.findOne({_id:req.params.id}, function(err,message){
         if(err)
             res.json(err);
         else{
             var new_comment = new Comment(req.body);
-            comment._message = req.params.id;
+            new_comment._message = req.params.id;
             new_comment.save(function(err){
                 if(err)
                     res.json(err);
                 else{
-                    message.comments.push(comment);
+                    message.comments.push(new_comment);
                     message.save(function(err){
                         if(err)
                             res.json(err);
