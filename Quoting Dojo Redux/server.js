@@ -3,74 +3,49 @@ var app = express();
 var bodyParser = require("body-parser");
 var mongoose = require('mongoose');
 var path = require("path");
-id = 0;
 
 app.use(bodyParser.urlencoded());
 app.use(express.static(__dirname + "./static"));
 app.set('views', path.join(__dirname, './views'));
 app.set('view engine', 'ejs');
 
-mongoose.connect('mongodb://localhost/kitten_dashboard');
+mongoose.connect('mongodb://localhost/quoting_dojo');
 
-app.listen(8000, function(){console.log("listening on port 8000")})
+app.listen(8000, function(){})
 var Schema = new mongoose.Schema({
     name: String,
-    breed: String,
-    color: String,
-    personality: String,
-    age: Number,
-    food: String,
-    toy: String,
-    id: Number
+    quote: String,
 },{timestamps: true})
-mongoose.model('Kitten', Schema);
-var Kitten = mongoose.model('Kitten')
+mongoose.model('Quote', Schema);
+var Quote = mongoose.model('Quote')
 
 app.get('/', function(req, res) {
-    Kitten.find({},function(err,kittens){
-        console.log(kittens)
+    res.render('index');
+});
+
+app.get('/quotes', function(req, res) {
+    Quote.find({},function(err,quotes){
+        console.log(quotes)
         if(err)
             console.log("Error matching DB request")
         else
-            res.render('index', {kittens:kittens});
+            res.render('quotes', {all_quotes:quotes});
     }).sort({_id:-1});
 });
 
-app.get('/kittens/new', function(req, res) {
-    res.render('new');
-});
-
-app.get('/kittens/:id', function(req, res) {
-    Kitten.findOne({id:req.params.id},function(err,kitten){
-        console.log(kitten);
-        if(err)
-            console.log("Error matching DB request");
-        else
-            res.render('show', {kitten:kitten});
-    });
-});
-
-app.post('/kittens', function(req, res) {
-    var new_kitten = new Kitten({
+app.post('/quotes', function(req, res) {
+    var new_quote = new Quote({
     	name: req.body.name,
-        breed: req.body.breed,
-        color: req.body.color,
-        personality: req.body.personality,
-        age: req.body.age,
-        food: req.body.food,
-        toy: req.body.toy,
-        id: id
+    	quote: req.body.quote
     });
-    new_kitten.save(function(err){
+    new_quote.save(function(err){
     	if(err)
-    		console.log("Error inserting into DB")
-        else
-            id++;
+    		errors = err;
     });
-    Quote.findOne({},function(err,quotes){
+    Quote.find({},function(err,quotes){
         if(err)
             console.log("Error matching DB request")
         else
-            res.render('show', {kitten:kitten});
-    }).sort({id:-1});
+            res.render('quotes', {all_quotes:quotes});
+    }).sort({_id:-1});
 })
