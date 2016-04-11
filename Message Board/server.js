@@ -57,14 +57,31 @@ app.post('/messages/:id', function (req, res){
 
 
 app.get('/new_message',function(req,res){
-    var new_message = new Message;
-    new_message.save(req.body,function(err){
+    var new_message = new Message(req.body);
+    new_message.save(function(err){
         if(err)
             res.json(err);
         else
             res.redirect('/');
     })
 })
+
+app.get('/new_comment/:id',function(req,res){
+    Message.findOne({_id:req.params.id}, function(err,message){
+        if(err)
+            res.json(err)
+        else{
+            var new_comment = new Comment(req.body);
+            comment._message = req.params.id;
+            new_comment.save(function(err){
+                if(err)
+                    res.json(err);
+                else
+                    res.redirect('/');
+            });
+        };  
+    });
+});
 
 app.get('/new_comment',function(req,res){
     
