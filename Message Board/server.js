@@ -17,17 +17,19 @@ var io = require('socket.io').listen(server);
 mongoose.connect('mongodb://localhost/message_board');
 var Schema = mongoose.Schema;
 
-var messageSchema = new mongoose.Schema({
-    name: String,
-    text: String, 
+var messageSchema = new Schema({
+    name: {type: String, required: true}
+    message: {type: String, required: true} 
     comments: [{type: Schema.Types.ObjectId, ref: 'Comment'}]
 },{timestamps:true});
+mongoose.model('Message', messageSchema)
 
-var commentSchema = new mongoose.Schema({
-    name: String,
-    text: String, 
+var commentSchema = new Schema({
+    name: {type: String, required: true}
+    comment: {type: String, required: true}
     _message: {type: Schema.Types.ObjectId, ref: 'Message'},
 },{timestamps:true});
+mongoose.model('Comment', commentSchema)
 
 app.get('/messages/:id', function (req, res){
     Message.findOne({_id: req.params.id})
@@ -49,6 +51,7 @@ app.post('/messages/:id', function (req, res){
         });
     });
 });
+
 
 app.get('/new_message',function(req,res){
     
