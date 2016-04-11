@@ -2,6 +2,8 @@ var express = require("express");
 var path = require("path");
 var app = express();
 var bodyParser = require('body-parser');
+var mongoose = require('mongoose');
+
 
 app.use(bodyParser.urlencoded());
 app.use(express.static(path.join(__dirname, "./static")));
@@ -11,7 +13,15 @@ app.set('view engine', 'ejs');
 
 var server = app.listen(8000, function(){})
 var io = require('socket.io').listen(server);
-var messages = {};
+
+mongoose.connect('mongodb://localhost/message_board');
+
+var Schema = new mongoose.Schema({
+    name: String,
+    message: String
+},{timestamps: true})
+mongoose.model('Message', Schema);
+var Message = mongoose.model('Message')
 
 io.sockets.on('connection', function (socket) {
 	socket.emit('existing_messages', messages);
