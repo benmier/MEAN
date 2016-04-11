@@ -36,3 +36,18 @@ module.exports = {
 	            res.render('show', {kitten:kitten});
 	    }).sort({id:-1});
 	};
+
+	show_one: function(req,res){
+		Kitten.findOne({id:req.params.id},function(err,kitten){
+	        console.log(kitten);
+	        if(err)
+	            console.log("Error matching DB request");
+	        else
+	            res.render('show', {kitten:kitten});
+	    });
+	};
+
+
+
+
+};
