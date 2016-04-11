@@ -10,7 +10,8 @@ module.exports = function(app){
 	});
 
 	app.post('/kittens', function(req, res) {
-		kittens.create(req,res);	    
+		console.log("req from routes: "+req.body.name)
+		// kittens.create(req,res);	    
 	});
 	
 	app.get('/kittens/new', function(req, res) {

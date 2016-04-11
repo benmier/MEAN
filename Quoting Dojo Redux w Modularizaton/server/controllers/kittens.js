@@ -12,6 +12,7 @@ module.exports = {
 	},
 
 	create: function(req,res){
+		console.log("req from controller: "+req)
 		var new_kitten = new Kitten({
 	    	name: req.body.name,
 	        breed: req.body.breed,
