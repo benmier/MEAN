@@ -28,7 +28,7 @@
 	<% for (var i in messages) { %>
 		<p>Name: <%= messages[i].name %></p>
 		<p>Message: <%= messages[i].message %></p>
-		<%= for (var j in message[i].comments) { %>
+		<%= for (var j in messages[i].comments) { %>
 			<div style="margin-left: 20px;">
 				<p>Name: <%= comments[i].name %></p>
 				<p>Comment: <%= comments[i].comment %></p>

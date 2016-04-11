@@ -77,7 +77,7 @@ app.get('/new_comment/:id',function(req,res){
                 if(err)
                     res.json(err);
                 else{
-                    message.push(comment._id);
+                    message.comments.push(comment);
                     message.save(function(err){
                         if(err)
                             res.json(err);
