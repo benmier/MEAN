@@ -6,18 +6,18 @@ module.exports = {
 	show: function(req,res){
 		People.find({},function(err,people){
 			if(err)
-				req.json(err);
+				res.json(err);
 			else
-				req.json(people);
+				res.json(people);
 		});
 	},
 
 	show_one: function(req,res){
 		People.findOne({name:req.params.name},function(err,person){
 			if(err)
-				req.json(err);
+				res.json(err);
 			else
-				req.json(person);
+				res.json(person);
 		});
 	},
 
@@ -25,18 +25,18 @@ module.exports = {
 		var new_person = new People({name:req.params.name});
 		new_person.save(function(err){
 			if(err)
-				req.json(err);
+				res.json(err);
 			else
-				req.json({created:true});
+				res.json({created:true});
 		});
 	},
 
 	remove: function(req,res){
 		People.remove({name:req.params.name},function(err,person){
 			if(err)
-				req.json(err);
+				res.json(err);
 			else
-				req.json({removed:true});
+				res.json({removed:true});
 		})
 	},
 }
