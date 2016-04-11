@@ -18,15 +18,15 @@ mongoose.connect('mongodb://localhost/message_board');
 var Schema = mongoose.Schema;
 
 var messageSchema = new Schema({
-    name: {type: String, required: true}
-    message: {type: String, required: true} 
+    name: {type: String, required: true},
+    message: {type: String, required: true}, 
     comments: [{type: Schema.Types.ObjectId, ref: 'Comment'}]
 },{timestamps:true});
 mongoose.model('Message', messageSchema)
 
 var commentSchema = new Schema({
-    name: {type: String, required: true}
-    comment: {type: String, required: true}
+    name: {type: String, required: true},
+    comment: {type: String, required: true},
     _message: {type: Schema.Types.ObjectId, ref: 'Message'},
 },{timestamps:true});
 mongoose.model('Comment', commentSchema)
@@ -57,7 +57,7 @@ app.post('/messages/:id', function (req, res){
 
 
 app.get('/new_message',function(req,res){
-    var new_message = new Message({req.body})
+    var new_message = new Message;
     new_message.save(req.body,function(err){
         if(err)
             res.json(err);
@@ -77,8 +77,4 @@ app.get('/',function(req,res){
         else
             res.render('index',{messages:messages})
     });
-});
-
-io.sockets.on('connection', function (socket) {
-    socket.emit('existing_messages', messages);
 });
