@@ -10,7 +10,7 @@ module.exports = {
 	        else
 	            res.render('index', {kittens:kittens});
 	    }).sort({_id:-1});
-	};
+	},
 
 	create: function(req,res){
 		var new_kitten = new Kitten({
@@ -32,7 +32,7 @@ module.exports = {
 	        else
 	            res.render('show', {kitten:kitten});
 	    }).sort({_id:-1});
-	};
+	},
 
 	show_one: function(req,res){
 		Kitten.findOne({_id:req.params.id},function(err,kitten){
@@ -42,9 +42,5 @@ module.exports = {
 	        else
 	            res.render('show', {kitten:kitten});
 	    });
-	};
-
-
-
-
+	}
 };
