@@ -15,23 +15,25 @@ var server = app.listen(8000, function(){})
 var io = require('socket.io').listen(server);
 
 mongoose.connect('mongodb://localhost/message_board');
-
 var Schema = mongoose.Schema;
+
 var messageSchema = new mongoose.Schema({
     name: String,
     text: String, 
     comments: [{type: Schema.Types.ObjectId, ref: 'Comment'}]
 },{timestamps:true});
+
 var commentSchema = new mongoose.Schema({
     name: String,
-    _message: {type: Schema.Types.ObjectId, ref: 'Message'},
     text: String, 
+    _message: {type: Schema.Types.ObjectId, ref: 'Message'},
 },{timestamps:true});
-app.get('/messages/:id', function (req, res){
+
+app.get('/', function (req, res){
     Message.findOne({_id: req.params.id})
     .populate('comments')
     .exec(function(err, message) {
-        res.render('message', {message: message});
+        res.render('index', {message: message});
     });
 });
 app.post('/messages/:id', function (req, res){
