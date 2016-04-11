@@ -28,4 +28,8 @@ module.exports = function(app){
 	app.post('/kittens/edit_submit/:id', function(req, res) {
 		kittens.update(req,res);
 	});
+
+	app.post('/kittens/delete/:id', function(req, res) {
+    	kittens.delete(req,res);
+	});
 };

@@ -7,6 +7,7 @@
 	<script type ="text/javascript" src="/socket.io/socket.io.js"></script>
 </head>
 <body>
+	<img src="/<%= kitten.id %>.jpg"><br>
 	<h4>Name: <%= kitten.name %></h4>
 	<h4>Breed: <%= kitten.breed %></h4>
 	<h4>Color: <%= kitten.color %></h4>
@@ -15,10 +16,10 @@
 	<h4>Favorite Food: <%= kitten.food %></h4>
 	<h4>Favorite Toy: <%= kitten.toy %></h4>
 	
-	<form action="/kittens/delete/<%= kitten._id %>" method="post" style='display: inline-block;'>
+	<form action="/kittens/delete/<%= kitten.id %>" method="post" style='display: inline-block;'>
 		<button style="margin-top: 30px;" class="btn btn-default">Delete Kitten</button>
 	</form>
-	<form action="/kittens/edit/<%= kitten._id %>" method="post" style='display: inline-block;'>
+	<form action="/kittens/edit/<%= kitten.id %>" method="post" style='display: inline-block;'>
 		<button style="margin-top: 30px;" class="btn btn-default">Edit Kitten</button>
 	</form>
 	<form action="/" method="get" style='display: inline-block;'>
