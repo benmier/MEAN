@@ -1,12 +1,11 @@
 var mongoose = require('mongoose');
-var Kitten = mongoose.model('Kitten')
+var Kitten = mongoose.model('Kitten');
 
 module.exports = {
 	show: function(req,res){
 		Kitten.find({},function(err,kittens){
-	        console.log(kittens)
 	        if(err)
-	            console.log("Error matching DB request")
+	            console.log("Error matching DB request");
 	        else
 	            res.render('index', {kittens:kittens});
 	    }).sort({_id:-1});
@@ -24,11 +23,11 @@ module.exports = {
 	    });
 	    new_kitten.save(function(err){
 	    	if(err)
-	    		console.log("Error inserting into DB")
+	    		console.log("Error inserting into DB");
 	    });
 	    Quote.findOne({},function(err,quotes){
 	        if(err)
-	            console.log("Error matching DB request")
+	            console.log("Error matching DB request");
 	        else
 	            res.render('show', {kitten:kitten});
 	    }).sort({_id:-1});
@@ -36,7 +35,6 @@ module.exports = {
 
 	show_one: function(req,res){
 		Kitten.findOne({_id:req.params.id},function(err,kitten){
-	        console.log(kitten);
 	        if(err)
 	            console.log("Error matching DB request");
 	        else

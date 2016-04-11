@@ -8,6 +8,6 @@ var Schema = new mongoose.Schema({
     age: Number,
     food: String,
     toy: String,
-},{timestamps: true})
+},{timestamps: true});
 
-var Kitten = mongoose.model('Kitten', Schema)
+var Kitten = mongoose.model('Kitten', Schema);

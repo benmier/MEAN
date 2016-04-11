@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-var Kitten = mongoose.model('Kitten')
+var Kitten = mongoose.model('Kitten');
 
 var kittens = require('../controllers/kittens.js');
 
@@ -17,7 +17,6 @@ module.exports = function(app){
 	    kittens.show_one(req,res);
 	});
 
-	
 	app.get('/kittens/new', function(req, res) {
 	    res.render('new');
 	});
