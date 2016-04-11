@@ -34,27 +34,6 @@ mongoose.model('Comment', commentSchema)
 var Message = mongoose.model('Message')
 var Comment = mongoose.model('Comment')
 
-// app.get('/messages/:id', function (req, res){
-//     Message.findOne({_id: req.params.id})
-//     .populate('comments')
-//     .exec(function(err, message) {
-//         res.render('index', {message: message});
-//     });
-// });
-// app.post('/messages/:id', function (req, res){
-//     Message.findOne({_id: req.params.id}, function(err, message){
-//         var comment = new Comment(req.body);
-//         comment._message = message._id;
-//         message.comments.push(comment);
-//         comment.save(function(err){
-//             message.save(function(err){
-//             if(err) { console.log('Error'); } 
-//             else { res.redirect('/'); }
-//             });
-//         });
-//     });
-// });
-
 
 app.post('/new_message',function(req,res){
     var new_message = new Message(req.body);
@@ -73,6 +52,7 @@ app.post('/new_comment/:id',function(req,res){
         else{
             var new_comment = new Comment(req.body);
             new_comment._message = req.params.id;
+            console.log(new_comment)
             new_comment.save(function(err){
                 if(err)
                     res.json(err);
@@ -90,15 +70,14 @@ app.post('/new_comment/:id',function(req,res){
     });
 });
 
-app.get('/new_comment',function(req,res){
-    
-})
 
 app.get('/',function(req,res){
     Message.find({}, function(err,messages){
         if(err)
             res.json(err);
-        else
+        else{
+            console.log(messages)
             res.render('index',{messages:messages})
+        }
     });
 });
