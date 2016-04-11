@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html style="margin:20px;">
+<head>
+	<title>Kitten Dashboard</title>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	<script type ="text/javascript" src="/socket.io/socket.io.js"></script>
+</head>
+<body>
+	<h2>Add A New Kitten</h2>
+	<form action="/kittens" method="post" class="form-group">
+		<label>Name: </label>
+		<input type="text" name="name" class="form-control"></input>
+		<label>Breed: </label>
+		<input type="text" name="breed" class="form-control"></input>
+		<label>Color: </label>
+		<input type="text" name="color" class="form-control"></input>
+		<label>Personality: </label>
+		<input type="text" name="personality" class="form-control"></input>
+		<label>Age: </label>
+		<input type="number" name="age" class="form-control"></input>
+		<label>Favorite Food: </label>
+		<input type="text" name="food" class="form-control"></input>
+		<label>Favorite Toy: </label>
+		<input type="text" name="toy" class="form-control"></input><br>
+		<input type="submit" class="btn btn-default" value="Add"></input>
+	</form>
+	<form action="/" method="get">
+		<button style="margin-top: 30px;" class="btn btn-default">Back to Dashboard</button>
+	</form>
+</body>
+</html>

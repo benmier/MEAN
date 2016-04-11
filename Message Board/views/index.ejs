@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html style="margin:20px;">
+<head>
+	<title>Kitten Dashboard</title>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	<script type ="text/javascript" src="/socket.io/socket.io.js"></script>
+</head>
+<body>
+	<h1>Welcome to the Kitten Dashboard</h1><br>
+	<h2>All Kittens:</h2>
+	<% for (var i in kittens) { %>
+		<p><a href="/kittens/<%= kittens[i].id %>"><%= kittens[i].name %></a></p>
+	<% } %>
+	<form action="/kittens/new" method="get">
+		<button style="margin-top: 30px;" class="btn btn-default">Add A New Kitten</button>
+	</form>
+</body>
+</html>

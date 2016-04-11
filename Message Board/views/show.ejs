@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html style="margin:20px;">
+<head>
+	<title>Kitten Dashboard</title>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	<script type ="text/javascript" src="/socket.io/socket.io.js"></script>
+</head>
+<body>
+	<img src="/<%= kitten.id %>.jpg"><br>
+	<h4>Name: <%= kitten.name %></h4>
+	<h4>Breed: <%= kitten.breed %></h4>
+	<h4>Color: <%= kitten.color %></h4>
+	<h4>Personality: <%= kitten.personality %></h4>
+	<h4>Age: <%= kitten.age %></h4>
+	<h4>Favorite Food: <%= kitten.food %></h4>
+	<h4>Favorite Toy: <%= kitten.toy %></h4>
+	
+	<form action="/kittens/delete/<%= kitten.id %>" method="post" style='display: inline-block;'>
+		<button style="margin-top: 30px;" class="btn btn-default">Delete Kitten</button>
+	</form>
+	<form action="/kittens/edit/<%= kitten.id %>" method="post" style='display: inline-block;'>
+		<button style="margin-top: 30px;" class="btn btn-default">Edit Kitten</button>
+	</form>
+	<form action="/" method="get" style='display: inline-block;'>
+		<button style="margin-top: 30px;" class="btn btn-default">Back to Dashboard</button>
+	</form>
+</body>
+</html>
