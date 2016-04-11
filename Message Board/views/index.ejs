@@ -25,17 +25,17 @@
 		<p>Name: <%= messages[i].name %></p>
 		<p>Message: <%= messages[i].message %></p>
 		<%= for (var j in comments) { %>
-		<div style="margin-left: 20px;">
-			<p>Name: <%= comments[i].name %></p>
-			<p>Comment: <%= comments[i].comment %></p>
-			<form class="form-group">
-				<label>Name: </label><br>
-				<input type="text" name="commenter_name" class="form-control"></input>
-				<label>Comment: </label><br>
-				<textarea name="comment" class="form-control" rows="4"></textarea>
-			</form>
-			<button id="post_comment_top" style="float: right;">Post message</button>
-		</div>
+			<div style="margin-left: 20px;">
+				<p>Name: <%= comments[i].name %></p>
+				<p>Comment: <%= comments[i].comment %></p>
+				<form class="form-group">
+					<label>Name: </label><br>
+					<input type="text" name="commenter_name" class="form-control"></input>
+					<label>Comment: </label><br>
+					<textarea name="comment" class="form-control" rows="4"></textarea>
+				</form>
+				<button id="post_comment_top" style="float: right;">Post message</button>
+			</div>
 		<% } %>
 	<% } %>
 
