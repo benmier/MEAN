@@ -75,7 +75,7 @@ app.post('/new_comment/:id',function(req,res){
 
 
 app.get('/',function(req,res){
-    Message.find({}, function(err,messages){
+    Message.find({}).populate('comments').exec(function(err,messages){
         if(err)
             res.json(err);
         else{
