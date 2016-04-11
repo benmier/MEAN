@@ -24,4 +24,8 @@ module.exports = function(app){
 	app.post('/kittens/edit/:id', function(req, res) {
 		kittens.edit(req,res);
 	});
+
+	app.post('/kittens/edit_submit/:id', function(req, res) {
+		kittens.update(req,res);
+	});
 };
