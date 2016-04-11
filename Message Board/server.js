@@ -50,8 +50,11 @@ app.post('/new_comment/:id',function(req,res){
         if(err)
             res.json(err);
         else{
-            var new_comment = new Comment(req.body);
-            new_comment._message = req.params.id;
+            var new_comment = new Comment({
+                _message: req.params.id,
+                name: req.params.name,
+                comment: req.params.name
+            });
             console.log(new_comment)
             new_comment.save(function(err){
                 if(err)
