@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html style="margin:20px;">
+<head>
+	<title></title>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	<script type ="text/javascript" src="/socket.io/socket.io.js"></script>
+	<script type="text/javascript">
+	        $(document).ready(function (){
+	  
+	        });
+	</script>
+</head>
+<body>
+	<h1>Here are the awesome quotes!</h1>
+	<% for (var i in all_quotes) { %>
+		<p>"<%= all_quotes[i].quote %>"</p><br>
+		<p style="margin-left: 50px;">-<%= all_quotes[i].name %> at <%= all_quotes[i].createdAt %></p><hr>
+	<% } %>	
+</body>
+</html>
