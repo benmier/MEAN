@@ -2,7 +2,7 @@
 for i in {1..144}
 do
 	git add .
-	git commit -m 'Updated MEAN quoting dojo redux with modularization project'
+	git commit -m 'Updated MEAN 1955 API project'
 	git push
 	sleep 300
 done
