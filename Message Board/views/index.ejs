@@ -17,9 +17,9 @@
 		<label>Name: </label><br>
 		<input type="text" name="name" class="form-control"></input>
 		<label>Message: </label><br>
-		<textarea name="message" class="form-control" rows="4"></textarea>		
-	</form>
-	<button id="post_comment_top" style="float: right;">Post message</button><br>
+		<textarea name="message" class="form-control" rows="4"></textarea><br>
+		<input type="submit" style="float: right;" value="Post Message"></input>
+	</form><br><br>
 
 	<div id="messages">
 		<div id="comments"></div>
@@ -28,18 +28,20 @@
 	<% for (var i in messages) { %>
 		<p>Name: <%= messages[i].name %></p>
 		<p>Message: <%= messages[i].message %></p>
-		<%= for (var j in messages[i].comments) { %>
+		<% if (messages[i].comments) {} %>
+		<% for (var j in messages[i].comments) { %>
 			<div style="margin-left: 20px;">
-				<p>Name: <%= comments[i].name %></p>
-				<p>Comment: <%= comments[i].comment %></p>
+				<p>Name: <%= messages[i].comments[j].name %></p>
+				<p>Comment: <%= messages[i].comments[j].comment %></p>
 				<form action="/new_comment" method="post" class="form-group">
 					<label>Name: </label><br>
 					<input type="text" name="name" class="form-control"></input>
 					<label>Comment: </label><br>
 					<textarea name="comment" class="form-control" rows="4"></textarea>
+					<input type="submit" style="float: right;" value="Post Comment"></input>
 				</form>
-				<button id="post_comment_top" style="float: right;">Post message</button>
 			</div>
+		<% } %>
 		<% } %>
 	<% } %>
 

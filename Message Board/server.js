@@ -56,7 +56,7 @@ app.post('/messages/:id', function (req, res){
 });
 
 
-app.get('/new_message',function(req,res){
+app.post('/new_message',function(req,res){
     var new_message = new Message(req.body);
     new_message.save(function(err){
         if(err)
