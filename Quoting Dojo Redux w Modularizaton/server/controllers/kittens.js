@@ -21,24 +21,21 @@ module.exports = {
 	        age: req.body.age,
 	        food: req.body.food,
 	        toy: req.body.toy,
-	        id: id
 	    });
 	    new_kitten.save(function(err){
 	    	if(err)
 	    		console.log("Error inserting into DB")
-	        else
-	            id++;
 	    });
 	    Quote.findOne({},function(err,quotes){
 	        if(err)
 	            console.log("Error matching DB request")
 	        else
 	            res.render('show', {kitten:kitten});
-	    }).sort({id:-1});
+	    }).sort({_id:-1});
 	};
 
 	show_one: function(req,res){
-		Kitten.findOne({id:req.params.id},function(err,kitten){
+		Kitten.findOne({_id:req.params.id},function(err,kitten){
 	        console.log(kitten);
 	        if(err)
 	            console.log("Error matching DB request");

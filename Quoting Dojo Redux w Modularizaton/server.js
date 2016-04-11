@@ -2,8 +2,8 @@ var express = require("express");
 var app = express();
 var bodyParser = require("body-parser");
 var path = require("path");
-id = 0;
 
+require('./server/config/mongoose.js');
 var routes_setter = require('./server/config/routes.js');
 routes_setter(app);
 

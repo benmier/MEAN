@@ -1,27 +1,19 @@
 <!DOCTYPE html>
 <html style="margin:20px;">
 <head>
-	<title></title>
+	<title>Kitten Dashboard</title>
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 	<script type ="text/javascript" src="/socket.io/socket.io.js"></script>
-	<script type="text/javascript">
-	        $(document).ready(function (){
-	  
-	        });
-	</script>
 </head>
 <body>
-	<h1>Welcome to Quoting Dojo</h1>
-	<form action="/quotes" method="post" class="form-group" style="width: 25%">
-		<label>Your Name: </label>
-		<input name="name" type="text" class="form-control"></input>
-		<label>Your Quote: </label>
-		<textarea class="form-control" name="quote" id="quote" rows='4'></textarea><br>
-		<input type="submit" value="Add my quote" class="btn btn-default"></input>
-	</form><br>
-	<form action="/quotes" method="get">
-		<input type="submit" class="btn btn-default" value="Go to quotes"></input>
+	<h1>Welcome to the Kitten Dashboard</h1><br>
+	<h2>All Kittens:</h2>
+	<% for (var i in kittens) { %>
+		<p><a href="/kittens/<%= kittens[i]._id %>"><%= kittens[i].name %></a></p>
+	<% } %>
+	<form action="/kittens/new" method="get">
+		<button style="margin-top: 30px;" class="btn btn-default">Add A New Kitten</button>
 	</form>
 </body>
 </html>
