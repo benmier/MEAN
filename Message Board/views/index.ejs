@@ -22,7 +22,11 @@
 		<label>Message: </label><br>
 		<textarea name="message" class="form-control" rows="4"></textarea>		
 	</form>
-	<button id="post_comment_top" style="float: right;">Post message</button>
+	<button id="post_comment_top" style="float: right;">Post message</button><br>
+
+	<div id="messages">
+		<div id="comments"></div>
+	</div>
 
 	<% for (var i in messages) { %>
 		<p>Name: <%= messages[i].name %></p>
