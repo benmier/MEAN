@@ -15,13 +15,29 @@
 	<h2>The Dojo Message Board</h2><br><hr><br>
 	<form class="form-group">
 		<label>Name: </label><br>
-		<input type="text" name="name" class="form-control"></input>
+		<input type="text" name="messenger_name" class="form-control"></input>
 		<label>Message: </label><br>
 		<textarea name="message" class="form-control" rows="4"></textarea>		
 	</form>
 	<button id="post_comment_top" style="float: right;">Post message</button>
 
-	
+	<% for (var i in messages) { %>
+		<p>Name: <%= messages[i].name %></p>
+		<p>Message: <%= messages[i].message %></p>
+		<%= for (var j in comments) { %>
+		<div style="margin-left: 20px;">
+			<p>Name: <%= comments[i].name %></p>
+			<p>Comment: <%= comments[i].comment %></p>
+			<form class="form-group">
+				<label>Name: </label><br>
+				<input type="text" name="commenter_name" class="form-control"></input>
+				<label>Comment: </label><br>
+				<textarea name="comment" class="form-control" rows="4"></textarea>
+			</form>
+			<button id="post_comment_top" style="float: right;">Post message</button>
+		</div>
+		<% } %>
+	<% } %>
 
 </body>
 </html>
