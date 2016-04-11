@@ -70,6 +70,15 @@ app.get('/new_comment',function(req,res){
     
 })
 
+app.get('/',function(req,res){
+    Message.find({}, function(err,messages){
+        if(err)
+            res.json(err);
+        else
+            res.render('index',{messages:messages})
+    });
+});
+
 io.sockets.on('connection', function (socket) {
     socket.emit('existing_messages', messages);
 });

@@ -13,7 +13,7 @@
 </head>
 <body>
 	<h2>The Dojo Message Board</h2><br><hr><br>
-	<form class="form-group">
+	<form action="/new_message" method="post" class="form-group">
 		<label>Name: </label><br>
 		<input type="text" name="name" class="form-control"></input>
 		<label>Message: </label><br>
@@ -32,9 +32,9 @@
 			<div style="margin-left: 20px;">
 				<p>Name: <%= comments[i].name %></p>
 				<p>Comment: <%= comments[i].comment %></p>
-				<form class="form-group">
+				<form action="/new_comment" method="post" class="form-group">
 					<label>Name: </label><br>
-					<input type="text" name="commenter_name" class="form-control"></input>
+					<input type="text" name="name" class="form-control"></input>
 					<label>Comment: </label><br>
 					<textarea name="comment" class="form-control" rows="4"></textarea>
 				</form>
