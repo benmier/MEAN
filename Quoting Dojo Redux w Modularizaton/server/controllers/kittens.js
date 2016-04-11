@@ -12,7 +12,6 @@ module.exports = {
 	},
 
 	create: function(req,res){
-		console.log("req from controller: "+req)
 		var new_kitten = new Kitten({
 	    	name: req.body.name,
 	        breed: req.body.breed,
@@ -26,7 +25,7 @@ module.exports = {
 	    	if(err)
 	    		console.log("Error inserting new kitten");
 	    });
-	    Quote.findOne({},function(err,quotes){
+	    Kitten.findOne({},function(err,kitten){
 	        if(err)
 	            console.log("Error finding one kitten");
 	        else
@@ -41,5 +40,14 @@ module.exports = {
 	        else
 	            res.render('show', {kitten:kitten});
 	    });
+	},
+
+	edit: function(req,res){
+		Kitten.findOne({_id:req.params.id},function(err,kitten){
+	        if(err)
+	            console.log("Error matching DB request");
+	        else
+	            res.render('edit', {kitten:kitten});
+	    }).sort({_id:-1});
 	}
 };

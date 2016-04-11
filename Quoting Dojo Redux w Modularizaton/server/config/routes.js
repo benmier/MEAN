@@ -10,8 +10,7 @@ module.exports = function(app){
 	});
 
 	app.post('/kittens', function(req, res) {
-		console.log("req from routes: "+req.body.name)
-		// kittens.create(req,res);	    
+		kittens.create(req,res);	    
 	});
 	
 	app.get('/kittens/new', function(req, res) {
@@ -22,4 +21,7 @@ module.exports = function(app){
 	    kittens.show_one(req,res);
 	});
 
+	app.post('/kittens/edit/:id', function(req, res) {
+		kittens.edit(req,res);
+	});
 };
