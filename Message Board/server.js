@@ -31,6 +31,9 @@ var commentSchema = new Schema({
 },{timestamps:true});
 mongoose.model('Comment', commentSchema)
 
+var Message = mongoose.model('Message')
+var Comment = mongoose.model('Comment')
+
 app.get('/messages/:id', function (req, res){
     Message.findOne({_id: req.params.id})
     .populate('comments')
@@ -54,7 +57,13 @@ app.post('/messages/:id', function (req, res){
 
 
 app.get('/new_message',function(req,res){
-    
+    var new_message = new Message({req.body})
+    new_message.save(req.body,function(err){
+        if(err)
+            res.json(err);
+        else
+            res.redirect('/');
+    })
 })
 
 app.get('/new_comment',function(req,res){
