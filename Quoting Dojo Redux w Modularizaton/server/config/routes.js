@@ -12,12 +12,13 @@ module.exports = function(app){
 	app.post('/kittens', function(req, res) {
 		kittens.create(req,res);	    
 	});
+	
+	app.get('/kittens/new', function(req, res) {
+	    res.render('new');
+	});
 
 	app.get('/kittens/:id', function(req, res) {
 	    kittens.show_one(req,res);
 	});
 
-	app.get('/kittens/new', function(req, res) {
-	    res.render('new');
-	});
 };

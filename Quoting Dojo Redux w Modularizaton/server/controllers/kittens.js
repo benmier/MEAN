@@ -5,7 +5,7 @@ module.exports = {
 	show: function(req,res){
 		Kitten.find({},function(err,kittens){
 	        if(err)
-	            console.log("Error matching DB request");
+	            console.log("Error finding all kittens");
 	        else
 	            res.render('index', {kittens:kittens});
 	    }).sort({_id:-1});
@@ -23,11 +23,11 @@ module.exports = {
 	    });
 	    new_kitten.save(function(err){
 	    	if(err)
-	    		console.log("Error inserting into DB");
+	    		console.log("Error inserting new kitten");
 	    });
 	    Quote.findOne({},function(err,quotes){
 	        if(err)
-	            console.log("Error matching DB request");
+	            console.log("Error finding one kitten");
 	        else
 	            res.render('show', {kitten:kitten});
 	    }).sort({_id:-1});
@@ -36,7 +36,7 @@ module.exports = {
 	show_one: function(req,res){
 		Kitten.findOne({_id:req.params.id},function(err,kitten){
 	        if(err)
-	            console.log("Error matching DB request");
+	            console.log("Error finding one kitten");
 	        else
 	            res.render('show', {kitten:kitten});
 	    });
