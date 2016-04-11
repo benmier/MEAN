@@ -26,9 +26,13 @@ module.exports = {
 		new_person.save(function(err){
 			if(err)
 				res.json(err);
-			else
-				res.json({created:true});
 		});
+		People.findOne({},function(err,person){
+			if(err)
+				res.json(err);
+			else
+				res.json(person);
+		}).sort({_id:-1});
 	},
 
 	remove: function(req,res){
