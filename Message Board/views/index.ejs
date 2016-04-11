@@ -7,13 +7,7 @@
 	<script type ="text/javascript" src="/socket.io/socket.io.js"></script>
 	<script type="text/javascript">
         $(document).ready(function (){
-        	var socket = io.connect();
-        	socket.on('existing_messages',function(data){
-        		for(i in data){
-        			$('#messages').append("<h3>Name: "data[i].name"</h3>");
-        			$('#messages').append("<h3>Message: "data[i].message"</h3");
-        		}
-        	});
+
         });
 	</script>
 </head>

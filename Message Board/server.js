@@ -29,7 +29,7 @@ var commentSchema = new mongoose.Schema({
     _message: {type: Schema.Types.ObjectId, ref: 'Message'},
 },{timestamps:true});
 
-app.get('/', function (req, res){
+app.get('/messages/:id', function (req, res){
     Message.findOne({_id: req.params.id})
     .populate('comments')
     .exec(function(err, message) {
@@ -50,6 +50,13 @@ app.post('/messages/:id', function (req, res){
     });
 });
 
+app.get('/new_message',function(req,res){
+    
+})
+
+app.get('/new_comment',function(req,res){
+    
+})
 
 io.sockets.on('connection', function (socket) {
     socket.emit('existing_messages', messages);
