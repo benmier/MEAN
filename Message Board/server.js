@@ -69,15 +69,22 @@ app.get('/new_message',function(req,res){
 app.get('/new_comment/:id',function(req,res){
     Message.findOne({_id:req.params.id}, function(err,message){
         if(err)
-            res.json(err)
+            res.json(err);
         else{
             var new_comment = new Comment(req.body);
             comment._message = req.params.id;
             new_comment.save(function(err){
                 if(err)
                     res.json(err);
-                else
-                    res.redirect('/');
+                else{
+                    message.push(comment._id);
+                    message.save(function(err){
+                        if(err)
+                            res.json(err);
+                        else
+                            res.redirect('/');
+                    });
+                };
             });
         };  
     });
