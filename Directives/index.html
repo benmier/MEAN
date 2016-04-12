@@ -28,7 +28,7 @@
 				Favorite Food <input type="text" ng-model='newFood.name'></input>
 				<input type="submit" value="Add Food" ng-click='addFood()'></input>
 			</form>
-			<p>Currently typing: <span ng-bind='test'></span></p><br>
+			<p>Currently typing: <span ng-bind='newFood.name'></span></p><br>
 			<input type="text" ng-model='filterer' placeholder="filter..."></input><br><br>
 			<div style="border: 1px solid black; width: 100px; height: auto; padding: 10px;">
 				<p ng-repeat='food in foods | filter: filterer'>{{food.name}}</p>
