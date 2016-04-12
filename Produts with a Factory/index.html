@@ -5,10 +5,24 @@
 	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.5/angular.min.js"></script>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 	<script type="text/javascript">
+		var myApp = angular.module('myApp',[]);
 
+		myApp.factory('productsFactory', function(){
+			var products = [
+				{name:Keyboard, price:149.99},
+				{name:Price, price:59.99},
+				{name:Basketball, price:59.99},
+			];
+			var factory = {};
+			factory.getProducts = function(callback){callback(products)};
+			return factory;
+		});
 
-
-
+		myApp.controller('productsController', function($scope,productsFactory){
+			productsFactory.getProducts(function(data){
+				$scope.products = data;
+			});
+		});
 	</script>
 </head>
 <body>
