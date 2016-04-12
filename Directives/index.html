@@ -30,7 +30,7 @@
 		</form>
 		<p>Currently typing: <span ng-bind='test'></span></p><br>
 		<input type="text" ng-model='filterer' placeholder="filter..."></input><br><br>
-		<div style="border: 1px solid black; width: 100px; height: auto;">
+		<div style="border: 1px solid black; width: 100px; height: auto; padding: 10px;">
 			<p ng-repeat='food in foods | filter: filterer'>{{food.name}}</p>
 		</div>
 	</div>
