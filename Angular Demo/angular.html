@@ -1,35 +1,43 @@
 <html ng-app='myApp'>
-    <head>
-      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.5/angular.min.js"></script>
-      <script type="text/javascript">
-      		var myAppModule = angular.module('myApp', []);
-      		myAppModule.controller('studentsController',function(){
-      			this.students = [
-      				{name: 'Mike', age: 34}, 
-		            {name: 'John', age: 24}, 
-		            {name: 'Trey', age: 24}, 
-		            {name: 'India', age: 35}
-      			];
-      			this.addStudent = function(){
-      				this.students.push(this.newStudent);
-      				this.newStudent = {};
-      			}
-      		});
-      </script>
-    </head>
-    <body>
-        <h3>{{ 49567 * 2243 }} </h3>
-        <h3 ng-bind='49567 * 2243'></h3>
-        <div ng-controller="studentsController as SC">
-        	<ul>
-        		<li ng-repeat='student in SC.students'>{{student.name}}, {{student.age}}</li>
-        		<h3>Add a new student!</h3>
+	<head>
+	  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.5/angular.min.js"></script>
+	  <script type="text/javascript">
+			var myAppModule = angular.module('myApp', []);
+
+			myAppModule.factory('studentFactory', function(){
+				var students = [
+					{name: 'Mike', age: 34}, 
+					{name: 'John', age: 24}, 
+					{name: 'Trey', age: 24}, 
+					{name: 'India', age: 35}];
+				var factory = {};
+				factory.getStudents = function(callback){
+					callback(students);
+				}
+				return factory;
+			});
+
+			myAppModule.controller('studentsController',function($scope,studentFactory){
+				$scope.students = [];
+				studentFactory.getStudents(function(data){
+					$scope.students = data;
+				});
+			});
+	  </script>
+	</head>
+	<body>
+		<h3>{{ 49567 * 2243 }} </h3>
+		<h3 ng-bind='49567 * 2243'></h3>
+		<div ng-controller="studentsController as sC">
+			<ul>
+				<li ng-repeat='student in sC.students'>{{student.name}}, {{student.age}}</li>
+				<h3>Add a new student!</h3>
 				<form>
-				    Name: <input type='text' ng-model='SC.newStudent.name'>
-				    Age: <input type='text' ng-model='SC.newStudent.age'>
-				    <input type='submit' value='add new student' ng-click='SC.addStudent()'>
+					Name: <input type='text' ng-model='sC.newStudent.name'>
+					Age: <input type='text' ng-model='sC.newStudent.age'>
+					<input type='submit' value='add new student' ng-click='sC.addStudent()'>
 				</form>
-        	</ul>
-        </div>
-    </body>
+			</ul>
+		</div>
+	</body>
 </html>
