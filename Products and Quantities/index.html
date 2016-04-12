@@ -80,7 +80,25 @@
 	</div>
 	
 	<div ng-controller='ordersController'>
-		
+		<h3>Orders Controller</h3>
+		<table class="table table-striped" style="border:1px solid tan;">
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Price</th>
+					<th>Qty Available</th>
+					<th>Actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat='product in products'>
+					<td>{{product.name}}</td>
+					<td>{{product.price | currency}}</td>
+					<td>{{product.qty}}</td>
+					<td><button ng-click='orderProduct(product)'>Buy</button></td>
+				</tr>
+			</tbody>
+		</table>
 	</div>
 </body>
 </html>
