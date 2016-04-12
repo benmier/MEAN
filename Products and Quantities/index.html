@@ -9,9 +9,9 @@
 
 		myApp.factory('productsFactory', function(){
 			var products = [
-				{name:"Keyboard", price:149.99},
-				{name:"Price", price:59.99},
-				{name:"Basketball", price:59.99},
+				{name:"Keyboard", price:149.99, qty:5},
+				{name:"Price", price:59.99, qty:50},
+				{name:"Basketball", price:59.99, qty:50},
 			];
 			var factory = {};
 			
@@ -20,6 +20,7 @@
 			factory.addProduct = function(newProduct){
 				if(!newProduct.price)
 					newProduct.price = 0;
+				newProduct.qty = 50;
 				products.push(newProduct);
 			}
 			
@@ -49,7 +50,13 @@
 
 		myApp.controller('ordersController', function($scope,productsFactory){
 			$scope.products = all_products;
-			$scope.products.qty = 50;
+
+			$scope.orderProduct = function(product){
+				if(product.qty>1)
+					product.qty-=1;
+				else
+					product.qty = "Sold Out"
+			}
 		});
 		
 	</script>
