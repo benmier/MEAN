@@ -47,10 +47,10 @@
 		</thead>
 		<tbody ng-controller='UserController'>
 			<tr ng-repeat='user in users'>
-				<th>{{user.first_name}}</th>
-				<th>{{user.last_name}}</th>
-				<th>{{user.lang}}</th>
-				<th><button ng-click='removeUser(user)'>Delete User</button></th>
+				<td>{{user.first_name}}</td>
+				<td>{{user.last_name}}</td>
+				<td>{{user.lang}}</td>
+				<td><button ng-click='removeUser(user)'>Delete User</button></td>
 			</tr>
 		</tbody>
 	</table>
