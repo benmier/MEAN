@@ -24,7 +24,7 @@
 		});
 	</script>
 </head>
-<body>
+<body ng-controller='userController'>
 	<h2>Users Controller</h2>
 	<form class="form-group">
 		<label>First Name</label>
@@ -45,7 +45,7 @@
 				<th>Actions</th>
 			</tr>
 		</thead>
-		<tbody ng-controller='userController'>
+		<tbody>
 			<tr ng-repeat='user in users'>
 				<td>{{user.first_name}}</td>
 				<td>{{user.last_name}}</td>
