@@ -38,6 +38,9 @@
 	</form><br>
 
 	<div ng-controller='UserController'>
+	<ul>
+			<li ng-repeat='user in users'>{{user.first_name}}</li>
+			</ul>
 	<table class="table table-striped" style="border:1px solid tan;">
 		<thead>
 			<tr>
@@ -48,14 +51,14 @@
 			</tr>
 		</thead>
 		<tbody>
-			<div ng-repeat='user in users'>
-			<tr>
+
+			<!-- <tr>
 				<td>{{user.first_name}}</td>
 				<td>{{user.last_name}}</td>
 				<td>{{user.lang}}</td>
 				<td><button ng-click='removeUser(user)'>Delete User</button></td>
 			</tr>
-			</div>
+			</div> -->
 		</tbody>
 	</table>
 	</div>
