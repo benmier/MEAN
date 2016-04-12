@@ -36,7 +36,7 @@
 		<input type="submit" ng-click='createUser()' value="Create User"></input>
 	</form><br>
 
-	<table class="table table-striped">
+	<table class="table table-striped" style="border:1px solid tan;">
 		<thead>
 			<tr>
 				<th>First Name</th>
@@ -47,9 +47,9 @@
 		</thead>
 		<tbody ng-controller='UserController'>
 			<tr ng-repeat='user in users'>
-				<th ng-repeat='user in users'>{{user.first_name}}</th>
-				<th ng-repeat='user in users'>{{user.last_name}}</th>
-				<th ng-repeat='user in users'>{{user.lang}}</th>
+				<th>{{user.first_name}}</th>
+				<th>{{user.last_name}}</th>
+				<th>{{user.lang}}</th>
 				<th><button ng-click='removeUser(user)'>Delete User</button></th>
 			</tr>
 		</tbody>
