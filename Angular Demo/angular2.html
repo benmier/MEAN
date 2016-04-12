@@ -27,6 +27,7 @@
       <ul>
         <li ng-repeat="friend in friends | filter:filter_name | orderBy:'name'">
           {{ friend.name }} - age {{ friend.age | number:0 }}, gender {{ friend.gender | uppercase }}
+          <a href="#" ng-click='removeFriend($index)'>delete</a>
         </li>
       </ul>
     </div>
