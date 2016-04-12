@@ -5,47 +5,61 @@
 	  		// Create a module
 			var myAppModule = angular.module('myApp', []);
 			// Create a factory (attached to this module)
-			myAppModule.factory('studentFactory', function(){
-				// The factory is nothing more than a function that returns an object
-				var students = [
+			// myAppModule.factory('studentFactory', function(){
+			// 	// The factory is nothing more than a function that returns an object
+			// 	var students = [
+			// 		{name: 'Mike', age: 34}, 
+			// 		{name: 'John', age: 24}, 
+			// 		{name: 'Trey', age: 24}, 
+			// 		{name: 'India', age: 35}
+			// 	];
+			// 	var factory = {};
+			// 	// Add a getStudents key to the factory object with a value of a function.
+			// 	factory.getStudents = function(callback){
+			// 		// Pass the students to a callback to be used by whoever calls the method
+			// 		callback(students);
+			// 	}
+			// 	// Most important step: return the object so it can be used by the rest of our angular code
+			// 	return factory;
+			// });
+			// Create a controller (attached to this module), and inject the studentFactory in it.
+			// myAppModule.controller('studentsController',function($scope,studentFactory){
+			// 	//  initialize an empty array so $scope.students maintains a consistent data type
+			// 	$scope.students = [];
+			// 	// run the getStudents method and set $scope data in the callback
+			// 	studentFactory.getStudents(function(data){
+			// 		$scope.students = data;
+			// 	});
+
+			myAppModule.controller('studentsController',function($scope){
+				$scope.students = [
 					{name: 'Mike', age: 34}, 
 					{name: 'John', age: 24}, 
 					{name: 'Trey', age: 24}, 
 					{name: 'India', age: 35}
-				];
-				var factory = {};
-				// Add a getStudents key to the factory object with a value of a function.
-				factory.getStudents = function(callback){
-					// Pass the students to a callback to be used by whoever calls the method
-					callback(students);
+				];		
+				
+
+				$scope.addStudent = function($scope){
+					$scope.students.push($scope.newStudent);
+					$scope.newStudent = {};	
 				}
-				// Most important step: return the object so it can be used by the rest of our angular code
-				return factory;
-			});
-			// Create a controller (attached to this module), and inject the studentFactory in it.
-			myAppModule.controller('studentsController',function($scope,studentFactory){
-				//  initialize an empty array so $scope.students maintains a consistent data type
-				$scope.students = [];
-				// run the getStudents method and set $scope data in the callback
-				studentFactory.getStudents(function(data){
-					$scope.students = data;
-				});
 			});
 	  </script>
 	</head>
 	<body>
 		<h3>{{ 49567 * 2243 }} </h3>
 		<h3 ng-bind='49567 * 2243'></h3>
-		<div ng-controller="studentsController as sC">
+		<div ng-controller="studentsController">
 			<ul>
-				<li ng-repeat='student in sC.students'>{{student.name}}, {{student.age}}</li>
+				<li ng-repeat='student in students'>{{student.name}}, {{student.age}}</li>
+			</ul>
 				<h3>Add a new student!</h3>
 				<form>
-					Name: <input type='text' ng-model='sC.newStudent.name'>
-					Age: <input type='text' ng-model='sC.newStudent.age'>
-					<input type='submit' value='add new student' ng-click='sC.addStudent()'>
+					Name: <input type='text' ng-model='newStudent.name'>
+					Age: <input type='text' ng-model='newStudent.age'>
+					<input type='submit' value='add new student' ng-click='addStudent()'>
 				</form>
-			</ul>
 		</div>
 	</body>
 </html>
