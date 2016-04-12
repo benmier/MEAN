@@ -4,15 +4,15 @@
       <script type="text/javascript">
       		var myAppModule = angular.module('myApp', []);
       		myAppModule.controller('studentsController',function($scope){
-      			$scope.students = [
+      			this.students = [
       				{name: 'Mike', age: 34}, 
 		            {name: 'John', age: 24}, 
 		            {name: 'Trey', age: 24}, 
 		            {name: 'India', age: 35}
       			];
-      			$scope.addStudent = function(){
-      				$scope.students.push($scope.newStudent);
-      				$scope.newStudent = {};
+      			this.addStudent = function(){
+      				this.students.push(this.newStudent);
+      				this.newStudent = {};
       			}
       		});
       </script>
