@@ -8,9 +8,9 @@
 		var myApp = angular.module('myApp',[]);
 		myApp.controller('userController',function($scope){
 			$scope.users = [
-				{first_name:Yikihiro, last_name:Matsumoto, lang:Ruby},
-				{first_name:Ryan, last_name:Dahl, lang:JavaScript},
-				{first_name:Brendan, last_name:Eich, lang:JavaScript},
+				{first_name:"Yikihiro", last_name:"Matsumoto", lang:"Ruby"},
+				{first_name:"Ryan", last_name:"Dahl", lang:"JavaScript"},
+				{first_name:"Brendan", last_name:"Eich", lang:"JavaScript"},
 			];
 
 			$scope.createUser = function(){
@@ -25,7 +25,7 @@
 	</script>
 </head>
 <body>
-<!-- 	<h2>Users Controller</h2>
+	<h2>Users Controller</h2>
 	<form class="form-group">
 		<label>First Name</label>
 		<input class="form-control" type="text" style="width: 25%;" ng-model='newUser.first_name'></input>
@@ -34,13 +34,9 @@
 		<label>Favorite Language</label>
 		<input class="form-control" type="text" style="width: 25%;" ng-model='newUser.lang'></input><br>
 		<input type="submit" ng-click='createUser()' value="Create User"></input>
-	</form><br> -->
+	</form><br>
 
-	<div ng-controller='userController'>
-	<ul>
-			<li ng-repeat='user in users'>{{user.first_name}}</li>
-			</ul>
-<!-- 	<table class="table table-striped" style="border:1px solid tan;">
+	<table class="table table-striped" style="border:1px solid tan;">
 		<thead>
 			<tr>
 				<th>First Name</th>
@@ -49,18 +45,14 @@
 				<th>Actions</th>
 			</tr>
 		</thead>
-		<tbody> -->
-
-			<!-- <tr>
+		<tbody ng-controller='userController'>
+			<tr ng-repeat='user in users'>
 				<td>{{user.first_name}}</td>
 				<td>{{user.last_name}}</td>
 				<td>{{user.lang}}</td>
 				<td><button ng-click='removeUser(user)'>Delete User</button></td>
 			</tr>
-			</div> -->
-<!-- 		</tbody>
-	</table> -->
-	</div>
-
+		</tbody>
+	</table>
 </body>
 </html>
