@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html style="margin: 20px;">
 <head>
 	<title>Users with Controllers</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
@@ -28,14 +28,33 @@
 	<h2>Users Controller</h2>
 	<form class="form-group">
 		<label>First Name</label>
-		<input class="form-control" type="text" ng-model='newUser.first_name'></input>
+		<input class="form-control" type="text" style="width: 25%;" ng-model='newUser.first_name'></input>
 		<label>Last Name</label>
-		<input class="form-control" type="text" ng-model='newUser.last_name'></input>
+		<input class="form-control" type="text" style="width: 25%;" ng-model='newUser.last_name'></input>
 		<label>Favorite Language</label>
-		<input class="form-control" type="text" ng-model='newUser.lang'></input>
+		<input class="form-control" type="text" style="width: 25%;" ng-model='newUser.lang'></input><br>
 		<input type="submit" ng-click='createUser()' value="Create User"></input>
-	</form>
+	</form><br>
 
-	
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>First Name</th>
+				<th>Last Name</th>
+				<th>Fav Language</th>
+				<th>Actions</th>
+			</tr>
+		</thead>
+		<tbody ng-controller='UserController'>
+			<tr ng-repeat='user in users'>
+				<th ng-repeat='user in users'>{{user.first_name}}</th>
+				<th ng-repeat='user in users'>{{user.last_name}}</th>
+				<th ng-repeat='user in users'>{{user.lang}}</th>
+				<th><button ng-click='removeUser(user)'>Delete User</button></th>
+			</tr>
+		</tbody>
+	</table>
+
+
 </body>
 </html>
