@@ -23,7 +23,7 @@
 		  $scope.friends.splice($scope.friends.indexOf(friend),1);
 		}
 
-		$scope.newFriend = function(){
+		$scope.addFriend = function($scope){
 			$scope.friends.push($scope.newFriend);
 			$scope.newFriend = {};
 		}
@@ -40,15 +40,13 @@
 		</li>
 	  </ul>
 	  <h3>Add a new friend!</h3>
-		<form>
 		  Name: <input type='text' ng-model='newFriend.name'>
 		  Age: <input type='number' ng-model='newFriend.age'>
-		  Gender: <select ng-model='newFriend.genger'>
+		  Gender: <select ng-model='newFriend.gender'>
 		  		<option>Girl</option>
 		  		<option>Boy</option>
 		  </select>
-		  <input type='submit' value='add friend' ng-click='newFriend())'>
-		</form>
+		  <input type='submit' value='add friend' ng-click='addFriend())'>
 	</div>
 </body>
 </html>
