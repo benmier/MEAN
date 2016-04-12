@@ -12,10 +12,11 @@
 				{first_name:Ryan, last_name:Dahl, lang:JavaScript},
 				{first_name:Brendan, last_name:Eich, lang:JavaScript},
 			];
-			
+			console.log($scope.users)
 			$scope.createUser = function(){
 				$scope.users.push($scope.newUser);
 				$scope.newUser = {};
+				console.log($scope.users)
 			};
 			
 			$scope.deleteUser = function(user){
