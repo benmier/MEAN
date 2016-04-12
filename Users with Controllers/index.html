@@ -1,23 +1,22 @@
 <!DOCTYPE html>
-<html style="margin: 20px;">
+<html style="margin: 20px;" ng-app='myApp'>
 <head>
 	<title>Users with Controllers</title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.5/angular.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 	<script type="text/javascript">
 		var myApp = angular.module('myApp',[]);
-		myApp.controller('UserController',function($scope){
+		myApp.controller('userController',function($scope){
 			$scope.users = [
 				{first_name:Yikihiro, last_name:Matsumoto, lang:Ruby},
 				{first_name:Ryan, last_name:Dahl, lang:JavaScript},
 				{first_name:Brendan, last_name:Eich, lang:JavaScript},
 			];
-			console.log($scope.users)
+
 			$scope.createUser = function(){
 				$scope.users.push($scope.newUser);
 				$scope.newUser = {};
-				console.log($scope.users)
-			};
+			}
 			
 			$scope.deleteUser = function(user){
 				$scope.users.splice($scope.users.indexOf(user),1);
@@ -26,7 +25,7 @@
 	</script>
 </head>
 <body>
-	<h2>Users Controller</h2>
+<!-- 	<h2>Users Controller</h2>
 	<form class="form-group">
 		<label>First Name</label>
 		<input class="form-control" type="text" style="width: 25%;" ng-model='newUser.first_name'></input>
@@ -35,9 +34,9 @@
 		<label>Favorite Language</label>
 		<input class="form-control" type="text" style="width: 25%;" ng-model='newUser.lang'></input><br>
 		<input type="submit" ng-click='createUser()' value="Create User"></input>
-	</form><br>
+	</form><br> -->
 
-	<div ng-controller='UserController'>
+	<div ng-controller='userController'>
 	<ul>
 			<li ng-repeat='user in users'>{{user.first_name}}</li>
 			</ul>
