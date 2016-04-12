@@ -9,9 +9,9 @@
 
 		myApp.factory('productsFactory', function(){
 			var products = [
-				{name:Keyboard, price:149.99},
-				{name:Price, price:59.99},
-				{name:Basketball, price:59.99},
+				{name:"Keyboard", price:149.99},
+				{name:"Price", price:59.99},
+				{name:"Basketball", price:59.99},
 			];
 			var factory = {};
 			factory.getProducts = function(callback){callback(products)};
@@ -21,10 +21,13 @@
 		myApp.controller('productsController', function($scope,productsFactory){
 			$scope.products = [];
 			productsFactory.getProducts(function(data){
+				console.log(data)
 				$scope.products = data;
 			});
 
 			$scope.addProduct = function(){
+				if(!$scope.newProduct.price)
+					$scope.newProduct.price = 0.00;
 				$scope.products.push($scope.newProduct);
 				$scope.newProduct = {};
 			};
