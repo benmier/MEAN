@@ -15,25 +15,30 @@
 			];
 			var factory = {};
 			factory.getProducts = function(callback){callback(products)};
+			factory.deleteProduct = function(product){
+				products.splice(products.indexOf(product),1);
+			}
+			factory.addProduct = function(newProduct){
+				if(!newProduct.price)
+					newProduct.price = 0.00;
+				products.push(newProduct);
+			}
 			return factory;
 		});
 
 		myApp.controller('productsController', function($scope,productsFactory){
 			$scope.products = [];
 			productsFactory.getProducts(function(data){
-				console.log(data)
 				$scope.products = data;
 			});
 
 			$scope.addProduct = function(){
-				if(!$scope.newProduct.price)
-					$scope.newProduct.price = 0.00;
-				$scope.products.push($scope.newProduct);
+				productsFactory.addProduct($scope.newProduct);
 				$scope.newProduct = {};
 			};
 
 			$scope.deleteProduct = function(product){
-				$scope.products.splice($scope.products.indexOf(product),1);
+				productsFactory.deleteProduct(product);
 			};
 		});
 	</script>
