@@ -19,9 +19,19 @@
 		});
 
 		myApp.controller('productsController', function($scope,productsFactory){
+			$scope.products = [];
 			productsFactory.getProducts(function(data){
 				$scope.products = data;
 			});
+
+			$scope.addProduct = function(){
+				$scope.products.push($scope.newProduct);
+				$scope.newProduct = {};
+			};
+
+			$scope.deleteProduct = function(product){
+				$scope.products.splice($scope.products.indexOf(product),1);
+			};
 		});
 	</script>
 </head>
