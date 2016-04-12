@@ -5,15 +5,31 @@
 		<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.5/angular.min.js"></script>
 		<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.5/angular-route.min.js"></script>
 		<script>
+		var myApp angular.module('myApp', []);
+		myApp.controller('foodController', function($scope){
+			$scope.foods = [
+				{name: "Pizza"},
+				{name: "BBQ"},
+				{name: "Fries"},
+				{name: "Salad"},
+				{name: "Steak"},
+			];
 
+			$scope.addFood = function($scope){
+				$scope.foods.push($scope.newFood);
+				$scope.newFood = {};
+			}
+		});
 		</script>
 	</head>
-	<body ng-controller='foodController'>
-		Favorite Food <input type="text"></input>
+	<body ng-app='myApp'>
+	<div ng-controller='foodController'>
+		Favorite Food <input type="text" ng-model='newFood.name'></input>
 		<input type="submit" value="Add Food"></input>
 		<input type="text" ng-model='filterer'></input>
 		<div style="border: 1px solid black; width: 100px; height: auto;">
 			<p ng-repeat='food in foods | filter: filterer'></p>
 		</div>
+	</div>
 	</body>
 </html>
