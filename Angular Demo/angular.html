@@ -5,6 +5,10 @@
     <body>
         <h3>{{ 49567 * 2243 }} </h3>
         <h3 ng-bind='49567 * 2243'></h3>
-        <div ng-init='names = ["trey","michael","speros","martin"]'></div>
+        <div ng-init='names = [{name:"trey"},{name:"michael"},{name:"speros"},{name:"martin"}]'>
+        	<ul>
+        		<li ng-repeat='person in names'>{{person.name}}</li>
+        	</ul>
+        </div>
     </body>
 </html>
