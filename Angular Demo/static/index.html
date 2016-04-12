@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+ <!-- THESE TWO VERSIONS BELOW MUST MATCH!!!! -->
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.5/angular.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.5/angular-route.min.js"></script>
+    <script>
+    //  inject the ngRoute dependency in the module.
+    var myApp = angular.module('myApp', ['ngRoute']);
+    //  use the config method to set up routing:
+    myApp.config(function ($routeProvider) {
+      $routeProvider
+        .when('/',{
+            templateUrl: 'partials/view1.html'
+        })
+        .when('/partial2',{
+            templateUrl: 'partials/view2.html'
+        })
+        .otherwise({
+          redirectTo: '/'
+        });
+    });
+    //  build the controllers
+    myApp.controller('view1Controller', function ($scope) {
+      $scope.sports = ['golf', 'basketball', 'hockey', 'tennis', 'football'];
+    });
+    myApp.controller('view2Controller', function ($scope) {
+      $scope.message = 'We are using another controller';
+    });
+    </script>
+  </head>
+  <body>
+    <div ng-app='myApp'>
+        <a href="#/">Partial 1</a> | <a href="#/partial2">Partial 2</a>
+        <div ng-view="">
+        </div>
+    </div>
+  </body>
+</html>
