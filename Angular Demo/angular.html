@@ -10,6 +10,10 @@
 		            {name: 'Trey', age: 24}, 
 		            {name: 'India', age: 35}
       			];
+      			$scope.addStudent = function(){
+      				$scope.students.push($scope.newStudent);
+      				$scope.newStudent = {};
+      			}
       		});
       </script>
     </head>
@@ -19,6 +23,12 @@
         <div ng-controller="studentsController">
         	<ul>
         		<li ng-repeat='student in students'>{{student.name}}, {{student.age}}</li>
+        		<h3>Add a new student!</h3>
+				<form>
+				    Name: <input type='text' ng-model='newStudent.name'>
+				    Age: <input type='text' ng-model='newStudent.age'>
+				    <input type='submit' value='add new student' ng-click='addStudent()'>
+				</form>
         	</ul>
         </div>
     </body>
