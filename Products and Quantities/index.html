@@ -9,7 +9,7 @@
 
 		myApp.factory('productsFactory', function(){
 			var products = [
-				{name:"Keyboard", price:149.99, qty:5},
+				{name:"Keyboard", price:149.99, qty:50},
 				{name:"Price", price:59.99, qty:50},
 				{name:"Basketball", price:59.99, qty:50},
 			];
@@ -52,10 +52,7 @@
 			$scope.products = all_products;
 
 			$scope.orderProduct = function(product){
-				if(product.qty>1)
-					product.qty-=1;
-				else
-					product.qty = "Sold Out"
+				product.qty-=1;
 			}
 		});
 		
@@ -106,7 +103,7 @@
 					<td>{{product.name}}</td>
 					<td>{{product.price | currency}}</td>
 					<td>{{product.qty}}</td>
-					<td><button ng-click='orderProduct(product)'>Buy</button></td>
+					<td><button ng-click='orderProduct(product)' ng-if='product.qty'>Buy</button></td>
 				</tr>
 			</tbody>
 		</table>
