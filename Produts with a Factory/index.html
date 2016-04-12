@@ -35,7 +35,31 @@
 		});
 	</script>
 </head>
-<body>
-	
+<body ng-controller='productsController'>
+	<h2>Products Controller</h2>
+	<form class="form-group">
+		<label>Product Name</label>
+		<input class="form-control" type="text" style="width: 25%;" ng-model='newProduct.name'></input>
+		<label>Product Price</label>
+		<input class="form-control" type="number" step="0.01" min="0.00" style="width: 25%;" ng-model='newProduct.price'></input><br>
+		<input type="submit" ng-click='createUser()' value="Add Product"></input>
+	</form><br>
+
+	<table class="table table-striped" style="border:1px solid tan;">
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Price</th>
+				<th>Actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat='product in products'>
+				<td>{{product.name}}</td>
+				<td>{{product.price | currency}}</td>
+				<td><button ng-click='deleteProduct(product)'>Delete Product</button></td>
+			</tr>
+		</tbody>
+	</table>
 </body>
 </html>
