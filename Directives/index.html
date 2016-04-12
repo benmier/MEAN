@@ -30,7 +30,8 @@
 			</form>
 			<p>Currently typing: <span ng-bind='newFood.name'></span></p><br>
 			<input type="text" ng-model='filterer' placeholder="filter..."></input><br><br>
-			<div style="border: 1px solid black; width: 100px; height: auto; padding: 10px;">
+			Show food list? <input type="checkbox" ng-model='checked' ng-init='checked=true'></input><br><br>
+			<div ng-if='checked'style="border: 1px solid black; width: 100px; height: auto; padding: 10px;">
 				<p ng-repeat='food in foods | filter: filterer'>{{food.name}}</p>
 			</div>
 		</div>
