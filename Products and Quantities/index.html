@@ -26,12 +26,15 @@
 			factory.deleteProduct = function(product){
 				products.splice(products.indexOf(product),1);
 			}
+
+			return factory;
 		});
 
 		myApp.controller('productsController', function($scope,productsFactory){
 			$scope.products = [];
 			productsFactory.getProducts(function(data){
 				$scope.products = data;
+				all_products = $scope.products;
 			});
 
 			$scope.addProduct = function(){
@@ -45,7 +48,8 @@
 		});
 
 		myApp.controller('ordersController', function($scope,productsFactory){
-
+			$scope.products = all_products;
+			$scope.products.qty = 50;
 		});
 		
 	</script>
