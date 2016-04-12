@@ -24,9 +24,12 @@
 	</head>
 	<body ng-app='myApp'>
 	<div ng-controller='foodController'>
-		Favorite Food <input type="text" ng-model='newFood.name'></input>
-		<input type="submit" value="Add Food"></input>
-		<input type="text" ng-model='filterer'></input>
+		<form>
+			Favorite Food <input type="text" ng-model='newFood.name'></input>
+			<input type="submit" value="Add Food" ng-click='addFood()'></input>
+		</form>
+		<input type="text" ng-model='filterer'></input><br>
+		<p>Currently typing: <span ng-bind='test'></span></p><br>
 		<div style="border: 1px solid black; width: 100px; height: auto;">
 			<p ng-repeat='food in foods | filter: filterer'></p>
 		</div>
