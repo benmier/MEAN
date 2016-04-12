@@ -14,20 +14,73 @@
 				{name:"Basketball", price:59.99},
 			];
 			var factory = {};
+			
 			factory.getProducts = function(callback){callback(products)};
+			
 			factory.addProduct = function(newProduct){
 				if(!newProduct.price)
 					newProduct.price = 0;
 				products.push(newProduct);
 			}
+			
 			factory.deleteProduct = function(product){
 				products.splice(products.indexOf(product),1);
 			}
-		})
+		});
+
+		myApp.controller('productsController', function($scope,productsFactory){
+			$scope.products = [];
+			productsFactory.getProducts(function(data){
+				$scope.products = data;
+			});
+
+			$scope.addProduct = function(){
+				productsFactory.addProduct($scope.newProduct);
+				$scope.newProduct = {};
+			}
+
+			$scope.deleteProduct = function(product){
+				productsFactory.deleteProduct(product);
+			}
+		});
+
+		myApp.controller('ordersController', function($scope,productsFactory){
+
+		});
 		
 	</script>
 </head>
-<body ng-controller='productsController'>
+<body>
+	<div ng-controller='productsController'>
+		<h2>Products Controller</h2>
+		<form class="form-group">
+			<label>Product Name</label>
+			<input class="form-control" type="text" style="width: 25%;" ng-model='newProduct.name'></input>
+			<label>Product Price</label>
+			<input class="form-control" type="number" step="0.01" min="0.00" style="width: 25%;" ng-model='newProduct.price'></input><br>
+			<input type="submit" ng-click='addProduct()' value="Add Product"></input>
+		</form><br>
+
+		<table class="table table-striped" style="border:1px solid tan;">
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Price</th>
+					<th>Actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat='product in products'>
+					<td>{{product.name}}</td>
+					<td>{{product.price | currency}}</td>
+					<td><button ng-click='deleteProduct(product)'>Delete Product</button></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
 	
+	<div ng-controller='ordersController'>
+		
+	</div>
 </body>
 </html>
