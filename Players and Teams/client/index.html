@@ -106,6 +106,7 @@
 		myApp.controller('AssociationsController', function($scope,PlayerFactory,TeamFactory){
 			$scope.players = [];
 			PlayerFactory.getPlayers(function(data){
+				console.log("getting players")
 				$scope.players = data;
 			});
 
