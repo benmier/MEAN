@@ -28,6 +28,23 @@
 		});
 
 		myApp.factory('PlayerFactory', function(){
+			var players = [
+				{name: "Speros"},
+				{name: "Jimmy"},
+				{name: "Jay"},
+			];
+
+			var factory = {};
+
+			factory.getPlayers = function(callback){callback(players)};
+
+			factory.addPlayer = function(newPlayer){
+				players.push(newPlayer);
+			}
+
+			factory.deletePlayer = function(player){
+				players.splice(players.indexOf(player),1);
+			}
 			
 			return factory;
 		})
