@@ -1,20 +1,20 @@
 <form class="form-group" style="margin-top: 20px;">
 	<label>Name</label>
-	<input class="form-control" type="text" style="width: 25%;" ng-model='newPlayer.name'></input><br>
-	<input type="submit" ng-click='addPlayer()' value="Add Player"></input>
+	<input class="form-control" type="text" style="width: 25%;" ng-model='newTeam.name'></input><br>
+	<input type="submit" ng-click='addTeam()' value="Add New Team"></input>
 </form><br>
 
 <table class="table table-striped" style="border:1px solid tan;">
 	<thead>
 		<tr>
-			<th>Name</th>
+			<th>Team Name</th>
 			<th>Actions</th>
 		</tr>
 	</thead>
 	<tbody>
-		<tr ng-repeat='player in players'>
+		<tr ng-repeat='team in teams'>
 			<td>{{player.name}}</td>
-			<td><button ng-click='deletePlayer(player)'>Remove Player</button></td>
+			<td><button ng-click='deleteTeam(team)'>Remove Team</button></td>
 		</tr>
 	</tbody>
 </table>
