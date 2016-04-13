@@ -11,10 +11,12 @@
 		myApp.config(function($routeProvider){
 			$routeProvider
 				.when('/',{
-					templateUrl: 'static/partials/customizeUsers.html'
+					templateUrl: 'partials/customizeUsers.html',
+					controller: "CustomizeUsersController",
+					controllerAs: "CUC"
 				})
 				.when('/list_users',{
-					templateUrl: 'static/partials/userList.html'
+					templateUrl: 'partials/userList.html'
 				})
 				.otherwise({
 					redirectTo: '/'
