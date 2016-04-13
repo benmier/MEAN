@@ -16,6 +16,8 @@
 				{name: "India Meisner", date: "March 15th 2014"}
 			];
 
+			var factory = {};
+
 			factory.getCustomers = function(callback){callback(customers)};
 			
 			factory.addCustomer = function(newCustomer){
@@ -28,9 +30,9 @@
 			}
 
 			return factory;
-		})
+		});
 
-		myApp.controller('customersController', function($scope){
+		myApp.controller('customersController', function($scope,customerFactory){
 			$scope.customers = [];
 			customerFactory.getCustomers(function(data){
 				$scope.customers = data;
