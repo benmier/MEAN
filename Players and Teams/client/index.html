@@ -56,6 +56,12 @@
 				{name: "Honeybadgers"}
 			];
 
+			var associations = [
+				{name: "Speros", team: "Seahawks"},
+				{name: "Jay", team: "49ers"},
+				{name: "Jimmy", team: ""}
+			];
+
 			var factory = {};
 
 			factory.getTeams = function(callback){callback(teams)};
@@ -66,6 +72,14 @@
 
 			factory.deleteTeam = function(team){
 				teams.splice(teams.indexOf(team),1);
+			}
+
+			factory.addAssociation = function(newAssociation){
+
+			}
+
+			factory.deleteAssociation = function(association){
+
 			}
 
 			return factory;	
@@ -113,6 +127,11 @@
 			$scope.teams = [];
 			TeamFactory.getTeams(function(data){
 				$scope.teams = data;
+			});
+
+			$scope.associations = [];
+			TeamFactory.getAssociations(function(data){
+				$scope.associations = data;
 			});
 
 			$scope.addAssociation = function(){
