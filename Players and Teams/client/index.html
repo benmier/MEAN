@@ -115,7 +115,14 @@
 				$scope.teams = data;
 			});
 
+			$scope.addAssociation = function(){
+				TeamFactory.addAssociation($scope.newAssociation);
+				$scope.newAssociation = {};
+			}
 
+			$scope.deleteAssociation = function(association){
+				TeamFactory.deleteAssociation(association);
+			}
 
 		})
 	</script>
