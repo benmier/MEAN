@@ -69,8 +69,6 @@
 				teams.splice(teams.indexOf(team),1);
 			}
 
-			factory.getAssociations = function(callback){callback(associations)};
-
 			factory.addAssociation = function(newAssociation){
 				associations.push(newAssociation);
 			}
@@ -115,20 +113,10 @@
 		})
 
 		myApp.controller('AssociationsController', function($scope,PlayerFactory,TeamFactory){
-			$scope.players = [];
-			PlayerFactory.getPlayers(function(data){
-				$scope.players = data;
-				console.log($scope.players)
-			});
 
 			$scope.teams = [];
 			TeamFactory.getTeams(function(data){
 				$scope.teams = data;
-			});
-
-			$scope.associations = [];
-			TeamFactory.getAssociations(function(data){
-				$scope.associations = data;
 			});
 
 			$scope.addAssociation = function(){
