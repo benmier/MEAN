@@ -11,7 +11,7 @@
 		myApp.factory('customerFactory', function(){
 			var customers = [
 				{name: "Michael Choi", date: "April 3rd 2014"},
-				{name: "John Supsupin", date: "April 3rd 2014"},
+				{name: "John Supsupin", date: "April 3rd 2016"},
 				{name: "Trey Villafane", date: "April 1st 2014"},
 				{name: "India Meisner", date: "March 15th 2014"}
 			];
@@ -65,9 +65,9 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr ng-repeat='customer in customers'>
-				<td>{{customer.name | filter:name_filter}}</td>
-				<td>{{customer.date}}</td>
+			<tr ng-repeat='customer in customers | filter:name_filter | orderBy: customer.date'>
+				<td ng-bind='customer.name'></td>
+				<td ng-bind='customer.date'></td>
 				<td><button ng-click='deleteCustomer(customer)'>Remove</button></td>
 			</tr>
 		</tbody>
