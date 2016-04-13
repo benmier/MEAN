@@ -16,7 +16,9 @@
 					controllerAs: "CUC"
 				})
 				.when('/list_users',{
-					templateUrl: 'partials/userList.html'
+					templateUrl: 'partials/userList.html',
+					controller: "ListUsersController",
+					controllerAs: "LUC"
 				})
 				.otherwise({
 					redirectTo: '/'
