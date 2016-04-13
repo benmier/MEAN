@@ -44,11 +44,15 @@
 			})
 
 			$scope.addCustomer = function(){
+				var dupes = false;
 				for(i in $scope.customers){
-					if($scope.customers[i].name==$scope.newCustomer.name)
+					if($scope.customers[i].name==$scope.newCustomer.name){
 						alert("Cannot add duplicate name");
+						dupes = true;
+					}
 				}
-				customerFactory.addCustomer($scope.newCustomer);
+				if(dupes==false)
+					customerFactory.addCustomer($scope.newCustomer);
 				$scope.newCustomer = {};
 			}
 
