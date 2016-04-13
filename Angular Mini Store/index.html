@@ -9,11 +9,15 @@
 		var myApp = angular.module('myApp',[]);
 
 		myApp.factory('customerFactory', function(){
+			var d1 = new Date(2014,3,3);
+			var d2 = new Date(2014,3,3);
+			var d3 = new Date(2014,3,1);
+			var d4 = new Date(2014,2,15);
 			var customers = [
-				{name: "Michael Choi", date: "April 3, 2014"},
-				{name: "John Supsupin", date: "April 3, 2014"},
-				{name: "Trey Villafane", date: "April 1, 2014"},
-				{name: "India Meisner", date: "March 15, 2014"}
+				{name: "Michael Choi", date: d1},
+				{name: "John Supsupin", date: d2},
+				{name: "Trey Villafane", date: d3},
+				{name: "India Meisner", date: d4}
 			];
 
 			var factory = {};
@@ -21,7 +25,8 @@
 			factory.getCustomers = function(callback){callback(customers)};
 			
 			factory.addCustomer = function(newCustomer){
-				newCustomer.date = "April 13th 2016";
+				var d = Date.now()
+				newCustomer.date = d;
 				customers.push(newCustomer);
 			}
 
@@ -39,6 +44,9 @@
 			})
 
 			$scope.addCustomer = function(){
+				console.log($scope.customers)
+				if($scope.newCustomer.name in $scope.customers)
+					console.log("duped")
 				customerFactory.addCustomer($scope.newCustomer);
 				$scope.newCustomer = {};
 			}
@@ -67,7 +75,7 @@
 		<tbody>
 			<tr ng-repeat='customer in customers | filter:name_filter | orderBy: customer.date'>
 				<td ng-bind='customer.name'></td>
-				<td ng-bind="customer.date | date:'MMM d, y'"></td>
+				<td ng-bind="customer.date | date:'MMMM d, y'"></td>
 				<td><button ng-click='deleteCustomer(customer)'>Remove</button></td>
 			</tr>
 		</tbody>
