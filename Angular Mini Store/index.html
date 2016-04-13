@@ -28,6 +28,7 @@
 				var d = Date.now()
 				newCustomer.date = d;
 				customers.push(newCustomer);
+				console.log(customers)
 			}
 
 			factory.deleteCustomer = function(customer){
@@ -42,7 +43,7 @@
 			customerFactory.getCustomers(function(data){
 				$scope.customers = data;
 			})
-
+			
 			$scope.addCustomer = function(){
 				for(i in $scope.customers){
 					dupes = $scope.customers[i].name==$scope.newCustomer.name;
