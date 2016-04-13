@@ -1,6 +1,6 @@
 <form class="form-group" style="margin-top: 20px;">
 	<label>Name</label>
-	<input class="form-control" type="text" style="width: 25%;" ng-model='newTeam.name'></input><br>
+	<input class="form-control" type="text" style="width: 25%;" ng-model='newTeam.team'></input><br>
 	<input type="submit" ng-click='addTeam()' value="Add New Team"></input>
 </form><br>
 
@@ -13,7 +13,7 @@
 	</thead>
 	<tbody>
 		<tr ng-repeat='team in teams'>
-			<td>{{team.name}}</td>
+			<td>{{team.team}}</td>
 			<td><button ng-click='deleteTeam(team)'>Remove Team</button></td>
 		</tr>
 	</tbody>
