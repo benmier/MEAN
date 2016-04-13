@@ -1,11 +1,11 @@
 <form class="form-group" style="margin-top: 20px;">
 	<label>Name</label>
 	<select style="width: 25%;" ng-model='newAssociation.name' class="form-control">
-		<option ng-repeat='player in players'>{{player.name}}</option>
+		<option ng-repeat='player in players' selected>{{player.name}}</option>
 	</select><br>
 	<label>Team</label>
 	<select style="width: 25%;" ng-model='newAssociation.team' class="form-control">
-		<option ng-repeat='team in teams'>{{team.name}}</option>
+		<option ng-repeat='team in teams' selected>{{team.name}}</option>
 	</select><br>
 	<input type="submit" ng-click='addAssociation()' value="Assign Player to Team"></input>
 </form><br>
