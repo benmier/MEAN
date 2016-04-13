@@ -44,9 +44,9 @@
 			})
 
 			$scope.addCustomer = function(){
-				for(i in $scope.customers[0]){
-					// if($scope.newCustomer.name in i)
-						console.log(i)
+				for(i in $scope.customers){
+					if($scope.customers[i].name==$scope.newCustomer.name)
+						alert("Cannot add duplicate name");
 				}
 				customerFactory.addCustomer($scope.newCustomer);
 				$scope.newCustomer = {};
