@@ -11,15 +11,15 @@
 		myApp.config(function($routeProvider){
 			$routeProvider
 				.when('/',{
-					templateUrl: 'partials/players.html'
+					templateUrl: 'partials/players.html',
 					controller: "PlayersController"
 				})
 				.when('/teams',{
-					templateUrl: 'partials/teams.html'
+					templateUrl: 'partials/teams.html',
 					controller: "TeamsController"
 				})
 				.when('/associations',{
-					templateUrl: 'partials/associations.html'
+					templateUrl: 'partials/associations.html',
 					controller: "AssociationsController"
 				})
 				.otherwise({
@@ -52,7 +52,7 @@
 <body>
 	<div ng-app='myApp'>
 		<a href="#/" style="margin-right: 20px;">Players</a>
-		<a href="#/teams">Teams</a>
+		<a href="#/teams" style="margin-right: 20px;">Teams</a>
 		<a href="#/associations">Associations</a>
 		<div ng-view=''></div>
 	</div>
