@@ -9,10 +9,10 @@
 		var myApp = angular.module('myApp',[]);
 
 		myApp.factory('customerFactory', function(){
-			var d1 = new Date(2014,3,3);
-			var d2 = new Date(2014,3,3);
+			var d1 = new Date(2016,1,1);
+			var d2 = new Date(2015,2,1);
 			var d3 = new Date(2014,3,1);
-			var d4 = new Date(2014,2,15);
+			var d4 = new Date(2013,4,1);
 			var customers = [
 				{name: "Michael Choi", date: d1},
 				{name: "John Supsupin", date: d2},
@@ -44,14 +44,12 @@
 			})
 
 			$scope.addCustomer = function(){
-				var dupes = false;
 				for(i in $scope.customers){
-					if($scope.customers[i].name==$scope.newCustomer.name){
-						alert("Cannot add duplicate name");
-						dupes = true;
-					}
+					dupes = $scope.customers[i].name==$scope.newCustomer.name;
 				}
-				if(dupes==false)
+				if(dupes)
+					alert("Cannot add duplicate name");
+				else
 					customerFactory.addCustomer($scope.newCustomer);
 				$scope.newCustomer = {};
 			}
