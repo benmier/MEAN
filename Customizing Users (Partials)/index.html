@@ -11,10 +11,10 @@
 		myApp.config(function($routeProvider){
 			$routeProvider
 				.when('/',{
-					templateUrl: 'partials/customizeUsers.html'
+					templateUrl: 'static/partials/customizeUsers.html'
 				})
 				.when('/list_users',{
-					templateUrl: 'partials/userList.html'
+					templateUrl: 'static/partials/userList.html'
 				})
 				.otherwise({
 					redirectTo: '/'
@@ -69,8 +69,9 @@
 	</script>
 <body>
 	<div ng-app='myApp'>
-		<a href="#/customize_users" style="margin-right: 20px;">Customize Users</a>
+		<a href="#/" style="margin-right: 20px;">Customize Users</a>
 		<a href="#/list_users">List Users</a>
+		<div ng-view=''></div>
 	</div>
 </body>
 </html>
