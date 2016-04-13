@@ -31,8 +31,8 @@
 			// 		$scope.students = data;
 			// 	});
 
-			myAppModule.controller('studentsController',function($scope){
-				$scope.students = [
+			myAppModule.controller('studentsController',function(){
+				this.students = [
 					{name: 'Mike', age: 34}, 
 					{name: 'John', age: 24}, 
 					{name: 'Trey', age: 24}, 
@@ -40,9 +40,9 @@
 				];		
 				
 
-				$scope.addStudent = function(){
-					$scope.students.push($scope.newStudent);
-					$scope.newStudent = {};	
+				this.addStudent = function(){
+					this.students.push(this.newStudent);
+					this.newStudent = {};	
 				}
 			});
 	  </script>
@@ -50,15 +50,15 @@
 	<body>
 		<h3>{{ 49567 * 2243 }} </h3>
 		<h3 ng-bind='49567 * 2243'></h3>
-		<div ng-controller="studentsController">
+		<div ng-controller="studentsController as SC">
 			<ul>
-				<li ng-repeat='student in students'>{{student.name}}, {{student.age}}</li>
+				<li ng-repeat='student in SC.students'>{{student.name}}, {{student.age}}</li>
 			</ul>
 				<h3>Add a new student!</h3>
 				<form>
-					Name: <input type='text' ng-model='newStudent.name'>
-					Age: <input type='text' ng-model='newStudent.age'>
-					<input type='submit' value='add new student' ng-click='addStudent()'>
+					Name: <input type='text' ng-model='SC.newStudent.name'>
+					Age: <input type='text' ng-model='SC.newStudent.age'>
+					<input type='submit' value='add new student' ng-click='SC.addStudent()'>
 				</form>
 		</div>
 	</body>

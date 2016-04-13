@@ -54,8 +54,8 @@
 			});
 
 			this.addUser = function(){
-				usersFactory.addUser(CUC.newUser)
-				CUC.newUser = {};
+				usersFactory.addUser(this.newUser)
+				this.newUser = {};
 			}
 
 			this.deleteUser = function(user){
