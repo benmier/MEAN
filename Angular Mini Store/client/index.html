@@ -6,7 +6,21 @@
 	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.5/angular-route.min.js"></script>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 	<script type="text/javascript">
-		
+		var myApp = angular.module('myApp',[]);
+
+		myApp.factory('customerFactory', function(){
+			var customers = [
+				{name: "Michael Choi", createdDate: "April 3rd 2014"},
+				{name: "John Supsupin", createdDate: "April 3rd 2014"},
+				{name: "Trey Villafane", createdDate: "April 1st 2014"},
+				{name: "India Meisner", createdDate: "March 15th 2014"}
+			];
+			return factory;
+		})
+
+		myApp.controller('customersController', function($scope){
+
+		})
 	</script>
 <body ng-controller='customersController'>
 	<<form class="form-group" style="margin-top: 20px;">
