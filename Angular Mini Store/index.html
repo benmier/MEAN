@@ -67,7 +67,7 @@
 		<tbody>
 			<tr ng-repeat='customer in customers | filter:name_filter | orderBy: customer.date'>
 				<td ng-bind='customer.name'></td>
-				<td ng-bind='customer.date'></td>
+				<td ng-bind="customer.date | date:'MMM d, y'"></td>
 				<td><button ng-click='deleteCustomer(customer)'>Remove</button></td>
 			</tr>
 		</tbody>
