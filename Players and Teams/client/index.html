@@ -53,7 +53,7 @@
 			var teams = [
 				{name: "Speros", team: "Seahawks"},
 				{name: "Jay", team: "49ers"},
-				{name: "Jimmy"}
+				{name: "Jimmy", team: "Bears"}
 			];
 
 			var factory = {};
@@ -61,7 +61,6 @@
 			factory.getTeams = function(callback){callback(teams)};
 
 			factory.addTeam = function(newTeam){
-				newTeam.name = "";
 				teams.push(newTeam);
 			}
 
@@ -113,6 +112,10 @@
 		})
 
 		myApp.controller('AssociationsController', function($scope,PlayerFactory,TeamFactory){
+			$scope.players = [];
+			PlayerFactory.getPlayers(function(data){
+				$scope.players = data;
+			});
 
 			$scope.teams = [];
 			TeamFactory.getTeams(function(data){
