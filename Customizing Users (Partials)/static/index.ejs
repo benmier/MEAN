@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html style="margin: 20px;">
+<head>
+	<title>Customizing Users (Partials)</title>
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.5/angular.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.5/angular-route.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	<script type="text/javascript">
+		var myApp = angular.module('myApp',['ngRoute']);
+
+		myApp.config(function($routeProvider){
+			$routeProvider
+				.when('/'{
+					templateUrl: 'index.html'
+				})
+				.when('/customize_users',{
+					templateUrl: '../static/partials/customizeUsers.html'
+				})
+				.when('/list_users',{
+					templateUrl: 'partials/userList.html'
+				})
+				.otherwise({
+					redirectTo: '/'
+				})
+		});
+
+		myApp.factory('usersFactory', function(){
+			var users = [
+				{first_name:"Yikihiro", last_name:"Matsumoto", lang:"Ruby"},
+				{first_name:"Ryan", last_name:"Dahl", lang:"JavaScript"},
+				{first_name:"Brendan", last_name:"Eich", lang:"JavaScript"},
+			];
+
+			var factory = {};
+
+			factory.getUsers = function(callback){callback(users)};
+
+			factory.addUser = function(newUser){
+				users.push(newUser);
+			}
+
+			factory.deleteUser = function(user){
+				users.splice(user.indexOf(user),1);
+			}
+
+			return factory;
+		});
+
+		myApp.controller('CustomizeUsersController', function(usersFactory){
+			this.users = [];
+			usersFactory.getUsers(function(data){
+				this.users = data;
+			});
+
+			this.addUser = function(){
+				usersFactory.addUser(CUC.newUser)
+				CUC.newUser = {};
+			}
+
+			this.deleteUser = function(user){
+				usersFactory.deleteUser(user);
+			}
+		});
+
+		myApp.controller('ListUsersController', function(usersFactory){
+			this.users = [];
+			usersFactory.getUsers(function(data){
+				this.users.data
+			})
+		});
+
+	</script>
+<body>
+	<div ng-app='myApp'>
+		<a href="#/customize_users" style="margin-right: 20px;">Customize Users</a>
+		<a href="#/list_users">List Users</a>
+	</div>
+</body>
+</html>
