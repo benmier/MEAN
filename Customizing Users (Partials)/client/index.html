@@ -16,14 +16,14 @@
 				})
 				.when('/list_users',{
 					templateUrl: 'partials/userList.html',
-					controller: "ListUsersController"
+					controller: "UserListsController"
 				})
 				.otherwise({
 					redirectTo: '/'
 				})
 		});
 
-		myApp.factory('usersFactory', function(){
+		myApp.factory('UserFactory', function(){
 			var users = [
 				{first_name:"Yikihiro", last_name:"Matsumoto", lang:"Ruby"},
 				{first_name:"Ryan", last_name:"Dahl", lang:"JavaScript"},
@@ -39,32 +39,32 @@
 			}
 
 			factory.deleteUser = function(user){
-				users.splice(user.indexOf(user),1);
+				users.splice(users.indexOf(user),1);
 			}
 
 			return factory;
 		});
 
-		myApp.controller('CustomizeUsersController', function($scope,usersFactory){
+		myApp.controller('CustomizeUsersController', function($scope,UserFactory){
 			$scope.users = [];
-			usersFactory.getUsers(function(data){
+			UserFactory.getUsers(function(data){
 				$scope.users = data;
 			});
 
 			$scope.addUser = function(){
-				usersFactory.addUser($scope.newUser)
+				UserFactory.addUser($scope.newUser)
 				$scope.newUser = {};
 			}
 
 			$scope.deleteUser = function(user){
-				usersFactory.deleteUser(user);
+				UserFactory.deleteUser(user);
 			}
 		});
 
-		myApp.controller('ListUsersController', function($scope,usersFactory){
+		myApp.controller('UserListsController', function($scope,UserFactory){
 			$scope.users = [];
-			usersFactory.getUsers(function(data){
-				$scope.users.data;
+			UserFactory.getUsers(function(data){
+				$scope.users = data;
 			})
 		});
 
