@@ -12,13 +12,11 @@
 			$routeProvider
 				.when('/',{
 					templateUrl: 'partials/customizeUsers.html',
-					controller: "CustomizeUsersController",
-					controllerAs: "CUC"
+					controller: "CustomizeUsersController"
 				})
 				.when('/list_users',{
 					templateUrl: 'partials/userList.html',
-					controller: "ListUsersController",
-					controllerAs: "LUC"
+					controller: "ListUsersController"
 				})
 				.otherwise({
 					redirectTo: '/'
@@ -47,26 +45,26 @@
 			return factory;
 		});
 
-		myApp.controller('CustomizeUsersController', function(usersFactory){
-			this.users = [];
+		myApp.controller('CustomizeUsersController', function($scope,usersFactory){
+			$scope.users = [];
 			usersFactory.getUsers(function(data){
-				this.users = data;
+				$scope.users = data;
 			});
 
-			this.addUser = function(){
-				usersFactory.addUser(this.newUser)
-				this.newUser = {};
+			$scope.addUser = function(){
+				usersFactory.addUser($scope.newUser)
+				$scope.newUser = {};
 			}
 
-			this.deleteUser = function(user){
+			$scope.deleteUser = function(user){
 				usersFactory.deleteUser(user);
 			}
 		});
 
-		myApp.controller('ListUsersController', function(usersFactory){
-			this.users = [];
+		myApp.controller('ListUsersController', function($scope,usersFactory){
+			$scope.users = [];
 			usersFactory.getUsers(function(data){
-				this.users.data
+				$scope.users.data;
 			})
 		});
 
