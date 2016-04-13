@@ -1,7 +1,7 @@
 <form class="form-group" style="margin-top: 20px;">
 	<label>Name</label>
 	<select style="width: 25%;" ng-model='newAssociation.name' class="form-control">
-		<option ng-repeat='team in teams'>{{team.name}}</option>
+		<option ng-repeat='player in teams'>{{player.name}}</option>
 	</select><br>
 	<label>Team</label>
 	<select style="width: 25%;" ng-model='newAssociation.team' class="form-control">
@@ -19,7 +19,7 @@
 		</tr>
 	</thead>
 	<tbody>
-		<tr ng-repeat='association in associations'>
+		<tr ng-repeat='association in teams'>
 			<td>{{association.name}}</td>
 			<td>{{association.team}}</td>
 			<td><button ng-click='deleteAssociation(association)'>Clear Assignment</button></td>
