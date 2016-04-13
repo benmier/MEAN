@@ -74,12 +74,14 @@
 				teams.splice(teams.indexOf(team),1);
 			}
 
+			factory.getAssociations = function(callback){callback(associations)};
+
 			factory.addAssociation = function(newAssociation){
 
 			}
 
 			factory.deleteAssociation = function(association){
-
+				associations.splice(associations.indexOf(association),1);
 			}
 
 			return factory;	
