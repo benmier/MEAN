@@ -2,13 +2,13 @@
 	<label>Name</label>
 	<select style="width: 25%;" ng-model='newAssociation.name' class="form-control">
 		<option>
-			
+			<select ng-repeat='player in players'></select>
 		</option>
 	</select><br>
 	<label>Team</label>
 	<select style="width: 25%;" ng-model='newAssociation.team' class="form-control">
 		<option>
-			
+			<select ng-repeat='team in teams'></select>
 		</option>
 	</select><br>
 	<input type="submit" ng-click='addAssociation()' value="Assign Player to Team"></input>

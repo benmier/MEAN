@@ -72,15 +72,50 @@
 		})
 
 		myApp.controller('PlayersController', function($scope,PlayerFactory){
-			
+			$scope.players = [];
+			PlayerFactory.getPlayers(function(data){
+				$scope.players = data;
+			});
+
+			$scope.addPlayer = function(){
+				PlayerFactory.addPlayer($scope.newPlayer);
+				$scope.newPlayer = {};
+			}
+
+			$scope.deletePlayer = function(player){
+				PlayerFactory.deletePlayer(player);
+			}
 		})
 
 		myApp.controller('TeamsController', function($scope,TeamFactory){
-			
+			$scope.teams = [];
+			PlayerFactory.getTeams(function(data){
+				$scope.teams = data;
+			});
+
+			$scope.addTeam = function(){
+				TeamFactory.addTeam($scope.newTeam);
+				$scope.newTeam = {};
+			}
+
+			$scope.deleteTeam = function(team){
+				TeamFactory.deleteTeam(team);
+			}
 		})
 
 		myApp.controller('AssociationsController', function($scope,AssociationsController){
-			
+			$scope.players = [];
+			PlayerFactory.getPlayers(function(data){
+				$scope.players = data;
+			});
+
+			$scope.teams = [];
+			PlayerFactory.getTeams(function(data){
+				$scope.teams = data;
+			});
+
+
+
 		})
 	</script>
 <body>
