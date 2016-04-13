@@ -8,6 +8,19 @@
 	<script type="text/javascript">
 		var myApp = angular.module('myApp',['ngRoute']);
 
+		myApp.config(function($routeProvider){
+			$routeProvider
+				.when('/customize_users',{
+					templateUrl: 'partials/customizeUsers.html'
+				})
+				.when('/list_users',{
+					templateUrl: 'partials/userList.html'
+				})
+				.otherwise({
+					redirectTo: '/'
+				})
+		});
+
 		myApp.factory('usersFactory', function(){
 			var users = [
 				{first_name:"Yikihiro", last_name:"Matsumoto", lang:"Ruby"},
