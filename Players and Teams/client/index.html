@@ -45,12 +45,29 @@
 			factory.deletePlayer = function(player){
 				players.splice(players.indexOf(player),1);
 			}
-			
+
 			return factory;
 		})
 
 		myApp.factory('TeamFactory', function(){
-			
+			var teams = [
+				{name: "Seahawks"},
+				{name: "49ers"},
+				{name: "Honeybadgers"},
+			];
+
+			var factory = {};
+
+			factory.getTeams = function(callback){callback(teams)};
+
+			factory.addTeams = function(newTeam){
+				players.push(newTeam);
+			}
+
+			factory.deleteTeam = function(team){
+				teams.splice(teams.indexOf(team),1);
+			}
+
 			return factory;	
 		})
 
