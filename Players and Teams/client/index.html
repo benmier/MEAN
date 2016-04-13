@@ -53,7 +53,7 @@
 			var teams = [
 				{name: "Speros", team: "Seahawks"},
 				{name: "Jay", team: "49ers"},
-				{name: "Jimmy", team: "Bears"}
+				{name: "Jimmy"}
 			];
 
 			var factory = {};
@@ -70,7 +70,7 @@
 			}
 
 			factory.addAssociation = function(newAssociation){
-				associations.push(newAssociation);
+				teams.push(newAssociation);
 			}
 
 			factory.deleteAssociation = function(association){
