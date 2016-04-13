@@ -1,0 +1,16 @@
+<table class="table table-striped" style="border:1px solid tan; margin-top: 20px;">
+	<thead>
+		<tr>
+			<th>First Name</th>
+			<th>Last Name</th>
+			<th>Fav Language</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat='user in CUC.users'>
+			<td>{{user.first_name}}</td>
+			<td>{{user.last_name}}</td>
+			<td>{{user.lang}}</td>
+		</tr>
+	</tbody>
+</table>
