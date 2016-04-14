@@ -9,17 +9,18 @@ module.exports = (function() {
                     console.log(err);
                 else
                 	res.json(results);
-        		      
             })
         },
 
         create: function(req, res) {
         	var new_friend = new Friend(req.body);
-            new_friend.save(function(err, results) {
+            new_friend.save(function(err) {
                 if (err)
                     res.json(err);
-                else
+                else{
+                	console.log('redirecting')
                 	res.redirect('/')        		      
+                }
             })
         }
     }
