@@ -68,21 +68,20 @@
 
 			var factory = {};
 
-			factory.getCustomers = function(callback){callback(customers)};
+			factory.getOrders = function(callback){callback(orders)};
 			
-			factory.addCustomer = function(newCustomer){
+			factory.addOrder = function(newOrder){
 				var d = Date.now()
-				newCustomer.date = d;
-				customers.push(newCustomer);
+				newOrder.date = d;
+				orders.push(newOrder);
 			}
 
-			factory.deleteCustomer = function(customer){
-				customers.splice(customers.indexOf(customer),1);
+			factory.deleteOrder = function(customer){
+				customers.splice(orders.indexOf(customer),1);
 			}
 
 			return factory;
 		});
-		})
 
 		myApp.controller('customersController', function($scope,customerFactory){
 			$scope.customers = [];
@@ -105,6 +104,17 @@
 				customerFactory.deleteCustomer(customer);
 			}
 		})
+
+		myApp.controller('ordersController', function($scope,customerFactory, orderFactory){
+			$scope.customers = [];
+			customerFactory.getCustomers(function(data){
+				$scope.customers = data;
+			})
+			$scope.orders = [];
+			orderFactory.getOrders(function(data){
+				$scope.orders = data;
+			})
+		});
 	</script>
 <body>
 	<div ng-app='myApp'>
