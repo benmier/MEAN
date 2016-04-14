@@ -6,4 +6,8 @@ var friends = require('./../controllers/friends.js');
     	friends.index(req,res);
     });
 
+    app.post('/friends', function(req, res) {
+    	friends.create(req,res);
+    });
+
   };

@@ -31,8 +31,10 @@
             }
 
             factory.create = function(new_friend,callback) {
-                friends.push(new_friend);
-                callback(friends)
+                $http.post('/friends').success(function(output){
+                    // callback(friends)
+                    console.log(output)
+                })
             }
 
             return factory;
