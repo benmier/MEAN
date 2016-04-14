@@ -116,6 +116,7 @@
 			})
 
 			$scope.addOrder = function(){
+				console.log($scope.newOrder)
 				orderFactory.addOrder($scope.newOrder);
 			}
 		});

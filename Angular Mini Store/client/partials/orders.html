@@ -2,14 +2,14 @@
 <form class="form-group">
 		<label>Customer</label>
 		<select class="form-control" style="width: 25%;" ng-model='newOrder.name'>
-			<option ng-repeat='customer in customers' ng-bind='customer.name'></option>
+			<option ng-repeat='customer in customers'>{{customer.name}}</option>
 		</select><br>
 		<label>Order</label>
 		<select class="form-control" style="width: 25%;" ng-model='newOrder.qty'>
 			<option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option>
 		</select><br>
 		<select class="form-control" style="width: 25%;" ng-model='newOrder.product'>
-			<option ng-repeat='product in orders' ng-bind='product.product'></option>
+			<option ng-repeat='product in orders'>{{product.product}}</option>
 		</select><br>
 		<input type="submit" ng-click='addOrder()' value="Order"></input>
 	</form><br>
