@@ -1,9 +1,16 @@
+var mongoose = require('mongoose');
+var Friend = mongoose.model('Friend');
 
 module.exports = (function() {
-	return {
-	// notice how index in the factory(client side) is calling the index method(server side)
-		index: function(req, res) {
-			res.json([{name: "Andrew", age: 24}, {name: "Michael", age: 35}]);
-		}
-	}
+    return {
+        index: function(req, res) {
+            Friend.find({}, function(err, results) {
+                if (err)
+                    console.log(err);
+                else
+                	res.json(results);
+        		      
+            })
+        }
+    }
 })();
