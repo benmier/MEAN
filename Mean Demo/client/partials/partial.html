@@ -2,7 +2,7 @@
     <input type="text" ng-model="filter_name" placeholder="filter"><br><br>
     <ul>
         <!-- here is where we are going to display friends -->
-        <li ng-repeat="friend in FC.friends track by $index | filter: filter_name">
+        <li ng-repeat="friend in FC.friends | filter: filter_name">
             {{friend.name}}, {{friend.age}}, <a ng-click='FC.removeFriend(friend)'>Remove</a>
         </li>
     </ul><br><br>
