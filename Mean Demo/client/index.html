@@ -22,11 +22,12 @@
             var factory = {};
             var friends = [];
 
-            factory.index = function(callback) {
+            factory.index = function() {
+                console.log('hit factory index')
                 $http.get('/friends').success(function(output) {
-                    friends = callback(output);
+                    friends = output;
                 });
-                // return friends;
+                return friends;
             }
 
             factory.create = function(new_friend) {
@@ -37,19 +38,16 @@
         });
 
         friends_app.controller('FriendsController', function(FriendFactory) {
+            var that = this;
+            
+            that.friends = FriendFactory.index();
 
-            FriendFactory.index(function(data){
-                this.friends = data;
-            });
-
-            this.addFriend = function() {
-                FriendFactory.create(this.new_friend);
-                FriendFactory.index(function(data){
-                    this.friends = data;
-                });
-                this.new_friend = {};
-            };
-        })
+            that.addFriend = function() {
+                FriendFactory.create(that.new_friend);
+                that.friends = FriendFactory.index();
+                that.new_friend = {};
+            }
+        });
     </script>
 </head>
 
