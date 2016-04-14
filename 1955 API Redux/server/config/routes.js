@@ -3,7 +3,6 @@ var people = require('../controllers/people.js');
 module.exports = function(app){
 
   app.get('/people', function(req, res) {
-    console.log('hit route')
       people.show(req,res);
   });
 
