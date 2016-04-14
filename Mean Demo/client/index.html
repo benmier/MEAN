@@ -31,15 +31,14 @@
             }
 
             factory.create = function(new_friend,callback) {
-                console.log('/friends/'+new_friend._id)
-                $http.post('/friends/'+new_friend._id).success(function(output){
+                $http.post('/friends',new_friend).success(function(output){
                     friends = output;
                     callback(friends);
                 })
             }
 
             factory.destroy = function(friend,callback) {
-                $http.delete('/friends/'+friend._id).success(function(output){
+                $http.post('/friends/'+friend._id).success(function(output){
                     friends = output;
                     callback(friends);
                 })

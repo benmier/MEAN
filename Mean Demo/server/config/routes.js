@@ -10,7 +10,7 @@ var friends = require('./../controllers/friends.js');
     	friends.create(req,res);
     });
 
-    app.delete('/friends/:id', function(req, res) {
+    app.post('/friends/:id', function(req, res) {
     	friends.destroy(req,res);
     });
 
