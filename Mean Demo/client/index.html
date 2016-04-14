@@ -20,13 +20,15 @@
 
         friends_app.factory('FriendFactory', function($http) {
             var factory = {};
-            var friends = [];
+            friends = [];
 
             factory.index = function() {
                 console.log('hit factory index')
                 $http.get('/friends').success(function(output) {
                     friends = output;
+                    console.log("inside" +friends)
                 });
+                 console.log(friends)
                 return friends;
             }
 
@@ -44,11 +46,14 @@
                 that.friends = FriendFactory.index();
             }
             getTeams();
+
             this.addFriend = function() {
                 FriendFactory.create(this.new_friend);
                 this.friends = FriendFactory.index();
+                console.log(that.friends)
                 this.new_friend = {};
             }
+
         });
     </script>
 </head>
