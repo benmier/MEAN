@@ -11,7 +11,7 @@ module.exports = (function() {
                 	res.json(results);
         		      
             })
-        }
+        },
 
         create: function(req, res) {
         	var new_friend = new Friend(req.body);
