@@ -2,7 +2,7 @@ var people = require('../controllers/people.js');
 
 module.exports = function(app){
 
-  app.get('/', function(req, res) {
+  app.get('/people', function(req, res) {
     console.log('hit route')
       people.show(req,res);
   });
@@ -15,7 +15,11 @@ module.exports = function(app){
       people.create(req,res);
   });
 
-  app.get('/remove/:name', function(req, res) {
+  app.post('/update/:name', function(req, res) {
+      people.update(req,res);
+  });
+
+  app.post('/remove/:name', function(req, res) {
       people.remove(req,res);
   });
 };

@@ -13,7 +13,7 @@
             var factory = {}, people;
 
             factory.index = function(callback){
-                $http.get('/show').success(function(output){
+                $http.get('/people').success(function(output){
                     people = output;
                     callback(people);
                 })
@@ -52,6 +52,13 @@
                 });
                 this.newPerson = {};
             };
+
+            // this.addPerson = function(){
+            //     peopleFactory.edit(this.newPerson,function(data){
+            //         that.people = data;
+            //     });
+            //     this.newPerson = {};
+            // };
 
             this.removePerson = function(person){
                 peopleFactory.destroy(person,function(data){

@@ -27,7 +27,7 @@ module.exports = {
             if(err)
                 res.json(err);
             else
-                res.redirect('/show')
+                res.redirect('/people')
         });
     },
 
@@ -36,7 +36,7 @@ module.exports = {
             if(err)
                 res.json(err);
             else
-                res.redirect('/show')
+                res.redirect('/people')
         })
     },
 }
