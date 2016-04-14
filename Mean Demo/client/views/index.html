@@ -13,33 +13,28 @@
             var friends = [];
 
             factory.index = function() {
-                    $http.get('/friends').success(function(output) {
-                        friends = output;
-                        callback(friends);
-                    })
-                }
-
-            factory.create = function(info, callback) {
-                friends.push({
-                    name: info.name,
-                    age: info.age
+                $http.get('/friends').success(function(output) {
+                    friends = output;
                 });
-                callback(friends);
+            	return friends;
             }
+
+            factory.create = function(new_friend) {
+                friends.push(new_friend);
+                return friends;
+            }
+            
             return factory;
         });
 
-        friends_app.controller('FriendsController', function($scope, FriendFactory) {
-            FriendFactory.index(function(data) {
-                $scope.friends = data;
-            });
+        friends_app.controller('FriendsController', function(FriendFactory) {
+            
+            this.friends = FriendFactory.index()
 
-            $scope.addfriend = function() {
-                FriendFactory.create($scope.new_friend, function() {
-                    FriendFactory.index(function(data) {
-                        $scope.friends = data;
-                    });
-                    $scope.new_friend = {};
+            this.addfriend = function() {
+                FriendFactory.create(this.new_friend, function() {
+                    this.friends = FriendFactory.index()
+                    this.new_friend = {};
                 });
             }
         })
