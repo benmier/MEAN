@@ -1,12 +1,12 @@
-<h1>Friends</h1>
-    <input type="text" ng-model="filter_name" placeholder="filter"> {{filter_name}}
+<h2>Friends</h2>
+    <input type="text" ng-model="filter_name" placeholder="filter"><br><br>
     <ul>
         <!-- here is where we are going to display friends -->
         <li ng-repeat="friend in FC.friends | filter: filter_name">
             {{friend.name}}, {{friend.age}}
         </li>
-    </ul>
-    <h1>Add a Friend</h1>
+    </ul><br><br>
+    <h2>Add a Friend</h2>
     <!-- objects and properties nothing scary -->
     <input type="text" ng-model="FC.new_friend.name" placeholder="name">
     <input type="text" ng-model="FC.new_friend.age" placeholder="age">
