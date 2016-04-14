@@ -1,19 +1,27 @@
-<h3>Orders Controller</h3>
-		<table class="table table-striped" style="border:1px solid tan;">
-			<thead>
-				<tr>
-					<th>Name</th>
-					<th>Price</th>
-					<th>Qty Available</th>
-					<th>Actions</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr ng-repeat='product in products'>
-					<td>{{product.name}}</td>
-					<td>{{product.price | currency}}</td>
-					<td>{{product.qty}}</td>
-					<td><button ng-click='orderProduct(product)' ng-if='product.qty'>Buy</button></td>
-				</tr>
-			</tbody>
-		</table>
+<h3>Add a new order</h3>
+<form class="form-group">
+		<label>Name</label>
+		<input class="form-control" type="text" style="width: 25%;" ng-model='newCustomer.name'></input><br>
+		<input type="submit" ng-click='addCustomer()' value="Add"></input>
+	</form><br>
+
+	<input placeholder="search name..." type="text" ng-model='name_filter'></input><br><br>
+	
+<table class="table table-striped" style="border:1px solid tan;">
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>Price</th>
+			<th>Qty Available</th>
+			<th>Actions</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat='product in products'>
+			<td>{{product.name}}</td>
+			<td>{{product.price | currency}}</td>
+			<td>{{product.qty}}</td>
+			<td><button ng-click='orderProduct(product)' ng-if='product.qty'>Buy</button></td>
+		</tr>
+	</tbody>
+</table>
