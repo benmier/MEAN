@@ -2,7 +2,7 @@
 for i in {1..144}
 do
 	git add .
-	git commit -m 'Updated MEAN angular mini store project'
+	git commit -m 'Updated MEAN friends demo project'
 	git push
 	sleep 300
 done
