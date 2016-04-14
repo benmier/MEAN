@@ -12,8 +12,11 @@
 </head>
 
 
-<body>
-    
+<body ng-controller="peopleController as PC">
+    <h2>1955 Dashboard</h2><hr><br>
+    <h3>Add people who were born in 1955!</h3>
+    <input ng-model='PC.newPerson.name' type="text"></input>
+    <input ng-click='PC.addPerson()' value="Submit" type="submit"></input>
 </body>
 
 </html>
