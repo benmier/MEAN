@@ -12,7 +12,11 @@
 		  var friends = [{name: "Michael", age: 34}, {name: "Andrew", age: 24}];
 		//Restful syntax: index = get all that object
 		  factory.index = function() {
-		    return friends;
+		      // Where do we get access to $http?
+			  $http.get('/friends').success(function(output) {
+			    friends = output;
+			    callback(friends);
+			  }) 
 		  }
 		  // note the use of callbacks!
 		  // Restful syntax: create = add one to that object
