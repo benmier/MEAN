@@ -6,6 +6,7 @@ var path = require('path');
 var app = express();
 var bodyParser = require('body-parser'); 
 app.use(bodyParser.json());
+app.use(express.static(path.join(__dirname, './client')));
 
 //Mongoose must come before routes!
 require('./server/config/mongoose.js');
@@ -13,7 +14,6 @@ require('./server/config/mongoose.js');
 require('./server/config/routes.js')(app);
 
 // set up a static file server that points to the "client" directory
-app.use(express.static(path.join(__dirname, './client')));
 app.listen(8000, function() {
   console.log('cool stuff on: 8000');
 });
