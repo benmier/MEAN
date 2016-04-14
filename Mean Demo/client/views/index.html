@@ -7,7 +7,7 @@
 		// Let's create our angular module
 		var friends_app = angular.module('friends_app', []);
 		// create the FriendFactory
-		friends_app.factory('FriendFactory', function() {
+		friends_app.factory('FriendFactory', function($http) {
 		  var factory = {};
 		  var friends = [{name: "Michael", age: 34}, {name: "Andrew", age: 24}];
 		//Restful syntax: index = get all that object
