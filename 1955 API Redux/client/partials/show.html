@@ -13,7 +13,7 @@
         <tbody>
             <tr ng-repeat="person in PC.people">
                 <td ng-bind="person.name"></td>
-                <td><a href='#/edit' ng-click='PC.showOnePerson(person)'>Edit</a> | 
+                <td><a href='#/edit/{{person.name}}' ng-click='PC.showOnePerson(person)'>Edit</a> | 
                 <a ng-click='PC.removePerson(person)'>Delete</a></td>
             </tr>
         </tbody>
