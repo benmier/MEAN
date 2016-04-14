@@ -9,7 +9,7 @@
 			<option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option>
 		</select><br>
 		<select class="form-control" style="width: 25%;" ng-model='newOrder.product'>
-			<option ng-repeat='product in products' ng-bind='product.name'></option>
+			<option ng-repeat='product in orders' ng-bind='product.product'></option>
 		</select><br>
 		<input type="submit" ng-click='addOrder()' value="Order"></input>
 	</form><br>
@@ -27,9 +27,10 @@
 	</thead>
 	<tbody>
 		<tr ng-repeat='order in orders | filter:name_filter | orderBy: "date":true'>
-			<td ng-bind="customer.name"></td>
-			<td ng-bind="customer.product"></td>
-			<td ng-bind="customer.date | date:'MMMM d, y'"></td>
+			<td ng-bind="order.name"></td>
+			<td ng-bind="order.product"></td>
+			<td ng-bind="order.qty"></td>
+			<td ng-bind="order.date | date:'MMMM d, y'"></td>
 		</tr>
 	</tbody>
 </table>

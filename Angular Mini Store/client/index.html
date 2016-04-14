@@ -114,6 +114,10 @@
 			orderFactory.getOrders(function(data){
 				$scope.orders = data;
 			})
+
+			$scope.addOrder = function(){
+				orderFactory.addOrder($scope.newOrder);
+			}
 		});
 	</script>
 <body>
