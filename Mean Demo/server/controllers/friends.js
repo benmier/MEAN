@@ -12,5 +12,15 @@ module.exports = (function() {
         		      
             })
         }
+
+        create: function(req, res) {
+            Friend.insert({req.body}, function(err, results) {
+                if (err)
+                    console.log(err);
+                else
+                	res.json(results);
+        		      
+            })
+        }
     }
 })();

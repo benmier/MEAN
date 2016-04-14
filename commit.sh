@@ -2,7 +2,7 @@
 for i in {1..144}
 do
 	git add .
-	git commit -m 'Updated MEAN friends demo project'
+	git commit -m 'Updated MEAN full mean project'
 	git push
 	sleep 300
 done
