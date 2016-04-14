@@ -41,12 +41,12 @@
         friends_app.controller('FriendsController', function(FriendFactory) {
             var that = this;
 
-            var getTeams = function(){
+            var index = function(){
                 FriendFactory.index(function(data){
                     that.friends = data;
                 });
             }
-            getTeams();
+            index();
 
             this.addFriend = function() {
                 FriendFactory.create(this.new_friend,function(data){
