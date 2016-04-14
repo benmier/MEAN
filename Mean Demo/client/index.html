@@ -26,9 +26,13 @@
 		friends_app.controller('FriendsController', function($scope, FriendFactory) {
 		  $scope.friends = FriendFactory.index();
 		  $scope.addfriend = function() {
-			$scope.friends.push({name: $scope.new_friend.name, age: $scope.new_friend.age});
-			$scope.new_friend = {};
-		  }
+			  // note the use of callbacks here
+			  FriendFactory.create($scope.new_friend, function() {
+			//the line below says: set our $scope.friends variable to whatever is returned from FriendFactory.index.  In this case, that will be all the friends.
+			    $scope.friends = FriendFactory.index();
+			    $scope.new_friend = {};
+			  });
+			}
 		})
 	  </script>
 </head>
