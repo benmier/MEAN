@@ -2,13 +2,13 @@
     <input type="text" ng-model="filter_name" placeholder="filter"> {{filter_name}}
     <ul>
         <!-- here is where we are going to display friends -->
-        <li ng-repeat="friend in friends | filter: filter_name">
+        <li ng-repeat="friend in FC.friends | filter: filter_name">
             {{friend.name}}, {{friend.age}}
         </li>
     </ul>
     <h1>Add a Friend</h1>
     <!-- objects and properties nothing scary -->
-    <input type="text" ng-model="new_friend.name" placeholder="name">
-    <input type="text" ng-model="new_friend.age" placeholder="age">
+    <input type="text" ng-model="FC.new_friend.name" placeholder="name">
+    <input type="text" ng-model="FC.new_friend.age" placeholder="age">
     <!-- addfriend() is a method we are going to make in the angular controller -->
-    <input type="submit" ng-click="addFriend()">
+    <input type="submit" ng-click="FC.addFriend()">

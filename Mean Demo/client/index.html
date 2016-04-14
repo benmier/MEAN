@@ -13,7 +13,8 @@
 			$routeProvider
 				.when('/',{
 					templateUrl: 'partials/partial.html',
-					controller: 'FriendsController'
+					controller: 'FriendsController',
+                    controllerAs: 'FC'
 				})
 		});
 
@@ -21,11 +22,11 @@
             var factory = {};
             var friends = [];
 
-            factory.index = function() {
+            factory.index = function(callback) {
                 $http.get('/friends').success(function(output) {
-                    friends = output;
+                    friends = callback(output);
                 });
-                return friends;
+                // return friends;
             }
 
             factory.create = function(new_friend) {
@@ -37,11 +38,15 @@
 
         friends_app.controller('FriendsController', function(FriendFactory) {
 
-            this.friends = FriendFactory.index();
+            FriendFactory.index(function(data){
+                this.friends = data;
+            });
 
             this.addFriend = function() {
                 FriendFactory.create(this.new_friend);
-                this.friends = FriendFactory.index();
+                FriendFactory.index(function(data){
+                    this.friends = data;
+                });
                 this.new_friend = {};
             };
         })
