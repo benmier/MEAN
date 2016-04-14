@@ -15,8 +15,9 @@ module.exports = (function() {
         create: function(req, res) {
         	var new_friend = new Friend(req.body);
             new_friend.save(function(err) {
-                if (err)
-                    res.json(err);
+                if (err){
+                    console.log(err);
+                }
                 else
                 	res.redirect('/friends')        		      
             });
@@ -25,7 +26,7 @@ module.exports = (function() {
         destroy: function(req, res) {
         	Friend.remove({_id:req.params.id},function(err) {
                 if (err)
-                    res.json(err);
+                    console.log(err);
                 else
                 	res.redirect('/friends')        		      
             });
