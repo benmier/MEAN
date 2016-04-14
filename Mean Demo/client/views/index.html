@@ -1,13 +1,22 @@
-<html ng-app="friends_app">
+<html>
 
 <head>
     <title>Full Mean Demo</title>
-    <!-- require angular -->
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
-    <script>
-        // Let's create our angular module
-        var friends_app = angular.module('friends_app', []);
-        // create the FriendFactory
+	 <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.5/angular.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.5/angular-route.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	<script type="text/javascript">
+
+        var friends_app = angular.module('friends_app', ['ngRoute']);
+
+        myApp.config(function($routeProvider){
+			$routeProvider
+				.when('/',{
+					templateUrl: 'partials/partial.html',
+					controller: 'FriendsController'
+				})
+		});
+
         friends_app.factory('FriendFactory', function($http) {
             var factory = {};
             var friends = [];
@@ -40,21 +49,10 @@
 </head>
 
 
-<body ng-controller="FriendsController">
-    <h1>Friends</h1>
-    <input type="text" ng-model="filter_name" placeholder="filter"> {{filter_name}}
-    <ul>
-        <!-- here is where we are going to display friends -->
-        <li ng-repeat="friend in friends | filter: filter_name">
-            {{friend.name}}, {{friend.age}}
-        </li>
-    </ul>
-    <h1>Add a Friend</h1>
-    <!-- objects and properties nothing scary -->
-    <input type="text" ng-model="new_friend.name" placeholder="name">
-    <input type="text" ng-model="new_friend.age" placeholder="age">
-    <!-- addfriend() is a method we are going to make in the angular controller -->
-    <input type="submit" ng-click="addFriend()">
+<body>
+    <div ng-app='friends_app'>
+		<div ng-view=''></div>
+	</div>
 </body>
 
 </html>
