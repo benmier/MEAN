@@ -21,6 +21,9 @@
                     controller: 'peopleController',
                     controllerAs: 'PC'
                 })
+                .otherwise({
+                    redirectTo: '/'
+                })
         });
 
         myApp.factory('peopleFactory', function($http){
@@ -52,7 +55,7 @@
 
         myApp.controller('peopleController', function(peopleFactory){
             var that = this;
-
+            console.log("hit it")
             var getPeople = function(){
                 peopleFactory.index(function(data){
                     that.people = data;
