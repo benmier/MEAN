@@ -30,8 +30,9 @@
                 return friends;
             }
 
-            factory.create = function(new_friend) {
+            factory.create = function(new_friend,callback) {
                 friends.push(new_friend);
+                callback(friends)
             }
 
             return factory;
@@ -41,14 +42,16 @@
             var that = this;
 
             var getTeams = function(){
-                that.friends = FriendFactory.index();
+                FriendFactory.index(function(data){
+                    that.friends = data;
+                });
             }
             getTeams();
 
             this.addFriend = function() {
-                FriendFactory.create(this.new_friend);
-                this.friends = FriendFactory.index();
-                console.log(that.friends)
+                FriendFactory.create(this.new_friend,function(data){
+                    that.friends = data;
+                });
                 this.new_friend = {};
             }
 
