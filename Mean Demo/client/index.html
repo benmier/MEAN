@@ -6,9 +6,25 @@
 	  <script>
 		// Let's create our angular module
 		var friends_app = angular.module('friends_app', []);
+		// create the FriendFactory
+		friends_app.factory('FriendFactory', function() {
+		  var factory = {};
+		  var friends = [{name: "Michael", age: 34}, {name: "Andrew", age: 24}];
+		//Restful syntax: index = get all that object
+		  factory.index = function() {
+		    return friends;
+		  }
+		  // note the use of callbacks!
+		  // Restful syntax: create = add one to that object
+		  factory.create = function(info, callback) {
+		    friends.push({name: info.name, age: info.age});
+		    callback(friends);
+		  }
+		  return factory;
+		});
 		// Now let's create a controller with some hardcoded data!
-		friends_app.controller('FriendsController', function($scope) {
-		  $scope.friends = [{name: "Michael", age: 34}, {name: "Andrew", age: 24}];
+		friends_app.controller('FriendsController', function($scope, FriendFactory) {
+		  $scope.friends = FriendFactory.index();
 		  $scope.addfriend = function() {
 			$scope.friends.push({name: $scope.new_friend.name, age: $scope.new_friend.age});
 			$scope.new_friend = {};
