@@ -14,11 +14,12 @@ module.exports = (function() {
         },
 
         create: function(req, res) {
-        	console.log(req.body)
         	var new_friend = new Friend(req.body);
             new_friend.save(function(err, results) {
                 if (err)
-                    res.json(err);        		      
+                    res.json(err);
+                else
+                	res.redirect('/')        		      
             })
         }
     }

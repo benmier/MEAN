@@ -31,7 +31,7 @@
             }
 
             factory.create = function(new_friend) {
-                $http.post('/friends',new_friend).success(function(output){
+                $http.post('/friends',new_friend).success(function(){
                     return true;
                 })
             }
