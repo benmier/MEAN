@@ -43,6 +43,13 @@
                 })
             }
 
+            factory.showOne = function(person,callback){
+                $http.get('/'+person.name).success(function(output){
+                    person = output;
+                    callback(person);
+                })
+            }
+
             factory.destroy = function(person,callback){
                 $http.get('/remove/'+person.name).success(function(output){
                     people = output;
@@ -69,9 +76,9 @@
                 this.newPerson = {};
             };
 
-            this.editPerson = function(person){
-                peopleFactory.edit(this.newPerson,function(data){
-                    that.people = data;
+            this.showOnePerson = function(person){
+                peopleFactory.showOne(person,function(data){
+                    that.showPerson.name = data.name;
                 });
                 this.newPerson = {};
             };
