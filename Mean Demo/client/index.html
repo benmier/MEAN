@@ -1,0 +1,37 @@
+<html ng-app="friends_app">
+<head>
+	  <title>Full Mean Demo</title>
+	  <!-- require angular -->
+	  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+	  <script>
+		// Let's create our angular module
+		var friends_app = angular.module('friends_app', []);
+		// Now let's create a controller with some hardcoded data!
+		friends_app.controller('FriendsController', function($scope) {
+		  $scope.friends = [{name: "Michael", age: 34}, {name: "Andrew", age: 24}];
+		  $scope.addfriend = function() {
+			$scope.friends.push({name: $scope.new_friend.name, age: $scope.new_friend.age});
+			$scope.new_friend = {};
+		  }
+		})
+	  </script>
+</head>
+	<!-- everything in the body is going to use the friends controller (this gives us access to the friends controller $scope) -->
+<body ng-controller="FriendsController">
+	  <h1>Friends</h1>
+	  <input type="text" ng-model="filter_name" placeholder="filter">
+	  {{filter_name}}
+	  <ul>
+		<!-- here is where we are going to display friends -->
+		<li ng-repeat="friend in friends | filter: filter_name">
+		  {{friend.name}}, {{friend.age}}
+		</li>
+	  </ul>
+	  <h1>Add a Friend</h1>
+	  <!-- objects and properties nothing scary -->
+	  <input type="text" ng-model="new_friend.name" placeholder="name">
+	  <input type="text" ng-model="new_friend.age" placeholder="age">
+	  <!-- addfriend() is a method we are going to make in the angular controller -->
+	  <input type="submit" ng-click="addfriend()">
+</body>
+</html>
