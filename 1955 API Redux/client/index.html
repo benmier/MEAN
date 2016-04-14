@@ -7,7 +7,32 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 	<script type="text/javascript">
 
+        var myApp = angular.module('myApp',[]);
+
+        myApp.factory('peopleFactory', function($http){
+            var factory = {}, people;
+
+            factory.index = function(callback){
+                $http.get('/').success(function(output){
+                    people = output;
+                    callback(people);
+                })
+            }
+
+            return factory;
+        });
+
+        myApp.controller('peopleController', function(peopleFactory){
+            var that = this;
+
+            var getPeople = function(){
+                peopleFactory.index(function(data){
+                    that.people = data;
+                })
+            }
+        })
         
+
     </script>
 </head>
 
