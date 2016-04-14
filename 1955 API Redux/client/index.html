@@ -13,8 +13,21 @@
             var factory = {}, people;
 
             factory.index = function(callback){
-                console.log('hit factory')
                 $http.get('/show').success(function(output){
+                    people = output;
+                    callback(people);
+                })
+            }
+
+            factory.create = function(person,callback){
+                $http.post('/new/'+person.name).success(function(output){
+                    people = output;
+                    callback(people);
+                })
+            }
+
+            factory.destroy = function(person,callback){
+                $http.get('/remove/'+person.name).success(function(output){
                     people = output;
                     callback(people);
                 })
@@ -32,7 +45,20 @@
                 })
             }
             getPeople();
-        })
+
+            this.addPerson = function(){
+                peopleFactory.create(this.newPerson,function(data){
+                    that.people = data;
+                });
+                this.newPerson = {};
+            };
+
+            this.removePerson = function(person){
+                peopleFactory.destroy(person,function(data){
+                    that.people = data;
+                });
+            };
+        });
         
 
     </script>
@@ -55,7 +81,8 @@
         <tbody>
             <tr ng-repeat="person in PC.people">
                 <td ng-bind="person.name"></td>
-                <td><button ng-click='PC.removePerson(person)'>Delete</button></td>
+                <td><button ng-click='PC.editPerson(person)'>Edit</button>
+                <button ng-click='PC.removePerson(person)'>Delete</button></td>
             </tr>
         </tbody>
     </table>    

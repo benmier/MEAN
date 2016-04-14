@@ -2,7 +2,7 @@ var people = require('../controllers/people.js');
 
 module.exports = function(app){
 
-  app.get('/show', function(req, res) {
+  app.get('/', function(req, res) {
     console.log('hit route')
       people.show(req,res);
   });
@@ -11,7 +11,7 @@ module.exports = function(app){
       people.show_one(req,res);
   });
 
-  app.get('/new/:name', function(req, res) {
+  app.post('/new/:name', function(req, res) {
       people.create(req,res);
   });
 
