@@ -10,13 +10,7 @@
         // create the FriendFactory
         friends_app.factory('FriendFactory', function($http) {
             var factory = {};
-            var friends = [{
-                name: "Michael",
-                age: 34
-            }, {
-                name: "Andrew",
-                age: 24
-            }];
+            var friends = [];
 
             factory.index = function() {
                     $http.get('/friends').success(function(output) {
@@ -39,7 +33,7 @@
             FriendFactory.index(function(data) {
                 $scope.friends = data;
             });
-            
+
             $scope.addfriend = function() {
                 FriendFactory.create($scope.new_friend, function() {
                     FriendFactory.index(function(data) {
