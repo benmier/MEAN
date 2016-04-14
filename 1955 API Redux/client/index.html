@@ -78,6 +78,7 @@
 
             this.showOnePerson = function(person){
                 peopleFactory.showOne(person,function(data){
+                    console.log(that.showPerson)
                     that.showPerson.name = data.name;
                 });
                 this.newPerson = {};
