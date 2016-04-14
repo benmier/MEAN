@@ -16,27 +16,25 @@
                 $http.get('/friends').success(function(output) {
                     friends = output;
                 });
-            	return friends;
+                return friends;
             }
 
             factory.create = function(new_friend) {
                 friends.push(new_friend);
-                return friends;
             }
-            
+
             return factory;
         });
 
         friends_app.controller('FriendsController', function(FriendFactory) {
-            
-            this.friends = FriendFactory.index()
 
-            this.addfriend = function() {
-                FriendFactory.create(this.new_friend, function() {
-                    this.friends = FriendFactory.index()
-                    this.new_friend = {};
-                });
-            }
+            this.friends = FriendFactory.index();
+
+            this.addFriend = function() {
+                FriendFactory.create(this.new_friend);
+                this.friends = FriendFactory.index();
+                this.new_friend = {};
+            };
         })
     </script>
 </head>
@@ -56,7 +54,7 @@
     <input type="text" ng-model="new_friend.name" placeholder="name">
     <input type="text" ng-model="new_friend.age" placeholder="age">
     <!-- addfriend() is a method we are going to make in the angular controller -->
-    <input type="submit" ng-click="addfriend()">
+    <input type="submit" ng-click="addFriend()">
 </body>
 
 </html>
