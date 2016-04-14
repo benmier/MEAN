@@ -11,7 +11,7 @@ var friends = require('./../controllers/friends.js');
     });
 
     app.delete('/friends/:id', function(req, res) {
-    	friends.remove(req,res);
+    	friends.destroy(req,res);
     });
 
   };

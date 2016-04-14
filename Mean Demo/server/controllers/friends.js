@@ -9,7 +9,7 @@ module.exports = (function() {
                     console.log(err);
                 else
                 	res.json(results);
-            })
+            });
         },
 
         create: function(req, res) {
@@ -17,11 +17,18 @@ module.exports = (function() {
             new_friend.save(function(err) {
                 if (err)
                     res.json(err);
-                else{
-                	console.log('redirecting')
-                	res.redirect('/')        		      
-                }
-            })
+                else
+                	res.redirect('/friends')        		      
+            });
+        },
+
+        destroy: function(req, res) {
+        	Friend.remove({_id:req.params.id},function(err) {
+                if (err)
+                    res.json(err);
+                else
+                	res.redirect('/friends')        		      
+            });
         }
-    }
+    };
 })();

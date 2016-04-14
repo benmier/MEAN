@@ -43,19 +43,25 @@
         friends_app.controller('FriendsController', function(FriendFactory) {
             var that = this;
 
-            var index = function(){
+            var getFriends = function(){
                 FriendFactory.index(function(data){
                     that.friends = data;
                 });
-            }
-            index();
+            };
+            getFriends();
 
             this.addFriend = function() {
                 FriendFactory.create(this.new_friend,function(data){
                     that.friends = data;
-                })
+                });
                 this.new_friend = {};
-            }
+            };
+
+            this.removeFriend = function() {
+                FriendFactory.destroy(function(data){
+                    that.friends = data;
+                });
+            };
 
         });
     </script>
