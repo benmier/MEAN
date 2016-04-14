@@ -2,7 +2,7 @@ var people = require('../controllers/people.js');
 
 module.exports = function(app){
 
-  app.get('/', function(req, res) {
+  app.get('/show', function(req, res) {
     console.log('hit route')
       people.show(req,res);
   });

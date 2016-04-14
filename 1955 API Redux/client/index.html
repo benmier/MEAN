@@ -13,7 +13,8 @@
             var factory = {}, people;
 
             factory.index = function(callback){
-                $http.get('/').success(function(output){
+                console.log('hit factory')
+                $http.get('/show').success(function(output){
                     people = output;
                     callback(people);
                 })
@@ -30,6 +31,7 @@
                     that.people = data;
                 })
             }
+            getPeople();
         })
         
 
@@ -53,7 +55,7 @@
         <tbody>
             <tr ng-repeat="person in PC.people">
                 <td ng-bind="person.name"></td>
-                <td><a ng-click='PC.removePerson(person)'></a></td>
+                <td><button ng-click='PC.removePerson(person)'>Delete</button></td>
             </tr>
         </tbody>
     </table>    
