@@ -39,10 +39,10 @@
 
         friends_app.controller('FriendsController', function(FriendFactory) {
             var that = this;
-            
-            that.friends = FriendFactory.index();
 
-            that.addFriend = function() {
+            this.friends = FriendFactory.index();
+
+            this.addFriend = function() {
                 FriendFactory.create(that.new_friend);
                 that.friends = FriendFactory.index();
                 that.new_friend = {};
