@@ -7,7 +7,21 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 	<script type="text/javascript">
 
-        var myApp = angular.module('myApp',[]);
+        var myApp = angular.module('myApp',['ngRoute']);
+
+        myApp.config(function($routeProvider){
+            $routeProvider
+                .when('/',{
+                    templateUrl: 'partials/show.html',
+                    controller: 'peopleController',
+                    controllerAs: 'PC'
+                })
+                .when('/edit',{
+                    templateUrl: 'partials/edit.html',
+                    controller: 'peopleController',
+                    controllerAs: 'PC'
+                })
+        });
 
         myApp.factory('peopleFactory', function($http){
             var factory = {}, people;
@@ -53,12 +67,12 @@
                 this.newPerson = {};
             };
 
-            // this.addPerson = function(){
-            //     peopleFactory.edit(this.newPerson,function(data){
-            //         that.people = data;
-            //     });
-            //     this.newPerson = {};
-            // };
+            this.editPerson = function(person){
+                peopleFactory.edit(this.newPerson,function(data){
+                    that.people = data;
+                });
+                this.newPerson = {};
+            };
 
             this.removePerson = function(person){
                 peopleFactory.destroy(person,function(data){
@@ -72,27 +86,8 @@
 </head>
 
 
-<body ng-controller="peopleController as PC">
-    <h2>1955 Dashboard</h2><hr><br>
-    <h3>Add people who were born in 1955!</h3>
-    <input ng-model='PC.newPerson.name' type="text"></input>
-    <input ng-click='PC.addPerson()' value="Submit" type="submit"></input><br><br>
-
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Action</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr ng-repeat="person in PC.people">
-                <td ng-bind="person.name"></td>
-                <td><button ng-click='PC.editPerson(person)'>Edit</button>
-                <button ng-click='PC.removePerson(person)'>Delete</button></td>
-            </tr>
-        </tbody>
-    </table>    
+<body ng-app='myApp'>
+       
 </body>
 
 </html>

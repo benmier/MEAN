@@ -1,0 +1,20 @@
+<h2>1955 Dashboard</h2><hr><br>
+    <h3>Add people who were born in 1955!</h3>
+    <input ng-model='PC.newPerson.name' type="text"></input>
+    <input ng-click='PC.addPerson()' value="Submit" type="submit"></input><br><br>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="person in PC.people">
+                <td ng-bind="person.name"></td>
+                <td><button ng-click='PC.editPerson(person)'>Edit</button>
+                <button ng-click='PC.removePerson(person)'>Delete</button></td>
+            </tr>
+        </tbody>
+    </table> 
