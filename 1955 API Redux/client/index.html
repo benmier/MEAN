@@ -55,7 +55,6 @@
 
         myApp.controller('peopleController', function(peopleFactory){
             var that = this;
-            console.log("hit it")
             var getPeople = function(){
                 peopleFactory.index(function(data){
                     that.people = data;
@@ -91,7 +90,7 @@
 
 <body>
     <div ng-app='myApp'>
-       <div ng=view=''></div>
+       <div ng-view=''></div>
     </div>
 </body>
 
