@@ -30,9 +30,10 @@
                 return friends;
             }
 
-            factory.create = function(new_friend) {
-                $http.post('/friends',new_friend).success(function(){
-                    return true;
+            factory.create = function(new_friend,callback) {
+                $http.post('/friends',new_friend).success(function(output){
+                    friends = output;
+                    callback(friends);
                 })
             }
 
@@ -50,8 +51,9 @@
             index();
 
             this.addFriend = function() {
-                if(FriendFactory.create(this.new_friend))
-                    index();
+                FriendFactory.create(this.new_friend,function(data){
+                    that.friends = data;
+                })
                 this.new_friend = {};
             }
 
