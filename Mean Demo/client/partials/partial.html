@@ -3,7 +3,7 @@
     <ul>
         <!-- here is where we are going to display friends -->
         <li ng-repeat="friend in FC.friends track by $index | filter: filter_name">
-            {{friend.name}}, {{friend.age}}, <a href="/remove/{{friend._id}}">Remove</a>
+            {{friend.name}}, {{friend.age}}, <a ng-click='FC.removeFriend(friend)'>Remove</a>
         </li>
     </ul><br><br>
     <h2>Add a Friend</h2>

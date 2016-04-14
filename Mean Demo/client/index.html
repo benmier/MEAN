@@ -31,7 +31,15 @@
             }
 
             factory.create = function(new_friend,callback) {
-                $http.post('/friends',new_friend).success(function(output){
+                console.log('/friends/'+new_friend._id)
+                $http.post('/friends/'+new_friend._id).success(function(output){
+                    friends = output;
+                    callback(friends);
+                })
+            }
+
+            factory.destroy = function(friend,callback) {
+                $http.delete('/friends/'+friend._id).success(function(output){
                     friends = output;
                     callback(friends);
                 })
@@ -57,8 +65,8 @@
                 this.new_friend = {};
             };
 
-            this.removeFriend = function() {
-                FriendFactory.destroy(function(data){
+            this.removeFriend = function(friend) {
+                FriendFactory.destroy(friend,function(data){
                     that.friends = data;
                 });
             };
