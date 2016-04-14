@@ -17,7 +17,7 @@ module.exports = (function() {
         	var new_friend = new Friend(req.body);
             new_friend.save(function(err, results) {
                 if (err)
-                    console.log(err);        		      
+                    res.json(err);        		      
             })
         }
     }
