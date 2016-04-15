@@ -103,7 +103,7 @@ var myApp = angular.module('myApp',['ngRoute']);
         })
 
         myApp.controller('customersController', function($scope,customerFactory){
-            $scope.customers = [];
+
             customerFactory.show(function(data){
                 $scope.customers = data;
             })
@@ -123,14 +123,15 @@ var myApp = angular.module('myApp',['ngRoute']);
         });
 
         myApp.controller('ordersController', function($scope,customerFactory, orderFactory, productFactory){
-            $scope.customers = [];
+
             customerFactory.show(function(data){
                 $scope.customers = data;
             })
 
-            $scope.products = productFactory.show();
+            productFactory.show(function(data){
+                $scope.products = data;
+            })
 
-            $scope.orders = [];
             orderFactory.show(function(data){
                 $scope.orders = data;
             })
@@ -144,12 +145,15 @@ var myApp = angular.module('myApp',['ngRoute']);
         });
 
         myApp.controller('productsController', function($scope,productFactory){
-            $scope.products = [];
+            
+            productFactory.show(function(data){
+                $scope.products = data;
+            })
 
             $scope.create = function(){
-                productFactory.create($scope.newOrder, function(data){
-                    $scope.orders = data;
+                productFactory.create($scope.newProduct, function(data){
+                    $scope.products = data;
                 });
-                $scope.newOrder = {};
+                $scope.newProduct = {};
             };
         });
