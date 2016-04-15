@@ -94,7 +94,7 @@ var myApp = angular.module('myApp',['ngRoute']);
 
             factory.show = function(callback){
                 $http.get('/products').success(function(data){
-                    products data;
+                    products = data;
                     callback(products);
                 });    
             };
@@ -164,5 +164,5 @@ var myApp = angular.module('myApp',['ngRoute']);
                 });
                 $scope.newProduct = {};
             };
-            
+
         });
