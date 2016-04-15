@@ -1,4 +1,4 @@
-<div style="width: 20%;">
+<div style="width: 20%; display: inline-block; margin-right: 20px;">
 	<input ng-model='product_filter' placeholder="search..."></input><br><br>
 
 	<h4>Add a new product</h4>
@@ -15,4 +15,10 @@
 			</select><br>
 			<input type="submit" ng-click='create()' value="Create"></input>
 	</form><br>
+</div>
+
+<div style="display: inline-block; vertical-align: top">
+	<div ng-repeat='product in products'>
+		<img src="{{product.imageUrl}}" style="width: 100px; height: 100px;">
+	</div>
 </div>
