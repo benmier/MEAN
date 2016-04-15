@@ -59,7 +59,7 @@
             }
 
             factory.update = function(person){
-                $http.post('/update/'+person.name)
+                $http.post('/update/'+person.name,person)
             }
 
             return factory;
@@ -97,7 +97,7 @@
 
             this.chosenPerson = peopleFactory.choosePerson();
 
-            this.update = function(person){
+            this.updatePerson = function(person){
                 peopleFactory.update(person);
             }
 

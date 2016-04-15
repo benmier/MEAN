@@ -31,11 +31,9 @@ module.exports = {
     },
 
     update: function(req,res){
-        People.update({name:req.param.name},function(err){
+        People.update({name:req.param.name},{name:req.body.name},function(err){
             if(err)
                 console.log(err);
-            else
-                res.redirect('/people')
         });
     },
 

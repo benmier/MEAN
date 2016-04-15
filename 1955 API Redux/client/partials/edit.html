@@ -1,4 +1,4 @@
 <h2>1955 Dashboard</h2><hr><br>
     <h3>Edit people who were born in 1955!</h3>
-    <input value='{{EC.chosenPerson}}' type="text"></input>
-    <input ng-click='' value="Submit" type="submit"></input><br><br>
+    <input ng-model='EC.updatedPerson' value='{{EC.chosenPerson}}' type="text"></input>
+    <input ng-click='EC.updatedPerson(EC.updatedPerson)' type="submit"><a href="#/">Submit</a></input><br><br>
