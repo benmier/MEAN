@@ -78,14 +78,7 @@
             //     {name: "India Meisner", product: "Candies", qty: 15, date: d4.getTime()},
             // ];
 
-            factory.showCustomers = function(callback){
-                $http.get('/customers').success(function(data){
-                    customers = data;
-                    callback(customers)
-                })
-            };
-
-            factory.showOrders = function(callback){
+            factory.show = function(callback){
                 $http.get('/orders').success(function(data){
                     orders = data;
                     callback(orders)
@@ -132,12 +125,10 @@
             customerFactory.show(function(data){
                 $scope.customers = data;
             })
-            $scope.products = [];
-            orderFactory.getProducts(function(data){
-                $scope.products = data;
-            })
+
             $scope.orders = [];
-            orderFactory.getOrders(function(data){
+            orderFactory.show(function(data){
+                console.log(data)
                 $scope.orders = data;
             })
 
