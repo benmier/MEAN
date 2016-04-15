@@ -90,7 +90,7 @@
         
         myApp.controller('editController', function(peopleFactory){
             var that = this;
-            this.showPerson.name = peopleFactory.getOne();
+            this.showPerson = peopleFactory.getOne();
         
         })
 
