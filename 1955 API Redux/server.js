@@ -3,7 +3,7 @@ var path = require('path');
 var app = express();
 var bodyParser = require('body-parser'); 
 
-app.use(bodyParser.urlencoded());
+app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, './client')));
 
 require('./server/config/mongoose.js');

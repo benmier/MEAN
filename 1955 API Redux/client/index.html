@@ -60,7 +60,7 @@
 
             factory.update = function(chosenPerson,updatedPerson){
                 console.log(chosenPerson, updatedPerson)
-                $http.post('/ben/'+chosenPerson,updatedPerson)
+                $http.post('/ben/'+chosenPerson,{name: updatedPerson})
             }
 
             return factory;

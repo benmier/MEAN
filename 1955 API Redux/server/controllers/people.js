@@ -32,11 +32,12 @@ module.exports = {
     },
 
     update: function(req,res){
-        People.update({name:req.param.name},{name:req.body},function(err){
+
+        People.update({name:req.params.name},{name:req.body.name},function(err){
             if(err)
                 console.log(err);
             else
-                window.location.href='#/'
+                return true;
         });
     },
 
