@@ -10,7 +10,7 @@
 			<label>Description</label>
 			<textarea class="form-control" ng-model='newProduct.description' rows="5"></textarea><br>
 			<label>Initial Quantity</label>
-			<select class="form-control" ng-model='newProduct.qty'>
+			<select class="form-control" ng-model='newProduct.initialQty'>
 				<option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>10</option><option>20</option><option>50</option><option>100</option><option>150</option><option>200</option>
 			</select><br>
 			<input type="submit" ng-click='create()' value="Create"></input>
@@ -21,6 +21,6 @@
 	<div ng-repeat='product in products | filter:product_filter | orderBy: "createdAt":true' style="text-align: center; margin: 0px 20px 20px 20px; display: inline-block;">
 		<img src="{{product.imageUrl}}" style="width: 150px; height: 150px; border: 1px solid black; margin-bottom: 10px;">
 		<p ng-bind='product.name' style="margin-bottom: 0px;"></p>
-		<p>({{product.qty}} left)</p>
+		<p>({{product.initialQty}} left)</p>
 	</div>
 </div>
