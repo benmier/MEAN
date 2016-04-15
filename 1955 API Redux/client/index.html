@@ -67,6 +67,7 @@
 
         myApp.controller('peopleController', function(peopleFactory){
             var that = this;
+            console.log('hit main page')
             var getPeople = function(){
                 peopleFactory.index(function(data){
                     that.people = data;
