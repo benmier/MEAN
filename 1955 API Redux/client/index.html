@@ -60,7 +60,7 @@
 
             factory.update = function(chosenPerson,updatedPerson){
                 $http.post('/update/'+chosenPerson,{name: updatedPerson}).success(function(result){
-                    console.log("hi")
+                    console.log(result)
                     if(result)
                         window.location.href = '#/';
                     else
@@ -81,9 +81,7 @@
             getPeople();
 
             this.addPerson = function(){
-                console.log("hit addPerson")
                 peopleFactory.create(this.newPerson,function(data){
-                    console.log("wtf")
                     that.people = data;
                 });
                 this.newPerson = {};
