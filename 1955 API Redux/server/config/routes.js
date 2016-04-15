@@ -11,6 +11,7 @@ module.exports = function(app){
   });
 
   app.post('/new/:name', function(req, res) {
+      console.log("hit something")
       people.create(req,res);
   });
 

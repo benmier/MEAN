@@ -59,7 +59,7 @@
             }
 
             factory.update = function(chosenPerson,updatedPerson){
-                $http.post('/update/'+chosenPerson,updatedPerson).success(function(output){})
+                $http.post('/update/'+chosenPerson,updatedPerson)
             }
 
             return factory;
@@ -75,7 +75,9 @@
             getPeople();
 
             this.addPerson = function(){
+                console.log("hit addPerson")
                 peopleFactory.create(this.newPerson,function(data){
+                    console.log("wtf")
                     that.people = data;
                 });
                 this.newPerson = {};
