@@ -26,17 +26,6 @@
         myApp.factory('customerFactory', function($http){
             var customers, orders, factory = {};
 
-            // var d1 = new Date(2014,3,3);
-            // var d2 = new Date(2014,3,3);
-            // var d3 = new Date(2014,3,1);
-            // var d4 = new Date(2014,2,15);
-            // var customers = [
-            //     {name: "Michael Choi", date: d1.getTime()},
-            //     {name: "John Supsupin", date: d2.getTime()},
-            //     {name: "Trey Villafane", date: d3.getTime()},
-            //     {name: "India Meisner", date: d4.getTime()}
-            // ];
-
             factory.show = function(callback){
                 $http.get('/customers').success(function(data){
                     customers = data;
@@ -61,7 +50,6 @@
             };
 
             factory.delete = function(customer,callback){
-                console.log(customer)
                 $http.post('/customers/delete',customer).success(function(data){
                     customers = data;
                     callback(customers);
@@ -73,24 +61,6 @@
 
         myApp.factory('orderFactory', function($http){
             var customers, orders, factory = {}; 
-            // var d1 = new Date(2014,3,3);
-            // var d2 = new Date(2014,3,3);
-            // var d3 = new Date(2014,3,1);
-            // var d4 = new Date(2014,2,15);
-
-            // var products = [
-            //     {name: "Nike Shoes"},
-            //     {name: "Black Belts"},
-            //     {name: "Ice Cream"},
-            //     {name: "Candies"}
-            // ];
-
-            // var orders = [
-            //     {name: "Michael Choi", product: "Nike Shoes", qty: 2, date: d1.getTime()},
-            //     {name: "John Supsupin", product: "Black Belts", qty: 3, date: d2.getTime()},
-            //     {name: "Trey Villafane", product: "Ice Cream", qty: 5, date: d3.getTime()},
-            //     {name: "India Meisner", product: "Candies", qty: 15, date: d4.getTime()},
-            // ];
 
             factory.show = function(callback){
                 $http.get('/orders').success(function(data){
@@ -98,16 +68,13 @@
                     callback(orders)
                 })
             };
-            
-            factory.addOrder = function(newOrder){
-                var d = Date.now()
-                newOrder.date = d;
-                orders.push(newOrder);
-            }
 
-            factory.deleteOrder = function(customer){
-                customers.splice(orders.indexOf(customer),1);
-            }
+            factory.create = function(newOrder,callback){
+                $http.post('/customers/create',newOrder).success(function(data){
+                    orders = data;
+                    callback(orders)
+                });
+            };
 
             return factory;
         });
@@ -140,7 +107,6 @@
 
             $scope.orders = [];
             orderFactory.show(function(data){
-                console.log(data)
                 $scope.orders = data;
             })
 

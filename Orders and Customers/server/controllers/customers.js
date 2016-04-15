@@ -23,7 +23,7 @@ module.exports = {
     },
 
     delete: function(req,res){
-        Customers.remove({_id:req.params._id},function(err){
+        Customers.remove({_id:req.body._id},function(err){
             if(err)
                 console.log(err);
             else
