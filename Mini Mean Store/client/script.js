@@ -3,12 +3,24 @@ var myApp = angular.module('myApp',['ngRoute']);
         myApp.config(function($routeProvider){
             $routeProvider
                 .when('/',{
-                    templateUrl: 'partials/customers.html',
+                    templateUrl: 'partials/dashboard.html',
                     controller: "customersController"
+                })
+                .when('/products',{
+                    templateUrl: 'partials/products.html',
+                    controller: "productsController"
                 })
                 .when('/orders',{
                     templateUrl: 'partials/orders.html',
                     controller: "ordersController"
+                })
+                .when('/customers',{
+                    templateUrl: 'partials/customers.html',
+                    controller: "customersController"
+                })
+                .when('/settings',{
+                    templateUrl: 'partials/settings.html',
+                    controller: "settingsController"
                 })
                 .otherwise({
                     redirectTo: '/'
