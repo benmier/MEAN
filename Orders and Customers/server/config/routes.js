@@ -19,6 +19,13 @@ module.exports = function(app){
       orders.create(req,res);
   	});
 
+  	app.post('/customers/delete', function(req, res) {
+      customers.delete(req,res);
+  	});
+
+  	app.post('/orders/delete', function(req, res) {
+      orders.delete(req,res);
+  	});
 
   
 };

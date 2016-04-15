@@ -61,7 +61,8 @@
             };
 
             factory.delete = function(customer,callback){
-                $http.post('/delete/customer',customer).success(function(data){
+                console.log(customer)
+                $http.post('/customers/delete',customer).success(function(data){
                     customers = data;
                     callback(customers);
                 });

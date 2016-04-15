@@ -22,4 +22,12 @@ module.exports = {
         });
     },
 
+    delete: function(req,res){
+        Orders.remove({_id:req.params._id},function(err){
+            if(err)
+                console.log(err);
+            else
+                res.redirect('/orders')
+        })
+    },
 }
