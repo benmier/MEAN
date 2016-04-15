@@ -15,6 +15,7 @@ module.exports = function(app){
   });
 
   app.post('/ben/:name', function(req, res) {
+    console.log('not here?', req.body, req.params)
       people.update(req,res);
   });
 
