@@ -51,8 +51,10 @@
 
             factory.delete = function(customer,callback){
                 $http.post('/customers/delete',customer).success(function(data){
-                    customers = data;
-                    callback(customers);
+                    $http.post('/orders/delete',customer).success(function(){
+                        customers = data;
+                        callback(customers);
+                    });
                 });
             };
 
