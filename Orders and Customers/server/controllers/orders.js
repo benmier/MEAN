@@ -13,7 +13,7 @@ module.exports = {
     },
 
     create: function(req,res){
-        var order = new Order(req.body) 
+        var order = new Orders(req.body) 
         order.save(function(err){
             if(err)
                 console.log(err);

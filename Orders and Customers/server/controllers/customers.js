@@ -12,4 +12,13 @@ module.exports = {
         });
     },
 
+    create: function(req,res){
+        var customer = new Customers(req.body) 
+        customer.save(function(err){
+            if(err)
+                console.log(err);
+            else
+                res.redirect('/customers')
+        });
+    },
 }

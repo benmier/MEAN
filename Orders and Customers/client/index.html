@@ -47,7 +47,7 @@
             factory.create = function(newCustomer,callback){
                 $http.get('/customers').success(function(data){
                     customers = data;
-                })
+                });
                 for(i in customers){
                     dupes = customers[i].name==newCustomer.name;
                 }
@@ -57,12 +57,15 @@
                     $http.post('/customers/create',newCustomer).success(function(data){
                     customers = data;
                     callback(customers)
-                })
-            }
+                });
+            };
 
-            factory.deleteCustomer = function(customer){
-                customers.splice(customers.indexOf(customer),1);
-            }
+            factory.delete = function(customer,callback){
+                $http.post('/delete/customer',customer).success(function(data){
+                    customers = data;
+                    callback(customers);
+                });
+            };
 
             return factory;
         });
@@ -115,12 +118,16 @@
             })
             
             $scope.create = function(){
-                customerFactory.create($scope.newCustomer);
+                customerFactory.create($scope.newCustomer,function(data){
+                    $scope.customers = data;
+                });
                 $scope.newCustomer = {};
             }
 
             $scope.delete = function(customer){
-                customerFactory.deleteCustomer(customer);
+                customerFactory.delete(customer,function(data){
+                    $scope.customers = data;
+                });
             }
         })
 
