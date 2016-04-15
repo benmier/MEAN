@@ -23,8 +23,8 @@
                 })
         });
 
-        myApp.factory('customerFactory', function(){
-            var customers, orders factory = {};
+        myApp.factory('customerFactory', function($http){
+            var customers, orders, factory = {};
 
             // var d1 = new Date(2014,3,3);
             // var d2 = new Date(2014,3,3);
@@ -57,7 +57,7 @@
             return factory;
         });
 
-        myApp.factory('orderFactory', function(){
+        myApp.factory('orderFactory', function($http){
             var customers, orders, factory = {}; 
             // var d1 = new Date(2014,3,3);
             // var d2 = new Date(2014,3,3);
