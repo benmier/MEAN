@@ -31,7 +31,7 @@ module.exports = {
     },
 
     update: function(req,res){
-        People.update({name:req.param.name},{name:req.body.name},function(err){
+        People.update({name:req.param.name},{name:req.body},function(err){
             if(err)
                 console.log(err);
         });

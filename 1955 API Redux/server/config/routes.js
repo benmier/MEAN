@@ -15,6 +15,7 @@ module.exports = function(app){
   });
 
   app.post('/update/:name', function(req, res) {
+      console.log("hit /updated/name")
       people.update(req,res);
   });
 

@@ -58,8 +58,8 @@
                 return chosenPerson;
             }
 
-            factory.update = function(person){
-                $http.post('/update/'+person.name,person)
+            factory.update = function(chosenPerson,updatedPerson){
+                $http.post('/update/'+chosenPerson,updatedPerson)
             }
 
             return factory;
@@ -98,9 +98,9 @@
 
             this.chosenPerson = peopleFactory.choosePerson();
 
-            this.updatePerson = function(person){
-                console.log("hit updatePerson")
-                peopleFactory.update(person);
+            this.updatePerson = function(){
+                console.log(that.updatedPerson)
+                peopleFactory.update(that.chosenPerson,that.updatedPerson);
             }
 
         })
