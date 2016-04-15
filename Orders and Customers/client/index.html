@@ -24,7 +24,7 @@
         });
 
         myApp.factory('customerFactory', function($http){
-            var customers, orders, factory = {};
+            var customers, orders, factory = {}, dupes;
 
             factory.show = function(callback){
                 $http.get('/customers').success(function(data){
