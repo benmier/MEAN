@@ -59,7 +59,7 @@
             }
 
             factory.update = function(chosenPerson,updatedPerson){
-                $http.post('/update/'+chosenPerson,updatedPerson)
+                $http.post('/update/'+chosenPerson,updatedPerson).success(function(output){})
             }
 
             return factory;
@@ -67,7 +67,6 @@
 
         myApp.controller('peopleController', function(peopleFactory){
             var that = this;
-            console.log('hit main page')
             var getPeople = function(){
                 peopleFactory.index(function(data){
                     that.people = data;
@@ -99,7 +98,6 @@
             this.chosenPerson = peopleFactory.choosePerson();
 
             this.updatePerson = function(){
-                console.log(that.updatedPerson)
                 peopleFactory.update(that.chosenPerson,that.updatedPerson);
             }
 

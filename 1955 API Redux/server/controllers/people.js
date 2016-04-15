@@ -34,6 +34,8 @@ module.exports = {
         People.update({name:req.param.name},{name:req.body},function(err){
             if(err)
                 console.log(err);
+            else
+                window.location.href='#/'
         });
     },
 
