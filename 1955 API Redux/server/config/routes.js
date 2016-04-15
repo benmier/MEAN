@@ -18,7 +18,7 @@ module.exports = function(app){
       people.update(req,res);
   });
 
-  app.post('/remove/:name', function(req, res) {
+  app.post('/remove/:id', function(req, res) {
       people.remove(req,res);
   });
 };

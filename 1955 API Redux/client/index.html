@@ -44,7 +44,7 @@
             }
 
             factory.destroy = function(person,callback){
-                $http.get('/remove/'+person.name).success(function(output){
+                $http.post('/remove/'+person._id).success(function(output){
                     people = output;
                     callback(people);
                 })
@@ -60,7 +60,6 @@
 
             factory.update = function(chosenPerson,updatedPerson){
                 $http.post('/update/'+chosenPerson,{name: updatedPerson}).success(function(result){
-                    console.log(result)
                     if(result)
                         window.location.href = '#/';
                     else

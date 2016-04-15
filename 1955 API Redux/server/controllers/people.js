@@ -41,7 +41,7 @@ module.exports = {
     },
 
     remove: function(req,res){
-        People.remove({name:req.params.name},function(err){
+        People.remove({_id:req.params.id},function(err){
             if(err)
                 console.log(err);
             else
