@@ -7,7 +7,7 @@ module.exports = function(app){
       customers.show(req,res);
   	});
 
-  	app.get('/order', function(req, res) {
+  	app.get('/orders', function(req, res) {
       orders.show(req,res);
   	});
   
