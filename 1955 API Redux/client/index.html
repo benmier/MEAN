@@ -52,9 +52,11 @@
 
             factory.choosePerson = function(person){
                 if(!person){
+                    console.log(chosenPerson)
                     var person = chosenPerson;
+                    console.log(person)
                 }
-                choosePerson = person;
+                chosenPerson = person;
                 return chosenPerson;
             }
 
@@ -91,7 +93,7 @@
         myApp.controller('editController', function(peopleFactory){
             var that = this;
 
-            var chosenPerson = peopleFactory.choosePerson();
+            this.chosenPerson = peopleFactory.choosePerson();
         })
 
     </script>
