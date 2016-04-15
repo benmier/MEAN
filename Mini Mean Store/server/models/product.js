@@ -1,9 +1,10 @@
 var mongoose = require('mongoose');
 
-var OrderSchema = new mongoose.Schema({
+var ProductSchema = new mongoose.Schema({
     name: String,
-    product: String,
-    qty: Number,
+    imageUrl: String,
+    description: String,
+    initialQty: Number,
 },{timestamps:true});
 
-var Orders = mongoose.model('Orders', OrderSchema);
+var Products = mongoose.model('Products', ProductSchema);
