@@ -52,12 +52,14 @@
 
             factory.choosePerson = function(person){
                 if(!person){
-                    console.log(chosenPerson)
                     var person = chosenPerson;
-                    console.log(person)
                 }
                 chosenPerson = person;
                 return chosenPerson;
+            }
+
+            factory.update = function(person){
+                $http.post('/update/'+person.name)
             }
 
             return factory;
@@ -94,6 +96,11 @@
             var that = this;
 
             this.chosenPerson = peopleFactory.choosePerson();
+
+            this.update = function(person){
+                peopleFactory.update(person);
+            }
+
         })
 
     </script>
