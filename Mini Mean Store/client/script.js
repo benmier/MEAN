@@ -68,7 +68,7 @@ var myApp = angular.module('myApp',['ngRoute']);
         });
 
         myApp.factory('orderFactory', function($http){
-            var customers, orders, factory = {}, products = [{name:"Nike Shoes"},{name:"Black Belts"},{name:"Ice Creams"},{name:"Candies"}]; 
+            var customers, orders, factory = {}; 
 
             factory.show = function(callback){
                 $http.get('/orders').success(function(data){
@@ -84,12 +84,23 @@ var myApp = angular.module('myApp',['ngRoute']);
                 });
             };
 
-            factory.showProducts = function(){
+            
+
+            return factory;
+        });
+
+        myApp.factory('productFactory', function($http){
+            var factory = {}, products;
+
+            products = [{name:"Nike Shoes"},{name:"Black Belts"},{name:"Ice Creams"},{name:"Candies"}];
+
+            factory.show = function(){
                 return products;
             }
 
             return factory;
-        });
+
+        })
 
         myApp.controller('customersController', function($scope,customerFactory){
             $scope.customers = [];
@@ -111,13 +122,13 @@ var myApp = angular.module('myApp',['ngRoute']);
             }
         })
 
-        myApp.controller('ordersController', function($scope,customerFactory, orderFactory){
+        myApp.controller('ordersController', function($scope,customerFactory, orderFactory, productFactory){
             $scope.customers = [];
             customerFactory.show(function(data){
                 $scope.customers = data;
             })
 
-            $scope.products = orderFactory.showProducts();
+            $scope.products = productFactory.show();
 
             $scope.orders = [];
             orderFactory.show(function(data){
