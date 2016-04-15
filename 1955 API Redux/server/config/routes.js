@@ -14,7 +14,7 @@ module.exports = function(app){
       people.create(req,res);
   });
 
-  app.post('/update/:name', function(req, res) {
+  app.post('/ben/:name', function(req, res) {
       people.update(req,res);
   });
 
