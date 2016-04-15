@@ -58,29 +58,39 @@
         });
 
         myApp.factory('orderFactory', function(){
-            var d1 = new Date(2014,3,3);
-            var d2 = new Date(2014,3,3);
-            var d3 = new Date(2014,3,1);
-            var d4 = new Date(2014,2,15);
+            var customers, orders, factory = {}; 
+            // var d1 = new Date(2014,3,3);
+            // var d2 = new Date(2014,3,3);
+            // var d3 = new Date(2014,3,1);
+            // var d4 = new Date(2014,2,15);
 
-            var products = [
-                {name: "Nike Shoes"},
-                {name: "Black Belts"},
-                {name: "Ice Cream"},
-                {name: "Candies"}
-            ];
+            // var products = [
+            //     {name: "Nike Shoes"},
+            //     {name: "Black Belts"},
+            //     {name: "Ice Cream"},
+            //     {name: "Candies"}
+            // ];
 
-            var orders = [
-                {name: "Michael Choi", product: "Nike Shoes", qty: 2, date: d1.getTime()},
-                {name: "John Supsupin", product: "Black Belts", qty: 3, date: d2.getTime()},
-                {name: "Trey Villafane", product: "Ice Cream", qty: 5, date: d3.getTime()},
-                {name: "India Meisner", product: "Candies", qty: 15, date: d4.getTime()},
-            ];
+            // var orders = [
+            //     {name: "Michael Choi", product: "Nike Shoes", qty: 2, date: d1.getTime()},
+            //     {name: "John Supsupin", product: "Black Belts", qty: 3, date: d2.getTime()},
+            //     {name: "Trey Villafane", product: "Ice Cream", qty: 5, date: d3.getTime()},
+            //     {name: "India Meisner", product: "Candies", qty: 15, date: d4.getTime()},
+            // ];
 
-            var factory = {};
+            factory.showCustomers = function(callback){
+                $http.get('/customers').success(function(data){
+                    customers = data;
+                    callback(customers)
+                })
+            };
 
-            factory.getProducts = function(callback){callback(products)};
-            factory.getOrders = function(callback){callback(orders)};
+            factory.showOrders = function(callback){
+                $http.get('/orders').success(function(data){
+                    orders = data;
+                    callback(orders)
+                })
+            };
             
             factory.addOrder = function(newOrder){
                 var d = Date.now()
