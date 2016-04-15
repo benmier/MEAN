@@ -120,7 +120,7 @@ var myApp = angular.module('myApp',['ngRoute']);
                     $scope.customers = data;
                 });
             }
-        })
+        });
 
         myApp.controller('ordersController', function($scope,customerFactory, orderFactory, productFactory){
             $scope.customers = [];
@@ -137,6 +137,17 @@ var myApp = angular.module('myApp',['ngRoute']);
 
             $scope.create = function(){
                 orderFactory.create($scope.newOrder, function(data){
+                    $scope.orders = data;
+                });
+                $scope.newOrder = {};
+            };
+        });
+
+        myApp.controller('productsController', function($scope,productFactory){
+            $scope.products = [];
+
+            $scope.create = function(){
+                productFactory.create($scope.newOrder, function(data){
                     $scope.orders = data;
                 });
                 $scope.newOrder = {};
