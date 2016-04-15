@@ -64,7 +64,7 @@
         });
 
         myApp.factory('orderFactory', function($http){
-            var customers, orders, factory = {}; 
+            var customers, orders, factory = {}, products = [{name:"Nike Shoes"},{name:"Black Belts"},{name:"Ice Creams"},{name:"Candies"}]; 
 
             factory.show = function(callback){
                 $http.get('/orders').success(function(data){
@@ -79,6 +79,10 @@
                     callback(orders)
                 });
             };
+
+            factory.showProducts = function(){
+                return products;
+            }
 
             return factory;
         });
@@ -109,16 +113,16 @@
                 $scope.customers = data;
             })
 
-            $scope.products = {name:"Nike Shoes",name:"Black Belts",name:"Ice Creams",name:"Candies"};
+            $scope.products = orderFactory.showProducts();
 
             $scope.orders = [];
             orderFactory.show(function(data){
                 $scope.orders = data;
             })
 
-            $scope.addOrder = function(){
+            $scope.create = function(){
                 console.log($scope.newOrder)
-                orderFactory.addOrder($scope.newOrder);
+                orderFactory.create($scope.newOrder);
             }
         });
     </script>
