@@ -109,6 +109,8 @@
                 $scope.customers = data;
             })
 
+            $scope.products = {name:"Nike Shoes",name:"Black Belts",name:"Ice Creams",name:"Candies"};
+
             $scope.orders = [];
             orderFactory.show(function(data){
                 $scope.orders = data;
