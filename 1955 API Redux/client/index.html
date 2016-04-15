@@ -50,6 +50,15 @@
                 })
             }
 
+            factory.choosePerson = function(person){
+                if(!person)
+                    person = chosenPerson;
+                choosePerson = person;
+                console.log(choosePerson)
+                console.log(person)
+                return chosenPerson;
+            }
+
             return factory;
         });
 
@@ -70,8 +79,7 @@
             };
 
             this.choosePerson = function(person){
-                chosenPerson = person.name;
-                console.log(chosenPerson)
+                peopleFactory.choosePerson(person.name);
             }
 
             this.removePerson = function(person){
@@ -84,6 +92,7 @@
         myApp.controller('editController', function(peopleFactory){
             var that = this;
 
+            var chosenPerson = peopleFactory.choosePerson();
         })
 
     </script>
