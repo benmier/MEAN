@@ -60,7 +60,7 @@
 
             factory.update = function(chosenPerson,updatedPerson){
                 $http.post('/update/'+chosenPerson,{name: updatedPerson}).success(function(result){
-                    console.log(result)
+                    console.log("hi")
                     if(result)
                         window.location.href = '#/';
                     else

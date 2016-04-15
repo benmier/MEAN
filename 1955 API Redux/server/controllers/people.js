@@ -36,7 +36,7 @@ module.exports = {
             if(err)
                 console.log(err);
             else
-                return true;
+                res.json({result:true});
         });
     },
 
