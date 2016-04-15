@@ -11,7 +11,7 @@
 		<select class="form-control" style="width: 25%;" ng-model='newOrder.product'>
 			<option ng-repeat='product in products'>{{product.name}}</option>
 		</select><br>
-		<input type="submit" ng-click='addOrder()' value="Order"></input>
+		<input type="submit" ng-click='create()' value="Order"></input>
 	</form><br>
 
 	<input placeholder="search name..." type="text" ng-model='name_filter'></input><br><br>
@@ -26,11 +26,11 @@
 		</tr>
 	</thead>
 	<tbody>
-		<tr ng-repeat='order in orders | filter:name_filter | orderBy: "date":true'>
+		<tr ng-repeat='order in orders | filter:name_filter | orderBy: "createdAt":true'>
 			<td ng-bind="order.name"></td>
 			<td ng-bind="order.product"></td>
 			<td ng-bind="order.qty"></td>
-			<td ng-bind="order.date | date:'MMMM d, y'"></td>
+			<td ng-bind="order.createdAt | date:'MMMM d, y'"></td>
 		</tr>
 	</tbody>
 </table>

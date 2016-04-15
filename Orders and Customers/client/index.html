@@ -122,8 +122,10 @@
 
             $scope.create = function(){
                 console.log($scope.newOrder)
-                orderFactory.create($scope.newOrder);
-            }
+                orderFactory.create($scope.newOrder, function(data){
+                    $scope.orders = data;
+                });
+            };
         });
     </script>
 <body>
