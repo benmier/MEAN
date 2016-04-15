@@ -51,11 +51,10 @@
             }
 
             factory.choosePerson = function(person){
-                if(!person)
-                    person = chosenPerson;
+                if(!person){
+                    var person = chosenPerson;
+                }
                 choosePerson = person;
-                console.log(choosePerson)
-                console.log(person)
                 return chosenPerson;
             }
 
