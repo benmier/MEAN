@@ -23,11 +23,11 @@ module.exports = {
     },
 
     delete: function(req,res){
-        Orders.remove({_id:req.params._id},function(err){
+        Orders.remove({name:req.body.name},function(err){
             if(err)
                 console.log(err);
             else
-                res.redirect('/orders')
+                res.json({status:true});
         })
     },
 }
