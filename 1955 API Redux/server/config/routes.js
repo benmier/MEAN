@@ -14,8 +14,7 @@ module.exports = function(app){
       people.create(req,res);
   });
 
-  app.post('/ben/:name', function(req, res) {
-    console.log('not here?', req.body, req.params)
+  app.post('/update/:name', function(req, res) {
       people.update(req,res);
   });
 
