@@ -79,8 +79,10 @@ var myApp = angular.module('myApp',['ngRoute']);
 
             factory.create = function(newOrder,callback){
                 $http.post('/orders/create',newOrder).success(function(data){
-                    orders = data;
-                    callback(orders)
+                    $http.post('/products/update',newOrder).success(function(data){
+                        orders = data;
+                        callback(orders)
+                    });
                 });
             };
 
@@ -91,7 +93,7 @@ var myApp = angular.module('myApp',['ngRoute']);
 
         myApp.factory('productFactory', function($http){
             var factory = {}, products;
-            
+
             factory.show = function(callback){
                 $http.get('/products').success(function(data){
                     products = data;

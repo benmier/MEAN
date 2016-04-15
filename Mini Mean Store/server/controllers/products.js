@@ -22,6 +22,15 @@ module.exports = {
         });
     },
 
+    update: function(req,res){
+        Products.update({name:req.body.name},{initialQty:req.body.qty},function(err){
+            if(err)
+                console.log(err);
+            else
+                res.json({result:true});
+        });
+    },
+
     // delete: function(req,res){
     //     Products.remove({_id:req.body._id},function(err){
     //         if(err)
