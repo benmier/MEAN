@@ -18,8 +18,8 @@
                 })
                 .when('/edit',{
                     templateUrl: 'partials/edit.html',
-                    controller: 'peopleController',
-                    controllerAs: 'PC'
+                    controller: 'editController',
+                    controllerAs: 'EC'
                 })
                 .otherwise({
                     redirectTo: '/'
@@ -27,7 +27,7 @@
         });
 
         myApp.factory('peopleFactory', function($http){
-            var factory = {}, people;
+            var factory = {}, people, chosenPerson;
 
             factory.index = function(callback){
                 $http.get('/people').success(function(output){
@@ -54,7 +54,7 @@
         });
 
         myApp.controller('peopleController', function(peopleFactory){
-            var that = this, chosenPerson;
+            var that = this;
             var getPeople = function(){
                 peopleFactory.index(function(data){
                     that.people = data;
@@ -69,8 +69,9 @@
                 this.newPerson = {};
             };
 
-            this.onePerson = function(person){
-                chosenPerson = person;
+            this.choosePerson = function(person){
+                chosenPerson = person.name;
+                console.log(chosenPerson)
             }
 
             this.removePerson = function(person){
@@ -80,6 +81,10 @@
             };
         });
         
+        myApp.controller('editController', function(peopleFactory){
+            var that = this;
+
+        })
 
     </script>
 </head>
