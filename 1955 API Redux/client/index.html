@@ -16,7 +16,7 @@
                     controller: 'peopleController',
                     controllerAs: 'PC'
                 })
-                .when('/edit/:name',{
+                .when('/edit',{
                     templateUrl: 'partials/edit.html',
                     controller: 'editController',
                     controllerAs: 'EC'
@@ -27,7 +27,7 @@
         });
 
         myApp.factory('peopleFactory', function($http){
-            var factory = {}, people, person;
+            var factory = {}, people, chosenPerson;
 
             factory.index = function(callback){
                 $http.get('/people').success(function(output){
@@ -43,11 +43,9 @@
                 })
             }
 
-            factory.showOne = function(person,callback){
-                $http.get('/'+person.name).success(function(output){
-                    person = output;
-                    callback(person);
-                })
+            factory.showOne = function(person){
+                chosenPerson = person.name;
+                return chosenPerson;
             }
 
             factory.destroy = function(person,callback){
@@ -90,8 +88,8 @@
         myApp.controller('editController', function(peopleFactory){
             var that = this;
 
-            var showOnePerson = function(person){
-                that.showPerson.name = person.name;
+            this.showPerson.name = person.name;
+            
             };
         })
 
