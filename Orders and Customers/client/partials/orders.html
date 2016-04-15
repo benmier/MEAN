@@ -1,0 +1,36 @@
+<h3>Add a new order</h3>
+<form class="form-group">
+		<label>Customer</label>
+		<select class="form-control" style="width: 25%;" ng-model='newOrder.name'>
+			<option ng-repeat='customer in customers'>{{customer.name}}</option>
+		</select><br>
+		<label>Order</label>
+		<select class="form-control" style="width: 25%;" ng-model='newOrder.qty'>
+			<option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option>
+		</select><br>
+		<select class="form-control" style="width: 25%;" ng-model='newOrder.product'>
+			<option ng-repeat='product in products'>{{product.name}}</option>
+		</select><br>
+		<input type="submit" ng-click='addOrder()' value="Order"></input>
+	</form><br>
+
+	<input placeholder="search name..." type="text" ng-model='name_filter'></input><br><br>
+
+<table class="table table-striped" style="border:1px solid tan;">
+	<thead>
+		<tr>
+			<th>Customer Name</th>
+			<th>Product</th>
+			<th>Quantity</th>
+			<th>Date</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat='order in orders | filter:name_filter | orderBy: "date":true'>
+			<td ng-bind="order.name"></td>
+			<td ng-bind="order.product"></td>
+			<td ng-bind="order.qty"></td>
+			<td ng-bind="order.date | date:'MMMM d, y'"></td>
+		</tr>
+	</tbody>
+</table>
