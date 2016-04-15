@@ -92,11 +92,19 @@ var myApp = angular.module('myApp',['ngRoute']);
         myApp.factory('productFactory', function($http){
             var factory = {}, products;
 
-            products = [{name:"Nike Shoes"},{name:"Black Belts"},{name:"Ice Creams"},{name:"Candies"}];
+            factory.show = function(callback){
+                $http.get('/products').success(function(data){
+                    products data;
+                    callback(products);
+                });    
+            };
 
-            factory.show = function(){
-                return products;
-            }
+            factory.create = function(newProduct,callback){
+                $http.post('/products/create',newProduct).success(function(data){
+                    products = data;
+                    callback(products)
+                });
+            };
 
             return factory;
 
@@ -156,4 +164,5 @@ var myApp = angular.module('myApp',['ngRoute']);
                 });
                 $scope.newProduct = {};
             };
+            
         });

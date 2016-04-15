@@ -22,12 +22,12 @@ module.exports = {
         });
     },
 
-    delete: function(req,res){
-        Products.remove({_id:req.body._id},function(err){
-            if(err)
-                console.log(err);
-            else
-                res.json({status:true});
-        })
-    },
+    // delete: function(req,res){
+    //     Products.remove({_id:req.body._id},function(err){
+    //         if(err)
+    //             console.log(err);
+    //         else
+    //             res.json({status:true});
+    //     })
+    // },
 }
