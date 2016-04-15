@@ -45,6 +45,9 @@
 
             factory.showOne = function(person){
                 chosenPerson = person.name;
+            }
+
+            factory.getOne = function(){
                 return chosenPerson;
             }
 
@@ -87,10 +90,8 @@
         
         myApp.controller('editController', function(peopleFactory){
             var that = this;
-
-            this.showPerson.name = person.name;
-            
-            };
+            this.showPerson.name = peopleFactory.getOne();
+        
         })
 
     </script>
