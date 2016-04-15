@@ -59,7 +59,13 @@
             }
 
             factory.update = function(chosenPerson,updatedPerson){
-                $http.post('/update/'+chosenPerson,{name: updatedPerson})
+                $http.post('/update/'+chosenPerson,{name: updatedPerson}).success(function(result){
+                    console.log(result)
+                    if(result)
+                        window.location.href = '#/';
+                    else
+                        console.log("Error updating");
+                });
             }
 
             return factory;
