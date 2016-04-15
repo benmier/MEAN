@@ -22,8 +22,8 @@ module.exports = {
     },
 
     create: function(req,res){
-        console.log(req.body.name)
-        var new_person = new People({name:req.body.name}, function(err){
+        var new_person = new People({name:req.body.name}) 
+        new_person.save(function(err){
             if(err)
                 console.log(err);
             else
