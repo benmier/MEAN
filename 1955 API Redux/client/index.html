@@ -37,7 +37,7 @@
             }
 
             factory.create = function(person,callback){
-                $http.post('/new/'+person.name).success(function(output){
+                $http.post('/new/'+person.name,person).success(function(output){
                     people = output;
                     callback(people);
                 })
