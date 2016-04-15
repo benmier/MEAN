@@ -24,21 +24,25 @@
         });
 
         myApp.factory('customerFactory', function(){
-            var d1 = new Date(2014,3,3);
-            var d2 = new Date(2014,3,3);
-            var d3 = new Date(2014,3,1);
-            var d4 = new Date(2014,2,15);
+            var customers, orders factory = {};
 
-            var customers = [
-                {name: "Michael Choi", date: d1.getTime()},
-                {name: "John Supsupin", date: d2.getTime()},
-                {name: "Trey Villafane", date: d3.getTime()},
-                {name: "India Meisner", date: d4.getTime()}
-            ];
+            // var d1 = new Date(2014,3,3);
+            // var d2 = new Date(2014,3,3);
+            // var d3 = new Date(2014,3,1);
+            // var d4 = new Date(2014,2,15);
+            // var customers = [
+            //     {name: "Michael Choi", date: d1.getTime()},
+            //     {name: "John Supsupin", date: d2.getTime()},
+            //     {name: "Trey Villafane", date: d3.getTime()},
+            //     {name: "India Meisner", date: d4.getTime()}
+            // ];
 
-            var factory = {};
-
-            factory.getCustomers = function(callback){callback(customers)};
+            factory.show = function(callback){
+                $http.get('/customers').success(function(data){
+                    customers = data;
+                    callback(customers)
+                })
+            };
             
             factory.addCustomer = function(newCustomer){
                 var d = Date.now()
@@ -93,7 +97,7 @@
 
         myApp.controller('customersController', function($scope,customerFactory){
             $scope.customers = [];
-            customerFactory.getCustomers(function(data){
+            customerFactory.show(function(data){
                 $scope.customers = data;
             })
             
@@ -115,7 +119,7 @@
 
         myApp.controller('ordersController', function($scope,customerFactory, orderFactory){
             $scope.customers = [];
-            customerFactory.getCustomers(function(data){
+            customerFactory.show(function(data){
                 $scope.customers = data;
             })
             $scope.products = [];
