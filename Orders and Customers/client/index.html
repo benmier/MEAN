@@ -44,10 +44,20 @@
                 })
             };
             
-            factory.addCustomer = function(newCustomer){
-                var d = Date.now()
-                newCustomer.date = d;
-                customers.push(newCustomer);
+            factory.create = function(newCustomer,callback){
+                $http.get('/customers').success(function(data){
+                    customers = data;
+                })
+                for(i in customers){
+                    dupes = customers[i].name==newCustomer.name;
+                }
+                if(dupes)
+                    alert("Cannot add duplicate name");
+                else
+                    $http.post('/customers/create',newCustomer).success(function(data){
+                    customers = data;
+                    callback(customers)
+                })
             }
 
             factory.deleteCustomer = function(customer){
@@ -104,14 +114,8 @@
                 $scope.customers = data;
             })
             
-            $scope.addCustomer = function(){
-                for(i in $scope.customers){
-                    dupes = $scope.customers[i].name==$scope.newCustomer.name;
-                }
-                if(dupes)
-                    alert("Cannot add duplicate name");
-                else
-                    customerFactory.addCustomer($scope.newCustomer);
+            $scope.create = function(){
+                customerFactory.create($scope.newCustomer);
                 $scope.newCustomer = {};
             }
 
