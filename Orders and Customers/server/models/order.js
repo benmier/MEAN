@@ -6,4 +6,4 @@ var OrderSchema = new mongoose.Schema({
     qty: Number,
 },{timestamps:true});
 
-var Order = mongoose.model('Order', OrderSchema);
+var Orders = mongoose.model('Orders', OrderSchema);
