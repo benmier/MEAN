@@ -17,8 +17,8 @@
 	</form><br>
 </div>
 
-<div style="display: inline-block; vertical-align: top">
-	<div ng-repeat='product in products' style="text-align: center; margin: 20px;">
+<div style="display: inline-block; vertical-align: top; width: 75%;">
+	<div ng-repeat='product in products | filter:product_filter | orderBy: "createdAt":true' style="text-align: center; margin: 0px 20px 20px 20px; display: inline-block;">
 		<img src="{{product.imageUrl}}" style="width: 150px; height: 150px; border: 1px solid black; margin-bottom: 10px;">
 		<p ng-bind='product.name' style="margin-bottom: 0px;"></p>
 		<p>({{product.qty}} left)</p>

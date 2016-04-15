@@ -90,7 +90,7 @@ var myApp = angular.module('myApp',['ngRoute']);
         });
 
         myApp.factory('productFactory', function($http){
-            var factory = {}, products=[{name:"Nike Shoes",qty:20,imageUrl:"http://i.ebayimg.com/images/i/271723310731-0-1/s-l1000.jpg"}];
+            var factory = {}, products=[{name:"Nike Shoes",qty:20,imageUrl:"http://i.ebayimg.com/images/i/271723310731-0-1/s-l1000.jpg"},{name:"Nike Shoes",qty:20,imageUrl:"http://i.ebayimg.com/images/i/271723310731-0-1/s-l1000.jpg"},{name:"Nike Shoes",qty:20,imageUrl:"http://i.ebayimg.com/images/i/271723310731-0-1/s-l1000.jpg"},{name:"Nike Shoes",qty:20,imageUrl:"http://i.ebayimg.com/images/i/271723310731-0-1/s-l1000.jpg"},{name:"Nike Shoes",qty:20,imageUrl:"http://i.ebayimg.com/images/i/271723310731-0-1/s-l1000.jpg"},{name:"Nike Shoes",qty:20,imageUrl:"http://i.ebayimg.com/images/i/271723310731-0-1/s-l1000.jpg"}];
 
             factory.show = function(callback){
                 // $http.get('/products').success(function(data){
