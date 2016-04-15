@@ -1,0 +1,24 @@
+<h2>Add a new customer</h2>
+<form class="form-group">
+		<label>Name</label>
+		<input class="form-control" type="text" style="width: 25%;" ng-model='newCustomer.name'></input><br>
+		<input type="submit" ng-click='create()' value="Add"></input>
+	</form><br>
+
+	<input placeholder="search name..." type="text" ng-model='name_filter'></input><br><br>
+	<table class="table table-striped" style="border:1px solid tan;">
+		<thead>
+			<tr>
+				<th>Customer Name</th>
+				<th>Created Date</th>
+				<th>Actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="customer in customers | filter:name_filter | orderBy: 'date':true">
+				<td ng-bind='customer.name'></td>
+				<td ng-bind="customer.createdAt | date:'MMMM d, y'"></td>
+				<td><button ng-click='delete(customer)'>Remove</button></td>
+			</tr>
+		</tbody>
+	</table>

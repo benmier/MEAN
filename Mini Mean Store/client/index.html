@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html style="margin: 20px;">
+<head>
+    <title>Dashboard</title>
+    <script type="text/javascript" src="angular.js"></script>
+    <script type="text/javascript" src="angular-route.js"></script>
+    <script type="text/javascript" src="script.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+<body>
+    <div ng-app='myApp'>
+        <a href="#/" style="margin-right: 20px;">Dashboard</a> | 
+        <a href="#/products">Products</a> | 
+        <a href="#/orders">Orders</a> | 
+        <a href="#/customers">Customers</a> | 
+        <a href="#/settings">Settings</a>
+        <div ng-view='' style="margin-bottom: 20px;"></div>
+    </div>
+</body>
+</html>
