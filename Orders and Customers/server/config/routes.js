@@ -11,11 +11,11 @@ module.exports = function(app){
       orders.show(req,res);
   	});
 
-  	app.post('/customers/new', function(req, res) {
+  	app.post('/customers/create', function(req, res) {
       customers.create(req,res);
   	});
 
-  	app.post('/orders/new', function(req, res) {
+  	app.post('/orders/create', function(req, res) {
       orders.create(req,res);
   	});
 

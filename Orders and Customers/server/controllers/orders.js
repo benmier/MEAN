@@ -12,4 +12,14 @@ module.exports = {
         });
     },
 
+    create: function(req,res){
+        var order = new Order(req.body) 
+        order.save(function(err){
+            if(err)
+                console.log(err);
+            else
+                res.redirect('/orders')
+        });
+    },
+
 }
