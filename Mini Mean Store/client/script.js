@@ -1,4 +1,4 @@
-var myApp = angular.module('myApp',['ngRoute,timeRelative']);
+var myApp = angular.module('myApp',['ngRoute','timeRelative']);
 
         myApp.config(function($routeProvider){
             $routeProvider
