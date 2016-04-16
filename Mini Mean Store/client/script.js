@@ -90,8 +90,6 @@ var myApp = angular.module('myApp',['ngRoute']);
                 });
             };
 
-            
-
             return factory;
         });
 

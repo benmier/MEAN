@@ -29,20 +29,19 @@ module.exports = {
                 console.log(err);
             else{
                 newQuantity = data.initialQty - req.body.qty;
-                console.log("newQuantity:"+ newQuantity)
+                if(newQuantity<0){
+                    res.json({status:false});
+                }
+                else{
+                    Products.update({name:req.body.product},{initialQty:newQuantity},function(err){
+                        if(err)
+                            console.log(err);
+                        else
+                            res.json({status:true});
+                    });
+                };
             }
         });
-        console.log("newQuantity:"+ newQuantity)
-        if(newQuantity<0)
-            res.json({status:false});
-        else{
-            Products.update({name:req.body.product},{initialQty:newQuantity},function(err){
-                if(err)
-                    console.log(err);
-                else
-                    res.json({result:true});
-            });
-        };
     },
 
     // delete: function(req,res){
