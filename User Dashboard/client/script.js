@@ -10,7 +10,7 @@ myApp.config(function($routeProvider){
             templateUrl: 'partials/dashboard.html',
             controller: "dashboardController"
         })
-        .when('/thread',{
+        .when('/thread/:id',{
             templateUrl: 'partials/thread.html',
             controller: "threadController"
         })
