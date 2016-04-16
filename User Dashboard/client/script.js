@@ -40,6 +40,10 @@ myApp.factory('userFactory', function($http){
         });
     };
 
+    factory.destroy = function(){
+        currentUser = {};
+    };
+
     return factory;
 });
 
@@ -55,6 +59,13 @@ App.factory('threadFactory', function($http){
 
     factory.create = function(newThread,callback){
         $http.post('/create/threads',newThread).success(function(data){
+            threads = data;
+            callback(threads);
+        });
+    };
+
+    factory.update = function(answer,comment,callback){
+        $http.post('/update/threads',{answer:answer,comment:comment}).success(function(data){
             threads = data;
             callback(threads);
         });
