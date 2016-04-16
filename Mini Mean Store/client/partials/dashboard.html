@@ -1,4 +1,4 @@
-<div style="width: 15%; display: inline-block; margin-right: 10px;">
+<div style="width: 15%; height: 90%; display: inline-block; margin-right: 10px;">
 	<input ng-model='product_filter' placeholder="search..."></input><br><br>
 </div>
 
@@ -11,7 +11,7 @@
 	</div>
 </div><br><br>
 
-<div style="display: inline-block; vertical-align: top; width: 80%;">
+<div style="display: inline-block; vertical-align: top; width: 80%; float: right">
 	<h3>Recent Orders</h3>
-	<p ng-repeat='order in orders | orderBy:"date":true'>{{order.name}} purchased {{order.qty}} {{order.product}}...({{order.createdAt | date:'MMMM d, y'}})</p>
+	<p ng-repeat='order in orders | orderBy:"date":true'>{{order.name}} purchased {{order.qty}} {{order.product}}...({{order.createdAt | date:'h:mm a - MMMM d, y'}})</p>
 </div>
