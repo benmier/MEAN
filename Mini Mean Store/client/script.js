@@ -4,7 +4,7 @@ var myApp = angular.module('myApp',['ngRoute']);
             $routeProvider
                 .when('/',{
                     templateUrl: 'partials/dashboard.html',
-                    controller: "customersController"
+                    controller: "dashboardController"
                 })
                 .when('/products',{
                     templateUrl: 'partials/products.html',
@@ -168,5 +168,21 @@ var myApp = angular.module('myApp',['ngRoute']);
                 });
                 $scope.newProduct = {};
             };
+
+        });
+
+        myApp.controller('dashboardController', function($scope,productFactory,orderFactory,customerFactory){
+            
+            customerFactory.show(function(data){
+                $scope.customers = data;
+            })
+
+            productFactory.show(function(data){
+                $scope.products = data;
+            })
+
+            orderFactory.show(function(data){
+                $scope.orders = data;
+            })
 
         });
