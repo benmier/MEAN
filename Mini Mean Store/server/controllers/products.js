@@ -24,15 +24,15 @@ module.exports = {
 
     update: function(req,res){
         var newQuantity;
-        console.log("req.body.qty:"+ req.body.qty)
         Products.findOne({name:req.body.product},function(err,data){
             if(err)
                 console.log(err);
             else{
-                console.log("data:"+ data.initialQty)
                 newQuantity = data.initialQty - req.body.qty;
+                console.log("newQuantity:"+ newQuantity)
             }
         });
+        console.log("newQuantity:"+ newQuantity)
         if(newQuantity<0)
             res.json({status:false});
         else{
