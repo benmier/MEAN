@@ -13,7 +13,7 @@
 
 <div style="display: inline-block; vertical-align: top; width: 80%; float: right">
 	<h3>Recent Orders</h3>
-	<p ng-repeat='order in orders | orderBy:"createdAt":true'>{{order.name}} purchased {{order.qty}} {{order.product}}...(<time relative>1999</time>)</p>
+	<p ng-repeat='order in orders | orderBy:"createdAt":true'>{{order.name}} purchased {{order.qty}} {{order.product}}...({{order.createdAt | date:'h:mm a - MMMM d, y'}})</p>
 </div><br><br>
 
 <div style="display: inline-block; vertical-align: top; width: 80%; float: right">
