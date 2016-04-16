@@ -86,7 +86,7 @@ myApp.controller('loginController', function($scope,userFactory){
     }
 });
 
-myApp.controller('dashboardController', function($scope,threadFactory){
+myApp.controller('dashboardController', function($scope,threadFactory,userFactory){
     $scope.show = function(){
         threadFactory.show(function(data){
             $scope.threads = data
@@ -98,9 +98,13 @@ myApp.controller('dashboardController', function($scope,threadFactory){
             $scope.threads = data
         });
     };
+
+    $scope.destroy = function(){
+        userFactory.destroy();
+    }
 });
 
-myApp.controller('threadController', function($scope,threadFactory){
+myApp.controller('threadController', function($scope,threadFactory,userFactory){
     $scope.showOne = function(thread){
         threadFactory.showOne(thread,function(data){
             $scope.thread = data
@@ -112,8 +116,16 @@ myApp.controller('threadController', function($scope,threadFactory){
             $scope.thread = data
         });
     };
+
+    $scope.destroy = function(){
+        userFactory.destroy();
+    }
 });
 
 myApp.controller('userController', function($scope,userFactory, threadFactory){
     
+
+    $scope.destroy = function(){
+        userFactory.destroy();
+    }
 });
