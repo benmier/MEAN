@@ -23,7 +23,7 @@ module.exports = {
     },
 
     update: function(req,res){
-        Products.update({name:req.body.name},{initialQty:req.body.qty},function(err){
+        Products.update({name:req.body.product},{initialQty:req.body.qty},function(err){
             if(err)
                 console.log(err);
             else

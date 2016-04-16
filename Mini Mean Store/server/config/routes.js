@@ -36,5 +36,9 @@ module.exports = function(app){
       products.create(req,res);
     });
 
+    app.post('/products/update', function(req, res) {
+      products.update(req,res);
+    });
+
   
 };
