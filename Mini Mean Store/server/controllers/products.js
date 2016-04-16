@@ -25,7 +25,7 @@ module.exports = {
     update: function(req,res){
         var newQuantity;
         console.log("req.body.qty:"+ req.body.qty)
-        Products.find({name:req.body.product},function(err,data){
+        Products.findOne({name:req.body.product},function(err,data){
             if(err)
                 console.log(err);
             else{
