@@ -80,8 +80,13 @@ var myApp = angular.module('myApp',['ngRoute']);
             factory.create = function(newOrder,callback){
                 $http.post('/orders/create',newOrder).success(function(data){
                     $http.post('/products/update',newOrder).success(function(data){
-                        orders = data;
-                        callback(orders)
+                        if(data.status==true){
+                            orders = data;
+                            callback(orders)
+                        }
+                        else
+                            alert("Not enough stock for your order");
+                        
                     });
                 });
             };

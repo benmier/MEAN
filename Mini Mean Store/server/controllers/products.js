@@ -23,12 +23,23 @@ module.exports = {
     },
 
     update: function(req,res){
-        Products.update({name:req.body.product},{initialQty:req.body.qty},function(err){
+        Products.find({name:req.body.product},function(err,data){
             if(err)
                 console.log(err);
             else
-                res.json({result:true});
+                res.json(data);
         });
+        var newQuantity = data.initialQty - req.body.qty;
+        if(newQuantity<0)
+            res.json({status:false});
+        else{
+            Products.update({name:req.body.product},{initialQty:req.body.qty},function(err){
+                if(err)
+                    console.log(err);
+                else
+                    res.json({result:true});
+            });
+        };
     },
 
     // delete: function(req,res){
