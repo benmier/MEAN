@@ -33,7 +33,7 @@ module.exports = {
         if(newQuantity<0)
             res.json({status:false});
         else{
-            Products.update({name:req.body.product},{initialQty:req.body.qty},function(err){
+            Products.update({name:req.body.product},{initialQty:newQuantity},function(err){
                 if(err)
                     console.log(err);
                 else
