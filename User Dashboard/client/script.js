@@ -24,12 +24,19 @@ myApp.config(function($routeProvider){
 });
 
 myApp.factory('userFactory', function($http){
-    var factory = {}, users;
+    var factory = {}, users, currentUser;
 
     factory.show = function(callback){
         $http.get('/users').success(function(data){
             users = data;
             callback(users);
+        });
+    };
+
+    factory.create = function(newUser,callback){
+        $http.post('/create/users',newUser).success(function(data){
+            currentUser = data;
+            callback(currentUser);
         });
     };
 
@@ -41,6 +48,13 @@ App.factory('threadFactory', function($http){
 
     factory.show = function(callback){
         $http.get('/threads').success(function(data){
+            threads = data;
+            callback(threads);
+        });
+    };
+
+    factory.create = function(newThread,callback){
+        $http.post('/create/threads',newThread).success(function(data){
             threads = data;
             callback(threads);
         });
