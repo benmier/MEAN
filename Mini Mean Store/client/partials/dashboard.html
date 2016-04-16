@@ -3,9 +3,15 @@
 </div>
 
 <div style="display: inline-block; vertical-align: top; width: 80%; height: 250px; text-align: center;">
-	<div ng-repeat='product in products | filter:product_filter | orderBy: "createdAt":true' style="text-align: center; margin: 0px 20px 20px 20px; display: inline-block;">
+	<h3>Products</h3>
+	<div ng-repeat='product in products | filter:product_filter | orderBy: "name":false' style="text-align: center; margin: 0px 20px 20px 20px; display: inline-block;">
 		<img src="{{product.imageUrl}}" style="width: 200px; height: 200px; border: 1px solid black; margin-bottom: 10px;">
 		<p ng-bind='product.name' style="margin-bottom: 0px;"></p>
 		<p>({{product.initialQty}} left)</p>
-	</div><br>
+	</div>
+</div>
+
+<div style="display: inline-block; vertical-align: top; width: 80%;">
+	<h3>Recent Orders</h3>
+	<p ng-repeat='order in orders | orderBy:"date":true'>{{order.name}} purchased {{order.qty}} {{order.product}}...({{order.date}})</p>
 </div>
