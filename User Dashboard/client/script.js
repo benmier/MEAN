@@ -56,8 +56,8 @@ App.factory('threadFactory', function($http){
         });
     };
 
-    factory.showOne = function(callback){
-        $http.get('/threads/:id').success(function(data){
+    factory.showOne = function(thread,callback){
+        $http.get('/threads/'+thread._id).success(function(data){
             threads = data;
             callback(threads);
         });
@@ -94,15 +94,15 @@ myApp.controller('dashboardController', function($scope,threadFactory){
     };
 
     $scope.create = function(){
-        threadFactory.create(function(data){
+        threadFactory.create($scope.newThread,function(data){
             $scope.threads = data
         });
     };
 });
 
 myApp.controller('threadController', function($scope,threadFactory){
-    $scope.showOne = function(){
-        threadFactory.showOne(function(data){
+    $scope.showOne = function(thread){
+        threadFactory.showOne(thread,function(data){
             $scope.thread = data
         });
     };
