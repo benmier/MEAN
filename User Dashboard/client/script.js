@@ -10,11 +10,11 @@ myApp.config(function($routeProvider){
             templateUrl: 'partials/dashboard.html',
             controller: "dashboardController"
         })
-        .when('/thread/:id',{
+        .when('/threads/:id',{
             templateUrl: 'partials/thread.html',
             controller: "threadController"
         })
-        .when('/user',{
+        .when('/users/:id',{
             templateUrl: 'partials/user.html',
             controller: "userController"
         })
@@ -24,12 +24,19 @@ myApp.config(function($routeProvider){
 });
 
 myApp.factory('userFactory', function($http){
-    var factory = {}, users, currentUser;
+    var factory = {}, users, currentUser, user;
 
     factory.show = function(callback){
         $http.get('/users').success(function(data){
             users = data;
             callback(users);
+        });
+    };
+
+    factory.showOne = function(user,callback){
+        $http.get('/users/'+user._id).success(function(data){
+            user = data;
+            callback(user);
         });
     };
 
@@ -47,7 +54,7 @@ myApp.factory('userFactory', function($http){
 });
 
 App.factory('threadFactory', function($http){
-    var factory = {}, threads;
+    var factory = {}, threads thread;
 
     factory.show = function(callback){
         $http.get('/threads').success(function(data){
@@ -123,7 +130,11 @@ myApp.controller('threadController', function($scope,threadFactory,userFactory){
 });
 
 myApp.controller('userController', function($scope,userFactory, threadFactory){
-    
+    $scope.showOne = function(user){
+        userFactory.showOne(user,function(data){
+            $scope.threads = data
+        });
+    };
 
     $scope.destroy = function(){
         userFactory.destroy();
