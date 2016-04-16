@@ -33,10 +33,9 @@ myApp.factory('userFactory', function($http){
         });
     };
 
-    factory.create = function(newUser,callback){
+    factory.create = function(newUser){
         $http.post('/create/users',newUser).success(function(data){
             currentUser = data;
-            callback(currentUser);
         });
     };
 
@@ -52,6 +51,13 @@ App.factory('threadFactory', function($http){
 
     factory.show = function(callback){
         $http.get('/threads').success(function(data){
+            threads = data;
+            callback(threads);
+        });
+    };
+
+    factory.showOne = function(callback){
+        $http.get('/threads/:id').success(function(data){
             threads = data;
             callback(threads);
         });
@@ -75,15 +81,37 @@ App.factory('threadFactory', function($http){
 });
 
 myApp.controller('loginController', function($scope,userFactory){
-
+    $scope.create = function(){
+        userFactory.create($scope.newUser);
+    }
 });
 
 myApp.controller('dashboardController', function($scope,threadFactory){
-    
+    $scope.show = function(){
+        threadFactory.show(function(data){
+            $scope.threads = data
+        });
+    };
+
+    $scope.create = function(){
+        threadFactory.create(function(data){
+            $scope.threads = data
+        });
+    };
 });
 
 myApp.controller('threadController', function($scope,threadFactory){
-    
+    $scope.showOne = function(){
+        threadFactory.showOne(function(data){
+            $scope.thread = data
+        });
+    };
+
+    $scope.update = function(){
+        threadFactory.update(function(data){
+            $scope.thread = data
+        });
+    };
 });
 
 myApp.controller('userController', function($scope,userFactory, threadFactory){
