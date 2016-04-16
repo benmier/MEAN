@@ -14,12 +14,12 @@
 
 <div style="display: inline-block; vertical-align: top; width: 80%; float: right">
 	<h3>Recent Orders</h3>
-	<p ng-repeat='order in orders | limitTo:3 | orderBy:"createdAt":true'>{{order.name}} purchased {{order.qty}} {{order.product}}...({{order.createdAt | date:'h:mm a - MMMM d, y'}})</p>
-</div><br>
-	<a href="#/orders">show more...</a><br><br>
+	<p ng-repeat='order in orders | orderBy:"createdAt":true | limitTo:3'>{{order.name}} purchased {{order.qty}} {{order.product}}...({{order.createdAt | date:'h:mm a - MMMM d, y'}})</p>
+	<a href="#/orders">show more...</a>
+</div>
 
-<div style="display: inline-block; vertical-align: top; width: 80%; float: right">
+<div style="display: inline-block; vertical-align: top; width: 80%; float: right; margin-top: 30px;">
 	<h3>Recent Customers</h3>
-	<p ng-repeat='customer in customers | limitTo:3 | orderBy:"createdAt":true'>{{customer.name}} joined the store...({{customer.createdAt | date:'h:mm a - MMMM d, y'}})</p>
-</div><br>
+	<p ng-repeat='customer in customers | orderBy:"createdAt":true | limitTo:3'>{{customer.name}} joined the store...({{customer.createdAt | date:'h:mm a - MMMM d, y'}})</p>
 	<a href="#/customers">show more...</a>
+</div>	
