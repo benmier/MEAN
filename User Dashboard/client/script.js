@@ -41,7 +41,7 @@ myApp.factory('userFactory', function($http){
     };
 
     factory.create = function(newUser){
-        $http.post('/create/users',newUser).success(function(data){
+        $http.post('/users/create',newUser).success(function(data){
             currentUser = data;
             window.location.href = "#/dashboard"
         });
@@ -72,14 +72,14 @@ App.factory('threadFactory', function($http){
     };
 
     factory.create = function(newThread,callback){
-        $http.post('/create/threads',newThread).success(function(data){
+        $http.post('/threads/create',newThread).success(function(data){
             threads = data;
             callback(threads);
         });
     };
 
-    factory.update = function(answer,comment,callback){
-        $http.post('/update/threads',{answer:answer,comment:comment}).success(function(data){
+    factory.update = function(thread,answer,comment,callback){
+        $http.post('/threads/update/'+thread._id,{answer:answer,comment:comment}).success(function(data){
             threads = data;
             callback(threads);
         });
