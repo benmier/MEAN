@@ -20,4 +20,20 @@
 	</tbody>
 </table><br><br>
 
-
+<form class="form-group">
+	<h3>Create a new Thread</h3>
+	<label>Topic</label>
+	<input type="text" ng-model='newThread.topic'></input><br>
+	<label>Description</label>
+	<input type="text" ng-model='newThread.description'></input><br>
+	<label>Category</label>
+	<select ng-model='newThread.category'>
+		<option>HTML</option>
+		<option>Mongoose</option>
+		<option>Node</option>
+		<option>Express</option>
+		<option>JavaScript</option>
+		<option>Angular</option>
+	</select><br>
+	<input type="submit" value="Submit" ng-click='create()'></input>
+</form>

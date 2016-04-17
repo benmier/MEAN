@@ -43,6 +43,7 @@ myApp.factory('userFactory', function($http){
     factory.create = function(newUser){
         $http.post('/create/users',newUser).success(function(data){
             currentUser = data;
+            window.location.href = "#/dashboard"
         });
     };
 
