@@ -32,7 +32,7 @@ module.exports = {
     },
 
     createAnswer: function(req,res){
-        Threads.findOneAndUpdate({_id:req.body._id},{},function(err,data){
+        Threads.findOneAndUpdate({_id:req.params._id},{},{new:true},function(err,data){
             if(err)
                 console.log(err);
             else{
@@ -42,7 +42,7 @@ module.exports = {
     },
 
     createComment: function(req,res){
-        Threads.findOneAndUpdate({_id:req.body._id},{},function(err,data){
+        Threads.findOneAndUpdate({_id:req.params._id},{},{new:true},function(err,data){
             if(err)
                 console.log(err);
             else{
