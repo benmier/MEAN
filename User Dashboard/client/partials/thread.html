@@ -7,4 +7,8 @@
 <div style="margin-left: 30px;">
 	<h3>{{thread.topic}}</h3>
 	<p>Description: {{thread.description}}</p>
-</div>
+</div><br><br>
+
+<h3>Post your answer here...</h3>
+<textarea style="margin-left: 30px;" rows="4" id="newAnswer" ng-model='newAnswer'></textarea>
+<input type="submit" value="Post" ng-click='createAnswer()'></input>
