@@ -15,8 +15,13 @@
 
 <div ng-repeat='answer in thread.answers | orderBy:createdAt:true'>
 	<div style="float: right">
-		{{}} <img src="http://i.imgur.com/QJ41dQb.png" height="15px" width="15px"> 
-		{{}} <img src="http://i.imgur.com/eqLD2.png" height="15px" width="15px">
-	</div>
-	<a href="#/users/{{answer.nameId}}">{{answer.name}}:</a> {{answer.text}}
+		{{answer.upvotes}} <img src="http://i.imgur.com/QJ41dQb.png" height="15px" width="15px"> | 
+		{{answer.downvotes}} <img src="http://i.imgur.com/eqLD2.png" height="15px" width="15px">
+	</div><br>
+	<a href="#/users/{{answer.nameId}}">{{answer.name}}:</a> {{answer.text}}<br><br>
+	<div style="margin-left: 30px;" ng-repeat='comment in thread.answers.comments'>
+		<a href="#/users/{{comment.nameId}}">{{comment.name}}:</a> {{comment.text}}<br>
+	</div><br>
+	<textarea style="margin-left: 30px;" ng-model='newComment' rows="4"></textarea>
+	<input type="submit" value="Comment" style="float: right" ng-click='newComment(answer._id)'></input><br><hr><br>
 </div>
