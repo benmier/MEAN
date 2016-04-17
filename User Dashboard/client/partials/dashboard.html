@@ -1,0 +1,18 @@
+<h2>Welcome, {{currentUser}}!</h2>
+<input type="text" ng-model='threadFilter' style="float: right" placeholder="Search threads..."></input><br><br>
+
+<table class="table table-striped" style="border: 1px solid tan">
+	<thead>
+		<tr>
+			<th>Category</th>
+			<th>Topic</th>
+			<th>User Name</th>
+			<th>Posts</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat='thread in threads | filter:threadFilter | orderBy:createdAt:true'>
+			<td></td>
+		</tr>
+	</tbody>
+</table> 
