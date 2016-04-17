@@ -31,12 +31,23 @@ module.exports = {
         });
     },
 
-    update: function(req,res){
-        Customers.update({_id:req.body._id},function(err){
+    createAnswer: function(req,res){
+        Threads.findOneAndUpdate({_id:req.body._id},{},function(err,data){
             if(err)
                 console.log(err);
-            else
-                res.redirect('/threads')
+            else{
+                res.json(data)
+            }
+        })
+    },
+
+    createComment: function(req,res){
+        Threads.findOneAndUpdate({_id:req.body._id},{},function(err,data){
+            if(err)
+                console.log(err);
+            else{
+                res.json(data)
+            }
         })
     },
 
