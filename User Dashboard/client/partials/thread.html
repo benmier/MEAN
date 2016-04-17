@@ -23,5 +23,5 @@
 		<a href="#/users/{{comment.nameId}}">{{comment.name}}:</a> {{comment.text}}<br>
 	</div><br>
 	<textarea style="margin-left: 30px;" ng-model='newComment' rows="4"></textarea>
-	<input type="submit" value="Comment" style="float: right" ng-click='newComment(answer._id)'></input><br><hr><br>
+	<input type="submit" value="Comment" style="float: right" ng-click='createComment(answer._id)'></input><br><hr><br>
 </div>

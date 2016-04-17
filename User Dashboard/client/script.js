@@ -78,8 +78,15 @@ App.factory('threadFactory', function($http){
         });
     };
 
-    factory.update = function(thread,answer,comment,callback){
-        $http.post('/threads/update/'+thread._id,{answer:answer,comment:comment}).success(function(data){
+    factory.createAnswer = function(thread,answer,callback){
+        $http.post('/threads/createAnswer/'+thread._id,{}).success(function(data){
+            threads = data;
+            callback(threads);
+        });
+    };
+
+    factory.createComment = function(thread,answer,comment,callback){
+        $http.post('/threads/createComment/'+thread._id,{}).success(function(data){
             threads = data;
             callback(threads);
         });
@@ -121,8 +128,14 @@ myApp.controller('threadController', function($scope,threadFactory,userFactory){
         });
     };
 
-    $scope.update = function(){
-        threadFactory.update(function(data){
+    $scope.createAnswer = function(){
+        threadFactory.createAnswer(function(data){
+            $scope.thread = data
+        });
+    };
+
+    $scope.createComment = function(){
+        threadFactory.createComment(function(data){
             $scope.thread = data
         });
     };

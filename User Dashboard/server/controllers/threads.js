@@ -31,6 +31,13 @@ module.exports = {
         });
     },
 
-
+    update: function(req,res){
+        Customers.update({_id:req.body._id},function(err){
+            if(err)
+                console.log(err);
+            else
+                res.redirect('/threads')
+        })
+    },
 
 }
