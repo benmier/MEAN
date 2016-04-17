@@ -12,7 +12,12 @@
 	</thead>
 	<tbody>
 		<tr ng-repeat='thread in threads | filter:threadFilter | orderBy:createdAt:true'>
-			<td></td>
+			<td>{{thread.category}}</td>
+			<td>{{thread.topic}}</td>
+			<td>{{thread.name}}</td>
+			<td>{{thread.posts}}</td>
 		</tr>
 	</tbody>
-</table> 
+</table><br><br>
+
+
