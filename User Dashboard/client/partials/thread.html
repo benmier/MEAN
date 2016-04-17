@@ -15,7 +15,8 @@
 
 <div ng-repeat='answer in thread.answers | orderBy:createdAt:true'>
 	<div style="float: right">
-		
+		{{}} <img src="http://i.imgur.com/QJ41dQb.png" height="15px" width="15px"> 
+		{{}} <img src="http://i.imgur.com/eqLD2.png" height="15px" width="15px">
 	</div>
 	<a href="#/users/{{answer.nameId}}">{{answer.name}}:</a> {{answer.text}}
 </div>
