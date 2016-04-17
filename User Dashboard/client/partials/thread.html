@@ -10,5 +10,12 @@
 </div><br><br>
 
 <h3>Post your answer here...</h3>
-<textarea style="margin-left: 30px;" rows="4" id="newAnswer" ng-model='newAnswer'></textarea>
-<input type="submit" value="Post" ng-click='createAnswer()'></input>
+<textarea style="margin-left: 30px;" rows="4" id="newAnswer" ng-model='newAnswer'></textarea><br>
+<input type="submit" value="Post" ng-click='createAnswer()' style="float: right;"></input><br><hr><br>
+
+<div ng-repeat='answer in thread.answers | orderBy:createdAt:true'>
+	<div style="float: right">
+		
+	</div>
+	<a href="#/users/{{answer.nameId}}">{{answer.name}}:</a> {{answer.text}}
+</div>
