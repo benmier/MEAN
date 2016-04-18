@@ -4,7 +4,7 @@ var app = express();
 var bodyParser = require('body-parser');
 var session = require('express-session');
 
-app.use(session({secret: 'codingdojorocks',resave:true,saveUninitialized:true}));
+app.use(session({secret: 'dasdasdsa'}));
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, './client')));
 
