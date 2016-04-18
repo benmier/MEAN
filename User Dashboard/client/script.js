@@ -133,7 +133,8 @@ myApp.controller('threadController', function($scope,threadFactory,userFactory){
         $scope.currentUser = data;
     });
 
-    threadFactory.showOne(function(data){
+    $scope.shoeOne = function(){
+        threadFactory.showOne(function(data){
         $scope.thread = data
     });
 
