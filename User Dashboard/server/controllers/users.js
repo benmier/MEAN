@@ -22,8 +22,7 @@ module.exports = {
     },
 
     currentUser: function(req,res){
-        // console.log("currentUser method: "+req.session.name)
-        // res.json({name:String(req.session.name)});
+        res.json({name:"Blah"})
     },
 
     create: function(req,res){
