@@ -70,6 +70,7 @@ myApp.factory('threadFactory', function($http){
     factory.showOne = function(thread){
         $http.get('/threads/'+thread._id).success(function(data){
             thread = data;
+            console.log(thread)
         });
     };
 
