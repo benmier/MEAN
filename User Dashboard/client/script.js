@@ -47,7 +47,6 @@ myApp.factory('userFactory', function($http){
     factory.create = function(newUser){
         $http.post('/users/create',newUser).success(function(data){
             currentUser = data;
-            console.log("Userfactory says: currentUser = "+currentUser.name)
             window.location.href = "#/dashboard"
         });
     };
@@ -111,6 +110,7 @@ myApp.controller('loginController', function($scope,userFactory){
 myApp.controller('dashboardController', function($scope,threadFactory,userFactory){
     userFactory.showCurrentUser(function(data){
         $scope.currentUser = data;
+        console.log("dashboardController says: currentUser = "+$scope.currentUser.name)
     });
 
     threadFactory.show(function(data){
@@ -120,6 +120,7 @@ myApp.controller('dashboardController', function($scope,threadFactory,userFactor
 
     $scope.create = function(){
         $scope.newThread.name = $scope.currentUser.name;
+        $scope.newThread.posts = 0;
         //$scope.newThread.name._id = $scope.currentUser.name._id;        
         threadFactory.create($scope.newThread,function(data){
             $scope.threads = data
