@@ -33,6 +33,10 @@ myApp.factory('userFactory', function($http){
         });
     };
 
+    factory.showCurrentUser = function(callback){
+        callback(currentUser);
+    }
+
     factory.showOne = function(user,callback){
         $http.get('/users/'+user._id).success(function(data){
             user = data;
@@ -70,10 +74,6 @@ myApp.factory('threadFactory', function($http){
         });
     };
 
-    factory.showCurrentUser = function(callback){
-        callback(currentUser);
-    }
-
     factory.create = function(newThread,callback){
         $http.post('/threads/create',newThread).success(function(data){
             threads = data;
@@ -107,8 +107,7 @@ myApp.controller('loginController', function($scope,$location,userFactory){
 
 myApp.controller('dashboardController', function($scope,threadFactory,userFactory){
     userFactory.showCurrentUser(function(data){
-        console.log(data)
-        $scope.currentUser.name = data.name;
+        $scope.currentUser = data;
     });
 
     threadFactory.show(function(data){
@@ -122,7 +121,7 @@ myApp.controller('dashboardController', function($scope,threadFactory,userFactor
     $scope.create = function(){
         $scope.newThread.name = $scope.currentUser.name;
         $scope.newThread.posts = 0;
-        //$scope.newThread.name._id = $scope.currentUser.name._id;        
+        // $scope.newThread.name._id = $scope.currentUser.name._id;        
         threadFactory.create($scope.newThread,function(data){
             $scope.threads = data
         });
