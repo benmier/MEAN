@@ -22,18 +22,28 @@ module.exports = {
     },
 
     create: function(req,res){
-        var user = new Users(req.body) 
-        user.save(function(err){
+        Users.findOne({name:req.body.name},function(err,data){
             if(err)
                 console.log(err);
             else{
-            	Users.findOne({},function(err,data){
-	            if(err)
-	                console.log(err);
-	            else
-	                res.json(data);
-	        	}).sort({_id:-1});
-            };
+                if(data.name)
+                    res.json(data);
+                else{
+                    var user = new Users(req.body) 
+                    user.save(function(err){
+                        if(err)
+                            console.log(err);
+                        else{
+                            Users.findOne({},function(err,data){
+                            if(err)
+                                console.log(err);
+                            else
+                                res.json(data);
+                            }).sort({_id:-1});
+                        };
+                    });
+                }
+            }
         });
     },
 
