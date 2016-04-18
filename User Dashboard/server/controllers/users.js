@@ -26,8 +26,10 @@ module.exports = {
             if(err)
                 console.log(err);
             else{
-                if(data)
+                if(data){
                     res.json(data);
+                    req.session.currentUser = data;
+                }
                 else{
                     var user = new Users(req.body) 
                     user.save(function(err){
@@ -35,10 +37,12 @@ module.exports = {
                             console.log(err);
                         else{
                             Users.findOne({},function(err,data){
-                            if(err)
-                                console.log(err);
-                            else
-                                res.json(data);
+                                if(err)
+                                    console.log(err);
+                                else{
+                                    req.session.currentUser = data;
+                                    res.json(data);
+                                }
                             }).sort({_id:-1});
                         };
                     });

@@ -102,14 +102,12 @@ myApp.factory('threadFactory', function($http){
 myApp.controller('loginController', function($scope,userFactory){
     $scope.create = function(){
         userFactory.create($scope.newUser);
-        
     }
 });
 
 myApp.controller('dashboardController', function($scope,threadFactory,userFactory){
     userFactory.showCurrentUser(function(data){
         $scope.currentUser = data;
-        console.log("dashboardController says: currentUser = "+$scope.currentUser.name)
     });
 
     threadFactory.show(function(data){
