@@ -35,7 +35,6 @@ myApp.factory('userFactory', function($http){
 
     factory.showCurrentUser = function(callback){
         $http.get('/users/currentUser').success(function(data){
-            console.log(data)
             currentUser = data;
             callback(currentUser);
         });
