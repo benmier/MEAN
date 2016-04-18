@@ -33,8 +33,8 @@ myApp.factory('userFactory', function($http){
         });
     };
 
-    factory.showCurrentUser = function(callback){
-        callback(currentUser);
+    factory.showCurrentUser = function(){
+        return currentUser;
     }
 
     factory.showOne = function(user,callback){
@@ -50,10 +50,6 @@ myApp.factory('userFactory', function($http){
         });
     };
 
-    // factory.destroy = function(){
-    //     currentUser = {};
-    // };
-
     return factory;
 });
 
@@ -67,16 +63,15 @@ myApp.factory('threadFactory', function($http){
         });
     };
 
-    factory.showOne = function(thread){
+    factory.showOne = function(thread,callback){
         $http.get('/threads/'+thread._id).success(function(data){
             thread = data;
-            console.log(thread)
+            callback(thread);
         });
     };
 
     factory.showCurrentThread = function(callback){
-        console.log(thread);
-        callback(thread);
+        return thread;
     }
 
     factory.create = function(newThread,callback){
