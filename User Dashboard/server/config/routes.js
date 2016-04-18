@@ -16,7 +16,6 @@ module.exports = function(app){
     });
 
     app.get('/users/currentUser', function(req, res){
-        console.log("hit currentUser route")
         users.currentUser(req,res);
     });
 
