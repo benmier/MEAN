@@ -13,6 +13,8 @@ var ThreadSchema = new mongoose.Schema({
 		nameId: {type: String},
 		name: {type: String},
 		text: {type: String},
+		upvotes: {type: Number},
+		downvotes: {type: Number},
 		createdAt: {type: Date, default: Date.now},
 		comments: {
 			_id: {type: Number},
