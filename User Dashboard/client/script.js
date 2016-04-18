@@ -108,6 +108,10 @@ myApp.controller('loginController', function($scope,userFactory){
 });
 
 myApp.controller('dashboardController', function($scope,threadFactory,userFactory){
+    userFactory.showCurrentUser(function(data){
+        $scope.currentUser;
+    });
+
     $scope.show = function(){
         threadFactory.show(function(data){
             $scope.threads = data
@@ -126,6 +130,10 @@ myApp.controller('dashboardController', function($scope,threadFactory,userFactor
 });
 
 myApp.controller('threadController', function($scope,threadFactory,userFactory){
+    userFactory.showCurrentUser(function(data){
+        $scope.currentUser;
+    });
+
     $scope.showOne = function(thread){
         threadFactory.showOne(thread,function(data){
             $scope.thread = data
