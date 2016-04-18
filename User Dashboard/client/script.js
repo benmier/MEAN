@@ -69,12 +69,13 @@ myApp.factory('threadFactory', function($http){
 
     factory.showOne = function(thread){
         $http.get('/threads/'+thread._id).success(function(data){
+            console.log(data)
             thread = data;
-            $location.url('/threads/'+thread._id);
         });
     };
 
     factory.showCurrentThread = function(callback){
+        console.log("factory says current thread is: "+thread)
         callback(thread);
     }
 
@@ -109,7 +110,7 @@ myApp.controller('loginController', function($scope,$location,userFactory){
     }
 });
 
-myApp.controller('dashboardController', function($scope,threadFactory,userFactory){
+myApp.controller('dashboardController', function($scope,$location,threadFactory,userFactory){
     userFactory.showCurrentUser(function(data){
         $scope.currentUser = data;
     });
@@ -120,6 +121,7 @@ myApp.controller('dashboardController', function($scope,threadFactory,userFactor
 
     $scope.showOne = function(thread){
         threadFactory.showOne(thread);
+        $location.url('/threads/'+thread._id);
     };
 
     $scope.create = function(){
@@ -142,6 +144,7 @@ myApp.controller('threadController', function($scope,threadFactory,userFactory){
     });
 
     threadFactory.showCurrentThread(function(data){
+        console.log(data)
         $scope.thread = data;
     });
 
