@@ -14,13 +14,13 @@ var ThreadSchema = new mongoose.Schema({
 		text: {type: String},
 		upvotes: {type: Number},
 		downvotes: {type: Number},
-		createdAt: {type: Date, default: Date.now},
+		createdAt: {type: Date},
 		comments: {
 			_id: {type: Number},
 			nameId: {type: String},
 			name: {type: String},
 			text: {type: String},
-			createdAt: {type: Date, default: Date.now}
+			createdAt: {type: Date}
 		}
 	}
 },{timestamps:true});
