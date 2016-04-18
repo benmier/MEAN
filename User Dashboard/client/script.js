@@ -145,7 +145,7 @@ myApp.controller('threadController', function($scope,threadFactory,userFactory){
 
     $scope.createAnswer = function(){
         console.log($scope.newAnswer)
-        threadFactory.createAnswer($scope.newAnswer,function(data){
+        threadFactory.createAnswer($scope.newAnswer,$scope.currentUser,function(data){
             $scope.thread = data
         });
     };
@@ -156,9 +156,6 @@ myApp.controller('threadController', function($scope,threadFactory,userFactory){
         });
     };
 
-    // $scope.destroy = function(){
-    //     userFactory.destroy();
-    // }
 });
 
 myApp.controller('userController', function($scope,userFactory, threadFactory){
