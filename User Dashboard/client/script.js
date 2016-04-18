@@ -50,7 +50,7 @@ myApp.factory('userFactory', function($http){
     factory.create = function(newUser){
         $http.post('/users/create',newUser).success(function(data){
             currentUser = data;
-            window.location.href = "#/dashboard"
+            $location.url("#/dashboard");
         });
     };
 
@@ -110,6 +110,7 @@ myApp.controller('loginController', function($scope,userFactory){
 
 myApp.controller('dashboardController', function($scope,threadFactory,userFactory){
     userFactory.showCurrentUser(function(data){
+        console.log(data)
         $scope.currentUser = data;
     });
 
