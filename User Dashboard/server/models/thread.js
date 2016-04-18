@@ -7,7 +7,7 @@ var ThreadSchema = new mongoose.Schema({
 	description: {type:String, required:true, unique:true},
 	category: {type:String, required:true},
 	posts: Number,
-	answers: {
+	answers: [{
 		_id: {type: Number},
 		nameId: {type: String},
 		name: {type: String},
@@ -15,14 +15,14 @@ var ThreadSchema = new mongoose.Schema({
 		upvotes: {type: Number},
 		downvotes: {type: Number},
 		createdAt: {type: Date},
-		comments: {
+		comments: [{
 			_id: {type: Number},
 			nameId: {type: String},
 			name: {type: String},
 			text: {type: String},
 			createdAt: {type: Date}
-		}
-	}
+		}]
+	}]
 },{timestamps:true});
 
 var Threads = mongoose.model('Threads', ThreadSchema);
