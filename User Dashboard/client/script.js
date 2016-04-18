@@ -35,7 +35,6 @@ myApp.factory('userFactory', function($http){
 
     factory.showCurrentUser = function(callback){
         $http.get('/users/currentUser').success(function(data){
-            console.log(data)
             currentUser = data;
             callback(currentUser);
         });
@@ -49,14 +48,12 @@ myApp.factory('userFactory', function($http){
     };
 
     factory.create = function(newUser){
-        $http.post('/users/create',newUser).success(function(data){
-            currentUser = data;
-        });
+        $http.post('/users/create',newUser);
     };
 
-    factory.destroy = function(){
-        currentUser = {};
-    };
+    // factory.destroy = function(){
+    //     currentUser = {};
+    // };
 
     return factory;
 });
@@ -111,7 +108,7 @@ myApp.controller('loginController', function($scope,$location,userFactory){
 
 myApp.controller('dashboardController', function($scope,threadFactory,userFactory){
     userFactory.showCurrentUser(function(data){
-        $scope.currentUser = data;
+        $scope.currentUser.name = data.name;
     });
 
     threadFactory.show(function(data){
