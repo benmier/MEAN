@@ -32,7 +32,7 @@ module.exports = {
     },
 
     createAnswer: function(req,res){
-        Threads.findOneAndUpdate({_id:req.params._id},{$push:{"answers":{text:req.body.answer,name:req.body.currentUser.name,nameId:req.body.currentUser._id}}},{new:true},function(err,data){
+        Threads.findOneAndUpdate({_id:req.params._id},{$push:{"answers":{text:req.body.answer,name:req.body.currentUser.name,nameId:req.body.currentUser._id,upvotes:0,downvotes:0,createdAt:Date.now(),_id:Math.floor(Math.random()*15)}}},{new:true},function(err,data){
             if(err)
                 console.log(err);
             else{
