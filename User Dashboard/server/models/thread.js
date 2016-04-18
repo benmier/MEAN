@@ -1,9 +1,8 @@
 var mongoose = require('mongoose');
 
 var ThreadSchema = new mongoose.Schema({
-	name: {
-		_id: {type:String}
-	},
+	name: {type:String},
+	nameId: {type:String},
 	topic: {type:String, required:true, unique:true},
 	description: {type:String, required:true, unique:true},
 	category: {type:String, required:true},

@@ -121,7 +121,7 @@ myApp.controller('dashboardController', function($scope,threadFactory,userFactor
     $scope.create = function(){
         $scope.newThread.name = $scope.currentUser.name;
         $scope.newThread.posts = 0;
-        // $scope.newThread.name._id = $scope.currentUser.name._id;        
+        $scope.newThread.nameId = $scope.currentUser._id;        
         threadFactory.create($scope.newThread,function(data){
             $scope.threads = data
         });
