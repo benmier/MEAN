@@ -54,8 +54,8 @@ myApp.factory('userFactory', function($http){
     return factory;
 });
 
-App.factory('threadFactory', function($http){
-    var factory = {}, threads thread;
+myApp.factory('threadFactory', function($http){
+    var factory = {}, threads, thread;
 
     factory.show = function(callback){
         $http.get('/threads').success(function(data){
