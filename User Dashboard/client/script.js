@@ -117,6 +117,9 @@ myApp.controller('dashboardController', function($scope,threadFactory,userFactor
         $scope.threads = data;
     });
 
+    $scope.showOne = function(thread){
+        threadFactory.showOne(thread);
+    };
 
     $scope.create = function(){
         $scope.newThread.name = $scope.currentUser.name;
@@ -161,7 +164,7 @@ myApp.controller('threadController', function($scope,threadFactory,userFactory){
 myApp.controller('userController', function($scope,userFactory, threadFactory){
     $scope.showOne = function(user){
         userFactory.showOne(user,function(data){
-            $scope.threads = data
+            $scope.thread = data;
         });
     };
 
