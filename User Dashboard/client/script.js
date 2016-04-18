@@ -33,8 +33,8 @@ myApp.factory('userFactory', function($http){
         });
     };
 
-    factory.showCurrentUser = function(){
-        return currentUser;
+    factory.showCurrentUser = function(callback){
+        callback(currentUser);
     }
 
     factory.showOne = function(user,callback){
@@ -55,7 +55,7 @@ myApp.factory('userFactory', function($http){
 
 myApp.factory('threadFactory', function($http){
     var factory = {}, threads; 
-    
+
     console.log("running factory")
 
     factory.show = function(callback){
@@ -68,16 +68,12 @@ myApp.factory('threadFactory', function($http){
     factory.showOne = function(thread,callback){
         $http.get('/threads/'+thread._id).success(function(data){
             factory.thread = data;
-            console.log(thread)
-            // debugger
             callback();
         });
     };
 
-    factory.showCurrentThread = function(){
-        // debugger
-        console.log(factory.thread)
-        return factory.thread;
+    factory.showCurrentThread = function(callback){
+        callback(factory.thread);
     }
 
     factory.create = function(newThread,callback){
@@ -146,6 +142,7 @@ myApp.controller('threadController', function($scope,threadFactory,userFactory){
     });
 
     threadFactory.showCurrentThread(function(data){
+        console.log(data)
         $scope.thread = data;
     });
 
