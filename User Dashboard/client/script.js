@@ -63,14 +63,15 @@ myApp.factory('threadFactory', function($http){
         });
     };
 
-    factory.showOne = function(thread,callback){
+    factory.showOne = function(thread){
         $http.get('/threads/'+thread._id).success(function(data){
             thread = data;
-            callback(thread);
+            console.log(thread)
         });
     };
 
-    factory.showCurrentThread = function(callback){
+    factory.showCurrentThread = function(){
+        console.log(thread)
         return thread;
     }
 

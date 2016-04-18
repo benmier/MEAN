@@ -32,8 +32,6 @@ module.exports = {
                 console.log(err);
             else{
                 if(data){
-                    req.session.name = data.name;
-                    console.log(req.session)
                     res.json(data);
                 }
                 else{
@@ -46,8 +44,6 @@ module.exports = {
                                 if(err)
                                     console.log(err);
                                 else{
-                                    req.session.name = data.name;
-                                    console.log(req.session)
                                     res.json(data);
                                 }
                             }).sort({_id:-1});
