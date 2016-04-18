@@ -54,7 +54,9 @@ myApp.factory('userFactory', function($http){
 });
 
 myApp.factory('threadFactory', function($http){
-    var factory = {}, threads, thread;
+    var factory = {}, threads; 
+    
+    console.log("running factory")
 
     factory.show = function(callback){
         $http.get('/threads').success(function(data){
@@ -65,17 +67,17 @@ myApp.factory('threadFactory', function($http){
 
     factory.showOne = function(thread,callback){
         $http.get('/threads/'+thread._id).success(function(data){
-            thread = data;
+            factory.thread = data;
             console.log(thread)
-            debugger
+            // debugger
             callback();
         });
     };
 
     factory.showCurrentThread = function(){
-        debugger
-        console.log(thread)
-        return thread;
+        // debugger
+        console.log(factory.thread)
+        return factory.thread;
     }
 
     factory.create = function(newThread,callback){
