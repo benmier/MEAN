@@ -18,8 +18,8 @@
 	<tbody>
 		<tr ng-repeat='thread in threads | filter:threadFilter | orderBy:createdAt:true'>
 			<td>{{thread.category}}</td>
-			<td>{{thread.topic}}</td>
-			<td>{{thread.name}}</td>
+			<td><a href="#/threads/{{thread._id}}">{{thread.topic}}</a></td>
+			<td><a href="#/users/{{thread.name._id}}">{{thread.name}}</td>
 			<td>{{thread.posts}}</td>
 		</tr>
 	</tbody>

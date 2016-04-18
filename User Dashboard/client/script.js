@@ -122,6 +122,7 @@ myApp.controller('dashboardController', function($scope,threadFactory,userFactor
 
     $scope.create = function(){
         $scope.newThread.name = $scope.currentUser.name;
+        // $scope.newThread.name._id = $scope.currentUser.name._id;        
         threadFactory.create($scope.newThread,function(data){
             $scope.threads = data
         });
