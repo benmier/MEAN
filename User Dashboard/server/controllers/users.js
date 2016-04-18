@@ -26,7 +26,7 @@ module.exports = {
             if(err)
                 console.log(err);
             else{
-                if(data.name)
+                if(data)
                     res.json(data);
                 else{
                     var user = new Users(req.body) 
