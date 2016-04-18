@@ -116,7 +116,7 @@ myApp.controller('dashboardController', function($scope,threadFactory,userFactor
 
     $scope.show = function(){
         threadFactory.show(function(data){
-            $scope.threads = data
+            $scope.threads = data;
         });
     };
 
@@ -135,14 +135,12 @@ myApp.controller('dashboardController', function($scope,threadFactory,userFactor
 
 myApp.controller('threadController', function($scope,threadFactory,userFactory){
     userFactory.showCurrentUser(function(data){
-        $scope.currentUser;
+        $scope.currentUser = data;
     });
 
-    $scope.showOne = function(thread){
-        threadFactory.showOne(thread,function(data){
-            $scope.thread = data
-        });
-    };
+    threadFactory.showOne(thread,function(data){
+        $scope.thread = data
+    });
 
     $scope.createAnswer = function(){
         threadFactory.createAnswer(function(data){
