@@ -22,7 +22,7 @@ module.exports = {
     },
 
     currentUser: function(req,res){
-        console.log(req.session.name)
+        console.log(req.session)
         res.json({name:req.session.name});
     },
 
@@ -33,7 +33,7 @@ module.exports = {
             else{
                 if(data){
                     req.session.name = data.name;
-                    console.log(req.session.name)
+                    console.log(req.session)
                     res.json(data);
                 }
                 else{
