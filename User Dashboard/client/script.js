@@ -75,6 +75,7 @@ myApp.factory('threadFactory', function($http){
     };
 
     factory.showCurrentThread = function(callback){
+        console.log(thread);
         callback(thread);
     }
 
@@ -143,7 +144,6 @@ myApp.controller('threadController', function($scope,threadFactory,userFactory){
     });
 
     threadFactory.showCurrentThread(function(data){
-        console.log(data)
         $scope.thread = data;
     });
 
