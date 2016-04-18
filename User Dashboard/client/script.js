@@ -19,7 +19,7 @@ myApp.config(function($routeProvider){
             controller: "userController"
         })
         .otherwise({
-            redirectTo: '/dashboard'
+            redirectTo: '/'
         })
 });
 
@@ -40,8 +40,10 @@ myApp.factory('userFactory', function($http){
         });
     };
 
-    factory.create = function(newUser){
-        $http.post('/users/create',newUser);
+    factory.create = function(newUser,callback){
+        $http.post('/users/create',newUser).success(function(data){
+            currentUser = data;
+            callback(currentUser);
     };
 
     // factory.destroy = function(){
