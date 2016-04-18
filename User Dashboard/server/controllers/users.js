@@ -21,6 +21,10 @@ module.exports = {
         });
     },
 
+    currentUser: function(req,res){
+        res.json(req.session.currentUser);
+    },
+
     create: function(req,res){
         Users.findOne({name:req.body.name},function(err,data){
             if(err)

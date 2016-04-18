@@ -17,7 +17,7 @@ module.exports = function(app){
 
     app.get('/users/currentUser', function(req, res){
         users.currentUser(req,res);
-    })
+    });
 
     app.get('/threads', function(req, res) {
         threads.show(req,res);
