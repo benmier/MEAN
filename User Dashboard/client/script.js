@@ -10,11 +10,11 @@ myApp.config(function($routeProvider){
             templateUrl: 'partials/dashboard.html',
             controller: "dashboardController"
         })
-        .when('/threads/:id',{
+        .when('/threads/show/:id',{
             templateUrl: 'partials/thread.html',
             controller: "threadController"
         })
-        .when('/users/:id',{
+        .when('/users/show/:id',{
             templateUrl: 'partials/user.html',
             controller: "userController"
         })
@@ -117,7 +117,7 @@ myApp.controller('dashboardController', function($scope,$location,threadFactory,
 
     $scope.showOne = function(thread){
         threadFactory.showOne(thread);
-        $location.url('/threads/'+thread._id);
+        $location.url('/threads/show/'+thread._id);
     };
 
     $scope.create = function(){
