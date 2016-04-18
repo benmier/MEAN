@@ -111,18 +111,16 @@ myApp.controller('loginController', function($scope,userFactory){
 myApp.controller('dashboardController', function($scope,threadFactory,userFactory){
     userFactory.showCurrentUser(function(data){
         $scope.currentUser = data;
-        console.log("dashboardController says: currentUser = "+$scope.currentUser.name)
     });
 
-    $scope.show = function(){
-        threadFactory.show(function(data){
-            $scope.threads = data;
-        });
-    };
+    threadFactory.show(function(data){
+        $scope.threads = data;
+    });
+
 
     $scope.create = function(){
         $scope.newThread.name = $scope.currentUser.name;
-        // $scope.newThread.name._id = $scope.currentUser.name._id;        
+        //$scope.newThread.name._id = $scope.currentUser.name._id;        
         threadFactory.create($scope.newThread,function(data){
             $scope.threads = data
         });
