@@ -40,9 +40,10 @@ myApp.factory('userFactory', function($http){
         });
     };
 
-    factory.create = function(newUser){
+    factory.create = function(newUser,callback){
         $http.post('/users/create',newUser).success(function(data){
             currentUser = data;
+            callback(currentUser);
             window.location.href = "#/dashboard"
         });
     };
