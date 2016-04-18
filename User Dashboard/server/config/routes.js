@@ -7,16 +7,16 @@ module.exports = function(app){
         users.show(req,res);
     });
 
-    app.get('/users/:id', function(req, res) {
-        users.showOne(req,res);
+    app.get('/users/currentUser', function(req, res){
+        users.currentUser(req,res);
     });
-
+    
     app.post('/users/create', function(req, res) {
         users.create(req,res);
     });
 
-    app.get('/users/currentUser', function(req, res){
-        users.currentUser(req,res);
+    app.get('/users/:id', function(req, res) {
+        users.showOne(req,res);
     });
 
     app.get('/threads', function(req, res) {
