@@ -18,7 +18,7 @@
 	<tbody>
 		<tr ng-repeat='thread in threads | filter:threadFilter | orderBy:createdAt:true'>
 			<td>{{thread.category}}</td>
-			<td><a href="#/threads/{{thread._id}}" ng-click='showOne(thread)'>{{thread.topic}}</a></td>
+			<td><a ng-click='showOne(thread)'>{{thread.topic}}</a></td>
 			<td><a href="#/users/{{thread.name_.id}}">{{thread.name}}</td>
 			<td>{{thread.posts}}</td>
 		</tr>

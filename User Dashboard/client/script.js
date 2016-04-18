@@ -67,10 +67,10 @@ myApp.factory('threadFactory', function($http){
         });
     };
 
-    factory.showOne = function(thread,callback){
+    factory.showOne = function(thread){
         $http.get('/threads/'+thread._id).success(function(data){
             thread = data;
-            callback(thread);
+            $location.url('/threads/'+thread._id);
         });
     };
 
@@ -142,14 +142,8 @@ myApp.controller('threadController', function($scope,threadFactory,userFactory){
     });
 
     threadFactory.showCurrentThread(function(data){
-        $scope.currentThread = data;
-    })
-
-    $scope.shoeOne = function(){
-        threadFactory.showOne(function(data){
-        $scope.thread = data
-        });
-    }
+        $scope.thread = data;
+    });
 
     $scope.createAnswer = function(){
         threadFactory.createAnswer(function(data){
