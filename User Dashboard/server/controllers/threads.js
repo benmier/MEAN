@@ -13,7 +13,7 @@ module.exports = {
     },
 
     showOne: function(req,res){
-        Threads.findOne({_id:req.body._id},function(err,data){
+        Threads.findOne({_id:req.params.id},function(err,data){
             if(err)
                 console.log(err);
             else
