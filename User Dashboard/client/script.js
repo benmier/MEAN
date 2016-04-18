@@ -104,7 +104,7 @@ myApp.factory('threadFactory', function($http){
 myApp.controller('loginController', function($scope,userFactory){
     $scope.create = function(){
         userFactory.create($scope.newUser);
-        $location.url("#/dashboard");
+        $location.url('#/dashboard');
     }
 });
 
