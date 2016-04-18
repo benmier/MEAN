@@ -33,7 +33,6 @@ module.exports = {
             else{
                 if(data){
                     req.session.name = data.name;
-                    console.log(req.session.name)
                     //res.json(data);
                 }
                 else{
