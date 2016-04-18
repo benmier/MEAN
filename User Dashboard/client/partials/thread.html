@@ -10,8 +10,10 @@
 </div><br><br>
 
 <h3>Post your answer here...</h3>
-<textarea style="margin-left: 30px;" rows="4" id="newAnswer" ng-model='newAnswer'></textarea><br>
-<input type="submit" value="Post" ng-click='createAnswer()' style="float: right;" class="btn"></input><br><hr><br>
+<form class="form-group">
+	<textarea style="margin-left: 30px;" rows="4" id="newAnswer" ng-model='newAnswer' class="form-control"></textarea><br>
+	<input type="submit" value="Post" ng-click='createAnswer()' style="float: right;" class="btn"></input><br><hr><br>
+</form>
 
 <div ng-repeat='answer in thread.answers | orderBy:createdAt:true'>
 	<div style="float: right">

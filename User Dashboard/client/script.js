@@ -74,6 +74,10 @@ myApp.factory('threadFactory', function($http){
         });
     };
 
+    factory.showCurrentThread = function(callback){
+        callback(thread);
+    }
+
     factory.create = function(newThread,callback){
         $http.post('/threads/create',newThread).success(function(data){
             threads = data;
@@ -136,6 +140,10 @@ myApp.controller('threadController', function($scope,threadFactory,userFactory){
     userFactory.showCurrentUser(function(data){
         $scope.currentUser = data;
     });
+
+    threadFactory.showCurrentThread(function(data){
+        $scope.currentThread = data;
+    })
 
     $scope.shoeOne = function(){
         threadFactory.showOne(function(data){
