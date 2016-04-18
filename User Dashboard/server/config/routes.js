@@ -23,15 +23,15 @@ module.exports = function(app){
         threads.showOne(req,res);
     });
 
-    app.get('/threads/create', function(req, res) {
+    app.post('/threads/create', function(req, res) {
         threads.create(req,res);
     });
 
-    app.get('/threads/createAnswer/:id', function(req, res) {
+    app.post('/threads/createAnswer/:id', function(req, res) {
         threads.createAnswer(req,res);
     });
 
-    app.get('/threads/createComment/:id', function(req, res) {
+    app.post('/threads/createComment/:id', function(req, res) {
         threads.createComment(req,res);
     });
 }
