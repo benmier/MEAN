@@ -33,13 +33,6 @@ myApp.factory('userFactory', function($http){
         });
     };
 
-    factory.showCurrentUser = function(callback){
-        $http.get('/users/currentUser').success(function(data){
-            currentUser = data;
-            callback(currentUser);
-        });
-    };
-
     factory.showOne = function(user,callback){
         $http.get('/users/'+user._id).success(function(data){
             user = data;
