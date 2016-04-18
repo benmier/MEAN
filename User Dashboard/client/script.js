@@ -100,10 +100,9 @@ myApp.factory('threadFactory', function($http){
 });
 
 myApp.controller('loginController', function($scope,userFactory){
-    userFactory.destroy();
-
     $scope.create = function(){
         userFactory.create($scope.newUser);
+        
     }
 });
 

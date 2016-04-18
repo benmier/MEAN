@@ -12,6 +12,7 @@ module.exports = function(app){
     });
 
     app.post('/users/create', function(req, res) {
+        req.session.name = req.body.name;
         users.create(req,res);
     });
 
