@@ -20,14 +20,14 @@
 	</tbody>
 </table><br><br>
 
-<form class="form-group">
+<form class="form-group" style="width: 50%">
 	<h3>Create a new Thread</h3>
 	<label>Topic</label>
-	<input type="text" ng-model='newThread.topic'></input><br>
+	<input type="text" ng-model='newThread.topic' class="form-control"></input><br>
 	<label>Description</label>
-	<input type="text" ng-model='newThread.description'></input><br>
+	<textarea rows="4" ng-model='newThread.description' class="form-control"></textarea><br>
 	<label>Category</label>
-	<select ng-model='newThread.category'>
+	<select ng-model='newThread.category' class="form-control">
 		<option>HTML</option>
 		<option>Mongoose</option>
 		<option>Node</option>
@@ -35,5 +35,5 @@
 		<option>JavaScript</option>
 		<option>Angular</option>
 	</select><br>
-	<input type="submit" value="Submit" ng-click='create()'></input>
+	<input type="submit" value="Submit" ng-click='create()' class="btn" style="float: right"></input>
 </form>
