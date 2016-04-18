@@ -70,8 +70,8 @@ myApp.factory('threadFactory', function($http){
 
     factory.showOne = function(thread,callback){
         $http.get('/threads/'+thread._id).success(function(data){
-            threads = data;
-            callback(threads);
+            thread = data;
+            callback(thread);
         });
     };
 
@@ -137,7 +137,7 @@ myApp.controller('threadController', function($scope,threadFactory,userFactory){
         $scope.currentUser = data;
     });
 
-    threadFactory.showOne(thread,function(data){
+    threadFactory.showOne(function(data){
         $scope.thread = data
     });
 
