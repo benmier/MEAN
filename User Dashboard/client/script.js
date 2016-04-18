@@ -50,7 +50,6 @@ myApp.factory('userFactory', function($http){
     factory.create = function(newUser){
         $http.post('/users/create',newUser).success(function(data){
             currentUser = data;
-            $location.url("#/dashboard");
         });
     };
 
@@ -105,6 +104,7 @@ myApp.factory('threadFactory', function($http){
 myApp.controller('loginController', function($scope,userFactory){
     $scope.create = function(){
         userFactory.create($scope.newUser);
+        $location.url("#/dashboard");
     }
 });
 

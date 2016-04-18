@@ -22,6 +22,7 @@ module.exports = {
     },
 
     currentUser: function(req,res){
+        console.log(req.session.currentUser)
         res.json(req.session.currentUser);
     },
 
@@ -33,7 +34,6 @@ module.exports = {
                 if(data){
                     res.json(data);
                     req.session.currentUser = data;
-                    console.log(req.session.currentUser)
                 }
                 else{
                     var user = new Users(req.body) 
