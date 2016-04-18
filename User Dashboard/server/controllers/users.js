@@ -33,7 +33,7 @@ module.exports = {
             else{
                 if(data){
                     req.session.name = data.name;
-                    //res.json(data);
+                    res.json(data);
                 }
                 else{
                     var user = new Users(req.body) 
@@ -46,7 +46,7 @@ module.exports = {
                                     console.log(err);
                                 else{
                                     req.session.name = data.name;
-                                    // res.json(data);
+                                    res.json(data);
                                 }
                             }).sort({_id:-1});
                         };
