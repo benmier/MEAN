@@ -33,6 +33,7 @@ module.exports = {
             else{
                 if(data){
                     req.session.currentUser = data;
+                    console.log(req.session.currentUser)
                     res.json(data);
                 }
                 else{
