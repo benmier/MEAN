@@ -56,8 +56,6 @@ myApp.factory('userFactory', function($http){
 myApp.factory('threadFactory', function($http){
     var factory = {}, threads; 
 
-    console.log("running factory")
-
     factory.show = function(callback){
         $http.get('/threads').success(function(data){
             threads = data;
@@ -142,7 +140,6 @@ myApp.controller('threadController', function($scope,threadFactory,userFactory){
     });
 
     threadFactory.showCurrentThread(function(data){
-        console.log(data)
         $scope.thread = data;
     });
 
