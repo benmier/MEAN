@@ -111,7 +111,7 @@ myApp.controller('loginController', function($scope,userFactory){
 myApp.controller('dashboardController', function($scope,threadFactory,userFactory){
     userFactory.showCurrentUser(function(data){
         $scope.currentUser = data;
-        console.log("dashboardController says: currentUser = "+$scope.currentUser)
+        console.log("dashboardController says: currentUser = "+$scope.currentUser.name)
     });
 
     $scope.show = function(){
