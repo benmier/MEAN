@@ -33,6 +33,10 @@ myApp.factory('userFactory', function($http){
         });
     };
 
+    factory.showCurrentUser = function(callback){
+        callback(currentUser);
+    };
+
     factory.showOne = function(user,callback){
         $http.get('/users/'+user._id).success(function(data){
             user = data;
@@ -40,10 +44,9 @@ myApp.factory('userFactory', function($http){
         });
     };
 
-    factory.create = function(newUser,callback){
+    factory.create = function(newUser){
         $http.post('/users/create',newUser).success(function(data){
             currentUser = data;
-            callback(currentUser);
             window.location.href = "#/dashboard"
         });
     };
