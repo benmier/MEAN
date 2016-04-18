@@ -23,7 +23,7 @@ module.exports = {
 
     currentUser: function(req,res){
         console.log(req.session.name)
-        res.json({name:req.session.currentUser,id:req.session.id});
+        res.json({name:req.session.name});
     },
 
     create: function(req,res){
@@ -33,8 +33,8 @@ module.exports = {
             else{
                 if(data){
                     req.session.name = data.name;
-                    req.session.id = String(data._id);
-                    // res.json(data);
+                    console.log(req.session.name)
+                    //res.json(data);
                 }
                 else{
                     var user = new Users(req.body) 
@@ -47,7 +47,6 @@ module.exports = {
                                     console.log(err);
                                 else{
                                     req.session.name = data.name;
-                                    req.session.id = String(data._id);
                                     // res.json(data);
                                 }
                             }).sort({_id:-1});
