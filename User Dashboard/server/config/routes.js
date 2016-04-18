@@ -15,6 +15,10 @@ module.exports = function(app){
         users.create(req,res);
     });
 
+    app.get('/users/currentUser', function(req, res){
+        users.currentUser(req,res);
+    })
+
     app.get('/threads', function(req, res) {
         threads.show(req,res);
     });
