@@ -82,7 +82,7 @@ myApp.factory('threadFactory', function($http){
     };
 
     factory.createAnswer = function(answer,currentUser,callback){
-        console.log(factory.thread)
+        console.log("CreateAnswer says: "+factory.thread._id)
         $http.post('/threads/createAnswer/'+factory.thread._id,{answer:answer,currentUser:currentUser}).success(function(data){
             factory.thread = data;
             callback(factory.thread);
