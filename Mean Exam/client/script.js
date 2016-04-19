@@ -79,9 +79,10 @@ myApp.factory('pollFactory', function($http){
 })
 
 myApp.controller('loginController', function($scope,$location,userFactory){
-    $scope.create = function(){
-        userFactory.create($scope.newUser);
-        $location.url('/dashboard');
+    $scope.login = function(){
+        userFactory.create($scope.newUser,function(){
+            $location.url('/dashboard');
+        });
     };
 });
 
