@@ -49,7 +49,7 @@ module.exports = {
             else{
             	var selectedOption = req.body.option;
             	var option = poll.options.selectedOption;
-            	console.log(option)
+            	console.log(poll.options.option1votes)
             }
         });
     },
