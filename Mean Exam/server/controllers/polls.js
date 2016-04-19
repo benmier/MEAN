@@ -23,7 +23,7 @@ module.exports = {
 
     create: function(req,res){
         var poll = new Polls(req.body)
-        for(var i=0; i<3; i++)
+        for(var i=0; i<4; i++)
 	        poll.votes.push({option:0});
         poll.save(function(err){
             if(err)
@@ -51,8 +51,9 @@ module.exports = {
             else{
             	for(index in poll.votes){
             		if(index==req.body.option){
-            			var option = poll.votes[index].option;
-            			option++;
+						poll.votes[index].option++;
+            			console.log(poll.votes[index].option)
+            			console.log(poll)
             			poll.save(function(err){
             				if(err)
             					console.log(err);
@@ -61,7 +62,7 @@ module.exports = {
 						            if(err)
 						                console.log(err);
 						            else
-						                res.json(Data);
+						                res.json(data);
 						        });
             				}
             			})
