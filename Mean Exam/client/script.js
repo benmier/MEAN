@@ -92,9 +92,13 @@ myApp.factory('pollFactory', function($http){
 
 myApp.controller('loginController', function($scope,$location,userFactory){
     $scope.login = function(){
-        userFactory.create($scope.newUser,function(){
-            $location.url('/dashboard');
-        });
+        if(!$scope.newUser)
+            alert("Name cannot be blank")
+        else{
+            userFactory.create($scope.newUser,function(){
+                $location.url('/dashboard');
+            });
+        }
     };
 });
 
@@ -160,14 +164,22 @@ myApp.controller('createController', function($scope,$location,pollFactory,userF
         pollFactory.show(function(data){
             $scope.polls = data;
         });
+        if(!$scope.newPoll || !$scope.newPoll.question || !$scope.newPoll.option1 || !$scope.newPoll.option2 || !$scope.newPoll.option3 || !$scope.newPoll.option4){
+            alert("No fields can be empty");
+            error = true;
+        }
         for(i in $scope.polls){
-            if($scope.polls[i]==$scope.newPoll.question){
-                alert("No duplicate questions")
+            if($scope.polls[i].question==$scope.newPoll.question){
+                alert("No duplicate questions");
                 error = true;
             }
         }
         if($scope.newPoll.question.length<8){
-            alert("Question must be at least 8 characters")
+            alert("Question must be at least 8 characters");
+            error = true;
+        }
+        if($scope.newPoll.option1.length<3 || $scope.newPoll.option2.length<3 || $scope.newPoll.option3.length<3 || $scope.newPoll.option4.length<3){
+            alert("All options must be at least 3 characters");
             error = true;
         }
         if(!error){
