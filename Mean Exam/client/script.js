@@ -43,9 +43,36 @@ myApp.controller('loginController', function($scope,$location,userFactory){
 });
 
 myApp.controller('dashboardController', function($scope,$location,userFactory,pollFactory){
+    userFactory.showCurrentUser(function(data){
+        $scope.currentUser = data;
+    });
 
+    pollFactory.show(function(data){
+        $scope.polls = data;
+    });
+
+    $scope.showOne = function(poll){
+        pollFactory.showOne(poll,function(){
+            $location.url('/polls/'+poll._id);
+        });
+    };
+
+    $scope.create = function(){
+        $scope.newPoll.name = $scope.currentUser.name;
+        pollFactory.create($scope.newPoll,function(data){
+            $scope.polls = data;
+        });
+    };
+
+    $scope.delete = function(poll){
+        pollFactory.delete(poll,function(data){
+            $scope.polls = data;
+        })
+    }
 });
 
 myApp.controller('pollController', function($scope,$location,pollFactory){
-
+    pollFactory.showCurrentPoll(function(data){
+        $scope.poll = data;
+    });
 });

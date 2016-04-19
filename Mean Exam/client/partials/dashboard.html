@@ -20,7 +20,7 @@
 			<td ng-bind='poll.name'></td>
 			<td ng-bind='poll.question'></td>
 			<td ng-bind='poll.createdAt | date:"MMMM d, y"'></td>
-			<td ng-if='poll.name == currentUser.name'><a href="#/delete/{{poll._id}}">Delete</a></td>
+			<td ng-if='poll.name == currentUser.name'><a ng-click='delete(poll)'>Delete</a></td>
 		</tr>
 	</tbody>
 </table>
