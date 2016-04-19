@@ -15,24 +15,24 @@
 	</thead>
 	<tbody>
 		<tr>
-			<td ng-bind='poll.options.option1'></td>
-			<td ng-bind='poll.options.option1votes'></td>
-			<td><button ng-click='vote("option1votes")'>Vote</button></td>
+			<td ng-bind='poll.option1'></td>
+			<td ng-bind='poll.votes.option1'></td>
+			<td><button ng-click='vote(0)'>Vote</button></td>
 		</tr>
 		<tr>
-			<td ng-bind='poll.options.option2'></td>
-			<td ng-bind='poll.options.option2votes'></td>
-			<td><button ng-click='vote("option2votes")'>Vote</button></td>
+			<td ng-bind='poll.option2'></td>
+			<td ng-bind='poll.votes.option2'></td>
+			<td><button ng-click='vote(1)'>Vote</button></td>
 		</tr>
 		<tr>
-			<td ng-bind='poll.options.option3'></td>
-			<td ng-bind='poll.options.option3votes'></td>
-			<td><button ng-click='vote("option3votes")'>Vote</button></td>
+			<td ng-bind='poll.option3'></td>
+			<td ng-bind='poll.votes.option3'></td>
+			<td><button ng-click='vote(2)'>Vote</button></td>
 		</tr>
 		<tr>
-			<td ng-bind='poll.options.option4'></td>
-			<td ng-bind='poll.options.option4votes'></td>
-			<td><button ng-click='vote("option4votes")'>Vote</button></td>
+			<td ng-bind='poll.option4'></td>
+			<td ng-bind='poll.votes.option4'></td>
+			<td><button ng-click='vote(3)'>Vote</button></td>
 		</tr>
 	</tbody>
 </table>
