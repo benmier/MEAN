@@ -19,7 +19,7 @@
 	<tbody>
 		<tr ng-repeat='poll in polls | filter:filterer | orderBy:createdAt:true'>
 			<td ng-bind='poll.name'></td>
-			<td ng-bind='poll.question'></td>
+			<td><a ng-bind='poll.question' ng-click='showOne(poll)'></a></td>
 			<td ng-bind='poll.createdAt | date:"MMMM d, y"'></td>
 			<td ng-if='poll.name == currentUser.name'><a ng-click='delete(poll)'>Delete</a></td>
 		</tr>

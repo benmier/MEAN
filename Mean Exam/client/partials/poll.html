@@ -1,5 +1,5 @@
 <div style="float: right">
-	<a href="#/dashboard">Go to Polls</a> | 
+	<a href="#/dashboard">Go to Polls</a> 
 </div><br>
 
 <h2 ng-bind='currentPoll.question'></h2>
@@ -17,22 +17,22 @@
 		<tr>
 			<td ng-bind='poll.option1.name'></td>
 			<td ng-bind='poll.option1.votes'></td>
-			<button ng-click='vote(1)'>Vote</button>
+			<td><button ng-click='vote(1)'>Vote</button></td>
 		</tr>
 		<tr>
 			<td ng-bind='poll.option2.name'></td>
 			<td ng-bind='poll.option2.votes'></td>
-			<button ng-click='vote(2)'>Vote</button>
+			<td><button ng-click='vote(2)'>Vote</button></td>
 		</tr>
 		<tr>
 			<td ng-bind='poll.option3.name'></td>
 			<td ng-bind='poll.option3.votes'></td>
-			<button ng-click='vote(3)'>Vote</button>
+			<td><button ng-click='vote(3)'>Vote</button></td>
 		</tr>
 		<tr>
 			<td ng-bind='poll.option4.name'></td>
 			<td ng-bind='poll.option4.votes'></td>
-			<button ng-click='vote(4)'>Vote</button>
+			<td><button ng-click='vote(4)'>Vote</button></td>
 		</tr>
 	</tbody>
 </table>

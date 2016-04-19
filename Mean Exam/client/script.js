@@ -46,7 +46,7 @@ myApp.factory('pollFactory', function($http){
     factory.show = function(callback){
         $http.get('/polls').success(function(data){
             factory.polls = data;
-            callback();
+            callback(factory.polls);
         });
     };
 
@@ -140,8 +140,6 @@ myApp.controller('createController', function($scope,$location,pollFactory,userF
     });
 
     $scope.create = function(){
-        console.log("user is: "+$scope.currentUser.name);
-        console.log($scope.newPoll)
         $scope.newPoll.name = $scope.currentUser.name;
         pollFactory.create($scope.newPoll,function(){
             $location.url('/dashboard')
