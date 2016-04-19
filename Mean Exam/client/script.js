@@ -101,7 +101,6 @@ myApp.controller('loginController', function($scope,$location,userFactory){
 myApp.controller('dashboardController', function($scope,$location,userFactory,pollFactory){
     userFactory.showCurrentUser(function(data){
         $scope.currentUser = data;
-        console.log(data)
         if(!data.name)
             $location.url('/');
     });
