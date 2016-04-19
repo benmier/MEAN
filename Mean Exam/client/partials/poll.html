@@ -14,10 +14,10 @@
 		</tr>
 	</thead>
 	<tbody>
-		<tr ng-repeat='poll in polls | orderBy:votes'>
-			<td ng-bind='poll.name'></td>
-			<td ng-bind='poll.votes'></td>
-			<button ng-click='vote()'>Vote</button>
+		<tr ng-repeat='option in options | orderBy:votes'>
+			<td ng-bind='option.name'></td>
+			<td ng-bind='option.votes'></td>
+			<button ng-click='vote(option.name)'>Vote</button>
 		</tr>
 	</tbody>
 </table>

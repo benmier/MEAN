@@ -1,0 +1,19 @@
+<div style="float: right">
+	<a href="#/dashboard">Cancel</a> | 
+</div><br>
+
+<h2>Put the question and options here:</h2>
+<form class="form-group">
+	<label>Question:</label>
+	<input type="text" ng-model='newPoll.question' class="form-control"></input><br>
+	<label>Option 1:</label>
+	<input type="text" ng-model='newPoll.option1' class="form-control"></input><br>
+	<label>Option 2:</label>
+	<input type="text" ng-model='newPoll.option2' class="form-control"></input><br>
+	<label>Option 3:</label>
+	<input type="text" ng-model='newPoll.option3' class="form-control"></input><br>
+	<label>Option 4:</label>
+	<input type="text" ng-model='newPoll.option4' class="form-control"></input><br><br><br>
+	
+	<input type="submit" ng-click='addPoll()' class="btn" value="Create Poll"></input>
+</form>
