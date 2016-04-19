@@ -52,8 +52,6 @@ module.exports = {
             	for(index in poll.votes){
             		if(index==req.body.option){
 						poll.votes[index].option++;
-            			console.log(poll.votes[index].option)
-            			console.log(poll)
             			poll.save(function(err){
             				if(err)
             					console.log(err);
