@@ -53,7 +53,11 @@ module.exports = {
     },
 
     createComment: function(req,res){
-        Threads.findOneAndUpdate({_id:req.params._id},function()
+        Threads.findOne({_id:req.params._id},function(err, thread){
+            for(answers in tread.answers){
+                if(req.body.answer._id==answer._id)
+            }
+        }
             {$push:{"answers.comments":{
                 text:req.body.comment,
                 name:req.body.currentUser.name,
