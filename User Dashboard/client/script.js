@@ -67,7 +67,6 @@ myApp.factory('threadFactory', function($http){
         $http.get('/threads/'+thread._id).success(function(data){
             factory.thread = data;
             callback();
-            console.log(factory.thread)
         });
     };
 
@@ -83,6 +82,7 @@ myApp.factory('threadFactory', function($http){
     };
 
     factory.createAnswer = function(answer,currentUser,callback){
+        console.log(factory.thread)
         $http.post('/threads/createAnswer/'+factory.thread._id,{answer:answer,currentUser:currentUser}).success(function(data){
             factory.thread = data;
             callback(factory.thread);
