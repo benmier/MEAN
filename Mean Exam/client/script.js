@@ -26,11 +26,40 @@ myApp.config(function($routeProvider){
 myApp.factory('userFactory', function($http){
     var factory = {};
 
+    factory.create = function(newUser,callback){
+        $http.post('/users/create',newUser).success(function(data){
+            factory.currentUser = data;
+            callback();
+        });
+    };
+
+    factory.showCurrentUser = function(callback){
+        callback(factory.currentUser);
+    };
+
     return factory;
 });
 
 myApp.factory('pollFactory', function($http){
     var factory = {};
+
+    factory.show = function(callback){
+        $http.get('/polls').success(function(data){
+            factory.polls = data;
+            callback();
+        });
+    };
+
+    factory.showOne = function(poll,callback){
+        $http.get('/polls/'+poll._id).success(function(data){
+            factory.currentPoll = data;
+            callback();
+        })
+    }
+
+    factory.showCurrentPoll = function(callback){
+        callback(factor.currentPoll);
+    };
 
     return factory;
 })
