@@ -67,12 +67,24 @@ myApp.controller('dashboardController', function($scope,$location,userFactory,po
     $scope.delete = function(poll){
         pollFactory.delete(poll,function(data){
             $scope.polls = data;
-        })
-    }
+        });
+    };
 });
 
 myApp.controller('pollController', function($scope,$location,pollFactory){
     pollFactory.showCurrentPoll(function(data){
         $scope.poll = data;
     });
+
+    $scope.vote = function(optionNumber){
+        pollFactory.vote(optionNumber,function(data){
+            $scope.poll = data;
+        });
+    };
+
+    $scope.create = function(){
+        pollFactory.create($scope.newPoll,function(){
+            $location.url('/dashboard')
+        });
+    }
 });
