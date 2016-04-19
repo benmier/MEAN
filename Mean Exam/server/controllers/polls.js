@@ -41,15 +41,21 @@ module.exports = {
     },
 
     vote: function(req,res){
-    	var selectedOption = req.body.option;
         Polls.findOneAndUpdate(
         	{_id:req.params.id},
         	{$inc: {"option1.votes":1}},
+        	{new:true},
         	function(err,data){
             if(err)
                 console.log(err);
-            else
-                res.redirect('/polls');
+            else{
+            	Polls.findOne({_id:data._id},function(err,data){
+		            if(err)
+		                console.log(err);
+		            else
+		                res.json(data);
+		        });
+            }
         });
     },
 
