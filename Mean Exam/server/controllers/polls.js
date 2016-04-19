@@ -47,9 +47,24 @@ module.exports = {
             if(err)
                 console.log(err);
             else{
-            	var selectedOption = req.body.option;
-            	var option = poll.options.selectedOption;
-            	console.log(poll.options.option1votes)
+            	for(index in poll.votes){
+            		if(index==req.body.option){
+            			var option = poll.votes[index].option;
+            			option++;
+            			poll.save(function(err){
+            				if(err)
+            					console.log(err);
+            				else{
+            					Polls.findOne({_id:req.params.id},function(err,data){
+						            if(err)
+						                console.log(err);
+						            else
+						                res.json(Data);
+						        });
+            				}
+            			})
+            		}
+            	}
             }
         });
     },
