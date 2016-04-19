@@ -40,6 +40,18 @@ module.exports = {
         });
     },
 
+    vote: function(req,res){
+        Polls.findOneAndUpdate(
+        	{_id:req.params.id},
+        	{},
+        	function(err,data){
+            if(err)
+                console.log(err);
+            else
+                res.redirect('/polls');
+        });
+    },
+
 
 
 
