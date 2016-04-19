@@ -33,7 +33,7 @@ module.exports = {
 
     createAnswer: function(req,res){
         Threads.findOneAndUpdate(
-            req.params._id,
+            req.params.id,
             {$push:{"answers":{
                 text:req.body.answer,
                 name:req.body.currentUser.name,
@@ -53,9 +53,9 @@ module.exports = {
     },
 
     createComment: function(req,res){
-        Threads.findOne({_id:req.params._id},function(err, thread){
-            console.log(thread)
-            for(answers in thread.answers){
+        Threads.findOne({_id:req.params.id},function(err, thread){
+            for(answer in thread.answers){
+                console.log(answer)
                 if(req.body.answerId==answer._id){
                     answer.comments.push({
                         text:req.body.comment,
@@ -65,6 +65,7 @@ module.exports = {
                         _id:Math.floor(Math.random()*10000000000)
                         }
                     );
+                    console.log(thread)
                     thread.save(function(err){
                         if(err)
                             console.log(err);
