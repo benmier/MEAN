@@ -157,10 +157,10 @@ myApp.controller('createController', function($scope,$location,pollFactory,userF
 
     $scope.create = function(){
         $scope.newPoll.name = $scope.currentUser.name;
-        $scope.newPoll.votes[0].name = 0;
-        $scope.newPoll.votes[1].name = 0;
-        $scope.newPoll.votes[2].name = 0;
-        $scope.newPoll.votes[3].name = 0;
+        // $scope.newPoll.votes[0].name = 0;
+        // $scope.newPoll.votes[1].name = 0;
+        // $scope.newPoll.votes[2].name = 0;
+        // $scope.newPoll.votes[3].name = 0;
         pollFactory.create($scope.newPoll,function(){
             $location.url('/dashboard')
         });
