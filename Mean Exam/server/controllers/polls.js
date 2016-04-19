@@ -22,7 +22,9 @@ module.exports = {
     },
 
     create: function(req,res){
-        var poll = new Polls(req.body) 
+        var poll = new Polls(req.body)
+        for(var i=0; i<3; i++)
+	        poll.votes.push({option:0});
         poll.save(function(err){
             if(err)
                 console.log(err);
