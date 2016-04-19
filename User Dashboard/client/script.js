@@ -89,7 +89,7 @@ myApp.factory('threadFactory', function($http){
     };
 
     factory.createComment = function(answer,currentUser,comment,callback){
-        $http.post('/threads/createComment/'+thread._id,{answerId:answer,currentUser:currentUser,comment:comment}).success(function(data){
+        $http.post('/threads/createComment/'+factory.thread._id,{answerId:answer,currentUser:currentUser,comment:comment}).success(function(data){
             threads = data;
             callback(threads);
         });
