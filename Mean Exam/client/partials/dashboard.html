@@ -4,4 +4,23 @@
 </div><br>
 
 <h2>Current Polls:</h2><br>
-<input type="text" placeholder="Search" ng-model='filterer' style="float: right"></input>
+<input type="text" placeholder="Search" ng-model='filterer' style="float: right"></input><br>
+
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>Survey Question</th>
+			<th>Date Posted</th>
+			<th>Action</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat='question in questions | filter:filterer | orderBy:createdAt:true'>
+			<td ng-bind='question.name'></td>
+			<td ng-bind='question.question'></td>
+			<td ng-bind='question.createdAt | date:"MMMM d, y"'></td>
+			<td ng-if='question.name == currentUser.name'><a href="#/delete/{{question._id}}">Delete</a></td>
+		</tr>
+	</tbody>
+</table>
