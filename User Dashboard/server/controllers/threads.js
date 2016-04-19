@@ -64,7 +64,6 @@ module.exports = {
                         _id:Math.floor(Math.random()*10000000000)
                         }
                     );
-                    console.log(thread)
                     thread.save(function(err){
                         if(err)
                             console.log(err);
