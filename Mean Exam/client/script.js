@@ -58,8 +58,22 @@ myApp.factory('pollFactory', function($http){
     }
 
     factory.showCurrentPoll = function(callback){
-        callback(factor.currentPoll);
+        callback(factory.currentPoll);
     };
+
+    factory.delete = function(poll,callback){
+        $http.post('/polls/delete/'+poll._id).success(function(data){
+            factory.polls = data;
+            callback(factory.polls);
+        });
+    };
+
+    factory.vote = function(optionNumber,callback){
+        $http.post('/polls/vote/'+factory.currentPoll._id,optionNumber).success(function(data){
+            factory.poll = data;
+            callback(factory.poll);
+        })
+    }
 
     return factory;
 })
