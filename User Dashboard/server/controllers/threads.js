@@ -53,7 +53,15 @@ module.exports = {
     },
 
     createComment: function(req,res){
-        Threads.findOneAndUpdate({_id:req.params._id},{},{new:true},function(err,data){
+        Threads.findOneAndUpdate({_id:req.params._id},function()
+            {$push:{"answers.comments":{
+                text:req.body.comment,
+                name:req.body.currentUser.name,
+                nameId:req.body.currentUser._id,
+                createdAt:Date.now(),
+                _id:Math.floor(Math.random()*10000000000)}}},
+                {new:true},
+                function(err,data){
             if(err)
                 console.log(err);
             else{
