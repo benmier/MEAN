@@ -41,7 +41,7 @@ module.exports = {
                 upvotes:0,
                 downvotes:0,
                 createdAt:Date.now(),
-                _id:Math.floor(Math.random()*15)}}},
+                _id:Math.floor(Math.random()*10000000000)}}},
                 {new:true},
                 function(err,data){
             if(err)
