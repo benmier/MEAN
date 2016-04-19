@@ -80,8 +80,8 @@ myApp.factory('pollFactory', function($http){
         });
     };
 
-    factory.vote = function(optionNumber,callback){
-        $http.post('/polls/vote/'+factory.currentPoll._id,optionNumber).success(function(data){
+    factory.vote = function(option,callback){
+        $http.post('/polls/vote/'+factory.currentPoll._id,{option:option}).success(function(data){
             factory.poll = data;
             callback(factory.poll);
         });
@@ -102,7 +102,7 @@ myApp.controller('dashboardController', function($scope,$location,userFactory,po
     userFactory.showCurrentUser(function(data){
         $scope.currentUser = data;
         console.log(data)
-        if(data=={})
+        if(!data.name)
             $location.url('/');
     });
 
@@ -152,7 +152,7 @@ myApp.controller('pollController', function($scope,$location,pollFactory){
 myApp.controller('createController', function($scope,$location,pollFactory,userFactory){
     userFactory.showCurrentUser(function(data){
         $scope.currentUser = data;
-        if(data=={})
+        if(!data.name)
             $location.url('/');
     });
 
