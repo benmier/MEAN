@@ -54,10 +54,9 @@ module.exports = {
 
     createComment: function(req,res){
         Threads.findOne({_id:req.params.id},function(err, thread){
-            for(answer in thread.answers){
-                console.log(answer)
-                if(req.body.answerId==answer._id){
-                    answer.comments.push({
+            for(index in thread.answers){
+                if(req.body.answerId==thread.answers[index]._id){
+                    thread.answers[index].comments.push({
                         text:req.body.comment,
                         name:req.body.currentUser.name,
                         nameId:req.body.currentUser._id,
