@@ -32,9 +32,8 @@ module.exports = {
     },
 
     createAnswer: function(req,res){
-        console.log(req.params.id)
         Threads.findOneAndUpdate(
-            req.params.id,
+            {_id:req.params.id},
             {$push:{"answers":{
                 text:req.body.answer,
                 name:req.body.currentUser.name,
