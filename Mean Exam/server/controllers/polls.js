@@ -43,7 +43,7 @@ module.exports = {
     vote: function(req,res){
         Polls.findOneAndUpdate(
         	{_id:req.params.id},
-        	{$inc: {"option1.votes":1}},
+        	{$inc: {req.body.option.votes:1}},
         	{new:true},
         	function(err,data){
             if(err)
