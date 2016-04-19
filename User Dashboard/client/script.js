@@ -144,14 +144,13 @@ myApp.controller('threadController', function($scope,threadFactory,userFactory){
     });
 
     $scope.createAnswer = function(){
-        console.log($scope.newAnswer)
         threadFactory.createAnswer($scope.newAnswer,$scope.currentUser,function(data){
             $scope.thread = data
         });
     };
 
     $scope.createComment = function(answer_id,index){
-        console.log($scope.newComment[index])
+        console.log($scope.newComment.index)
         threadFactory.createComment(answer_id,$scope.currentUser,$scope.newComment[index],function(data){
             $scope.thread = data
         });

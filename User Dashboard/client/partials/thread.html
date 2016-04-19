@@ -25,7 +25,7 @@
 		<a href="#/users/{{comment.nameId}}">{{comment.name}}:</a> {{comment.text}}<br>
 	</div><br>
 	<form class="form-group">
-		<textarea style="margin-left: 30px;" ng-model='newComment[$index]' rows="2" class="form-control"></textarea>
+		<textarea style="margin-left: 30px;" ng-model='newComment.$index' rows="2" class="form-control"></textarea>
 	</form>
-	<input type="submit" value="Comment" style="float: right" ng-click='createComment(answer._id,newComent[$index])' class="btn"></input><br><hr><br>
+	<input type="submit" value="Comment" style="float: right" ng-click='createComment(answer._id,$index)' class="btn"></input><br><hr><br>
 </div>
