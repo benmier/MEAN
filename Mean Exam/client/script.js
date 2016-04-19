@@ -37,6 +37,11 @@ myApp.factory('userFactory', function($http){
         callback(factory.currentUser);
     };
 
+    factory.logout = function(callback){
+        factory.currentUser = {};
+        callaback();
+    }
+
     return factory;
 });
 
@@ -96,6 +101,8 @@ myApp.controller('loginController', function($scope,$location,userFactory){
 myApp.controller('dashboardController', function($scope,$location,userFactory,pollFactory){
     userFactory.showCurrentUser(function(data){
         $scope.currentUser = data;
+        if(!data)
+            $location.url('/');
     });
 
     pollFactory.show(function(data){
@@ -119,6 +126,12 @@ myApp.controller('dashboardController', function($scope,$location,userFactory,po
             $scope.polls = data;
         });
     };
+
+    $scope.logout = function(){
+        userFactory.logout(function(data){
+            $scope.currentUser = data;
+        })
+    }
 });
 
 myApp.controller('pollController', function($scope,$location,pollFactory){
