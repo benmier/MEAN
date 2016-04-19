@@ -55,15 +55,29 @@ module.exports = {
     createComment: function(req,res){
         Threads.findOne({_id:req.params._id},function(err, thread){
             for(answers in tread.answers){
-                if(req.body.answer._id==answer._id)
+                if(req.body.answer._id==answer._id){
+                    answer.comments.push({
+                        text:req.body.comment,
+                        name:req.body.currentUser.name,
+                        nameId:req.body.currentUser._id,
+                        createdAt:Date.now(),
+                        _id:Math.floor(Math.random()*10000000000)
+                        }
+                    })
+                    thread.save(function(err){
+                        if(err)
+                            console.log(err);
+                        else{
+                            Threads.findOne({_id:req.params._id},function(err,thread){
+                                res.json(thread);
+                            }
+                        }
+                    })
+                }
             }
         }
             {$push:{"answers.comments":{
-                text:req.body.comment,
-                name:req.body.currentUser.name,
-                nameId:req.body.currentUser._id,
-                createdAt:Date.now(),
-                _id:Math.floor(Math.random()*10000000000)}}},
+                }},
                 {new:true},
                 function(err,data){
             if(err)
