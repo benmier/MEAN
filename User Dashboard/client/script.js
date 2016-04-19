@@ -149,10 +149,10 @@ myApp.controller('threadController', function($scope,threadFactory,userFactory){
         });
     };
 
-    $scope.createComment = function(answerId){
-        console.log($scope.newComment[0])
-        threadFactory.createComment(answerId,$scope.currentUser,$scope.newComment_answerId,function(data){
+    $scope.createComment = function(answerId,newComment){
+        threadFactory.createComment(answerId,$scope.currentUser,newComment,function(data){
             $scope.thread = data
+            console.log(data)
         });
     };
 

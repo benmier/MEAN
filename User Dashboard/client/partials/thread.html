@@ -21,7 +21,7 @@
 		{{answer.downvotes}} <img src="http://i.imgur.com/eqLD2.png" height="15px" width="15px">
 	</div><br>
 	<a href="#/users/{{answer.nameId}}">{{answer.name}}:</a> {{answer.text}}<br><br>
-	<div style="margin-left: 30px;" ng-repeat='comment in thread.answers.comments | orderBy:createdAt:true'>
+	<div style="margin-left: 30px;" ng-repeat='comment in thread.answers[$index].comments | orderBy:createdAt:true'>
 		<a href="#/users/{{comment.nameId}}">{{comment.name}}:</a> {{comment.text}}<br>
 	</div><br>
 	<form class="form-group">

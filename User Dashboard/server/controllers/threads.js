@@ -68,7 +68,7 @@ module.exports = {
                         if(err)
                             console.log(err);
                         else{
-                            Threads.findOne({_id:req.params._id},function(err,thread){
+                            Threads.findOne({_id:req.params.id},function(err,thread){
                                 res.json(thread);
                             })
                         }
