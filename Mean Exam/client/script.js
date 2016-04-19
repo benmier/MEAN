@@ -54,6 +54,13 @@ myApp.factory('pollFactory', function($http){
         $http.get('/polls/'+poll._id).success(function(data){
             factory.currentPoll = data;
             callback();
+        });
+    };
+
+    factory.create = function(newPoll,callback){
+        $http.post('/polls/create',newPoll).success(function(data){
+            factory.polls = data;
+            callback();
         })
     }
 
@@ -72,8 +79,8 @@ myApp.factory('pollFactory', function($http){
         $http.post('/polls/vote/'+factory.currentPoll._id,optionNumber).success(function(data){
             factory.poll = data;
             callback(factory.poll);
-        })
-    }
+        });
+    };
 
     return factory;
 })
