@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 
 var PollSchema = new mongoose.Schema({
 	name: {type:String},
-	question: {type:String,required:true,unique:true},
+	question: {type:String},
 	option1:{type:String},
 	option2:{type:String},
 	option3:{type:String},
