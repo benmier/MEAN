@@ -88,8 +88,8 @@ myApp.factory('threadFactory', function($http){
         });
     };
 
-    factory.createComment = function(thread,answer,comment,callback){
-        $http.post('/threads/createComment/'+thread._id,{}).success(function(data){
+    factory.createComment = function(answer,currentUser,comment,callback){
+        $http.post('/threads/createComment/'+thread._id,{answerId:answer,currentUser:currentUser,comment:comment}).success(function(data){
             threads = data;
             callback(threads);
         });
@@ -150,8 +150,8 @@ myApp.controller('threadController', function($scope,threadFactory,userFactory){
         });
     };
 
-    $scope.createComment = function(){
-        threadFactory.createComment(function(data){
+    $scope.createComment = function(answer_id){
+        threadFactory.createComment(answer_id,$scope.currentUser,$scope.newComment,function(data){
             $scope.thread = data
         });
     };
