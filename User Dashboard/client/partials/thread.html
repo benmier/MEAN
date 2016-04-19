@@ -17,12 +17,12 @@
 
 <div ng-repeat='answer in thread.answers | orderBy:createdAt:true'>
 	<div style="float: right">
-		{{answer.upvotes}} <img src="http://i.imgur.com/QJ41dQb.png" height="15px" width="15px" ng-click=''> | 
-		{{answer.downvotes}} <img src="http://i.imgur.com/eqLD2.png" height="15px" width="15px">
+		{{answer.upvotes}} <img src="http://i.imgur.com/QJ41dQb.png" height="15px" width="15px" ng-click='addUpvote(answer._id)'> | 
+		{{answer.downvotes}} <img src="http://i.imgur.com/eqLD2.png" height="15px" width="15px" ng-click='addDownvote(answer._id)'>
 	</div><br>
-	<a href="#/users/{{answer.nameId}}">{{answer.name}}:</a> {{answer.text}}<br><br>
+	<a href="#/users/{{answer.nameId}}">{{answer.name}}:</a><br><br>
 	<div style="margin-left: 30px;" ng-repeat='comment in thread.answers[$index].comments | orderBy:createdAt:true'>
-		<a href="#/users/{{comment.nameId}}">{{comment.name}}:</a> {{comment.text}}<br>
+		<a href="#/users/{{comment.nameId}}">{{comment.name}}:</a><br>
 	</div><br>
 	<form class="form-group">
 		<textarea style="margin-left: 30px;" ng-model='newComment' rows="2" class="form-control"></textarea>{{newComment[$index]}}<br>
