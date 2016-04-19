@@ -39,7 +39,7 @@ myApp.factory('userFactory', function($http){
 
     factory.logout = function(callback){
         factory.currentUser = {};
-        callaback();
+        callback(factory.currentUser);
     }
 
     return factory;
@@ -101,7 +101,8 @@ myApp.controller('loginController', function($scope,$location,userFactory){
 myApp.controller('dashboardController', function($scope,$location,userFactory,pollFactory){
     userFactory.showCurrentUser(function(data){
         $scope.currentUser = data;
-        if(!data)
+        console.log(data)
+        if(data=={})
             $location.url('/');
     });
 
@@ -130,6 +131,7 @@ myApp.controller('dashboardController', function($scope,$location,userFactory,po
     $scope.logout = function(){
         userFactory.logout(function(data){
             $scope.currentUser = data;
+            $location.url('/');
         })
     }
 });
@@ -150,6 +152,8 @@ myApp.controller('pollController', function($scope,$location,pollFactory){
 myApp.controller('createController', function($scope,$location,pollFactory,userFactory){
     userFactory.showCurrentUser(function(data){
         $scope.currentUser = data;
+        if(data=={})
+            $location.url('/');
     });
 
     $scope.create = function(){
