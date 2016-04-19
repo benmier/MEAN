@@ -16,22 +16,22 @@
 	<tbody>
 		<tr>
 			<td ng-bind='poll.option1'></td>
-			<td ng-bind='poll.votes.option1'></td>
+			<td ng-bind='poll.votes[0].option'></td>
 			<td><button ng-click='vote(0)'>Vote</button></td>
 		</tr>
 		<tr>
 			<td ng-bind='poll.option2'></td>
-			<td ng-bind='poll.votes.option2'></td>
+			<td ng-bind='poll.votes[1].option'></td>
 			<td><button ng-click='vote(1)'>Vote</button></td>
 		</tr>
 		<tr>
 			<td ng-bind='poll.option3'></td>
-			<td ng-bind='poll.votes.option3'></td>
+			<td ng-bind='poll.votes[2].option'></td>
 			<td><button ng-click='vote(2)'>Vote</button></td>
 		</tr>
 		<tr>
 			<td ng-bind='poll.option4'></td>
-			<td ng-bind='poll.votes.option4'></td>
+			<td ng-bind='poll.votes[3].option'></td>
 			<td><button ng-click='vote(3)'>Vote</button></td>
 		</tr>
 	</tbody>
