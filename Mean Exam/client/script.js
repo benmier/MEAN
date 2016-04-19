@@ -16,7 +16,7 @@ myApp.config(function($routeProvider){
         })
         .when('/create',{
             templateUrl: 'partials/create.html',
-            controller: "pollController"
+            controller: "createController"
         })
         .otherwise({
             redirectTo: '/'
@@ -109,7 +109,6 @@ myApp.controller('dashboardController', function($scope,$location,userFactory,po
     };
 
     $scope.create = function(){
-        $scope.newPoll.name = $scope.currentUser.name;
         pollFactory.create($scope.newPoll,function(data){
             $scope.polls = data;
         });
@@ -133,9 +132,19 @@ myApp.controller('pollController', function($scope,$location,pollFactory){
         });
     };
 
+});
+
+myApp.controller('createController', function($scope,$location,pollFactory,userFactory){
+    userFactory.showCurrentUser(function(data){
+        $scope.currentUser = data;
+    });
+
     $scope.create = function(){
+        console.log("user is: "+$scope.currentUser.name);
+        console.log($scope.newPoll)
+        $scope.newPoll.name = $scope.currentUser.name;
         pollFactory.create($scope.newPoll,function(){
             $location.url('/dashboard')
         });
-    }
-});
+    };
+})
