@@ -1,0 +1,23 @@
+<div style="float: right">
+	<a href="#/dashboard">Go to Polls</a> | 
+</div><br>
+
+<h2 ng-bind='currentPoll.question'></h2>
+<p>Click the Vote button to choose one</p>
+
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th>Option</th>
+			<th>Current Count of Votes</th>
+			<th>Action</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat='poll in polls | orderBy:votes'>
+			<td ng-bind='poll.name'></td>
+			<td ng-bind='poll.votes'></td>
+			<button ng-click='vote()'>Vote</button>
+		</tr>
+	</tbody>
+</table>

@@ -16,11 +16,11 @@
 		</tr>
 	</thead>
 	<tbody>
-		<tr ng-repeat='question in questions | filter:filterer | orderBy:createdAt:true'>
-			<td ng-bind='question.name'></td>
-			<td ng-bind='question.question'></td>
-			<td ng-bind='question.createdAt | date:"MMMM d, y"'></td>
-			<td ng-if='question.name == currentUser.name'><a href="#/delete/{{question._id}}">Delete</a></td>
+		<tr ng-repeat='poll in polls | filter:filterer | orderBy:createdAt:true'>
+			<td ng-bind='poll.name'></td>
+			<td ng-bind='poll.question'></td>
+			<td ng-bind='poll.createdAt | date:"MMMM d, y"'></td>
+			<td ng-if='poll.name == currentUser.name'><a href="#/delete/{{poll._id}}">Delete</a></td>
 		</tr>
 	</tbody>
 </table>
