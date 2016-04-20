@@ -48,7 +48,7 @@
 	  render: function(){
 	            return React.createElement('nav', {style: {border: "1px solid pink"}},
 	              React.createElement('ul', null,
-	                React.createElement(ListItemWithLink,{name:"home"}),
+	                React.createElement(ListItemWithLink,{name:"bone"}),
 	                React.createElement(ListItemWithLink,{name:"logout"}),
 	                React.createElement(ListItemWithLink,{name:"about me"})
 	              )
