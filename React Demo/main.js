@@ -10,6 +10,18 @@ var Header = React.createClass({
  	}
 });
 
+// var Header = React.createClass({
+// 	render: function(){
+//  		return React.createElement('div', {style: {border: "1px solid black"}}, 
+//  			React.createElement('ul',null,
+//  				React.createElement(ListItemWithLink,{name: "home"}),
+//  				React.createElement(ListItemWithLink,{name: "Logout"}),
+//  				React.createElement(ListItemWithLink,{name: "About Me"})
+//  			)
+//  		)
+//  	}
+// });
+
 var ListItemWithLink = React.createClass({
 	render: function(){
 		return React.createElement('li', null,
