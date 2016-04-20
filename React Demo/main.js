@@ -24,7 +24,7 @@ var Sidebar = React.createClass({
 
 var Main = React.createClass({
 	render: function(){
- 		return React.createElement('div', {style: {border: "1px solid black", width:"70%", height:"100%"}}, 
+ 		return React.createElement('div', {style: {border: "1px solid black", width:"80%", height:"100%"}}, 
  			React.createElement('ul',null,
  				React.createElement(ListItemWithLink,{name: "Link!"})
  			)
