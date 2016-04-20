@@ -12,11 +12,21 @@ var Header = React.createClass({
 
 var Sidebar = React.createClass({
 	render: function(){
- 		return React.createElement('div', {style: {border: "1px solid black", width:"50px", height:"100%"}}, 
+ 		return React.createElement('div', {style: {border: "1px solid black", width:"20%", height:"100%"}}, 
  			React.createElement('ul',null,
- 				React.createElement(ListItemWithLink,{name: "home"}),
- 				React.createElement(ListItemWithLink,{name: "Logout"}),
- 				React.createElement(ListItemWithLink,{name: "About Me"})
+ 				React.createElement(ListItemWithLink,{name: "Link!"}),
+ 				React.createElement(ListItemWithLink,{name: "Link!"}),
+ 				React.createElement(ListItemWithLink,{name: "Link!"})
+ 			)
+ 		)
+ 	}
+});
+
+var Main = React.createClass({
+	render: function(){
+ 		return React.createElement('div', {style: {border: "1px solid black", width:"70%", height:"100%"}}, 
+ 			React.createElement('ul',null,
+ 				React.createElement(ListItemWithLink,{name: "Link!"})
  			)
  		)
  	}
@@ -31,7 +41,8 @@ var ListItemWithLink = React.createClass({
 });
 
 var NinjaComponent = React.createElement('div',null,
-	React.createElement(Header);
-	React.createElement(Sidebar);
+	React.createElement(Header),
+	React.createElement(Sidebar),
+	React.createElement(Main)
 )
 ReactDOM.render(NinjaComponent, document.getElementById('react-container'));
