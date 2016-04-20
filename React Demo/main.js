@@ -3,15 +3,23 @@ var ReactDOM = require('react-dom');
 
 var NinjaTitle = React.createClass({
  render: function(){
-  return <h1>{this.props.title}</h1>;
+    return <h1>{this.props.title}</h1>
  }
 });
 
-var NinjaComponent = React.createElement('div',
-    null,
-    React.createElement(NinjaTitle, { title: 'React Ninja'}),
-    React.createElement(NinjaTitle, { title: 'Angular Ninja'}),
-    React.createElement(NinjaTitle, { title: 'Backbone Ninja'}),
-    React.createElement(NinjaTitle, { title: 'jQuery Ninja'})
+
+var NinjaComponent = React.createClass({
+  render: function(){
+    return (
+      <div>
+        <NinjaTitle title='React Ninja'/>
+        <NinjaTitle title='Angular Ninja'/>
+        <NinjaTitle title='Backbone Ninja'/>
+        <NinjaTitle title='jQuery Ninja'/>
+      </div>
     )
-ReactDOM.render(NinjaComponent, document.getElementById('react-container'));
+  }
+})
+
+
+ReactDOM.render(<NinjaComponent />, document.getElementById('react-container'));

@@ -59,8 +59,22 @@
 	  }
 	});
 
-	var NinjaComponent = React.createElement('div', null, React.createElement(NinjaTitle, { title: 'React Ninja' }), React.createElement(NinjaTitle, { title: 'Angular Ninja' }), React.createElement(NinjaTitle, { title: 'Backbone Ninja' }), React.createElement(NinjaTitle, { title: 'jQuery Ninja' }));
-	ReactDOM.render(NinjaComponent, document.getElementById('react-container'));
+	var NinjaComponent = React.createClass({
+	  displayName: 'NinjaComponent',
+
+	  render: function () {
+	    return React.createElement(
+	      'div',
+	      null,
+	      React.createElement(NinjaTitle, { title: 'React Ninja' }),
+	      React.createElement(NinjaTitle, { title: 'Angular Ninja' }),
+	      React.createElement(NinjaTitle, { title: 'Backbone Ninja' }),
+	      React.createElement(NinjaTitle, { title: 'jQuery Ninja' })
+	    );
+	  }
+	});
+
+	ReactDOM.render(React.createElement(NinjaComponent, null), document.getElementById('react-container'));
 
 /***/ },
 /* 1 */
