@@ -12,7 +12,7 @@ var Header = React.createClass({
 
 var Sidebar = React.createClass({
 	render: function(){
- 		return React.createElement('div', {style: {border: "1px solid black", width:"20%", height:"100%"}}, 
+ 		return React.createElement('div', {style: {border: "1px solid black", width:"20%", height:"100%", display:"inline-block"}}, 
  			React.createElement('ul',null,
  				React.createElement(ListItemWithLink,{name: "Link!"}),
  				React.createElement(ListItemWithLink,{name: "Link!"}),
@@ -24,7 +24,7 @@ var Sidebar = React.createClass({
 
 var Main = React.createClass({
 	render: function(){
- 		return React.createElement('div', {style: {border: "1px solid black", width:"80%", height:"100%"}}, 
+ 		return React.createElement('div', {style: {border: "1px solid black", width:"79%", height:"100%", display:"inline-block"}}, 
  			React.createElement('ul',null,
  				React.createElement(ListItemWithLink,{name: "Link!"})
  			)
