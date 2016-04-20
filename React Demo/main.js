@@ -1,7 +1,13 @@
-var NinjaTitle = React.createClass({
- render: function(){
-  return React.createElement('h1', null, this.props.title);
- }
+var Header = React.createClass({
+	render: function(){
+ 		return React.createElement('nav', {style: {border: "1px solid black"}}, 
+ 			React.createElement('ul',null,
+ 				React.createElement(ListItemWithLink,{name: "home"}),
+ 				React.createElement(ListItemWithLink,{name: "Logout"}),
+ 				React.createElement(ListItemWithLink,{name: "About Me"})
+ 			)
+ 		)
+ 	}
 });
 
 var NinjaComponent = React.createElement('div',null,
