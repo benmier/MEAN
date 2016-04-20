@@ -10,10 +10,15 @@ var Header = React.createClass({
  	}
 });
 
+var ListItemWithLink = React.createClass({
+	render: function(){
+		return React.createElement('li', null,
+			React.createElement("a", {href: ""}, this.props.name)
+		)
+	}
+});
+
 var NinjaComponent = React.createElement('div',null,
-	React.createElement(NinjaTitle, { title: 'React Ninja'}),
-	React.createElement(NinjaTitle, { title: 'Angular Ninja'}),
-	React.createElement(NinjaTitle, { title: 'Backbone Ninja'}),
-	React.createElement(NinjaTitle, { title: 'jQuery Ninja'})
+	React.createElement(Header)
 )
 ReactDOM.render(NinjaComponent, document.getElementById('react-container'));
