@@ -86,6 +86,7 @@ myApp.factory('threadFactory', function($http){
             factory.thread = data;
             callback(factory.thread);
         });
+        $scope.newAnswer = {};
     };
 
     factory.createComment = function(answer,currentUser,comment,callback){
@@ -147,12 +148,14 @@ myApp.controller('threadController', function($scope,threadFactory,userFactory){
         threadFactory.createAnswer($scope.newAnswer,$scope.currentUser,function(data){
             $scope.thread = data
         });
+        $scope.newAnswer = {};
     };
 
     $scope.createComment = function(answerId,newComment){
         threadFactory.createComment(answerId,$scope.currentUser,newComment,function(data){
             $scope.thread = data
         });
+        $scope.newComment = {};
     };
 
 });

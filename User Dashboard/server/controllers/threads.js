@@ -44,11 +44,11 @@ module.exports = {
                 _id:Math.floor(Math.random()*10000000000)}}},
                 {new:true},
                 function(err,data){
-            if(err)
-                console.log(err);
-            else{
-                res.json(data)
-            }
+                    if(err)
+                        console.log(err);
+                    else{
+                        res.json(data)
+                    }
         })
     },
 
