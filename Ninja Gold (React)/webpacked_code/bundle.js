@@ -63,7 +63,7 @@
 
 					getInitialState: function () {
 									return {
-													gold: '0'
+													gold: 0
 									};
 					},
 					render: function () {
