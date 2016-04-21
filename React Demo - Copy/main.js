@@ -33,15 +33,16 @@ var MyComponent = React.createClass({
 						<button onClick={this.casino}>Find Gold!</button>
 					</div>
 					<p>Activities:</p>
-					<div id="activities" style={{border:"1px solid black",height:"200px",width:"700px",display:"inline-block",margin:"10px 20px 20px 0px",verticalAlign:"top"}}>
-					</div>
+					<div id="activities" style={{border:"1px solid black",height:"200px",width:"700px",display:"inline-block",margin:"10px 20px 20px 0px",verticalAlign:"top"}}>{{this.state.activities}}</div>
 	            </div>
 	        )
 	},
 	farm: function(event){
 		var reward = this.randInt(10,20)
-    	this.activities.push("<p>Earned "+reward+" from the farm!</p>")
-    	this.setState({gold: this.state.gold+reward,activities: this.state.activities});
+    	this.setState({
+    		gold: this.state.gold+reward,
+    		activities: this.state.activities.push("<p>Earned "+reward+" from the farm!</p>")});
+		console.log(this.state.activities)
 	},
 	cave: function(event){
     	this.setState({gold: this.state.gold+this.randInt(5,10)});
