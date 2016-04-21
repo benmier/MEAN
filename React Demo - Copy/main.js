@@ -20,8 +20,9 @@ var MyComponent = React.createClass({
 	    return (
 	            <div>
 	                <p>Your Gold: <input readOnly value={this.state.gold} /></p>
-					<p>Age: <input onChange = {this.handleAgeChange} /> ({this.state.age})</p>
-					<p>Occupation: <input onChange = {this.handleOccupationChange} /> ({this.state.occupation})</p>
+					<div style={{border:"1px solid black",height:"200px",width:"200px",display:"inline-block"}}>
+					<div style={{border:"1px solid black",height:"200px",width:"200px",display:"inline-block"}}>
+					<div style={{border:"1px solid black",height:"200px",width:"200px",display:"inline-block"}}>
 	            </div>
 	        )
 	},

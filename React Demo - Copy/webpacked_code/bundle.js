@@ -76,24 +76,7 @@
 																	'Your Gold: ',
 																	React.createElement('input', { readOnly: true, value: this.state.gold })
 													),
-													React.createElement(
-																	'p',
-																	null,
-																	'Age: ',
-																	React.createElement('input', { onChange: this.handleAgeChange }),
-																	' (',
-																	this.state.age,
-																	')'
-													),
-													React.createElement(
-																	'p',
-																	null,
-																	'Occupation: ',
-																	React.createElement('input', { onChange: this.handleOccupationChange }),
-																	' (',
-																	this.state.occupation,
-																	')'
-													)
+													React.createElement('div', { style: { border: "1px solid black", height: "200px", width: "200px" } })
 									);
 					},
 					handleNameChange: function (event) {
