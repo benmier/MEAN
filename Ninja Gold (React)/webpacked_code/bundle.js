@@ -47,64 +47,164 @@
 	var React = __webpack_require__(1);
 	var ReactDOM = __webpack_require__(32);
 
-	var NinjaButton = React.createClass({
-					displayName: 'NinjaButton',
-
-					render: function () {
-									return React.createElement('button', { onClick: this.myFunction });
-					},
-					myFunction: function () {
-									alert('Hello!');
-					}
-	});
-
 	var MyComponent = React.createClass({
-					displayName: 'MyComponent',
+		displayName: 'MyComponent',
 
-					getInitialState: function () {
-									return {
-													gold: 0
-									};
-					},
-					render: function () {
-									return React.createElement(
-													'div',
-													null,
-													React.createElement(
-																	'p',
-																	null,
-																	'Your Gold: ',
-																	React.createElement('input', { readOnly: true, value: this.state.gold })
-													),
-													React.createElement(
-																	'p',
-																	null,
-																	'Age: ',
-																	React.createElement('input', { onChange: this.handleAgeChange }),
-																	' (',
-																	this.state.age,
-																	')'
-													),
-													React.createElement(
-																	'p',
-																	null,
-																	'Occupation: ',
-																	React.createElement('input', { onChange: this.handleOccupationChange }),
-																	' (',
-																	this.state.occupation,
-																	')'
-													)
-									);
-					},
-					handleNameChange: function (event) {
-									this.setState({ name: event.target.value });
-					},
-					handleAgeChange: function (event) {
-									this.setState({ age: event.target.value });
-					},
-					handleOccupationChange: function (event) {
-									this.setState({ occupation: event.target.value });
-					}
+		getInitialState: function () {
+			return {
+				gold: 0,
+				activities: ["Welcome to Ninja Gold!"]
+			};
+		},
+		render: function () {
+			return React.createElement(
+				'div',
+				{ style: { margin: "20px", textAlign: "center" } },
+				React.createElement(
+					'p',
+					null,
+					'Your Gold: ',
+					React.createElement('input', { readOnly: true, value: this.state.gold })
+				),
+				React.createElement(
+					'div',
+					{ style: { border: "1px solid black", height: "150px", width: "150px", display: "inline-block", margin: "10px 20px 20px 0px", verticalAlign: "top" } },
+					React.createElement(
+						'h3',
+						null,
+						'Farm'
+					),
+					React.createElement(
+						'p',
+						null,
+						'(earns 10-20 golds)'
+					),
+					React.createElement(
+						'button',
+						{ onClick: this.farm },
+						'Find Gold!'
+					)
+				),
+				React.createElement(
+					'div',
+					{ style: { border: "1px solid black", height: "150px", width: "150px", display: "inline-block", margin: "10px 20px 20px 0px", verticalAlign: "top" } },
+					React.createElement(
+						'h3',
+						null,
+						'Cave'
+					),
+					React.createElement(
+						'p',
+						null,
+						'(earns 5-10 golds)'
+					),
+					React.createElement(
+						'button',
+						{ onClick: this.cave },
+						'Find Gold!'
+					)
+				),
+				React.createElement(
+					'div',
+					{ style: { border: "1px solid black", height: "150px", width: "150px", display: "inline-block", margin: "10px 20px 20px 0px", verticalAlign: "top" } },
+					React.createElement(
+						'h3',
+						null,
+						'House'
+					),
+					React.createElement(
+						'p',
+						null,
+						'(earns 2-5 golds)'
+					),
+					React.createElement(
+						'button',
+						{ onClick: this.house },
+						'Find Gold!'
+					)
+				),
+				React.createElement(
+					'div',
+					{ style: { border: "1px solid black", height: "150px", width: "150px", display: "inline-block", margin: "10px 20px 20px 0px", verticalAlign: "top" } },
+					React.createElement(
+						'h3',
+						null,
+						'Casino'
+					),
+					React.createElement(
+						'p',
+						null,
+						'(earns +/- 50 golds)'
+					),
+					React.createElement(
+						'button',
+						{ onClick: this.casino },
+						'Find Gold!'
+					)
+				),
+				React.createElement(
+					'p',
+					null,
+					'Activities:'
+				),
+				React.createElement(
+					'div',
+					{ style: { border: "1px solid black", height: "auto", width: "300px", display: "inline-block", margin: "10px 20px 20px 0px", verticalAlign: "top" } },
+					this.state.activities
+				)
+			);
+		},
+		farm: function (event) {
+			var reward = this.randInt(10, 20);
+			this.setState({
+				gold: this.state.gold + reward,
+				activities: this.state.activities.concat(React.createElement(
+					'p',
+					null,
+					'Earned ',
+					reward,
+					' golds from the farm!'
+				)) });
+		},
+		cave: function (event) {
+			var reward = this.randInt(5, 10);
+			this.setState({
+				gold: this.state.gold + reward,
+				activities: this.state.activities.concat(React.createElement(
+					'p',
+					null,
+					'Earned ',
+					reward,
+					' golds from the cave!'
+				)) });
+		},
+		house: function (event) {
+			var reward = this.randInt(2, 5);
+			this.setState({
+				gold: this.state.gold + reward,
+				activities: this.state.activities.concat(React.createElement(
+					'p',
+					null,
+					'Earned ',
+					reward,
+					' golds from the house!'
+				)) });
+		},
+		casino: function (event) {
+			var reward = this.randInt(-50, 50);
+			this.setState({
+				gold: this.state.gold + reward,
+				activities: this.state.activities.concat(React.createElement(
+					'p',
+					null,
+					'Earned ',
+					reward,
+					' golds from the casino!'
+				)) });
+		},
+		randInt: function (min, max) {
+			return Math.floor(Math.random() * (max - min + 1) + min);
+		}
 	});
 
 	ReactDOM.render(React.createElement(MyComponent, null), document.getElementById('react-container'));
