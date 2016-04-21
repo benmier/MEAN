@@ -76,10 +76,25 @@
 																	'Your Gold: ',
 																	React.createElement('input', { readOnly: true, value: this.state.gold })
 													),
-													React.createElement('div', { style: { border: "1px solid black", height: "200px", width: "200px", display: "inline-block", margin: "10px 20px 20px 0px" } }),
-													React.createElement('div', { style: { border: "1px solid black", height: "200px", width: "200px", display: "inline-block", margin: "10px 20px 20px 0px" } }),
-													React.createElement('div', { style: { border: "1px solid black", height: "200px", width: "200px", display: "inline-block", margin: "10px 20px 20px 0px" } }),
-													React.createElement('div', { style: { border: "1px solid black", height: "200px", width: "200px", display: "inline-block", margin: "10px 20px 20px 0px" } })
+													React.createElement(
+																	'div',
+																	{ style: { border: "1px solid black", height: "200px", width: "200px", display: "inline-block", margin: "10px 20px 20px 0px", verticalAlign: "top" } },
+																	React.createElement(
+																					'h3',
+																					null,
+																					'Farm'
+																	),
+																	React.createElement(
+																					'p',
+																					null,
+																					'(earns 10-20 golds)'
+																	),
+																	React.createElement('button', { style: {}, value: "Find Gold!" })
+													),
+													React.createElement('div', { style: { border: "1px solid black", height: "200px", width: "200px", display: "inline-block", margin: "10px 20px 20px 0px", verticalAlign: "top" } }),
+													React.createElement('div', { style: { border: "1px solid black", height: "200px", width: "200px", display: "inline-block", margin: "10px 20px 20px 0px", verticalAlign: "top" } }),
+													React.createElement('div', { style: { border: "1px solid black", height: "200px", width: "200px", display: "inline-block", margin: "10px 20px 20px 0px", verticalAlign: "top" } }),
+													React.createElement('div', { style: { border: "1px solid black", height: "200px", width: "1000px", display: "inline-block", margin: "10px 20px 20px 0px", verticalAlign: "top" } })
 									);
 					},
 					handleNameChange: function (event) {
