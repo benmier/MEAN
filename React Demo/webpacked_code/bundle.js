@@ -51,13 +51,24 @@
 	    displayName: 'NinjaButton',
 
 	    render: function () {
-	        var button = "Burrito";
-	        return React.createElement('button', { onClick: this.myFunction, value: { button } });
+	        return React.createElement('button', { onClick: this.myFunction });
 	    },
 	    myFunction: function () {
 	        alert('Hello!');
 	    }
 	});
+
+	var MyComponent = React.createClass({
+	    displayName: 'MyComponent',
+
+	    getInitialState: function () {
+	        return {};
+	    },
+	    render: function () {
+	        return React.createElement('div', null);
+	    }
+	});
+
 	ReactDOM.render(React.createElement(NinjaButton, null), document.getElementById('react-container'));
 
 /***/ },

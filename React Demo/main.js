@@ -3,11 +3,20 @@ var ReactDOM = require('react-dom');
 
 var NinjaButton = React.createClass({
     render: function (){
- 		var button = "Burrito"
-        return <button onClick={this.myFunction} value={{button}}></button>
+        return <button onClick={this.myFunction}></button>
     },
     myFunction: function(){
         alert('Hello!')
     }
 });
+
+var MyComponent = React.createClass({
+    getInitialState: function(){
+        return {}
+    },
+    render: function (){
+        return <div></div>
+    }
+})
+
 ReactDOM.render(<NinjaButton />, document.getElementById('react-container'));
