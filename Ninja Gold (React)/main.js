@@ -21,7 +21,7 @@ var MyComponent = React.createClass({
 	render: function (){
 	    return (
 	            <div>
-	                <p>Name: <input onChange = {this.handleNameChange}/> ({this.state.name})</p>
+	                <p>Your Gold: <input /></p>
 					<p>Age: <input onChange = {this.handleAgeChange} /> ({this.state.age})</p>
 					<p>Occupation: <input onChange = {this.handleOccupationChange} /> ({this.state.occupation})</p>
 	            </div>
