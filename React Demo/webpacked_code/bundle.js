@@ -47,34 +47,18 @@
 	var React = __webpack_require__(1);
 	var ReactDOM = __webpack_require__(32);
 
-	// var Block = React.createClass({
-	//  render: function(){
-	//     return <div></div>
-	//  }
-	// });
+	var NinjaButton = React.createClass({
+	    displayName: 'NinjaButton',
 
-	var NinjaComponent = React.createClass({
-		displayName: 'NinjaComponent',
-
-		render: function () {
-			return React.createElement(
-				'div',
-				null,
-				React.createElement('div', { style: { backgroundColor: "green", height: "100px", width: "900px", marginBottom: "20px" } }),
-				React.createElement('div', { style: { backgroundColor: "blue", height: "500px", width: "100px", marginRight: "20px", display: "inline-block" } }),
-				React.createElement(
-					'div',
-					{ style: { backgroundColor: "red", height: "500px", width: "780px", display: "inline-block", verticalAlign: "top" } },
-					React.createElement('div', { style: { backgroundColor: "yellow", height: "225px", width: "225px", margin: "20px 0px 20px 20px", display: "inline-block" } }),
-					React.createElement('div', { style: { backgroundColor: "yellow", height: "225px", width: "225px", margin: "20px 0px 20px 20px", display: "inline-block" } }),
-					React.createElement('div', { style: { backgroundColor: "yellow", height: "225px", width: "225px", margin: "20px 0px 20px 20px", display: "inline-block" } }),
-					React.createElement('div', { style: { backgroundColor: "purple", height: "150px", width: "720px", margin: "20px 0px 20px 20px", display: "inline-block" } })
-				)
-			);
-		}
+	    render: function () {
+	        var button = "Burrito";
+	        return React.createElement('button', { onClick: this.myFunction, value: { button } });
+	    },
+	    myFunction: function () {
+	        alert('Hello!');
+	    }
 	});
-
-	ReactDOM.render(React.createElement(NinjaComponent, null), document.getElementById('react-container'));
+	ReactDOM.render(React.createElement(NinjaButton, null), document.getElementById('react-container'));
 
 /***/ },
 /* 1 */
