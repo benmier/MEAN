@@ -78,7 +78,7 @@
 													),
 													React.createElement(
 																	'div',
-																	{ style: { border: "1px solid black", height: "200px", width: "200px", display: "inline-block", margin: "10px 20px 20px 0px", verticalAlign: "top" } },
+																	{ style: { border: "1px solid black", height: "150px", width: "150px", display: "inline-block", margin: "10px 20px 20px 0px", verticalAlign: "top" } },
 																	React.createElement(
 																					'h3',
 																					null,
@@ -89,12 +89,75 @@
 																					null,
 																					'(earns 10-20 golds)'
 																	),
-																	React.createElement('button', { style: { height: "45px", width: "70px" }, value: 'Text' })
+																	React.createElement(
+																					'button',
+																					null,
+																					'Find Gold!'
+																	)
 													),
-													React.createElement('div', { style: { border: "1px solid black", height: "200px", width: "200px", display: "inline-block", margin: "10px 20px 20px 0px", verticalAlign: "top" } }),
-													React.createElement('div', { style: { border: "1px solid black", height: "200px", width: "200px", display: "inline-block", margin: "10px 20px 20px 0px", verticalAlign: "top" } }),
-													React.createElement('div', { style: { border: "1px solid black", height: "200px", width: "200px", display: "inline-block", margin: "10px 20px 20px 0px", verticalAlign: "top" } }),
-													React.createElement('div', { style: { border: "1px solid black", height: "200px", width: "1000px", display: "inline-block", margin: "10px 20px 20px 0px", verticalAlign: "top" } })
+													React.createElement(
+																	'div',
+																	{ style: { border: "1px solid black", height: "150px", width: "150px", display: "inline-block", margin: "10px 20px 20px 0px", verticalAlign: "top" } },
+																	React.createElement(
+																					'h3',
+																					null,
+																					'Cave'
+																	),
+																	React.createElement(
+																					'p',
+																					null,
+																					'(earns 5-10 golds)'
+																	),
+																	React.createElement(
+																					'button',
+																					null,
+																					'Find Gold!'
+																	)
+													),
+													React.createElement(
+																	'div',
+																	{ style: { border: "1px solid black", height: "150px", width: "150px", display: "inline-block", margin: "10px 20px 20px 0px", verticalAlign: "top" } },
+																	React.createElement(
+																					'h3',
+																					null,
+																					'House'
+																	),
+																	React.createElement(
+																					'p',
+																					null,
+																					'(earns 2-5 golds)'
+																	),
+																	React.createElement(
+																					'button',
+																					null,
+																					'Find Gold!'
+																	)
+													),
+													React.createElement(
+																	'div',
+																	{ style: { border: "1px solid black", height: "150px", width: "150px", display: "inline-block", margin: "10px 20px 20px 0px", verticalAlign: "top" } },
+																	React.createElement(
+																					'h3',
+																					null,
+																					'Casino'
+																	),
+																	React.createElement(
+																					'p',
+																					null,
+																					'(earns +/- 50 golds)'
+																	),
+																	React.createElement(
+																					'button',
+																					null,
+																					'Find Gold!'
+																	)
+													),
+													React.createElement(
+																	'p',
+																	null,
+																	'Activities:'
+													),
+													React.createElement('div', { style: { border: "1px solid black", height: "200px", width: "700px", display: "inline-block", margin: "10px 20px 20px 0px", verticalAlign: "top" } })
 									);
 					},
 					handleNameChange: function (event) {
