@@ -102,13 +102,13 @@
 									);
 					},
 					handleNameChange: function (event) {
-									console.log(event.target.value);
+									this.setState({ name: event.target.value });
 					},
 					handleAgeChange: function (event) {
-									console.log(event.target.value);
+									this.setState({ age: event.target.value });
 					},
 					handleOccupationChange: function (event) {
-									console.log(event.target.value);
+									this.setState({ occupation: event.target.value });
 					}
 	});
 
