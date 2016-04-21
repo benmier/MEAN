@@ -65,9 +65,8 @@
 				React.createElement(
 					'div',
 					{ style: { backgroundColor: "red", height: "500px", width: "780px", display: "inline-block" } },
-					React.createElement('div', { style: { backgroundColor: "yellow", height: "200px", width: "200px", margin: "20px", display: "inline" } }),
-					React.createElement('div', { style: { backgroundColor: "yellow", height: "200px", width: "200px", margin: "20px", display: "inline" } }),
-					React.createElement('div', { style: { backgroundColor: "yellow", height: "200px", width: "200px", margin: "20px", display: "inline" } })
+					React.createElement('div', { style: { backgroundColor: "yellow", height: "150px", width: "150px", margin: "20px", display: "inline" } }),
+					React.createElement('div', { style: { backgroundColor: "yellow", height: "150px", width: "150px", margin: "20px", display: "block" } })
 				)
 			);
 		}
