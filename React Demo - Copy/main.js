@@ -23,7 +23,7 @@ var MyComponent = React.createClass({
 					<div style={{border:"1px solid black",height:"150px",width:"150px",display:"inline-block",margin:"10px 20px 20px 0px",verticalAlign:"top"}}>
 						<h3>Farm</h3>
 						<p>(earns 10-20 golds)</p>
-						<button>Find Gold!</button>
+						<button onClick={this.farm}>Find Gold!</button>
 					</div>
 					<div style={{border:"1px solid black",height:"150px",width:"150px",display:"inline-block",margin:"10px 20px 20px 0px",verticalAlign:"top"}}>
 						<h3>Cave</h3>
@@ -45,14 +45,20 @@ var MyComponent = React.createClass({
 	            </div>
 	        )
 	},
-	handleNameChange: function(event){
-    	this.setState({name: event.target.value});
+	farm: function(event){
+    	this.setState({gold: this.randInt(10,20)});
 	},
-	handleAgeChange: function(event){
+	cave: function(event){
 	    this.setState({age: event.target.value});
 	},
-	handleOccupationChange: function(event){
+	house: function(event){
 	    this.setState({occupation: event.target.value});
+	}
+	casino: function(event){
+	    this.setState({occupation: event.target.value});
+	}
+	randInt: function(min,max){
+    	return Math.floor(Math.random()*(max-min+1)+min);
 	}
 });
 
