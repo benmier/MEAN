@@ -48,59 +48,68 @@
 	var ReactDOM = __webpack_require__(32);
 
 	var NinjaButton = React.createClass({
-	    displayName: 'NinjaButton',
+					displayName: 'NinjaButton',
 
-	    render: function () {
-	        return React.createElement('button', { onClick: this.myFunction });
-	    },
-	    myFunction: function () {
-	        alert('Hello!');
-	    }
+					render: function () {
+									return React.createElement('button', { onClick: this.myFunction });
+					},
+					myFunction: function () {
+									alert('Hello!');
+					}
 	});
 
 	var MyComponent = React.createClass({
-	    displayName: 'MyComponent',
+					displayName: 'MyComponent',
 
-	    getInitialState: function () {
-	        return {
-	            name: 'Janel',
-	            age: 28,
-	            occupation: 'Musician'
-	        };
-	    },
-	    render: function () {
-	        return React.createElement(
-	            'div',
-	            null,
-	            React.createElement(
-	                'p',
-	                null,
-	                'Name: ',
-	                React.createElement('input', null),
-	                ' (',
-	                this.state.name,
-	                ')'
-	            ),
-	            React.createElement(
-	                'p',
-	                null,
-	                'Age: ',
-	                React.createElement('input', null),
-	                ' (',
-	                this.state.age,
-	                ')'
-	            ),
-	            React.createElement(
-	                'p',
-	                null,
-	                'Occupation: ',
-	                React.createElement('input', null),
-	                ' (',
-	                this.state.occupation,
-	                ')'
-	            )
-	        );
-	    }
+					getInitialState: function () {
+									return {
+													name: 'Janel',
+													age: 28,
+													occupation: 'Musician'
+									};
+					},
+					render: function () {
+									return React.createElement(
+													'div',
+													null,
+													React.createElement(
+																	'p',
+																	null,
+																	'Name: ',
+																	React.createElement('input', { onChange: this.handleNameChange }),
+																	' (',
+																	this.state.name,
+																	')'
+													),
+													React.createElement(
+																	'p',
+																	null,
+																	'Age: ',
+																	React.createElement('input', { onChange: this.handleAgeChange }),
+																	' (',
+																	this.state.age,
+																	')'
+													),
+													React.createElement(
+																	'p',
+																	null,
+																	'Occupation: ',
+																	React.createElement('input', { onChange: this.handleOccupationChange }),
+																	' (',
+																	this.state.occupation,
+																	')'
+													)
+									);
+					},
+					handleNameChange: function (event) {
+									console.log(event.target.value);
+					},
+					handleAgeChange: function (event) {
+									console.log(event.target.value);
+					},
+					handleOccupationChange: function (event) {
+									console.log(event.target.value);
+					}
 	});
 
 	ReactDOM.render(React.createElement(MyComponent, null), document.getElementById('react-container'));

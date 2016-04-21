@@ -21,11 +21,20 @@ var MyComponent = React.createClass({
 	render: function (){
 	    return (
 	            <div>
-	                <p>Name: <input /> ({this.state.name})</p>
-	                <p>Age: <input /> ({this.state.age})</p>
-	                <p>Occupation: <input /> ({this.state.occupation})</p>
+	                <p>Name: <input onChange = {this.handleNameChange}/> ({this.state.name})</p>
+					<p>Age: <input onChange = {this.handleAgeChange} /> ({this.state.age})</p>
+					<p>Occupation: <input onChange = {this.handleOccupationChange} /> ({this.state.occupation})</p>
 	            </div>
 	        )
+	},
+	handleNameChange: function(event){
+    	console.log(event.target.value)
+	},
+	handleAgeChange: function(event){
+	    console.log(event.target.value)
+	},
+	handleOccupationChange: function(event){
+	    console.log(event.target.value)
 	}
 });
 
