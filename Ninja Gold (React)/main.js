@@ -13,15 +13,13 @@ var NinjaButton = React.createClass({
 var MyComponent = React.createClass({
     getInitialState: function(){
         return {
-        name: 'Janel',
-        age: 28,
-        occupation: 'Musician'
+        gold: 0
         }
     },
 	render: function (){
 	    return (
 	            <div>
-	                <p>Your Gold: <input readOnly value={this.state.name} /></p>
+	                <p>Your Gold: <input readOnly value={this.state.gold} /></p>
 					<p>Age: <input onChange = {this.handleAgeChange} /> ({this.state.age})</p>
 					<p>Occupation: <input onChange = {this.handleOccupationChange} /> ({this.state.occupation})</p>
 	            </div>

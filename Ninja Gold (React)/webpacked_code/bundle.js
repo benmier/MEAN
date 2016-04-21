@@ -63,9 +63,7 @@
 
 					getInitialState: function () {
 									return {
-													name: 'Janel',
-													age: 28,
-													occupation: 'Musician'
+													gold: '0'
 									};
 					},
 					render: function () {
@@ -76,7 +74,7 @@
 																	'p',
 																	null,
 																	'Your Gold: ',
-																	React.createElement('input', { value: this.state.name })
+																	React.createElement('input', { readOnly: true, value: this.state.gold })
 													),
 													React.createElement(
 																	'p',
