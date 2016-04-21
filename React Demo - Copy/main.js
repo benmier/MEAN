@@ -41,14 +41,14 @@ var MyComponent = React.createClass({
 						<button onClick={this.casino}>Find Gold!</button>
 					</div>
 					<p>Activities:</p>
-					<div id={"activities"} style={{border:"1px solid black",height:"200px",width:"700px",display:"inline-block",margin:"10px 20px 20px 0px",verticalAlign:"top"}}>
+					<div id="activities" style={{border:"1px solid black",height:"200px",width:"700px",display:"inline-block",margin:"10px 20px 20px 0px",verticalAlign:"top"}}>
 					</div>
 	            </div>
 	        )
 	},
 	farm: function(event){
-		var reward = this.randInt(10,20)}
-    	this.setState({gold: this.state.gold+reward);
+		var reward = this.randInt(10,20)
+    	this.setState({gold: this.state.gold+reward});
     	getElementById("activities").append("<p>Earned "+reward+" from the farm!</p>")
 	},
 	cave: function(event){
