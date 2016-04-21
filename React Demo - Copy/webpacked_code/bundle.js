@@ -91,7 +91,7 @@
 																	),
 																	React.createElement(
 																					'button',
-																					null,
+																					{ onClick: this.farm },
 																					'Find Gold!'
 																	)
 													),
@@ -110,7 +110,7 @@
 																	),
 																	React.createElement(
 																					'button',
-																					null,
+																					{ onClick: this.cave },
 																					'Find Gold!'
 																	)
 													),
@@ -129,7 +129,7 @@
 																	),
 																	React.createElement(
 																					'button',
-																					null,
+																					{ onClick: this.house },
 																					'Find Gold!'
 																	)
 													),
@@ -148,7 +148,7 @@
 																	),
 																	React.createElement(
 																					'button',
-																					null,
+																					{ onClick: this.casino },
 																					'Find Gold!'
 																	)
 													),
@@ -160,14 +160,20 @@
 													React.createElement('div', { style: { border: "1px solid black", height: "200px", width: "700px", display: "inline-block", margin: "10px 20px 20px 0px", verticalAlign: "top" } })
 									);
 					},
-					handleNameChange: function (event) {
-									this.setState({ name: event.target.value });
+					farm: function (event) {
+									this.setState({ gold: this.state.gold + this.randInt(10, 20) });
 					},
-					handleAgeChange: function (event) {
-									this.setState({ age: event.target.value });
+					cave: function (event) {
+									this.setState({ gold: this.state.gold + this.randInt(5, 10) });
 					},
-					handleOccupationChange: function (event) {
-									this.setState({ occupation: event.target.value });
+					house: function (event) {
+									this.setState({ gold: this.state.gold + this.randInt(2, 5) });
+					},
+					casino: function (event) {
+									this.setState({ gold: this.state.gold + this.randInt(-50, 50) });
+					},
+					randInt: function (min, max) {
+									return Math.floor(Math.random() * (max - min + 1) + min);
 					}
 	});
 
