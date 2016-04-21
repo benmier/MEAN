@@ -69,7 +69,7 @@
 					render: function () {
 									return React.createElement(
 													'div',
-													{ style: { margin: "20px" } },
+													{ style: { margin: "20px", textAlign: "center" } },
 													React.createElement(
 																	'p',
 																	null,
