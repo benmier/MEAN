@@ -23,7 +23,7 @@ var MyComponent = React.createClass({
 					<div style={{border:"1px solid black",height:"200px",width:"200px",display:"inline-block",margin:"10px 20px 20px 0px",verticalAlign:"top"}}>
 						<h3>Farm</h3>
 						<p>(earns 10-20 golds)</p>
-						<button style={{}} value={"Find Gold!"}></button>
+						<button style={{height:"45px",width:"70px"}} value="Text" ></button>
 					</div>
 					<div style={{border:"1px solid black",height:"200px",width:"200px",display:"inline-block",margin:"10px 20px 20px 0px",verticalAlign:"top"}}></div>
 					<div style={{border:"1px solid black",height:"200px",width:"200px",display:"inline-block",margin:"10px 20px 20px 0px",verticalAlign:"top"}}></div>
