@@ -12,11 +12,21 @@ var NinjaButton = React.createClass({
 
 var MyComponent = React.createClass({
     getInitialState: function(){
-        return {}
+        return {
+        name: 'Janel',
+        age: 28,
+        occupation: 'Musician'
+        }
     },
-    render: function (){
-        return <div></div>
-    }
-})
+	render: function (){
+	    return (
+	            <div>
+	                <p>Name: <input /> ({this.state.name})</p>
+	                <p>Age: <input /> ({this.state.age})</p>
+	                <p>Occupation: <input /> ({this.state.occupation})</p>
+	            </div>
+	        )
+	}
+});
 
-ReactDOM.render(<NinjaButton />, document.getElementById('react-container'));
+ReactDOM.render(<MyComponent />, document.getElementById('react-container'));

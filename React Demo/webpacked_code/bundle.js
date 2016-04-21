@@ -62,14 +62,48 @@
 	    displayName: 'MyComponent',
 
 	    getInitialState: function () {
-	        return {};
+	        return {
+	            name: 'Janel',
+	            age: 28,
+	            occupation: 'Musician'
+	        };
 	    },
 	    render: function () {
-	        return React.createElement('div', null);
+	        return React.createElement(
+	            'div',
+	            null,
+	            React.createElement(
+	                'p',
+	                null,
+	                'Name: ',
+	                React.createElement('input', null),
+	                ' (',
+	                this.state.name,
+	                ')'
+	            ),
+	            React.createElement(
+	                'p',
+	                null,
+	                'Age: ',
+	                React.createElement('input', null),
+	                ' (',
+	                this.state.age,
+	                ')'
+	            ),
+	            React.createElement(
+	                'p',
+	                null,
+	                'Occupation: ',
+	                React.createElement('input', null),
+	                ' (',
+	                this.state.occupation,
+	                ')'
+	            )
+	        );
 	    }
 	});
 
-	ReactDOM.render(React.createElement(NinjaButton, null), document.getElementById('react-container'));
+	ReactDOM.render(React.createElement(MyComponent, null), document.getElementById('react-container'));
 
 /***/ },
 /* 1 */
