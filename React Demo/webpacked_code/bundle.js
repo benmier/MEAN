@@ -54,16 +54,23 @@
 	// });
 
 	var NinjaComponent = React.createClass({
-	  displayName: 'NinjaComponent',
+		displayName: 'NinjaComponent',
 
-	  render: function () {
-	    return React.createElement(
-	      'div',
-	      null,
-	      React.createElement('div', { style: { backgroundColor: "green", height: "200px" } }),
-	      React.createElement('div', { style: { backgroundColor: "blue", height: "500px", width: "200px", margin: "20px 20px 0px 0px" } })
-	    );
-	  }
+		render: function () {
+			return React.createElement(
+				'div',
+				null,
+				React.createElement('div', { style: { backgroundColor: "green", height: "100px", width: "900px" } }),
+				React.createElement('div', { style: { backgroundColor: "blue", height: "500px", width: "100px", margin: "20px 20px 0px 0px", display: "inline-block" } }),
+				React.createElement(
+					'div',
+					{ style: { backgroundColor: "red", height: "500px", width: "780px", display: "inline-block" } },
+					React.createElement('div', { style: { backgroundColor: "yellow", height: "200px", width: "200px", margin: "20px", display: "inline" } }),
+					React.createElement('div', { style: { backgroundColor: "yellow", height: "200px", width: "200px", margin: "20px", display: "inline" } }),
+					React.createElement('div', { style: { backgroundColor: "yellow", height: "200px", width: "200px", margin: "20px", display: "inline" } })
+				)
+			);
+		}
 	});
 
 	ReactDOM.render(React.createElement(NinjaComponent, null), document.getElementById('react-container'));
