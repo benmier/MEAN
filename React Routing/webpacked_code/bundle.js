@@ -46,115 +46,72 @@
 
 	var React = __webpack_require__(1);
 	var ReactDOM = __webpack_require__(32);
-
-	// STORE EACH ROUTE'S JSX CONTENT IN VARIABLES TO STAY ORGANIZED
-
-	var List = React.createElement(
-	  'ul',
-	  null,
-	  React.createElement(
-	    'li',
-	    null,
-	    'Item 1'
-	  ),
-	  React.createElement(
-	    'li',
-	    null,
-	    'Item 2'
-	  ),
-	  React.createElement(
-	    'li',
-	    null,
-	    'Item 3'
-	  )
-	);
-
-	var Image = React.createElement('img', { src: 'https://metrouk2.files.wordpress.com/2013/10/ay95895977ada-lovelace-engl.jpg' });
-
-	var Form = React.createElement(
-	  'form',
-	  null,
-	  'Name: ',
-	  React.createElement('input', { type: 'text' }),
-	  React.createElement('input', { type: 'submit', value: 'Submit' })
-	);
-
-	// Set up an object that will pin certain links to our List, Image and Form
-	var links = {
-	  home: "",
-	  list: List,
-	  image: Image,
-	  form: Form
-	};
-
-	var App = React.createClass({
-	  displayName: 'App',
+	// This file exports our array of data
+	var data = __webpack_require__(166);
+	var NinjaList = React.createClass({
+	  displayName: 'NinjaList',
 
 	  render: function () {
-	    console.log(this.props.route);
-	    // We have access to our current location as a prop! (this.props.route)
-
-	    // FIND THE CORRECT LINKS
-	    // Iterate through our object keys to push the links we want into an array
-	    var linkArray = [];
-	    for (link in links) {
-	      if (this.props.route !== link) {
-	        linkArray.push(link);
-	      }
-	    }
-
-	    // Map over the array and wrap each link value with JSX
-	    linkArray = linkArray.map(function (link) {
+	    var ninjas = this.props.turtles.map(function (turtle) {
 	      return React.createElement(
-	        'a',
-	        { key: link, href: "#" + link },
-	        'The ',
-	        link.charAt(0).toUpperCase() + link.slice(1)
+	        'li',
+	        { key: turtle.id },
+	        React.createElement(
+	          'a',
+	          null,
+	          turtle.name
+	        )
 	      );
 	    });
+	    return React.createElement(
+	      'ul',
+	      null,
+	      ninjas
+	    );
+	  }
+	});
+	var NinjaComponent = React.createClass({
+	  displayName: 'NinjaComponent',
 
-	    // Use this.props.route to find the content that should be displayed.
-	    var content = links[this.props.route];
+	  render: function () {
 	    return React.createElement(
 	      'div',
 	      null,
 	      React.createElement(
-	        'header',
+	        'h1',
 	        null,
-	        React.createElement(
-	          'h1',
-	          null,
-	          'Ninja Router'
-	        ),
-	        linkArray
+	        'Greetings Ninja!'
 	      ),
 	      React.createElement(
-	        'div',
-	        { className: 'content-container' },
-	        React.createElement(
-	          'h2',
-	          null,
-	          'Your location: ',
-	          this.props.route
-	        ),
-	        content
+	        'h2',
+	        null,
+	        'Click on a ninja for more information'
+	      ),
+	      React.createElement(NinjaList, { turtles: this.props.data })
+	    );
+	  }
+	});
+	var NinjaDescription = React.createClass({
+	  displayName: 'NinjaDescription',
+
+	  render: function () {
+	    return React.createElement(
+	      'div',
+	      null,
+	      React.createElement(
+	        'h1',
+	        null,
+	        'Ninja Name'
+	      ),
+	      React.createElement(
+	        'p',
+	        null,
+	        'Ninja Description'
 	      )
 	    );
 	  }
 	});
-
-	// Set up a rendering function that we want to call everytime the location changes
-	function renderReactContent() {
-	  // Runs ReactDOM.render() and passes the current location in as a prop.
-	  // Uses .substr(1) to chop off #
-	  ReactDOM.render(React.createElement(App, { route: location.hash.substr(1) }), document.getElementById('react-container'));
-	}
-
-	// Add a listener to the 'haschange' event, and render our content when that happens
-	window.addEventListener('hashchange', renderReactContent);
-
-	// Render it for the first time
-	renderReactContent();
+	ReactDOM.render(React.createElement(NinjaComponent, { data: data }), document.getElementById('react-container'));
 
 /***/ },
 /* 1 */
@@ -20110,6 +20067,24 @@
 	var ReactMount = __webpack_require__(156);
 
 	module.exports = ReactMount.renderSubtreeIntoContainer;
+
+/***/ },
+/* 166 */
+/***/ function(module, exports) {
+
+	[{
+	  name: 'Donatello',
+	  description: 'The scientist, inventor, engineer, and technological genius, Donatello wears a purple mask and wields a bo staff.'
+	}, {
+	  name: 'Leonardo',
+	  description: 'The tactical, courageous leader and devoted student of his sensei, Leonardo wears a blue mask and wields two katana.'
+	}, {
+	  name: 'Michelangelo',
+	  description: 'The most stereotypical teenager of the team, Michelangelo is a free-spirited, relaxed, and often goofy jokester and known for his love of pizza. Michelangelo wears an orange mask and wields a pair of nunchucks.'
+	}, {
+	  name: 'Raphael',
+	  description: 'The team\'s bad boy, Raphael wears a dark red mask and wields a pair of sai. He is physically very strong, has an aggressive nature, and seldom hesitates to throw the first punch.'
+	}];
 
 /***/ }
 /******/ ]);
