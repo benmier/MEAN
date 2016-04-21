@@ -1,0 +1,29 @@
+body {
+  font-family: sans-serif;
+}
+
+header {
+  width: 700px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+header a {
+  margin: 80px;
+}
+
+.content-container {
+  width: 650px;
+  margin: 20px auto;
+  text-align: center;
+  border: 5px solid lightgrey;
+  padding: 20px;
+}
+
+img {
+  width: 60%;
+}
+
+li {
+  text-align: left;
+}
