@@ -69,14 +69,17 @@
 					render: function () {
 									return React.createElement(
 													'div',
-													null,
+													{ style: { margin: "20px" } },
 													React.createElement(
 																	'p',
 																	null,
 																	'Your Gold: ',
 																	React.createElement('input', { readOnly: true, value: this.state.gold })
 													),
-													React.createElement('div', { style: { border: "1px solid black", height: "200px", width: "200px" } })
+													React.createElement('div', { style: { border: "1px solid black", height: "200px", width: "200px", display: "inline-block", margin: "10px 20px 20px 0px" } }),
+													React.createElement('div', { style: { border: "1px solid black", height: "200px", width: "200px", display: "inline-block", margin: "10px 20px 20px 0px" } }),
+													React.createElement('div', { style: { border: "1px solid black", height: "200px", width: "200px", display: "inline-block", margin: "10px 20px 20px 0px" } }),
+													React.createElement('div', { style: { border: "1px solid black", height: "200px", width: "200px", display: "inline-block", margin: "10px 20px 20px 0px" } })
 									);
 					},
 					handleNameChange: function (event) {

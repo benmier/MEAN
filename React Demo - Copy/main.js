@@ -18,11 +18,12 @@ var MyComponent = React.createClass({
     },
 	render: function (){
 	    return (
-	            <div>
+	            <div style={{margin:"20px"}}>
 	                <p>Your Gold: <input readOnly value={this.state.gold} /></p>
-					<div style={{border:"1px solid black",height:"200px",width:"200px",display:"inline-block"}}>
-					<div style={{border:"1px solid black",height:"200px",width:"200px",display:"inline-block"}}>
-					<div style={{border:"1px solid black",height:"200px",width:"200px",display:"inline-block"}}>
+					<div style={{border:"1px solid black",height:"200px",width:"200px",display:"inline-block",margin:"10px 20px 20px 0px"}}></div>
+					<div style={{border:"1px solid black",height:"200px",width:"200px",display:"inline-block",margin:"10px 20px 20px 0px"}}></div>
+					<div style={{border:"1px solid black",height:"200px",width:"200px",display:"inline-block",margin:"10px 20px 20px 0px"}}></div>
+					<div style={{border:"1px solid black",height:"200px",width:"200px",display:"inline-block",margin:"10px 20px 20px 0px"}}></div>
 	            </div>
 	        )
 	},
