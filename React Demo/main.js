@@ -18,6 +18,7 @@ var NinjaComponent = React.createClass({
 			<div style={{backgroundColor: "yellow", height:"225px", width:"225px", margin:"20px 0px 20px 20px", display:"inline-block"}}></div>
 			<div style={{backgroundColor: "yellow", height:"225px", width:"225px", margin:"20px 0px 20px 20px", display:"inline-block"}}></div>
 			<div style={{backgroundColor: "yellow", height:"225px", width:"225px", margin:"20px 0px 20px 20px", display:"inline-block"}}></div>
+			<div style={{backgroundColor: "purple", height:"150px", width:"720px", margin:"20px 0px 20px 20px", display:"inline-block"}}></div>
 		</div>
 	  </div>
 	)

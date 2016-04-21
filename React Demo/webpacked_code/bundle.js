@@ -67,7 +67,8 @@
 					{ style: { backgroundColor: "red", height: "500px", width: "780px", display: "inline-block", verticalAlign: "top" } },
 					React.createElement('div', { style: { backgroundColor: "yellow", height: "225px", width: "225px", margin: "20px 0px 20px 20px", display: "inline-block" } }),
 					React.createElement('div', { style: { backgroundColor: "yellow", height: "225px", width: "225px", margin: "20px 0px 20px 20px", display: "inline-block" } }),
-					React.createElement('div', { style: { backgroundColor: "yellow", height: "225px", width: "225px", margin: "20px 0px 20px 20px", display: "inline-block" } })
+					React.createElement('div', { style: { backgroundColor: "yellow", height: "225px", width: "225px", margin: "20px 0px 20px 20px", display: "inline-block" } }),
+					React.createElement('div', { style: { backgroundColor: "purple", height: "150px", width: "720px", margin: "20px 0px 20px 20px", display: "inline-block" } })
 				)
 			);
 		}
