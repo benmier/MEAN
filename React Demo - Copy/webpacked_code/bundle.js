@@ -152,8 +152,8 @@
 		},
 		farm: function (event) {
 			var reward = this.randInt(10, 20);
-			this.setState({ gold: this.state.gold + reward });
-			getElementById("activities").append("<p>Earned " + reward + " from the farm!</p>");
+			this.activities.push("<p>Earned " + reward + " from the farm!</p>");
+			this.setState({ gold: this.state.gold + reward, activities: this.state.activities });
 		},
 		cave: function (event) {
 			this.setState({ gold: this.state.gold + this.randInt(5, 10) });
