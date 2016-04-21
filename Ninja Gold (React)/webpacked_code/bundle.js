@@ -75,11 +75,8 @@
 													React.createElement(
 																	'p',
 																	null,
-																	'Name: ',
-																	React.createElement('input', { onChange: this.handleNameChange }),
-																	' (',
-																	this.state.name,
-																	')'
+																	'Your Gold: ',
+																	React.createElement('input', { value: this.state.name })
 													),
 													React.createElement(
 																	'p',
