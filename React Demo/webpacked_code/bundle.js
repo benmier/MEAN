@@ -47,17 +47,11 @@
 	var React = __webpack_require__(1);
 	var ReactDOM = __webpack_require__(32);
 
-	var NinjaTitle = React.createClass({
-	  displayName: 'NinjaTitle',
-
-	  render: function () {
-	    return React.createElement(
-	      'h1',
-	      null,
-	      this.props.title
-	    );
-	  }
-	});
+	// var Block = React.createClass({
+	//  render: function(){
+	//     return <div></div>
+	//  }
+	// });
 
 	var NinjaComponent = React.createClass({
 	  displayName: 'NinjaComponent',
@@ -66,10 +60,7 @@
 	    return React.createElement(
 	      'div',
 	      null,
-	      React.createElement(NinjaTitle, { title: 'React Ninja' }),
-	      React.createElement(NinjaTitle, { title: 'Angular Ninja' }),
-	      React.createElement(NinjaTitle, { title: 'Backbone Ninja' }),
-	      React.createElement(NinjaTitle, { title: 'jQuery Ninja' })
+	      React.createElement('div', { style: { backgroundColor: "blue" } })
 	    );
 	  }
 	});
