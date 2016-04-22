@@ -67,6 +67,13 @@ myApp.factory('questionFactory', function($http){
         });
     };
 
+    factory.show = function(callback){
+        $http.get('/questions/show3').success(function(data){
+            factory.questions = data;
+            callback(factory.quizzes);
+        });
+    };
+
     return factory;
 });
 
@@ -92,7 +99,12 @@ myApp.controller('dashboardController', function($scope,$location,quizFactory,qu
 
     quizFactory.show(function(data){
         $scope.quizzes = data;
-    })
+    });
+
+    questionFactory.show3(function(data){
+        $scope.questions = data;
+    });
+
 });
 
 myApp.controller('playController', function($scope,$location,userFactory,quizFactory){

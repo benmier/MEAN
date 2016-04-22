@@ -24,4 +24,8 @@ module.exports = function(app){
         questions.create(req,res);
     });
 
+    app.get('/questions/show3', function(req, res) {
+        questions.show3(req,res);
+    });
+
 }
