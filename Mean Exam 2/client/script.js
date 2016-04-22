@@ -55,6 +55,11 @@ myApp.factory('quizFactory', function($http){
 myApp.factory('questionFactory', function($http){
     var factory = {};
 
+    factory.createQuestion = function(newQuestion,callback){
+        $http.post('/questions/create',newQuestion).success(function(data){
+            callback();
+        });
+    };
 
     return factory;
 });
@@ -78,6 +83,10 @@ myApp.controller('dashboardController', function($scope,$location){
         if(!data.name)
             $location.url('/');
     });
+
+    quizFactory.show(function(data){
+        $scope.quizzes = data;
+    })
 });
 
 myApp.controller('playController', function($scope,$location){

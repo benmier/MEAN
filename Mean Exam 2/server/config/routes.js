@@ -16,4 +16,12 @@ module.exports = function(app){
         users.showOne(req,res);
     });
 
+    app.post('/quizzes/create', function(req, res) {
+        quizzes.create(req,res);
+    });
+
+    app.post('/questions/create', function(req, res) {
+        questions.create(req,res);
+    });
+
 }
