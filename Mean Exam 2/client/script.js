@@ -55,6 +55,13 @@ myApp.factory('quizFactory', function($http){
         });
     };
 
+    factory.createQuiz = function(newQuiz,callback){
+        $http.post('/quizzes/create',newQuiz).success(function(data){
+            factory.quiz = data;
+            callback(factory.quiz);
+        });
+    };
+
     return factory;
 });
 
@@ -67,7 +74,7 @@ myApp.factory('questionFactory', function($http){
         });
     };
 
-    factory.show = function(callback){
+    factory.show3 = function(callback){
         $http.get('/questions/show3').success(function(data){
             factory.questions = data;
             callback(factory.quizzes);
@@ -101,9 +108,12 @@ myApp.controller('dashboardController', function($scope,$location,quizFactory,qu
         $scope.quizzes = data;
     });
 
-    questionFactory.show3(function(data){
-        $scope.questions = data;
-    });
+    $scope.newQuiz = function(){
+        questionFactory.show3(function(data){
+            $scope.questions = data;
+            quizFactory.createQuiz = 
+        });
+    };
 
 });
 
