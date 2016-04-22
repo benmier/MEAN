@@ -67,7 +67,7 @@ myApp.factory('quizFactory', function($http){
     };
 
     factory.scoreQuiz = function(newQuiz,callback){
-        $http.post('/quizzes/score/'+factory.currentQuiz._id,newQuiz).success(function(){
+        $http.post('/quizzes/score/'+factory.currentQuiz._id,newQuiz).success(function(data){
             callback();
         });
     }
