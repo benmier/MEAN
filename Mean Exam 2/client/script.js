@@ -141,7 +141,14 @@ myApp.controller('playController', function($scope,$location,userFactory,quizFac
     })
 
     $scope.submitQuiz = function(){
-        console.log($scope.newQuiz)
+        var score = 0;
+        if($scope.newQuiz.one)
+            score++;
+        if($scope.newQuiz.two)
+            score++;
+        if($scope.newQuiz.three)
+            score++;
+        var percentage = +((score/3).toFixed(2));
     }
 
 });
