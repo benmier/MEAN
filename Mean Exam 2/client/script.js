@@ -101,7 +101,7 @@ myApp.controller('loginController', function($scope,$location,userFactory){
 
 });
 
-myApp.controller('dashboardController', function($scope,$location,quizFactory,questionFactory){
+myApp.controller('dashboardController', function($scope,$location,quizFactory,questionFactory,userFactory){
     userFactory.showCurrentUser(function(data){
         $scope.currentUser = data;
         if(!data.name)
@@ -123,7 +123,7 @@ myApp.controller('dashboardController', function($scope,$location,quizFactory,qu
             };
             quizFactory.createQuiz($scope.newQuiz, function(quiz){
                 $location.url('/quizzes/'+quiz._id);
-            };
+            });
         });
     };
 
@@ -144,7 +144,7 @@ myApp.controller('playController', function($scope,$location,userFactory,quizFac
 
 myApp.controller('createController', function($scope,$location,questionFactory){
    $scope.createQuestion = function(callback){
-        questionFactory.createQuestion(function(status){
+        questionFactory.createQuestion($scope.newQuestion,function(status){
             if(status){
                 alert("Question added successfully!");
                 $location.url('/dashboard');

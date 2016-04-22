@@ -16,12 +16,16 @@ module.exports = function(app){
         users.showOne(req,res);
     });
 
+    app.get('/quizzes', function(req, res) {
+        quizzes.show(req,res);
+    });
+
     app.post('/quizzes/create', function(req, res) {
         quizzes.create(req,res);
     });
 
     app.get('/quizzes/:id', function(req, res) {
-        quizzes.show(req,res);
+        quizzes.showOne(req,res);
     });
 
     app.post('/questions/create', function(req, res) {
