@@ -111,7 +111,12 @@ myApp.controller('dashboardController', function($scope,$location,quizFactory,qu
     $scope.newQuiz = function(){
         questionFactory.show3(function(data){
             $scope.questions = data;
-            quizFactory.createQuiz = 
+            $scope.newQuiz = {
+                
+            };
+            quizFactory.createQuiz($scope.newQuiz, function(quiz){
+                $location.url('/quizzes/'+quiz._id);
+            }
         });
     };
 
