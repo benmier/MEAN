@@ -2,7 +2,7 @@
 for i in {1..144}
 do
 	git add .
-	git commit -m 'Updated mean black belt exam 2'
+	git commit -m 'Updated mean final project'
 	git push
 	sleep 300
 done
