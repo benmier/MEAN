@@ -21,7 +21,7 @@ var QuizSchema = new mongoose.Schema({
 	},
 	percentage: Number,
 	name: String,
-	score: Number
+	score: String
 });
 
 var Quizzes = mongoose.model('Quizzes', QuizSchema);

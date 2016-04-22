@@ -15,7 +15,7 @@
 
 
 	<div style="float: right">
-		Search: <input ng-model='filterer' autofocus></input>
+		Search: <input ng-model='filterer'></input>
 	</div><br><br>
 
 	<table class="table table-striped" style="border: 1px solid black; text-align: left">
@@ -29,7 +29,7 @@
 		<tbody>
 			<tr ng-repeat='quiz in quizzes | filter:filterer | orderBy:"percentage":true' ng-if='quiz.percentage>=0'>
 				<td>{{quiz.name}}</td>
-				<td>{{quiz.score}}/3</td>
+				<td>{{quiz.score}}</td>
 				<td>{{quiz.percentage}}%</td>
 			</tr>
 		</tbody>
