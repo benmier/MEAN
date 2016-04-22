@@ -145,25 +145,27 @@ myApp.controller('playController', function($scope,$location,userFactory,quizFac
     })
 
     $scope.submitQuiz = function(){
-        var score = 0;
-        if($scope.newQuiz.one)
-            score++;
-        if($scope.newQuiz.two)
-            score++;
-        if($scope.newQuiz.three)
-            score++;
-        var percentage = +((score/3).toFixed(2));
-        console.log(score)
-        console.log(percentage)
-        quizFactory.scoreQuiz({score:score,percentage:percentage}, function(){
-            if(score<=1)
-                alert("You did terribly! Your score was "+score+"/3 or "+percentage+"%");
-            if(score==2)
-                alert("You did good! Your score was "+score+"/3 or "+percentage+"%");
-            if(score==3)
-                alert("You did amazing! Your score was "+score+"/3 or "+percentage+"%");
-            $location.url('/dashboard');
-        });
+        if(!$scope.newQuiz.one || !$scope.newQuiz.two || !$scope.newQuiz.three)
+            alert("Please choose an answer for all 3 questions!")
+        else{
+            var score = 0;
+            if($scope.newQuiz.one == "option2")
+                score++;
+            if($scope.newQuiz.two == "option3")
+                score++;
+            if($scope.newQuiz.three == "option1")
+                score++;
+            var percentage = +((score/3).toFixed(2))*100;
+            quizFactory.scoreQuiz({score:score,percentage:percentage}, function(){
+                if(score<=1)
+                    alert("You did terribly! Your score was "+score+"/3 or "+percentage+"%");
+                if(score==2)
+                    alert("You did good! Your score was "+score+"/3 or "+percentage+"%");
+                if(score==3)
+                    alert("You did amazing! Your score was "+score+"/3 or "+percentage+"%");
+                $location.url('/dashboard');
+            });
+        }
     };
 
 });
