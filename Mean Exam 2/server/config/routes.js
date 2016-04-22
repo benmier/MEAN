@@ -24,6 +24,10 @@ module.exports = function(app){
         quizzes.create(req,res);
     });
 
+    app.post('/quizzes/score/:id', function(req, res) {
+        quizzes.score(req,res);
+    });
+
     app.get('/quizzes/:id', function(req, res) {
         quizzes.showOne(req,res);
     });

@@ -66,6 +66,10 @@ myApp.factory('quizFactory', function($http){
         callback(factory.currentQuiz);
     };
 
+    factory.scoreQuiz = function(callback){
+        $http.post('/quizzes/score/'+currentQuiz._id);
+    }
+
     return factory;
 });
 
@@ -149,7 +153,7 @@ myApp.controller('playController', function($scope,$location,userFactory,quizFac
         if($scope.newQuiz.three)
             score++;
         var percentage = +((score/3).toFixed(2));
-        quizFactory.scoreQuiz = function(data){
+        quizFactory.scoreQuiz({score:score,percentage:percentage}, function(){
             if(score<=1)
                 alert("You did terribly! Your score was "+score+"/3 or "+percentage+"%");
             if(score==2)
@@ -157,8 +161,8 @@ myApp.controller('playController', function($scope,$location,userFactory,quizFac
             if(score==3)
                 alert("You did amazing! Your score was "+score+"/3 or "+percentage+"%");
             $location.url('/dashboard');
-        }
-    }
+        });
+    };
 
 });
 
