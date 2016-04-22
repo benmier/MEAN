@@ -48,6 +48,12 @@ myApp.factory('userFactory', function($http){
 myApp.factory('quizFactory', function($http){
     var factory = {};
 
+    factory.show = function(callback){
+        $http.get('/quizzes').success(function(data){
+            factory.quizzes = data;
+            callback(factory.quizzes);
+        });
+    };
 
     return factory;
 });
@@ -56,8 +62,8 @@ myApp.factory('questionFactory', function($http){
     var factory = {};
 
     factory.createQuestion = function(newQuestion,callback){
-        $http.post('/questions/create',newQuestion).success(function(data){
-            callback();
+        $http.post('/questions/create',newQuestion).success(function(status){
+            callback(status);
         });
     };
 
@@ -72,7 +78,7 @@ myApp.controller('loginController', function($scope,$location,userFactory){
             userFactory.create($scope.newUser,function(){
                 $location.url('/dashboard');
             });
-        }
+        };
     };
 
 });
@@ -99,5 +105,12 @@ myApp.controller('playController', function($scope,$location){
 });
 
 myApp.controller('createController', function($scope,$location){
-   
+   $scope.createQuestion = function(callback){
+        questionFactory.createQuestion(function(status){
+            if(status){
+                alert("Question added successfully!")
+                $location.url('/dashboard');
+            }
+        })
+   }
 })
