@@ -112,7 +112,9 @@ myApp.controller('dashboardController', function($scope,$location,quizFactory,qu
         questionFactory.show3(function(data){
             $scope.questions = data;
             $scope.newQuiz = {
-                
+                question1: $scope.questions[0],
+                question2: $scope.questions[1],
+                question3: $scope.questions[2]
             };
             quizFactory.createQuiz($scope.newQuiz, function(quiz){
                 $location.url('/quizzes/'+quiz._id);
@@ -128,6 +130,10 @@ myApp.controller('playController', function($scope,$location,userFactory,quizFac
         if(!data.name)
             $location.url('/');
     });
+
+    quizFactory.showCurrentQuiz(function(data){
+        $scope.currentQuiz = data;
+    })
 
 });
 
