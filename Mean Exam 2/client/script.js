@@ -149,6 +149,15 @@ myApp.controller('playController', function($scope,$location,userFactory,quizFac
         if($scope.newQuiz.three)
             score++;
         var percentage = +((score/3).toFixed(2));
+        quizFactory.scoreQuiz = function(data){
+            if(score<=1)
+                alert("You did terribly! Your score was "+score+"/3 or "+percentage+"%");
+            if(score==2)
+                alert("You did good! Your score was "+score+"/3 or "+percentage+"%");
+            if(score==3)
+                alert("You did amazing! Your score was "+score+"/3 or "+percentage+"%");
+            $location.url('/dashboard');
+        }
     }
 
 });
