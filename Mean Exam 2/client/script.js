@@ -81,7 +81,11 @@ myApp.controller('dashboardController', function($scope,$location){
 });
 
 myApp.controller('playController', function($scope,$location){
-
+    userFactory.showCurrentUser(function(data){
+        $scope.currentUser = data;
+        if(!data.name)
+            $location.url('/');
+    });
 
 });
 
