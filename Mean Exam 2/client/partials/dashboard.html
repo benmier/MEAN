@@ -29,8 +29,8 @@
 		<tbody>
 			<tr ng-repeat='quiz in quizzes | filter:filterer | orderBy:"percentage":true'>
 				<td>{{quiz.name}}</td>
-				<td>{{quiz.score}}</td>
-				<td>{{quiz.percentage}}</td>
+				<td>{{quiz.score}}/3</td>
+				<td>{{quiz.percentage}}%</td>
 			</tr>
 		</tbody>
 	</table>
