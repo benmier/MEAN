@@ -31,12 +31,8 @@ module.exports = {
 
 	score: function(req,res){
 		Quizzes.update({_id:req.params.id}, {score:req.body.score,percentage:req.body.percentage}, function(err,data){
-			Quizzes.find({},function(err,data){
             if(err)
                 console.log(err);
-            else
-                res.json(data);
-        	});
 		});
 	}
 

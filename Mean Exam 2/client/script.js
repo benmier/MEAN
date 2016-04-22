@@ -67,7 +67,7 @@ myApp.factory('quizFactory', function($http){
     };
 
     factory.scoreQuiz = function(callback){
-        $http.post('/quizzes/score/'+currentQuiz._id);
+        $http.post('/quizzes/score/'+factory.currentQuiz._id);
     }
 
     return factory;
@@ -153,6 +153,8 @@ myApp.controller('playController', function($scope,$location,userFactory,quizFac
         if($scope.newQuiz.three)
             score++;
         var percentage = +((score/3).toFixed(2));
+        console.log(score)
+        console.log(percentage)
         quizFactory.scoreQuiz({score:score,percentage:percentage}, function(){
             if(score<=1)
                 alert("You did terribly! Your score was "+score+"/3 or "+percentage+"%");
