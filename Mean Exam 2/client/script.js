@@ -133,6 +133,13 @@ myApp.controller('dashboardController', function($scope,$location,quizFactory,qu
         });
     };
 
+    $scope.logout = function(){
+        userFactory.logout(function(data){
+            $scope.currentUser = data;
+            $location.url('/');
+        });
+    };
+
 });
 
 myApp.controller('playController', function($scope,$location,userFactory,quizFactory){
@@ -172,8 +179,12 @@ myApp.controller('playController', function($scope,$location,userFactory,quizFac
 
 });
 
-myApp.controller('createController', function($scope,$location,questionFactory){
+myApp.controller('createController', function($scope,$location,questionFactory,userFactory){
    $scope.createQuestion = function(callback){
+        if(!$scope.newQuestion || !$scope.newQuestion.question || !$scope.newQuestion.correct || !$scope.newQuestion.fake1 || !$scope.newQuestion.fake2)
+            alert("No fields can be empty!");
+        else if($scope.newQuestion.length<15)
+            alert("The question must be at least 15 characters long!");
         questionFactory.createQuestion($scope.newQuestion,function(status){
             if(status){
                 alert("Question added successfully!");
@@ -182,6 +193,13 @@ myApp.controller('createController', function($scope,$location,questionFactory){
             else
                 alert("Your question could not be added, please try again!");
         });
-        // $scope.newQuestion = {};
    };
+
+   $scope.logout = function(){
+        userFactory.logout(function(data){
+            $scope.currentUser = data;
+            $location.url('/');
+        });
+    };
+
 });
