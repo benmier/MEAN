@@ -140,6 +140,10 @@ myApp.controller('playController', function($scope,$location,userFactory,quizFac
         $scope.currentQuiz = data;
     })
 
+    $scope.submitQuiz = function(){
+        console.log($scope.newQuiz)
+    }
+
 });
 
 myApp.controller('createController', function($scope,$location,questionFactory){
