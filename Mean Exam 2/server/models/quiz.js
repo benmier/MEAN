@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 
-var PollSchema = new mongoose.Schema({
+var QuizSchema = new mongoose.Schema({
 	
 },{timestamps:true});
 
-var Polls = mongoose.model('Polls', PollSchema);
+var Quizzes = mongoose.model('Quizzes', QuizSchema);

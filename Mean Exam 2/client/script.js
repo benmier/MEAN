@@ -3,10 +3,21 @@ var myApp = angular.module('myApp',['ngRoute']);
 myApp.config(function($routeProvider){
     $routeProvider
         .when('/',{
-            templateUrl: '',
-            controller: ""
+            templateUrl: 'partials/login.html',
+            controller: "loginController"
         })
-        
+        .when('/dashboard',{
+            templateUrl: 'partials/dashboard.html',
+            controller: "dashboardController"
+        })
+        .when('/create',{
+            templateUrl: 'partials/create.html',
+            controller: "createController"
+        })
+        .when('/play',{
+            templateUrl: 'partials/play.html',
+            controller: "playController"
+        })
         .otherwise({
             redirectTo: '/'
         })
@@ -15,31 +26,65 @@ myApp.config(function($routeProvider){
 myApp.factory('userFactory', function($http){
     var factory = {};
 
+    factory.create = function(newUser,callback){
+        $http.post('/users/create',newUser).success(function(data){
+            factory.currentUser = data;
+            callback();
+        });
+    };
+
+    factory.showCurrentUser = function(callback){
+        callback(factory.currentUser);
+    };
+
+    factory.logout = function(callback){
+        factory.currentUser = {};
+        callback(factory.currentUser);
+    }
 
     return factory;
 });
 
-myApp.factory('pollFactory', function($http){
+myApp.factory('quizFactory', function($http){
     var factory = {};
 
 
     return factory;
-})
+});
+
+myApp.factory('questionFactory', function($http){
+    var factory = {};
+
+
+    return factory;
+});
 
 myApp.controller('loginController', function($scope,$location,userFactory){
+    $scope.login = function(){
+        if(!$scope.newUser)
+            alert("Name cannot be blank")
+        else{
+            userFactory.create($scope.newUser,function(){
+                $location.url('/dashboard');
+            });
+        }
+    };
+
+});
+
+myApp.controller('dashboardController', function($scope,$location){
+    userFactory.showCurrentUser(function(data){
+        $scope.currentUser = data;
+        if(!data.name)
+            $location.url('/');
+    });
+});
+
+myApp.controller('playController', function($scope,$location){
 
 
 });
 
-myApp.controller('dashboardController', function($scope,$location,userFactory,pollFactory){
-
-});
-
-myApp.controller('pollController', function($scope,$location,pollFactory){
-
-
-});
-
-myApp.controller('createController', function($scope,$location,pollFactory,userFactory){
+myApp.controller('createController', function($scope,$location){
    
 })
