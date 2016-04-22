@@ -8,10 +8,32 @@
 
 <div style="text-align: center">
 	
-	<div style="border:1px solid black; width: 50%; height:70px; margin-left: 30%; padding: 20px;">
+	<div style="border:1px solid black; width: 300px; height:70px; margin-left: 35%; padding: 20px;">
 		<button>Play!</button>
 		<p>Click the button above to start the trivia game</p>
-	</div>
+	</div><br><br>
+
+
+	<div style="float: right">
+		Search: <input ng-model='filterer'></input>
+	</div><br>
+
+	<table class="table table-striped" style="border: 1px solid black">
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Score</th>
+				<th>Percentage</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat='game in games | orderBy:"percentage":true'>
+				<td>{{game.name}}</td>
+				<td>{{game.score}}</td>
+				<td>{{game.percentage}}</td>
+			</tr>
+		</tbody>
+	</table>
 
 
 
