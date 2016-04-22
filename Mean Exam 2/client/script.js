@@ -174,7 +174,7 @@ myApp.controller('playController', function($scope,$location,userFactory,quizFac
                     alert("You did amazing! Your score was "+score+"/3 or "+percentage+"%");
                 $location.url('/dashboard');
             });
-        }
+        };
     };
 
 });

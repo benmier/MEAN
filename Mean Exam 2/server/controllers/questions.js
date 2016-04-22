@@ -27,13 +27,7 @@ module.exports = {
                         if(err)
                             console.log(err);
                         else{
-                            Questions.findOne({},function(err,data){
-                                if(err)
-                                    console.log(err);
-                                else{
-                                    res.json(data);
-                                }
-                            }).sort({_id:-1});
+                            res.json(true);
                         };
                     });
                 }
