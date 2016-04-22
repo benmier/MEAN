@@ -83,7 +83,7 @@ myApp.controller('loginController', function($scope,$location,userFactory){
 
 });
 
-myApp.controller('dashboardController', function($scope,$location){
+myApp.controller('dashboardController', function($scope,$location,quizFactory,questionFactory){
     userFactory.showCurrentUser(function(data){
         $scope.currentUser = data;
         if(!data.name)
@@ -95,7 +95,7 @@ myApp.controller('dashboardController', function($scope,$location){
     })
 });
 
-myApp.controller('playController', function($scope,$location){
+myApp.controller('playController', function($scope,$location,userFactory,quizFactory){
     userFactory.showCurrentUser(function(data){
         $scope.currentUser = data;
         if(!data.name)
@@ -104,13 +104,16 @@ myApp.controller('playController', function($scope,$location){
 
 });
 
-myApp.controller('createController', function($scope,$location){
+myApp.controller('createController', function($scope,$location,questionFactory){
    $scope.createQuestion = function(callback){
         questionFactory.createQuestion(function(status){
             if(status){
-                alert("Question added successfully!")
+                alert("Question added successfully!");
                 $location.url('/dashboard');
             }
-        })
-   }
-})
+            else
+                alert("Your question could not be added, please try again!");
+        });
+        // $scope.newQuestion = {};
+   };
+});
