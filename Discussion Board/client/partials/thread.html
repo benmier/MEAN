@@ -1,0 +1,31 @@
+<div style="float: right">
+	<a href="#/dashboard">Dashboard</a> | 
+	<a href="#/">Logout</a>
+</div><br><br><br>
+
+<p>{{thread.name}} posted a topic:</p>
+<div style="margin-left: 30px;">
+	<h3>{{thread.topic}}</h3>
+	<p>Description: {{thread.description}}</p>
+</div><br><br>
+
+<h3>Post your answer here...</h3>
+<form class="form-group">
+	<textarea style="margin-left: 30px;" rows="4" id="newAnswer" ng-model='newAnswer' class="form-control"></textarea><br>
+	<input type="submit" value="Post" ng-click='createAnswer()' style="float: right;" class="btn"></input><br><hr><br>
+</form>
+
+<div ng-repeat='answer in thread.answers | orderBy:"upvotes":true'>
+	<div style="float: right">
+		{{answer.upvotes}} <img src="http://i.imgur.com/QJ41dQb.png" height="15px" width="15px" ng-click='vote("upvote",answer._id)'> | 
+		{{answer.downvotes}} <img src="http://i.imgur.com/eqLD2.png" height="15px" width="15px" ng-click='vote("downvote",answer._id)'>
+	</div><br>
+	<a href="#/users/{{answer.nameId}}">{{answer.name}}:</a> {{answer.text}} <span style="font-style: italic; margin-left: 10px;">({{answer.upvotes - answer.downvotes}} points)</span><br><br>
+	<div style="margin-left: 30px;" ng-repeat='comment in thread.answers[$index].comments | orderBy:createdAt:true'>
+		<a href="#/users/{{comment.nameId}}">{{comment.name}}:</a> {{comment.text}}<br>
+	</div><br>
+	<form class="form-group">
+		<textarea style="margin-left: 30px;" ng-model='newComment' rows="2" class="form-control"></textarea>{{newComment[$index]}}<br>
+		<input type="submit" value="Comment" style="float: right" ng-click='createComment(answer._id,newComment)' class="btn"></input><br><hr><br>
+	</form>
+</div>
