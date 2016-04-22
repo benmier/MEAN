@@ -18,7 +18,10 @@ var QuizSchema = new mongoose.Schema({
 		{correct: String},
 		{fake1: String},
 		{fake2: String}
-	]
+	],
+	percentage: Number,
+	name: String,
+	score: Number
 },{timestamps:true});
 
 var Quizzes = mongoose.model('Quizzes', QuizSchema);
