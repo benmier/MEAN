@@ -1,0 +1,23 @@
+<div>
+	<a href="#/dashboard">Home</a> | 
+	<a href='#/create'>Add a Question</a>
+	<div style="float: right">
+		<a ng-click='logout()' href>Logout</a>
+	</div>
+</div><br>
+
+
+
+<h2>New Question</h2>
+<form class="form-group">
+	<label>Question</label>
+	<input autofocus type="text" ng-model='newQuestion.question' class="form-control" style="width: 50%;"></input><br>
+	<label>Option 1:</label>
+	<input type="text" ng-model='newQuestion.correct' class="form-control" style="width: 25%;"></input><br>
+	<label>Option 2:</label>
+	<input type="text" ng-model='newQuestion.fake1' class="form-control" style="width: 25%;"></input><br>
+	<label>Option 3:</label>
+	<input type="text" ng-model='newQuestion.fake2' class="form-control" style="width: 25%;"></input><br><br><br>
+	
+	<input type="submit" ng-click='create()' class="btn" value="Create Poll"></input>
+</form>
