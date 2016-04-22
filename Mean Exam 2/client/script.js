@@ -115,12 +115,14 @@ myApp.controller('dashboardController', function($scope,$location,quizFactory,qu
     $scope.newQuiz = function(){
         questionFactory.show3(function(data){
             $scope.questions = data;
+            console.log($scope.questions)
             $scope.newQuiz = {
                 question1: $scope.questions[0],
                 question2: $scope.questions[1],
                 question3: $scope.questions[2],
                 name: $scope.currentUser.name
             };
+            console.log($scope.newQuiz)
             quizFactory.createQuiz($scope.newQuiz, function(quiz){
                 $location.url('/quizzes/'+quiz._id);
             });
