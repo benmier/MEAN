@@ -10,15 +10,22 @@ module.exports = {
             else
                 res.json(data);
         });
-    }
+    },
 	
     create: function(req,res){
-       	var question = new Questions(req.body) 
-        question.save(function(err){
-        if(err)
-            console.log(err);
-        else
-        	res.json(data);
+       	var quiz = new Quizzes(req.body) 
+        quiz.save(function(err){
+	        if(err)
+	            console.log(err);
+	        else{
+	            Quizzes.findOne({},function(err,data){
+	                if(err)
+	                    console.log(err);
+	                else{
+	                    res.json(data);
+	                }
+	            }).sort({_id:-1});
+        	};
     	});
 	}
 

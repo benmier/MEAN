@@ -6,7 +6,6 @@ module.exports = {
 
 	show3: function(req,res){
         Questions.findRandom({},{},{limit: 3}, function(err,data){
-        	console.log(data)
             if(err)
                 console.log(err);
             else
