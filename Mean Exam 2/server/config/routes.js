@@ -20,6 +20,10 @@ module.exports = function(app){
         quizzes.create(req,res);
     });
 
+    app.get('/quizzes/:id', function(req, res) {
+        quizzes.show(req,res);
+    });
+
     app.post('/questions/create', function(req, res) {
         questions.create(req,res);
     });

@@ -14,7 +14,7 @@ myApp.config(function($routeProvider){
             templateUrl: 'partials/create.html',
             controller: "createController"
         })
-        .when('/play',{
+        .when('/quizzes/:id',{
             templateUrl: 'partials/play.html',
             controller: "playController"
         })
@@ -57,9 +57,13 @@ myApp.factory('quizFactory', function($http){
 
     factory.createQuiz = function(newQuiz,callback){
         $http.post('/quizzes/create',newQuiz).success(function(data){
-            factory.quiz = data;
+            factory.currentQuiz = data;
             callback(factory.quiz);
         });
+    };
+
+    factory.showCurrentQuiz = function(callback){
+        callback(factory.currentQuiz);
     };
 
     return factory;
@@ -118,7 +122,7 @@ myApp.controller('dashboardController', function($scope,$location,quizFactory,qu
             };
             quizFactory.createQuiz($scope.newQuiz, function(quiz){
                 $location.url('/quizzes/'+quiz._id);
-            }
+            };
         });
     };
 
