@@ -158,7 +158,7 @@ myApp.controller('playController', function($scope,$location,userFactory,quizFac
             if($scope.newQuiz.three == "option1")
                 score++;
             var percentage = +(((score/3)*100).toFixed(2));
-            quizFactory.scoreQuiz({score:score,percentage:percentage}, function(){
+            quizFactory.scoreQuiz({score:score,percentage:percentage}, function(data){
                 if(score<=1)
                     alert("You did terribly! Your score was "+score+"/3 or "+percentage+"%");
                 if(score==2)
