@@ -27,7 +27,7 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr ng-repeat='quiz in quizzes | filter:filterer | orderBy:"percentage":true' ng-if='quiz.score'>
+			<tr ng-repeat='quiz in quizzes | filter:filterer | orderBy:"percentage":true' ng-if='quiz.percentage>=0'>
 				<td>{{quiz.name}}</td>
 				<td>{{quiz.score}}/3</td>
 				<td>{{quiz.percentage}}%</td>

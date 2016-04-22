@@ -147,7 +147,7 @@ myApp.controller('playController', function($scope,$location,userFactory,quizFac
     })
 
     $scope.submitQuiz = function(){
-        if(!$scope.newQuiz.one || !$scope.newQuiz.two || !$scope.newQuiz.three)
+        if(!$scope.newQuiz || !$scope.newQuiz.one || !$scope.newQuiz.two || !$scope.newQuiz.three)
             alert("Please choose an answer for all 3 questions!")
         else{
             var score = 0;
