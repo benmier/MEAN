@@ -81,7 +81,7 @@ myApp.factory('questionFactory', function($http){
     factory.show3 = function(callback){
         $http.get('/questions/show3').success(function(data){
             factory.questions = data;
-            callback(factory.quizzes);
+            callback(factory.questions);
         });
     };
 
