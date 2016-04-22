@@ -118,6 +118,14 @@ myApp.controller('dashboardController', function($scope,$location,quizFactory,qu
         $scope.quizzes = data;
     });
 
+    quizFactory.createQuestion({question:"What is the largest planet in the solar system?",correct:"Jupiter",fake1:"Earth",fake2:"Pluto"},function(){});
+    quizFactory.createQuestion({question:'What did Einstein call the "most difficult thing to understand"?',correct:"Income Taxes",fake1:"Human Brain",fake2:"E=mc2"},function(){});
+    quizFactory.createQuestion({question:"What is the world's biggest island?",correct:"Greenland",fake1:"Iceland",fake2:"Antartica"},function(){});
+    quizFactory.createQuestion({question:"What principle explains why cold food warms up and hot food cools off when stored at room temperature??",correct:"Entropy",fake1:"Chemical Equilibrium",fake2:"Relativity"},function(){});
+    quizFactory.createQuestion({question:"What causes the disease toxoplasmosis?",correct:"A Protozoan",fake1:"A Bacterium",fake2:"A Virus"},function(){});
+    quizFactory.createQuestion({question:"What is the slowest wind speed a hurricane can have according to the Saffir-Simpson scale?",correct:"74 m.p.h.",fake1:"50 m.p.h.",fake2:"96 m.p.h."},function(){});
+    quizFactory.createQuestion({question:"Which of the following heavenly bodies have never had a spacecraft landed on it?",correct:"Jupiter",fake1:"Mars",fake2:"Venus"},function(){});
+
     $scope.newQuiz = function(){
         questionFactory.show3(function(data){
             $scope.questions = data;
