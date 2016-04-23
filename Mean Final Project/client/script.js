@@ -43,10 +43,10 @@ myApp.controller('loginController', function($scope,$location,userFactory){
     var liftsList = {};
     for(var i=0; i<lifts.length; i++){
         for(var key in lifts[i]){
-            $scope.lifts["name"]=key;
+            $scope.lifts[i].name=key;
         }
     }
-
+    console.log($scope.lifts)
 
 
     $scope.login = function(){
