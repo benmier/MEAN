@@ -3,7 +3,7 @@ var myApp = angular.module('myApp',['ngRoute']);
 myApp.config(function($routeProvider){
     $routeProvider
         .when('/',{
-            templateUrl: 'partials/login.html',
+            templateUrl: 'partials/table.html',
             controller: "loginController"
         })
         // .when('/dashboard',{
