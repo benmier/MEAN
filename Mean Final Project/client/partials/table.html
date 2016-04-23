@@ -15,12 +15,9 @@
     	</tr>
     </thead>
     <tbody>
-    	<div ng-repeat='x in lifts'>
-        {{x}}
-    		<tr ng-repeat='lift in x'>
-    			<td>{{lift}}</td>
-    			<td>{{lift."Main Muscle Worked"}}</td>
-    		</tr>
-    	</div>
+   		<tr ng-repeat='lift in lifts'>
+   			<td>{{lift}}</td>
+   			<td>{{lift."Main Muscle Worked"}}</td>
+   		</tr>
     </tbody>
 </table>

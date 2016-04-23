@@ -40,6 +40,7 @@ myApp.factory('pollFactory', function($http){
 
 myApp.controller('loginController', function($scope,$location,userFactory){
     $scope.lifts = lifts;
+    console.log($scope.lifts)
     // var liftsList = {};
     // for(var i=0; i<lifts.length; i++){
     //     for(var key in lifts[i]){
