@@ -1,0 +1,23 @@
+<div>
+	<a href="#/dashboard">Home</a>
+	<div style="float: right">
+		<a ng-click='logout()'>Logout</a>
+	</div>
+</div><br>
+
+
+
+<h2>New Question</h2>
+<form class="form-group">
+	<label>Question</label>
+	<textarea autofocus type="text" ng-model='newQuestion.question' class="form-control" style="width: 50%;" rows="4"></textarea><br>
+	<label>Correct Answer:</label>
+	<input type="text" ng-model='newQuestion.correct' class="form-control" style="width: 25%;"></input><br>
+	<label>Fake Answer 1:</label>
+	<input type="text" ng-model='newQuestion.fake1' class="form-control" style="width: 25%;"></input><br>
+	<label>Fake Answer 2:</label>
+	<input type="text" ng-model='newQuestion.fake2' class="form-control" style="width: 25%;"></input><br><br><br>
+</form>
+	<div style="float: right">
+		<button><a href='#/dashboard' style="text-decoration: none; color:initial;">Cancel</a></button> <button ng-click='createQuestion()' style="margin-left: 20px;">Add Question</button>
+	</div>

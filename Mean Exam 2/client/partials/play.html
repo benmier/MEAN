@@ -1,0 +1,30 @@
+<p>Hi {{currentUser.name}}!</p>
+<p>Choose an answer for each of the questions and submit the test once done.</p>
+<p>Good luck!</p><br><br>
+
+<form class="form-group">
+	<div style="width: 800px; height: 150px; padding: 20px; margin-bottom: 20px; border: 1px solid black">
+		<label>1. {{currentQuiz.question1.question}}</label><br>
+		<input type="radio" name="question1" ng-model='newQuiz.one' value="option1"> {{currentQuiz.question1.fake1}}<br>
+		<input type="radio" name="question1" ng-model='newQuiz.one' value="option2"> {{currentQuiz.question1.correct}}<br>
+		<input type="radio" name="question1" ng-model='newQuiz.one' value="option3"> {{currentQuiz.question1.fake2}}
+	</div>
+
+	<div style="width: 800px; height: 150px; padding: 20px; margin-bottom: 20px; border: 1px solid black">
+		<label>2. {{currentQuiz.question2.question}}</label><br>
+		<input type="radio" name="question2" ng-model='newQuiz.two' value="option1"> {{currentQuiz.question2.fake1}}<br>
+		<input type="radio" name="question2" ng-model='newQuiz.two' value="option2"> {{currentQuiz.question2.fake2}}<br>
+		<input type="radio" name="question2" ng-model='newQuiz.two' value="option3"> {{currentQuiz.question2.correct}}
+	</div>
+
+	<div style="width: 800px; height: 150px; padding: 20px; margin-bottom: 20px; border: 1px solid black">
+		<label>3. {{currentQuiz.question3.question}}</label><br>
+		<input type="radio" name="question3" ng-model='newQuiz.three' value="option1"> {{currentQuiz.question3.correct}}<br>
+		<input type="radio" name="question3" ng-model='newQuiz.three' value="option2"> {{currentQuiz.question3.fake1}}<br>
+		<input type="radio" name="question3" ng-model='newQuiz.three' value="option3"> {{currentQuiz.question3.fake2}}
+	</div>
+</form><br><br>
+
+<div style="float: right">
+	<button><a href='#/dashboard' style="text-decoration: none; color:initial;">Cancel</a></button> <button ng-click='submitQuiz()' style="margin-left: 20px;">Submit</button>
+</div>

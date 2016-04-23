@@ -1,0 +1,51 @@
+<div>
+	<a href="#/dashboard">Home</a> | 
+	<a href='#/create'>Add a Question</a>
+	<div style="float: right">
+		<a ng-click='logout()'>Logout</a>
+	</div>
+</div><br>
+
+<div style="text-align: center">
+	
+	<div style="border:1px solid black; width: 350px; height:80px; margin-left: 35%; padding: 20px;">
+		<button ng-click='newQuiz()'>Play!</button><br>
+		<p>Click the button above to start the trivia game</p>
+	</div><br><br><br>
+
+
+	<div style="float: right">
+		Search: <input ng-model='filterer'></input>
+	</div><br><br>
+
+	<table class="table table-striped" style="border: 1px solid black; text-align: left">
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Score</th>
+				<th>Percentage</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat='quiz in quizzes | filter:filterer | orderBy:"percentage":true' ng-if='quiz.percentage>=0'>
+				<td>{{quiz.name}}</td>
+				<td>{{quiz.score}}</td>
+				<td>{{quiz.percentage}}%</td>
+			</tr>
+		</tbody>
+	</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
