@@ -39,6 +39,16 @@ myApp.factory('pollFactory', function($http){
 })
 
 myApp.controller('loginController', function($scope,$location,userFactory){
+    $scope.lifts = lifts;
+    // var liftsList = {};
+    // for(var i=0; i<lifts.length; i++){
+    //     for(var key in lifts[i]){
+    //         lifts["name"]=key;
+    //     }
+    // }
+
+
+
     $scope.login = function(){
         if(!$scope.newUser)
             alert("Name cannot be blank")
