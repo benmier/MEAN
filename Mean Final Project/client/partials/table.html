@@ -1,0 +1,25 @@
+<table class="table table-striped">
+    <thead>
+    	<tr>
+    		<th>Name</th>
+    		<th>Main Muscle Worked</th>
+    		<th>Other Muscles</th>
+    		<th>Force</th>
+    		<th>Level</th>
+    		<th>Mechanics Type</th>
+    		<th>Equipment</th>
+    		<th>Link</th>
+    		<th>Stretch Type</th>
+    		<th>Sport</th>
+    		<th>Type</th>
+    	</tr>
+    </thead>
+    <tbody>
+    	<div ng-repeat='x in lifts'>
+    		<tr ng-repeat='lift in x'>
+    			<td>{{lift}}</td>
+    			<td>{{lift."Main Muscle Worked"}}</td>
+    		</tr>
+    	</div>
+    </tbody>
+</table>
