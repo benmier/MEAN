@@ -18,6 +18,15 @@
    		<tr ng-repeat='lift in lifts'>
    			<td>{{lift.name}}</td>
    			<td>{{lift[lift.name]["Main Muscle Worked"]}}</td>
+            <td>{{lift[lift.name]["Other Muscles"]}}</td>
+            <td>{{lift[lift.name]["Force"]}}</td>
+            <td>{{lift[lift.name]["Level"]}}</td>
+            <td>{{lift[lift.name]["Mechanics Type"]}}</td>
+            <td>{{lift[lift.name]["Equipment"]}}</td>
+            <td><a href="{{lift[lift.name]['link']}}">Link</a></td>
+            <td>{{lift[lift.name]["Stretch Type"]}}</td>
+            <td>{{lift[lift.name]["Sport"]}}</td>
+            <td>{{lift[lift.name]["Type"]}}</td>
    		</tr>
     </tbody>
 </table>
