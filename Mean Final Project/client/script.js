@@ -46,7 +46,6 @@ myApp.controller('loginController', function($scope,$location,userFactory){
             $scope.lifts[i].name=key;
         }
     }
-    console.log($scope.lifts)
 
 
     $scope.login = function(){

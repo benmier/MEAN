@@ -17,7 +17,7 @@
     <tbody>
    		<tr ng-repeat='lift in lifts'>
    			<td>{{lift.name}}</td>
-   			<td>{{lift}}</td>
+   			<td>{{lift[lift.name]["Main Muscle Worked"]}}</td>
    		</tr>
     </tbody>
 </table>
