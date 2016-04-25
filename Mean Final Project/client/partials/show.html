@@ -14,15 +14,15 @@
 </div>
 
 <h3>Exercise Data</h3>
-<p>Main Muscle Worked: <a href="#/{{lift[lift.name]["Main Muscle Worked"]}}">{{lift[lift.name]["Main Muscle Worked"]}}</a></p>
+<p>Main Muscle Worked: <a href="#/data/{{lift[lift.name]["Main Muscle Worked"]}}">{{lift[lift.name]["Main Muscle Worked"]}}</a></p>
 <p>Other Muscles: 
 	<span ng-repeat='other in others'>
-		<a href="#/{{other}}">{{other}}</a> 
+		<a href="#/data/{{other}}">{{other}}</a> 
 	</span>
-<p>Exercise Type: <a href="#/{{lift[lift.name]["Type"]}}">{{lift[lift.name]["Type"]}}</a></p>
+<p>Exercise Type: <a href="#/data/{{lift[lift.name]["Type"]}}">{{lift[lift.name]["Type"]}}</a></p>
 </p>
-<p>Force: <a href="#/{{lift[lift.name]["Force"]}}">{{lift[lift.name]["Force"]}}</a></p>
-<p>Difficulty: <a href="#/{{lift[lift.name]["Level"]}}">{{lift[lift.name]["Level"]}}</a></p>
-<p>Mechanics Type: <a href="#/{{lift[lift.name]["Mechanics Type"]}}">{{lift[lift.name]["Equipment"]}}</a></p>
-<p>Sport: <a href="#/{{lift[lift.name]["Sport"]}}">{{lift[lift.name]["Equipment"]}}</a></p>
-<p>More Info: <a href="#/{{lift[lift.name]['link']}}">Bodybuilding.com</a></p>
+<p>Force: <a href="#/data/{{lift[lift.name]["Force"]}}">{{lift[lift.name]["Force"]}}</a></p>
+<p>Difficulty: <a href="#/data/{{lift[lift.name]["Level"]}}">{{lift[lift.name]["Level"]}}</a></p>
+<p>Mechanics Type: <a href="#/data/{{lift[lift.name]["Mechanics Type"]}}">{{lift[lift.name]["Equipment"]}}</a></p>
+<p>Sport: <a href="#/data/{{lift[lift.name]["Sport"]}}">{{lift[lift.name]["Equipment"]}}</a></p>
+<p>More Info: <a href="#/data/{{lift[lift.name]['link']}}">Bodybuilding.com</a></p>
