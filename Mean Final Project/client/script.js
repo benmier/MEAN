@@ -89,11 +89,11 @@ myApp.controller('showController', function($scope,$location,liftFactory,userFac
     //         $location.url('/');
     // });
 
-    console.log($routeParams.name)
     liftFactory.showLifts(function(data){
         $scope.lifts = data;
     })
-    $scope.lift = $scope.lifts[$routeParams.name];
+    console.log($scope.lifts)
+    $scope.lift = $scope.lifts["$route.current.params.name"];
 
 });
 
