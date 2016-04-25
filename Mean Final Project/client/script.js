@@ -41,14 +41,14 @@ myApp.factory('liftFactory', function($http){
     };
 
     factory.showOne = function(callback){
-        callback(factory.lifts);
+        // callback(factory.lifts);
     };
 
     return factory;
 })
 
 myApp.controller('loginController', function($scope,$location,userFactory,liftFactory){
-    liftFactory.showLifts(function(data){
+    liftFactory.show(function(data){
         $scope.lifts = data;
     })
 
