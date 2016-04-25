@@ -33,25 +33,25 @@ myApp.factory('userFactory', function($http){
 myApp.factory('liftFactory', function($http){
     var factory = {};
 
-    factory.lifts = lifts;
-    var liftsList = {};
-    for(var i=0; i<lifts.length; i++){
-        for(var key in lifts[i]){
-            factory.lifts[i].name=key;
+    factory.showLifts = function(callback){
+        factory.lifts = lifts;
+        var liftsList = {};
+        for(var i=0; i<lifts.length; i++){
+            for(var key in lifts[i]){
+                factory.lifts[i].name=key;
+            }
         }
+        callback(factory.lifts);
     }
 
     return factory;
 })
 
-myApp.controller('loginController', function($scope,$location,userFactory){
-    $scope.lifts = lifts;
-    var liftsList = {};
-    for(var i=0; i<lifts.length; i++){
-        for(var key in lifts[i]){
-            $scope.lifts[i].name=key;
-        }
+myApp.controller('loginController', function($scope,$location,userFactory,liftFactory){
+    liftFactory.showLifts = function(data){
+        $scope.lifts = data;
     }
+        console.log($scope.lifts)
 
 
     $scope.login = function(){
