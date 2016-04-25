@@ -1,6 +1,16 @@
-<h3>Main Muscle</h3>
-<div>
+<div style="border: 1px solid black; width:350px; padding: 20px; display: inline-block">
+	<h3>Main Muscle</h3>
+	<input ng-model='main_muscle' placeholder="Search..."></input><br><br>
 	<ul>
-		<li ng-repeat="item in data.main_muscle">{{item.name}}</li>
+		<li ng-repeat="item in data.main_muscle | filter:main_muscle">{{item.name}}</li>
 	</ul>
 </div>
+
+<div style="border: 1px solid black; width:350px; padding: 20px; display: inline-block">
+	<h3>Other Muscles</h3>
+	<input ng-model='other_muscles' placeholder="Search..."></input><br><br>
+	<ul>
+		<li ng-repeat="item in data.other_muscles | filter:other_muscles">{{item.name}}</li>
+	</ul>
+</div>
+
