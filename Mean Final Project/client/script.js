@@ -6,10 +6,10 @@ myApp.config(function($routeProvider){
             templateUrl: 'partials/table.html',
             controller: "loginController"
         })
-        // .when('/dashboard',{
-        //     templateUrl: 'partials/dashboard.html',
-        //     controller: "dashboardController"
-        // })
+        .when('/exercise/:name',{
+            templateUrl: 'partials/show.html',
+            controller: "showController"
+        })
         // .when('/polls/:id',{
         //     templateUrl: 'partials/poll.html',
         //     controller: "pollController"
@@ -76,17 +76,23 @@ myApp.controller('dashboardController', function($scope,$location,userFactory,po
     }
 });
 
-myApp.controller('pollController', function($scope,$location,pollFactory){
-    
-
-});
-
-myApp.controller('createController', function($scope,$location,pollFactory,userFactory){
+myApp.controller('showController', function($scope,$location,pollFactory){
     userFactory.showCurrentUser(function(data){
         $scope.currentUser = data;
         if(!data.name)
             $location.url('/');
     });
 
+
+
+});
+
+// myApp.controller('createController', function($scope,$location,pollFactory,userFactory){
+//     userFactory.showCurrentUser(function(data){
+//         $scope.currentUser = data;
+//         if(!data.name)
+//             $location.url('/');
+//     });
+
     
-})
+// })

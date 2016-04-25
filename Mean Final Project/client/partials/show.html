@@ -4,6 +4,15 @@
 
 <h2>{{lift.name}}</h2>
 
+<div style="text-align: center; margin-right: 30px;">
+	<h3>Starting Position</h3>
+	<img src="{{lift[lift.name]['pic_left']}}" height="200px" width="200px">
+</div>
+<div style="text-align: center;">
+	<h3>Ending Position</h3>
+	<img src="{{lift[lift.name]['pic_right']}}" height="200px" width="200px">
+</div>
+
 <h3>Exercise Data</h3>
 <p>Main Muscle Worked: <a href="#/{{lift[lift.name]["Main Muscle Worked"]}}">{{lift[lift.name]["Main Muscle Worked"]}}</a></p>
 <p>Other Muscles: 

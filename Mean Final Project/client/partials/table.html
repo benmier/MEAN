@@ -15,7 +15,7 @@
     </thead>
     <tbody>
    		<tr ng-repeat='lift in lifts | filter:filterer'>
-            <td><a href="{{lift[lift.name]['link']}}">{{lift.name}}</a></td>
+            <td><a href="#/exercise/{{lift.name}}">{{lift.name}}</a></td>
             <td>{{lift[lift.name]["Main Muscle Worked"]}}</td>
             <td>{{lift[lift.name]["Other Muscles"]}}</td>
             <td>{{lift[lift.name]["Force"]}}</td>
