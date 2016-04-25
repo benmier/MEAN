@@ -33,14 +33,15 @@ myApp.factory('userFactory', function($http){
 myApp.factory('liftFactory', function($http){
     var factory = {};
 
-    factory.showLifts = function(callback){
-        factory.lifts = lifts;
-        var liftsList = {};
-        for(var i=0; i<lifts.length; i++){
-            for(var key in lifts[i]){
-                factory.lifts[i].name=key;
-            }
+    factory.lifts = lifts;
+    var liftsList = {};
+    for(var i=0; i<lifts.length; i++){
+        for(var key in lifts[i]){
+            factory.lifts[i].name=key;
         }
+    }
+
+    factory.showLifts = function(callback){
         callback(factory.lifts);
     }
 
@@ -48,10 +49,9 @@ myApp.factory('liftFactory', function($http){
 })
 
 myApp.controller('loginController', function($scope,$location,userFactory,liftFactory){
-    liftFactory.showLifts = function(data){
+    liftFactory.showLifts(function(data){
         $scope.lifts = data;
-    }
-        console.log($scope.lifts)
+    })
 
 
     $scope.login = function(){
@@ -89,7 +89,7 @@ myApp.controller('showController', function($scope,$location,pollFactory){
             $location.url('/');
     });
 
-
+    
 
 });
 
