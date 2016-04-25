@@ -96,12 +96,10 @@ myApp.controller('showController', function($scope,$location,liftFactory,userFac
         for(var key in $scope.lifts[i]){
             if(key==$route.current.params.name){
                 $scope.lift = $scope.lifts[i];
-                $scope.others = $scope.lifts[i][key]["Other Muscles"].split(" ")
+                $scope.others = $scope.lifts[i][key]["Other Muscles"].split(", ")
             }
         }
     }
-    console.log($scope.lift)
-    console.log($scope.others)
 });
 
 // myApp.controller('createController', function($scope,$location,pollFactory,userFactory){

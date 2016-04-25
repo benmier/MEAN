@@ -1,16 +1,15 @@
 <script type="text/javascript">
-	var others = {{lift[lift.name]["Other Muscles"]}}.split(" ");
 	console.log(others)
 </script>
 
 <h2>{{lift.name}}</h2>
 
 <div style="text-align: center; margin-right: 30px; display: inline-block;">
-	<h3>Starting Position</h3>
+	<h4>Starting Position</h4>
 	<img src="{{lift[lift.name]['pic_left']}}" height="200px" width="300px">
 </div>
 <div style="text-align: center; display: inline-block;">
-	<h3>Ending Position</h3>
+	<h4>Ending Position</h4>
 	<img src="{{lift[lift.name]['pic_right']}}" height="200px" width="300px">
 </div><br><br>
 
@@ -18,10 +17,7 @@
 <p>Main Muscle Worked: <a href="#/data/{{lift[lift.name]['Main Muscle Worked']}}">{{lift[lift.name]["Main Muscle Worked"]}}</a></p>
 <p>Other Muscles: 
 	<span ng-repeat="other in others">
-		<script type="text/javascript">
-			var sliced = {{other}}.slice(0,{{other}}.length)
-		</script>
-		<a href="#/data/{{sliced}}">{{other}}</a> 
+		<a href="#/data/{{other}}">{{other}}</a>, 
 	</span>
 <p>Exercise Type: <a href="#/data/{{lift[lift.name]['Type']}}">{{lift[lift.name]["Type"]}}</a></p>
 </p>
