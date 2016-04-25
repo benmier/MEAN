@@ -33,6 +33,7 @@ module.exports = {
                             newData[i]=data[i];
                     };
                 };
+                console.log(newData)
                 res.json(newData);
             };
         });
