@@ -82,17 +82,17 @@ myApp.controller('dashboardController', function($scope,$location,userFactory,li
     }
 });
 
-myApp.controller('showController', function($scope,$location,pollFactory,$route){
-    userFactory.showCurrentUser(function(data){
-        $scope.currentUser = data;
-        if(!data.name)
-            $location.url('/');
-    });
+myApp.controller('showController', function($scope,$location,liftFactory,userFactory,$route){
+    // userFactory.showCurrentUser(function(data){
+    //     $scope.currentUser = data;
+    //     if(!data.name)
+    //         $location.url('/');
+    // });
 
+    console.log($routeParams.name)
     liftFactory.showLifts(function(data){
         $scope.lifts = data;
     })
-
     $scope.lift = $scope.lifts[$routeParams.name];
 
 });
