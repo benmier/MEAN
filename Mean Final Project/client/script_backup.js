@@ -38,7 +38,20 @@ myApp.factory('liftFactory', function($http){
     for(var i=0; i<lifts.length; i++){
         for(var key in lifts[i]){
             $http.post('/newLift',{
-                factory.lifts[i].name=key;
+                name:key,
+                main_muscle: lifts[i][key]["Main Muscle Worked"],
+                force: lifts[i][key]["Force"],
+                level: lifts[i][key]["Level"],
+                force: lifts[i][key]["Force"],
+                pic_right: lifts[i][key]["pic_right"],
+                mechanics: lifts[i][key]["Mechanics Type"],
+                equipment: lifts[i][key]["Equipment"],
+                link: lifts[i][key]["link"],
+                pic_left: lifts[i][key]["pic_left"],
+                sport: lifts[i][key]["Sport"],
+                type: lifts[i][key]["Type"],
+                guide: lifts[i][key]["guide"],
+                other_muscles: lifts[i][key]["Other Muscles"]
             })
         }
     }

@@ -1,5 +1,5 @@
 var users = require('../controllers/users.js');
-// var polls = require('../controllers/polls.js');
+var lifts = require('../controllers/lifts.js');
 
 module.exports = function(app){
 
@@ -13,6 +13,18 @@ module.exports = function(app){
 
     app.get('/users/:id', function(req, res) {
         users.showOne(req,res);
+    });
+
+    app.post('/newLift', function(req, res) {
+        lifts.create(req,res);
+    });
+
+    app.get('/lifts', function(req, res) {
+        lifts.show(req,res);
+    });
+
+    app.get('/lifts/:name', function(req, res) {
+        lifts.showOne(req,res);
     });
 
     

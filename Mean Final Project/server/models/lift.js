@@ -11,9 +11,9 @@ var LiftSchema = new mongoose.Schema({
 	link: String,
 	sport: String,
 	type: String,
-	guide: [{line:String},{line:String},{line:String},{line:String},{line:String},{line:String},{line:String},{line:String},{line:String},{line:String},{line:String},{line:String},{line:String},{line:String},{line:String}]
+	guide: String,
 	pic_left: String,
-	pic_right: String,
+	pic_right: String
 });
 
 var Lifts = mongoose.model('Lifts', LiftSchema);
