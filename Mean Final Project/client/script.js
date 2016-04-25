@@ -49,10 +49,10 @@ myApp.factory('liftFactory', function($http){
 
     factory.showData = function(input,callback){
         $http.get('/data/'+input.name).success(function(data){
-            for(var i=0; i<data.length; i++){
-                console.log(data[i].main_muscle)
+            factory.data = [];
+            for(i in data){
                 if(data[i].main_muscle==input.name)
-                    factory.data.main_muscle[i] = data[i];
+                    factory.data.main_muscle.push(data[i]);
                 // if(data[i].main_muscle==input.name)
                 //     factory.data.main_muscle[i] = data[i]; 
                 // if(data[i].main_muscle==input.name)
