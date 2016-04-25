@@ -50,6 +50,7 @@ myApp.factory('liftFactory', function($http){
     factory.showData = function(input,callback){
         $http.get('/data/'+input.name).success(function(data){
             factory.data = {};
+            factory.data.name = input.name;
             factory.data.main_muscle = [];
             factory.data.other_muscles = [];
             factory.data.force = [];

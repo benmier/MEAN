@@ -1,4 +1,5 @@
-<div style="border: 1px solid black; width:350px; padding: 20px; display: inline-block; vertical-align: top">
+<h1>{{data.name}}</h1>
+<div style="border: 1px solid black; width:325px; padding: 10px; display: inline-block; vertical-align: top">
 	<h3>Main Muscle</h3>
 	<input ng-model='main_muscle' placeholder="Search..."></input><br><br>
 	<ul>
@@ -6,15 +7,15 @@
 	</ul>
 </div>
 
-<div style="border: 1px solid black; width:350px; padding: 20px; display: inline-block; vertical-align: top">
-	<h3>Other Muscles</h3>
+<div style="border: 1px solid black; width:325px; padding: 10px; display: inline-block; vertical-align: top">
+	<h3>Secondary Muscle</h3>
 	<input ng-model='other_muscles' placeholder="Search..."></input><br><br>
 	<ul>
 		<li ng-repeat="item in data.other_muscles | filter:other_muscles">{{item.name}}</li>
 	</ul>
 </div>
 
-<div style="border: 1px solid black; width:350px; padding: 20px; display: inline-block; vertical-align: top">
+<div style="border: 1px solid black; width:325px; padding: 10px; display: inline-block; vertical-align: top">
 	<h3>Force</h3>
 	<input ng-model='force' placeholder="Search..."></input><br><br>
 	<ul>
@@ -22,7 +23,7 @@
 	</ul>
 </div>
 
-<div style="border: 1px solid black; width:350px; padding: 20px; display: inline-block; vertical-align: top">
+<div style="border: 1px solid black; width:325px; padding: 10px; display: inline-block; vertical-align: top">
 	<h3>Other Muscles</h3>
 	<input ng-model='other_muscles' placeholder="Search..."></input><br><br>
 	<ul>
