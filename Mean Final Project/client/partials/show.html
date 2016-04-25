@@ -9,13 +9,14 @@
 	<img src="{{lift.pic_right}}" height="200px" width="300px">
 </div><br>
 
-<p>Instructions: <span>
-	<span ng-repeat="line in lift.guide">
-		<ol>
-			<li>{{lift.guide[line]}}</li>
-		</ol>
-	</span>
-</span></p><br><br>
+<div style="width: 40%">
+	<p>Instructions: <span>
+			<ol>
+				<li ng-repeat="line in lift.guide">{{line}}</li>
+			</ol>
+		</span>
+	</p>
+</div><br>
 
 <h3>Exercise Data</h3>
 <p>Main Muscle Worked: <a href="#/data/{{lift.main_muscle}}">{{lift.main_muscle}}</a></p>
