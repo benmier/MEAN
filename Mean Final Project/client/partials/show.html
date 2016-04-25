@@ -7,12 +7,14 @@
 <div style="text-align: center; display: inline-block;">
 	<h4>Ending Position</h4>
 	<img src="{{lift.pic_right}}" height="200px" width="300px">
-</div><br><br>
+</div><br>
+
+<p>Instructions: <a href="#/data/{{lift.guide}}">{{lift.sport}}</a></p><br><br>
 
 <h3>Exercise Data</h3>
 <p>Main Muscle Worked: <a href="#/data/{{lift.main_muscle}}">{{lift.main_muscle}}</a></p>
 <p>Other Muscles: 
-	<span ng-repeat="other in other_muscles">
+	<span ng-repeat="other in lift.other_muscles">
 		<a href="#/data/{{other}}" style="margin-right: 10px">{{other}}</a>
 	</span>
 <p>Exercise Type: <a href="#/data/{{lift.type}}">{{lift.type}}</a></p>

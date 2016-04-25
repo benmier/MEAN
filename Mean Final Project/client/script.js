@@ -40,8 +40,8 @@ myApp.factory('liftFactory', function($http){
         });
     };
 
-    factory.showOne = function(name,callback){
-        $http.get('/lifts/'+name).success(function(data){
+    factory.showOne = function(lift,callback){
+        $http.get('/lifts/'+lift.name).success(function(data){
             factory.lift = data;
             callback(factory.lift);
         });
@@ -93,8 +93,7 @@ myApp.controller('showController', function($scope,$location,liftFactory,userFac
 
     liftFactory.showOne($route.current.params,function(data){
         $scope.lift = data;
-        console.log(data)
-        // $scope.lift.other_muscles = $scope.lift.other_muscles.split(", ");
+        $scope.lift.other_muscles = $scope.lift.other_muscles.split(", ");
     })
 
 });
