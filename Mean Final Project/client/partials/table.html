@@ -16,14 +16,14 @@
     <tbody>
    		<tr ng-repeat='lift in lifts | filter:filterer'>
             <td><a href="#/exercise/{{lift.name}}">{{lift.name}}</a></td>
-            <td><a href="#/exercise/{{lift.main_muscle}}">{{lift.main_muscle}}</a></td>
-            <td><span ng-repeat='other in lift.other_muscles'><a href="#/exercise/{{other}}">{{lift.other}}</a></span>, </td>
-            <td><a href="#/exercise/{{lift.force}}">{{lift.force}}</a></td>
-            <td><a href="#/exercise/{{lift.level}}">{{lift.level}}</a></td>
-            <td><a href="#/exercise/{{lift.mechanics}}">{{lift.mechanics}}</a></td>
-            <td><a href="#/exercise/{{lift.equipment}}">{{lift.equipment}}</a></td>
-            <td><a href="#/exercise/{{lift.sport}}">{{lift.sport}}</a></td>
-            <td><a href="#/exercise/{{lift.natypeme}}">{{lift.type}}</a></td>
+            <td><a href="#/data/{{lift.main_muscle}}">{{lift.main_muscle}}</a></td>
+            <td><span ng-repeat='other in lift.other_muscles'><a href="#/data/{{other}}">{{lift.other}}</a></span>, </td>
+            <td><a href="#/data/{{lift.force}}">{{lift.force}}</a></td>
+            <td><a href="#/data/{{lift.level}}">{{lift.level}}</a></td>
+            <td><a href="#/data/{{lift.mechanics}}">{{lift.mechanics}}</a></td>
+            <td><a href="#/data/{{lift.equipment}}">{{lift.equipment}}</a></td>
+            <td><a href="#/data/{{lift.sport}}">{{lift.sport}}</a></td>
+            <td><a href="#/data/{{lift.type}}">{{lift.type}}</a></td>
    		</tr>
     </tbody>
 </table>

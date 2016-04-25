@@ -90,8 +90,7 @@ myApp.controller('loginController', function($scope,$location,userFactory,liftFa
         $scope.lifts = data;
         for(i in $scope.lifts){
             if($scope.lifts[i].other_muscles)
-            console.log($scope.lifts[i].other_muscles.split(", "))
-            //     $scope.lifts[i].other_muscles = $scope.lift.other_muscles.split(", ");
+                $scope.lifts[i].other_muscles = $scope.lifts[i].other_muscles.split(", ");
         }
     })
 
