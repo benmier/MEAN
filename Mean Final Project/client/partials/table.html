@@ -17,7 +17,9 @@
    		<tr ng-repeat='lift in lifts | filter:filterer'>
             <td><a href="#/exercise/{{lift.name}}">{{lift.name}}</a></td>
             <td><a href="#/data/{{lift.main_muscle}}">{{lift.main_muscle}}</a></td>
-            <td><span ng-repeat='other in lift.other_muscles'><a href="#/data/{{other}}">{{lift.other}}</a></span>, </td>
+            <td>
+                <div ng-repeat='other in lift.other_muscles'><a href="#/data/{{other}}">{{other}}</a> </div> 
+            </td>
             <td><a href="#/data/{{lift.force}}">{{lift.force}}</a></td>
             <td><a href="#/data/{{lift.level}}">{{lift.level}}</a></td>
             <td><a href="#/data/{{lift.mechanics}}">{{lift.mechanics}}</a></td>
