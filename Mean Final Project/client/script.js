@@ -65,7 +65,7 @@ myApp.controller('loginController', function($scope,$location,userFactory,liftFa
     };
 });
 
-myApp.controller('dashboardController', function($scope,$location,userFactory,pollFactory){
+myApp.controller('dashboardController', function($scope,$location,userFactory,liftFactory){
     userFactory.showCurrentUser(function(data){
         $scope.currentUser = data;
         if(!data.name)
@@ -82,14 +82,18 @@ myApp.controller('dashboardController', function($scope,$location,userFactory,po
     }
 });
 
-myApp.controller('showController', function($scope,$location,pollFactory){
+myApp.controller('showController', function($scope,$location,pollFactory,$route){
     userFactory.showCurrentUser(function(data){
         $scope.currentUser = data;
         if(!data.name)
             $location.url('/');
     });
 
-    
+    liftFactory.showLifts(function(data){
+        $scope.lifts = data;
+    })
+
+    $scope.lift = $scope.lifts[$routeParams.name];
 
 });
 
