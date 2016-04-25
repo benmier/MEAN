@@ -10,10 +10,10 @@ myApp.config(function($routeProvider){
             templateUrl: 'partials/show.html',
             controller: "showController"
         })
-        // .when('/polls/:id',{
-        //     templateUrl: 'partials/poll.html',
-        //     controller: "pollController"
-        // })
+        .when('/data/:name',{
+            templateUrl: 'partials/data.html',
+            controller: "dataController"
+        })
         // .when('/create',{
         //     templateUrl: 'partials/create.html',
         //     controller: "createController"
