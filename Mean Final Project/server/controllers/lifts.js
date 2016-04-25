@@ -13,11 +13,14 @@ module.exports = {
     },
 
     update: function(req,res){
-        Lifts.findOneAndUpdate({name: req.params.name},{other_muscles:req.body.others},function(err,data){
+        Lifts.findOne({name: req.params.name},function(err,data){
             if(err)
                 console.log(err);
-            else
-                res.json(data);
+            else{
+                for(i in req.body.others)
+                    data.other_muscles.push({name:req.body.others[i]})
+                // res.json(data);
+            }
         });
     },
 

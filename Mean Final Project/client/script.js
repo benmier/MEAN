@@ -36,12 +36,13 @@ myApp.factory('liftFactory', function($http){
     factory.show = function(callback){
         $http.get('/lifts').success(function(data){
             factory.lifts = data;
-            // for(i in factory.lifts){
-            //     if(factory.lifts[i].other_muscles){
-            //         factory.lifts[i].other_muscles = factory.lifts[i].other_muscles.split(", ");
-            //         $http.post("/lifts/update/"+factory.lifts[i].name,{others:factory.lifts[i].other_muscles})
-            //     }
-            // }
+            for(i in factory.lifts){
+                if(factory.lifts[i].other_muscles){
+                    console.log(factory.lifts[i].other_muscles)
+                    // factory.lifts[i].other_muscles = factory.lifts[i].other_muscles.split(",");
+                    // $http.post("/lifts/update/"+factory.lifts[i].name,{others:factory.lifts[i].other_muscles})
+                }
+            }
             callback(factory.lifts);
         });
     };

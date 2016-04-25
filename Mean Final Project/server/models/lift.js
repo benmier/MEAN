@@ -3,7 +3,7 @@ var mongoose = require('mongoose');
 var LiftSchema = new mongoose.Schema({
 	name: String,
 	main_muscle: String,
-	other_muscles: String,
+	other_muscles: [{name: String}],
 	force: String,
 	level: String,
 	mechanics: String,

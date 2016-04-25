@@ -22,7 +22,7 @@
 <p>Main Muscle Worked: <a href="#/data/{{lift.main_muscle}}">{{lift.main_muscle}}</a></p>
 <p>Other Muscles: 
 	<span ng-repeat="other in lift.other_muscles">
-		<a href="#/data/{{other}}" style="margin-right: 10px">{{other}}</a>
+		<a href="#/data/{{other.name}}" style="margin-right: 10px">{{other.name}}</a>
 	</span>
 <p>Exercise Type: <a href="#/data/{{lift.type}}">{{lift.type}}</a></p>
 </p>
