@@ -58,7 +58,7 @@ myApp.factory('liftFactory', function($http){
                 sport: lifts[i][key]["Sport"],
                 type: lifts[i][key]["Type"],
                 guide: lifts[i][key]["guide"],
-                other_muscles: lifts[i][key]["Other Muscles"]
+                other_muscles: temp
             })
         }
     }
