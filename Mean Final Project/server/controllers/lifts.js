@@ -22,11 +22,19 @@ module.exports = {
     },
 
     showData: function(req,res){
-        Lifts.findOne({name:req.params.name},function(err,data){
+        Lifts.find({},function(err,data){
             if(err)
                 console.log(err);
-            else
-                res.json(data);
+            else{
+                var newData = {};
+                for(var i=0; i<data.length; i++){
+                    for(key in data){
+                        if(data[key]==req.params.name)
+                            newData[i]=data[i];
+                    };
+                };
+                res.json(newData);
+            };
         });
     },
 
