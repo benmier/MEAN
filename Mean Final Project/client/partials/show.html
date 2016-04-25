@@ -1,5 +1,15 @@
+<script type="text/javascript">
+	var others = {{lift[lift.name]["Other Muscles"]}}.split(", ");
+</script>
+
 <h2>{{lift.name}}</h2>
 
 <h3>Exercise Data</h3>
 <p>Main Muscle Worked: <a href="#/{{lift[lift.name]["Main Muscle Worked"]}}">{{lift[lift.name]["Main Muscle Worked"]}}</a></p>
-<p>Other Muscles: {{lift[lift.name]["Other Muscles"]}}</p>
+<p>Other Muscles: 
+	<span ng-repeat='other in others'>
+		<a href="#/{{other}}">{{other}}</a> 
+	</span>
+</p>
+<p>Force: <a href="#/{{lift[lift.name]["Force"]}}">{{lift[lift.name]["Force"]}}</a></p>
+<p>Difficulty: <a href="#/{{lift[lift.name]["Level"]}}">{{lift[lift.name]["Level"]}}</a></p>
