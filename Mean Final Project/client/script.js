@@ -49,8 +49,8 @@ myApp.factory('liftFactory', function($http){
 
     factory.showData = function(data,callback){
         $http.get('/data/'+data.name).success(function(data){
-            factory.lift = data;
-            callback(factory.lift);
+            factory.data = data;
+            callback(factory.data);
         });
     };
 
@@ -115,6 +115,7 @@ myApp.controller('dataController', function($scope,$location,liftFactory,userFac
 
     liftFactory.showData($route.current.params, function(data){
         $scope.data = data;
+        console.log(data)
     });
     
 });
