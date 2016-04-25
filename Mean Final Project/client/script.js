@@ -93,7 +93,8 @@ myApp.controller('showController', function($scope,$location,liftFactory,userFac
 
     liftFactory.showOne($route.current.params,function(data){
         $scope.lift = data;
-        $scope.lift.other_muscles = $scope.lift.other_muscles.split(", ");
+        console.log(data)
+        // $scope.lift.other_muscles = $scope.lift.other_muscles.split(", ");
     })
 
 });
