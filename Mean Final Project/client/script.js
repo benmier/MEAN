@@ -36,6 +36,12 @@ myApp.factory('liftFactory', function($http){
     factory.show = function(callback){
         $http.get('/lifts').success(function(data){
             factory.lifts = data;
+            // for(i in factory.lifts){
+            //     if(factory.lifts[i].other_muscles){
+            //         factory.lifts[i].other_muscles = factory.lifts[i].other_muscles.split(", ");
+            //         $http.post("/lifts/update/"+factory.lifts[i].name,{others:factory.lifts[i].other_muscles})
+            //     }
+            // }
             callback(factory.lifts);
         });
     };
@@ -46,13 +52,6 @@ myApp.factory('liftFactory', function($http){
             callback(factory.lift);
         });
     };
-
-    for(i in factory.lifts){
-        if(factory.lifts[i].other_muscles){
-            factory.lifts[i].other_muscles = factory.lifts[i].other_muscles.split(", ");
-            $http.post("/lifts/update/"+factory.lifts[i].name,{others:factory.lifts[i].other_muscles})
-        }
-    }
 
     factory.showData = function(input,callback){
         $http.get('/data/'+input.name).success(function(data){
@@ -95,10 +94,6 @@ myApp.factory('liftFactory', function($http){
 myApp.controller('loginController', function($scope,$location,userFactory,liftFactory){
     liftFactory.show(function(data){
         $scope.lifts = data;
-        for(i in $scope.lifts){
-            if($scope.lifts[i].other_muscles)
-                $scope.lifts[i].other_muscles = $scope.lifts[i].other_muscles.split(", ");
-        }
     })
 
 

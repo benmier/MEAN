@@ -18,10 +18,15 @@ module.exports = function(app){
     app.post('/newLift', function(req, res) {
         lifts.create(req,res);
     });
+    
+    app.post('/lifts/update/:name', function(req, res) {
+        lifts.update(req,res);
+    });
 
     app.get('/lifts', function(req, res) {
         lifts.show(req,res);
     });
+    
 
     app.get('/lifts/:name', function(req, res) {
         lifts.showOne(req,res);
@@ -31,9 +36,6 @@ module.exports = function(app){
         lifts.showData(req,res);
     });
 
-    app.post('/lifts/update/:name', function(req, res) {
-        lifts.update(req,res);
-    });
 
     
 
