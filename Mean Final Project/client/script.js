@@ -33,17 +33,16 @@ myApp.factory('userFactory', function($http){
 myApp.factory('liftFactory', function($http){
     var factory = {};
 
-    factory.lifts = lifts;
-    var liftsList = {};
-    for(var i=0; i<lifts.length; i++){
-        for(var key in lifts[i]){
-            factory.lifts[i].name=key;
-        }
-    }
+    factory.show = function(callback){
+        $http.get('/lifts').success(function(data){
+            factory.lifts = data;
+            callback(factory.lifts);
+        });
+    };
 
-    factory.showLifts = function(callback){
+    factory.showOne = function(callback){
         callback(factory.lifts);
-    }
+    };
 
     return factory;
 })
