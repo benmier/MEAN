@@ -47,6 +47,13 @@ myApp.factory('liftFactory', function($http){
         });
     };
 
+    factory.showData = function(data,callback){
+        $http.get('/data/'+data.name).success(function(data){
+            factory.lift = data;
+            callback(factory.lift);
+        });
+    };
+
     return factory;
 })
 
@@ -91,21 +98,23 @@ myApp.controller('showController', function($scope,$location,liftFactory,userFac
     //         $location.url('/');
     // });
 
-    liftFactory.showOne($route.current.params,function(data){
+    liftFactory.showOne($route.current.params, function(data){
         $scope.lift = data;
         $scope.lift.other_muscles = $scope.lift.other_muscles.split(", ");
         $scope.lift.guide = $scope.lift.guide.split(".,");
-        console.log($scope.lift.guide)
     })
 
 });
 
-// myApp.controller('createController', function($scope,$location,pollFactory,userFactory){
-//     userFactory.showCurrentUser(function(data){
-//         $scope.currentUser = data;
-//         if(!data.name)
-//             $location.url('/');
-//     });
+myApp.controller('dataController', function($scope,$location,liftFactory,userFactory,$route){
+    // userFactory.showCurrentUser(function(data){
+    //     $scope.currentUser = data;
+    //     if(!data.name)
+    //         $location.url('/');
+    // });
 
+    liftFactory.showData($route.current.params, function(data){
+        $scope.data = data;
+    });
     
-// })
+});
