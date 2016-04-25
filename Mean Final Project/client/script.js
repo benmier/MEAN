@@ -94,6 +94,8 @@ myApp.controller('showController', function($scope,$location,liftFactory,userFac
     liftFactory.showOne($route.current.params,function(data){
         $scope.lift = data;
         $scope.lift.other_muscles = $scope.lift.other_muscles.split(", ");
+        $scope.lift.guide = $scope.lift.guide.split(".,");
+        console.log($scope.lift.guide)
     })
 
 });
