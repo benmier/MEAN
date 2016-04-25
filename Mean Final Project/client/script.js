@@ -92,9 +92,13 @@ myApp.controller('showController', function($scope,$location,liftFactory,userFac
     liftFactory.showLifts(function(data){
         $scope.lifts = data;
     })
-    console.log($scope.lifts)
-    $scope.lift = $scope.lifts["$route.current.params.name"];
-
+    for(var i=0; i<lifts.length; i++){
+        for(var key in $scope.lifts[i]){
+            if(key==$route.current.params.name)
+                $scope.lift = $scope.lifts[i];
+        }
+    }
+    console.log($scope.lift)
 });
 
 // myApp.controller('createController', function($scope,$location,pollFactory,userFactory){
