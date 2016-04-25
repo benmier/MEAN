@@ -28,12 +28,15 @@ module.exports = {
             else{
                 var newData = {};
                 for(var i=0; i<data.length; i++){
-                    for(key in data){
-                        if(data[key]==req.params.name)
-                            newData[i]=data[i];
+                    console.log(data[i])
+                    for(lift in data){
+                        for(key in lift){
+                            // console.log(key)
+                            if(lift[key]==req.params.name)
+                                newData[i]=data[i];
+                        }
                     };
                 };
-                console.log(newData)
                 res.json(newData);
             };
         });
