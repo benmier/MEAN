@@ -31,6 +31,10 @@ module.exports = function(app){
         lifts.showData(req,res);
     });
 
+    app.post('/lifts/update/:name', function(req, res) {
+        lifts.update(req,res);
+    });
+
     
 
 }

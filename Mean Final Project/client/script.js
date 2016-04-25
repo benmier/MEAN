@@ -47,6 +47,13 @@ myApp.factory('liftFactory', function($http){
         });
     };
 
+    for(i in factory.lifts){
+        if(factory.lifts[i].other_muscles){
+            factory.lifts[i].other_muscles = factory.lifts[i].other_muscles.split(", ");
+            $http.post("/lifts/update/"+factory.lifts[i].name,{others:factory.lifts[i].other_muscles})
+        }
+    }
+
     factory.showData = function(input,callback){
         $http.get('/data/'+input.name).success(function(data){
             factory.data = {};

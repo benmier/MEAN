@@ -12,6 +12,15 @@ module.exports = {
         });
     },
 
+    show: function(req,res){
+        Lifts.findOneAndUpdate({name: req.params.name},{other_muscles:req.body.others},function(err,data){
+            if(err)
+                console.log(err);
+            else
+                res.json(data);
+        });
+    },
+
     showOne: function(req,res){
         Lifts.findOne({name:req.params.name},function(err,data){
             if(err)
