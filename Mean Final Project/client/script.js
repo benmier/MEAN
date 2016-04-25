@@ -30,10 +30,16 @@ myApp.factory('userFactory', function($http){
     return factory;
 });
 
-myApp.factory('pollFactory', function($http){
+myApp.factory('liftFactory', function($http){
     var factory = {};
 
-    
+    factory.lifts = lifts;
+    var liftsList = {};
+    for(var i=0; i<lifts.length; i++){
+        for(var key in lifts[i]){
+            factory.lifts[i].name=key;
+        }
+    }
 
     return factory;
 })
