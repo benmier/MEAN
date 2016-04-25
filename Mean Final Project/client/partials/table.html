@@ -16,14 +16,14 @@
     <tbody>
    		<tr ng-repeat='lift in lifts | filter:filterer'>
             <td><a href="#/exercise/{{lift.name}}">{{lift.name}}</a></td>
-            <td>{{lift.main_muscle}}</td>
-            <td>{{lift.other_muscles}}</td>
-            <td>{{lift.force}}</td>
-            <td>{{lift.level}}</td>
-            <td>{{lift.mechanics}}</td>
-            <td>{{lift.equipment}}</td>
-            <td>{{lift.sport}}</td>
-            <td>{{lift.type}}</td>
+            <td><a href="#/exercise/{{lift.main_muscle}}">{{lift.main_muscle}}</a></td>
+            <td><span ng-repeat='other in lift.other_muscles'><a href="#/exercise/{{lift.name}}">{{lift.other_muscles}}</a></span>, </td>
+            <td><a href="#/exercise/{{lift.force}}">{{lift.force}}</a></td>
+            <td><a href="#/exercise/{{lift.level}}">{{lift.level}}</a></td>
+            <td><a href="#/exercise/{{lift.mechanics}}">{{lift.mechanics}}</a></td>
+            <td><a href="#/exercise/{{lift.equipment}}">{{lift.equipment}}</a></td>
+            <td><a href="#/exercise/{{lift.sport}}">{{lift.sport}}</a></td>
+            <td><a href="#/exercise/{{lift.natypeme}}">{{lift.type}}</a></td>
    		</tr>
     </tbody>
 </table>

@@ -88,6 +88,9 @@ myApp.factory('liftFactory', function($http){
 myApp.controller('loginController', function($scope,$location,userFactory,liftFactory){
     liftFactory.show(function(data){
         $scope.lifts = data;
+        for(i in $scope.lifts){
+            $scope.lifts[i].other_muscles = $scope.lift.other_muscles.split(", ");
+        }
     })
 
 
