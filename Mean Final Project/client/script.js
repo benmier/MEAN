@@ -47,9 +47,23 @@ myApp.factory('liftFactory', function($http){
         });
     };
 
-    factory.showData = function(data,callback){
-        $http.get('/data/'+data.name).success(function(data){
-            factory.data = data;
+    factory.showData = function(input,callback){
+        $http.get('/data/'+input.name).success(function(data){
+            for(var i=0; i<data.length; i++){
+                console.log(data[i].main_muscle)
+                if(data[i].main_muscle==input.name)
+                    factory.data.main_muscle[i] = data[i];
+                // if(data[i].main_muscle==input.name)
+                //     factory.data.main_muscle[i] = data[i]; 
+                // if(data[i].main_muscle==input.name)
+                //     factory.data.main_muscle[i] = data[i]; 
+                // if(data[i].main_muscle==input.name)
+                //     factory.data.main_muscle[i] = data[i]; 
+                // if(data[i].main_muscle==input.name)
+                //     factory.data.main_muscle[i] = data[i]; 
+                // if(data[i].main_muscle==input.name)
+                //     factory.data.main_muscle[i] = data[i]; 
+            }
             callback(factory.data);
         });
     };
@@ -115,7 +129,6 @@ myApp.controller('dataController', function($scope,$location,liftFactory,userFac
 
     liftFactory.showData($route.current.params, function(data){
         $scope.data = data;
-        console.log(data)
     });
     
 });
