@@ -63,8 +63,10 @@ myApp.factory('liftFactory', function($http){
             for(i in data){
                 if(data[i].main_muscle==input.name)
                     factory.data.main_muscle.push(data[i]);
-                if(data[i].other_muscles==input.name)
-                    factory.data.other_muscles.push(data[i]);
+                for(j in data[i].other_muscles){
+                    if(data[i].other_muscles[j].name==input.name)
+                        factory.data.other_muscles.push(data[i]);
+                }
                 if(data[i].force==input.name)
                     factory.data.force.push(data[i]);
                 if(data[i].level==input.name)
@@ -128,7 +130,6 @@ myApp.controller('showController', function($scope,$location,liftFactory,userFac
 
     liftFactory.showOne($route.current.params, function(data){
         $scope.lift = data;
-        $scope.lift.other_muscles = $scope.lift.other_muscles.split(", ");
         $scope.lift.guide = $scope.lift.guide.split(".,");
     })
 

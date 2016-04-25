@@ -12,18 +12,6 @@ module.exports = {
         });
     },
 
-    update: function(req,res){
-        Lifts.findOne({name: req.params.name},function(err,data){
-            if(err)
-                console.log(err);
-            else{
-                for(i in req.body.others)
-                    data.other_muscles.push({name:req.body.others[i]})
-                // res.json(data);
-            }
-        });
-    },
-
     showOne: function(req,res){
         Lifts.findOne({name:req.params.name},function(err,data){
             if(err)
