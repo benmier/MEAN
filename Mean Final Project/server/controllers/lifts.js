@@ -21,6 +21,15 @@ module.exports = {
         });
     },
 
+    showData: function(req,res){
+        Lifts.findOne({name:req.params.name},function(err,data){
+            if(err)
+                console.log(err);
+            else
+                res.json(data);
+        });
+    },
+
     create: function(req,res){
         Lifts.findOne({name:req.body.name},function(err,data){
             if(err)

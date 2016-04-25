@@ -27,6 +27,10 @@ module.exports = function(app){
         lifts.showOne(req,res);
     });
 
+    app.get('/data/:name', function(req, res) {
+        lifts.showData(req,res);
+    });
+
     
 
 }
