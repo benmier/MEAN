@@ -40,8 +40,11 @@ myApp.factory('liftFactory', function($http){
         });
     };
 
-    factory.showOne = function(callback){
-        // callback(factory.lifts);
+    factory.showOne = function(name,callback){
+        $http.get('/lifts/'+name).success(function(data){
+            factory.lift = data;
+            callback(factory.lift);
+        });
     };
 
     return factory;
@@ -64,22 +67,22 @@ myApp.controller('loginController', function($scope,$location,userFactory,liftFa
     };
 });
 
-myApp.controller('dashboardController', function($scope,$location,userFactory,liftFactory){
-    userFactory.showCurrentUser(function(data){
-        $scope.currentUser = data;
-        if(!data.name)
-            $location.url('/');
-    });
+// myApp.controller('dashboardController', function($scope,$location,userFactory,liftFactory){
+//     userFactory.showCurrentUser(function(data){
+//         $scope.currentUser = data;
+//         if(!data.name)
+//             $location.url('/');
+//     });
 
     
 
-    $scope.logout = function(){
-        userFactory.logout(function(data){
-            $scope.currentUser = data;
-            $location.url('/');
-        })
-    }
-});
+//     $scope.logout = function(){
+//         userFactory.logout(function(data){
+//             $scope.currentUser = data;
+//             $location.url('/');
+//         })
+//     }
+// });
 
 myApp.controller('showController', function($scope,$location,liftFactory,userFactory,$route){
     // userFactory.showCurrentUser(function(data){
@@ -88,17 +91,11 @@ myApp.controller('showController', function($scope,$location,liftFactory,userFac
     //         $location.url('/');
     // });
 
-    liftFactory.showLifts(function(data){
-        $scope.lifts = data;
+    liftFactory.showOne($route.current.params,function(data){
+        $scope.lift = data;
+        $scope.lift.other_muscles = $scope.lift.other_muscles.split(", ");
     })
-    for(var i=0; i<lifts.length; i++){
-        for(var key in $scope.lifts[i]){
-            if(key==$route.current.params.name){
-                $scope.lift = $scope.lifts[i];
-                $scope.others = $scope.lifts[i][key]["Other Muscles"].split(", ")
-            }
-        }
-    }
+
 });
 
 // myApp.controller('createController', function($scope,$location,pollFactory,userFactory){
