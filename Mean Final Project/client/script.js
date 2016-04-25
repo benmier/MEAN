@@ -33,45 +33,60 @@ myApp.factory('userFactory', function($http){
 myApp.factory('liftFactory', function($http){
     var factory = {};
 
-    factory.lifts = lifts;
-    var liftsList = {};
-    for(var i=0; i<lifts.length; i++){
-        for(var key in lifts[i]){
-            if(lifts[i][key]["Other Muscles"]){
-                lifts[i][key]["Other Muscles"] = lifts[i][key]["Other Muscles"].split(", ");
-            }
-            var temp = {};
-            for(j in lifts[i][key]["Other Muscles"]){
-                temp[j]={name: lifts[i][key]["Other Muscles"][j]}
-            }
-            $http.post('/newLift',{
-                name:key,
-                main_muscle: lifts[i][key]["Main Muscle Worked"],
-                force: lifts[i][key]["Force"],
-                level: lifts[i][key]["Level"],
-                force: lifts[i][key]["Force"],
-                pic_right: lifts[i][key]["pic_right"],
-                mechanics: lifts[i][key]["Mechanics Type"],
-                equipment: lifts[i][key]["Equipment"],
-                link: lifts[i][key]["link"],
-                pic_left: lifts[i][key]["pic_left"],
-                sport: lifts[i][key]["Sport"],
-                type: lifts[i][key]["Type"],
-                guide: lifts[i][key]["guide"],
-                other_muscles: temp
-            })
-        }
-    }
+    factory.show = function(callback){
+        $http.get('/lifts').success(function(data){
+            factory.lifts = data;
+            callback(factory.lifts);
+        });
+    };
 
-    factory.showLifts = function(callback){
-        callback(factory.lifts);
-    }
+    factory.showOne = function(lift,callback){
+        $http.get('/lifts/'+lift.name).success(function(data){
+            factory.lift = data;
+            callback(factory.lift);
+        });
+    };
+
+    factory.showData = function(input,callback){
+        $http.get('/data/'+input.name).success(function(data){
+            factory.data = {};
+            factory.data.name = input.name;
+            factory.data.main_muscle = [];
+            factory.data.other_muscles = [];
+            factory.data.force = [];
+            factory.data.level = [];
+            factory.data.mechanics = [];
+            factory.data.equipment = [];
+            factory.data.sport = [];
+            factory.data.type = [];
+
+            for(i in data){
+                if(data[i].main_muscle==input.name)
+                    factory.data.main_muscle.push(data[i]);
+                if(data[i].other_muscles==input.name)
+                    factory.data.other_muscles.push(data[i]);
+                if(data[i].force==input.name)
+                    factory.data.force.push(data[i]);
+                if(data[i].level==input.name)
+                    factory.data.level.push(data[i]);
+                if(data[i].mechanics==input.name)
+                    factory.data.mechanics.push(data[i]);
+                if(data[i].equipment==input.name)
+                    factory.data.equipment.push(data[i]);
+                if(data[i].type==input.name)
+                    factory.data.type.push(data[i]);
+                if(data[i].sport==input.name)
+                    factory.data.sport.push(data[i]);
+            }
+            callback(factory.data);
+        });
+    };
 
     return factory;
 })
 
 myApp.controller('loginController', function($scope,$location,userFactory,liftFactory){
-    liftFactory.showLifts(function(data){
+    liftFactory.show(function(data){
         $scope.lifts = data;
     })
 
@@ -87,22 +102,22 @@ myApp.controller('loginController', function($scope,$location,userFactory,liftFa
     };
 });
 
-myApp.controller('dashboardController', function($scope,$location,userFactory,liftFactory){
-    userFactory.showCurrentUser(function(data){
-        $scope.currentUser = data;
-        if(!data.name)
-            $location.url('/');
-    });
+// myApp.controller('dashboardController', function($scope,$location,userFactory,liftFactory){
+//     userFactory.showCurrentUser(function(data){
+//         $scope.currentUser = data;
+//         if(!data.name)
+//             $location.url('/');
+//     });
 
     
 
-    $scope.logout = function(){
-        userFactory.logout(function(data){
-            $scope.currentUser = data;
-            $location.url('/');
-        })
-    }
-});
+//     $scope.logout = function(){
+//         userFactory.logout(function(data){
+//             $scope.currentUser = data;
+//             $location.url('/');
+//         })
+//     }
+// });
 
 myApp.controller('showController', function($scope,$location,liftFactory,userFactory,$route){
     // userFactory.showCurrentUser(function(data){
@@ -111,17 +126,12 @@ myApp.controller('showController', function($scope,$location,liftFactory,userFac
     //         $location.url('/');
     // });
 
-    liftFactory.showLifts(function(data){
-        $scope.lifts = data;
+    liftFactory.showOne($route.current.params, function(data){
+        $scope.lift = data;
+        $scope.lift.other_muscles = $scope.lift.other_muscles.split(", ");
+        $scope.lift.guide = $scope.lift.guide.split(".,");
     })
-    for(var i=0; i<lifts.length; i++){
-        for(var key in $scope.lifts[i]){
-            if(key==$route.current.params.name){
-                $scope.lift = $scope.lifts[i];
-                $scope.others = $scope.lifts[i][key]["Other Muscles"].split(", ")
-            }
-        }
-    }
+
 });
 
 myApp.controller('dataController', function($scope,$location,liftFactory,userFactory,$route){
@@ -131,15 +141,8 @@ myApp.controller('dataController', function($scope,$location,liftFactory,userFac
     //         $location.url('/');
     // });
 
-    liftFactory.showLifts(function(data){
-        $scope.lifts = data;
-    })
-    for(var i=0; i<lifts.length; i++){
-        for(var key in $scope.lifts[i]){
-            if(key==$route.current.params.name){
-                $scope.lift = $scope.lifts[i];
-                $scope.others = $scope.lifts[i][key]["Other Muscles"].split(", ")
-            }
-        }
-    }
+    liftFactory.showData($route.current.params, function(data){
+        $scope.data = data;
+    });
+    
 });

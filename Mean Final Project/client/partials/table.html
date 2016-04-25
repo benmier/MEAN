@@ -18,7 +18,7 @@
             <td><a href="#/exercise/{{lift.name}}">{{lift.name}}</a></td>
             <td><a href="#/data/{{lift.main_muscle}}">{{lift.main_muscle}}</a></td>
             <td style="width: 20%">
-                <span ng-repeat='other in lift.other_muscles'><a href="#/data/{{other}}" style="margin-right: 10px;">{{other}}</a> </span> 
+                <span ng-repeat='other in lift.other_muscles'><a href="#/data/{{other.name}}" style="margin-right: 10px;">{{other.name}}</a> </span> 
             </td>
             <td><a href="#/data/{{lift.force}}">{{lift.force}}</a></td>
             <td><a href="#/data/{{lift.level}}">{{lift.level}}</a></td>
