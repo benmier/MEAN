@@ -89,7 +89,9 @@ myApp.controller('loginController', function($scope,$location,userFactory,liftFa
     liftFactory.show(function(data){
         $scope.lifts = data;
         for(i in $scope.lifts){
-            $scope.lifts[i].other_muscles = $scope.lift.other_muscles.split(", ");
+            if($scope.lifts[i].other_muscles)
+            console.log($scope.lifts[i].other_muscles.split(", "))
+            //     $scope.lifts[i].other_muscles = $scope.lift.other_muscles.split(", ");
         }
     })
 
