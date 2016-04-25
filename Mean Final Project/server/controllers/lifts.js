@@ -28,13 +28,9 @@ module.exports = {
             else{
                 var newData = {};
                 for(var i=0; i<data.length; i++){
-                    console.log(data[i])
-                    for(lift in data){
-                        for(key in lift){
-                            // console.log(key)
-                            if(lift[key]==req.params.name)
-                                newData[i]=data[i];
-                        }
+                    for(lift in data[i]){
+                        if(data[i][lift]==req.params.name)
+                            newData[i]=data[i];
                     };
                 };
                 res.json(newData);
