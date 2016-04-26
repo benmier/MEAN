@@ -26,6 +26,16 @@ myApp.config(function($routeProvider){
 myApp.factory('userFactory', function($http){
     var factory = {};
 
+    factory.showCurrentUser = function(callback){
+        if(!factory.currentUser){
+            $http.get('/users/Ben').success(function(data){
+                factory.currentUser = data;
+                callback(factory.currentUser);
+            });
+        }
+        else
+            callback(factory.currentUser);
+    };
 
     return factory;
 });
@@ -105,22 +115,22 @@ myApp.controller('loginController', function($scope,$location,userFactory,liftFa
     };
 });
 
-// myApp.controller('dashboardController', function($scope,$location,userFactory,liftFactory){
-//     userFactory.showCurrentUser(function(data){
-//         $scope.currentUser = data;
-//         if(!data.name)
-//             $location.url('/');
-//     });
+myApp.controller('dashboardController', function($scope,$location,userFactory,liftFactory){
+    userFactory.showCurrentUser(function(data){
+        $scope.currentUser = data;
+        if(!data.name)
+            $location.url('/');
+    });
 
     
 
-//     $scope.logout = function(){
-//         userFactory.logout(function(data){
-//             $scope.currentUser = data;
-//             $location.url('/');
-//         })
-//     }
-// });
+    $scope.logout = function(){
+        userFactory.logout(function(data){
+            $scope.currentUser = data;
+            $location.url('/');
+        })
+    }
+});
 
 myApp.controller('showController', function($scope,$location,liftFactory,userFactory,$route){
     // userFactory.showCurrentUser(function(data){
