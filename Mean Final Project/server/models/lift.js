@@ -13,7 +13,8 @@ var LiftSchema = new mongoose.Schema({
 	type: String,
 	guide: String,
 	pic_left: String,
-	pic_right: String
+	pic_right: String,
+	muscle_img: String
 });
 
 var Lifts = mongoose.model('Lifts', LiftSchema);
