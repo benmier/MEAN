@@ -24,9 +24,12 @@
 	  <div style="display: inline-block; vertical-align: top">
 	  	<h3 ng-model='currentUser.weight' ng-show='!edit' >{{currentUser.weight}} lbs</h3>
 	  	<div ng-show='edit'>
-	  		<input ng-model='currentUser.weight'  value="{{currentUser.weight}}" style="width: 70px; height:35px; margin-top: 10px;"><h3 style="display: inline-block;"> lbs</h3>
+	  		<input ng-model='currentUser.weight'  value="{{currentUser.weight}}" style="width: 70px; height:25px; margin: 21px 10px 0px 0px;">
 	  	</div>
-	  	<h3>{{currentUser.body_fat}}%</h3>
+	  	<h3 ng-model='currentUser.body_fat' ng-show='!edit' >{{currentUser.body_fat}}%</h3>
+	  	<div ng-show='edit'>
+	  		<input ng-model='currentUser.body_fat'  value="{{currentUser.body_fat}}" style="width: 70px; height:25px; margin: 21px 10px 0px 0px;">
+	  	</div>
 	  	<h3>{{currentUser.weight * (1-(currentUser.body_fat*0.01)) | number:1}} lbs</h3>
 	  	<h3>{{currentUser.weight * (currentUser.body_fat*0.01) | number:1}} lbs</h3>
 	  	<h3>{{(currentUser.weight*703)/(currentUser.height*currentUser.height) | number:1}}</h3>
