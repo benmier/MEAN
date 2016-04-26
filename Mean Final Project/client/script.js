@@ -126,7 +126,7 @@ myApp.controller('loginController', function($scope,$location,userFactory,liftFa
     };
 
     $scope.create = function(){
-        userFactory.create($scope.newUser,function())
+        userFactory.create($scope.newUser,function(){})
     }
 });
 
