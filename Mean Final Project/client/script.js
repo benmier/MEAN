@@ -195,4 +195,8 @@ myApp.controller('trackController', function($scope,liftFactory){
     liftFactory.show(function(data){
         $scope.lifts = data;
     });
+
+    $scope.addExercise = function(lift){
+        alert(lift.name)
+    };
 });

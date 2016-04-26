@@ -12,11 +12,11 @@
     <input ng-model='filterer' placeholder="e.g. squat, running"></input>
   </div>
   <div class="panel-body" ng-if='filterer'>
-	  <div ng-repeat='lift in lifts | filter:filterer' style="margin-bottom: 10px" ng-click='addExercise(lift)'>
+	  <div ng-repeat='lift in lifts | filter:filterer' style="margin-bottom: 10px" ng-click='addExercise(lift)' a:hover='background-color: black'>
 	  		<img src="{{lift.pic_left}}" height="50px" width='50px' style="display: inline-block;"> 
 	  		<div style="display: inline-block; word-wrap: break-word; height: 40px; width: 210px; padding: 2px 5px; vertical-align: middle;">
 	  			<div style="word-wrap: break-word; display: inline-block">
-	  				{{lift.name}}
+	  				<a href="" style="color:black">{{lift.name}}</a>
 	  			</div>
 	  		</div>
 	  </div>
