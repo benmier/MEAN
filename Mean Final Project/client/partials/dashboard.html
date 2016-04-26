@@ -11,12 +11,21 @@
     <h2 class="panel-title">Your Stats</h2>
   </div>
   <div class="panel-body">
-    <h3>Current Weight: {{currentUser.weight}} lbs</h3>
-    <h3>Current Body Fat: {{currentUser.body_fat}}%</h3>
-    <h3>Lean Body Mass: {{currentUser.weight * (1-(currentUser.body_fat*0.01)) | number:1}} lbs</h3>
-    <h3>Body Fat: {{currentUser.weight * (currentUser.body_fat*0.01) | number:1}} lbs</h3>
-    <h3>BMI: {{(currentUser.weight*703)/(currentUser.height*currentUser.height) | number:1}}</h3>
-    <h3>Basal Metabolic Rate: {{370+(21.6*(currentUser.weight * (1-(currentUser.body_fat*0.01))/2.2)) | number:0}} calories</h3>
-    <h3>Current Body Fat: {{currentUser.body_fat}}%</h3>
+	  <div style="display: inline-block;">
+	    <h3>Current Weight: </h3>
+	    <h3>Current Body Fat:</h3>
+	    <h3>Lean Body Mass:</h3>
+	    <h3>Body Fat:</h3>
+	    <h3>BMI:</h3>
+	    <h3>Basal Metabolic Rate:</h3>
+	  </div>
+	  <div style="display: inline-block;">
+	  	<h3>{{currentUser.weight}} lbs</h3>
+	  	<h3>{{currentUser.body_fat}}%</h3>
+	  	<h3>{{currentUser.weight * (1-(currentUser.body_fat*0.01)) | number:1}} lbs</h3>
+	  	<h3>{{currentUser.weight * (currentUser.body_fat*0.01) | number:1}} lbs</h3>
+	  	<h3>{{(currentUser.weight*703)/(currentUser.height*currentUser.height) | number:1}}</h3>
+	  	<h3>{{370+(21.6*(currentUser.weight * (1-(currentUser.body_fat*0.01))/2.2)) | number:0}} calories</h3>
+	  </div>
   </div>
 </div>
