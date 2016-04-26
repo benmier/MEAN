@@ -6,33 +6,31 @@
 </form><br><hr><br>
 
 <h2>Register</h2>
-<form class="form-group">
+<form class="form-group" style="width: 300px">
 	<label>Name</label>
-	<input type="text" ng-model='newUser.name'></input><br>
+	<input class="form-control"  type="text" ng-model='newUser.name'></input><br>
 	<label>Age</label>
-	<input type="number" ng-model='newUser.age'></input><br>
+	<input class="form-control"  type="number" ng-model='newUser.age'></input><br>
 	<label>Height (inches)</label>
-	<input type="number" ng-model='newUser.height'></input><br>
+	<input class="form-control"  type="number" ng-model='newUser.height'></input><br>
 	<label>Weight (lbs)</label>
-	<input type="number" ng-model='newUser.weight'></input><br>
+	<input class="form-control"  type="number" ng-model='newUser.weight'></input><br>
 	<label>Body Fat Percentage (if known)</label>
-	<input type="number" ng-model='newUser.body_fat'></input><br>
-	<label>Body Fat Percentage (if known)</label>
-	<input type="number" ng-model='newUser.name'></input><br>
+	<input class="form-control"  type="number" ng-model='newUser.body_fat'></input><br>
 	<label>Fitness Goal</label>
-	<select ng-model='newUser.goal'>
+	<select ng-model='newUser.goal' class="form-control">
 		<option>Lose Fat</option>
 		<option>Gain Muscle</option>
 		<option>Maintain</option>
 	</select><br>
 	<label>Goal Weight</label>
-	<input type="number" ng-model='newUser.target_weight'></input><br>
+	<input class="form-control"  type="number" ng-model='newUser.target_weight'></input><br>
 	<label>Activity Level</label>
-	<select ng-model='newUser.multiplier'>
-		<option value="1.1">"<"1 hour exercise per week</option>
+	<select ng-model='newUser.multiplier' class="form-control">
+		<option value="1.1">< 1 hour exercise per week</option>
 		<option value="1.2">1-3 hours exercise per week</option>
 		<option value="1.35">4-6 hours exercise per week</option>
 		<option value="1.45">6+ hours exercise per week</option>
 	</select><br>
-	<input type="submit" ng-click='create()' class="btn" value="Register" autofocus></input>
+	<input class="form-control"  type="submit" ng-click='create()' class="btn" value="Register" autofocus></input>
 </form>

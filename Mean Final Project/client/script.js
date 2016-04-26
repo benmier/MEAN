@@ -126,8 +126,10 @@ myApp.controller('loginController', function($scope,$location,userFactory,liftFa
     };
 
     $scope.create = function(){
-        userFactory.create($scope.newUser,function(){})
-    }
+        userFactory.create($scope.newUser,function(){
+            $location.url('/dashboard');
+        });
+    };
 });
 
 myApp.controller('dashboardController', function($scope,$location,userFactory,liftFactory){
