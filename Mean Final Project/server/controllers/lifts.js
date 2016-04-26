@@ -38,6 +38,7 @@ module.exports = {
                 else if(data.main_muscle=="Traps"){
                     data.muscle_img = "http://assets.bodybuilding.com/images/trackers/exercise/heatmap/11.gif"
                     console.log(data.main_muscle)
+                    console.log(data)
                 }
                 else if(data.main_muscle=="Adductors")
                     data.muscle_img = "http://assets.bodybuilding.com/images/trackers/exercise/heatmap/17.gif"
