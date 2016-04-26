@@ -190,3 +190,9 @@ myApp.controller('tableController', function($scope,liftFactory){
         $scope.lifts = data;
     });
 });
+
+myApp.controller('trackController', function($scope,liftFactory){
+    liftFactory.show(function(data){
+        $scope.lifts = data;
+    });
+});
