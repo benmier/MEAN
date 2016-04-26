@@ -8,9 +8,12 @@
 
 <div class="panel panel-default" style="width: 400px; height:400px; padding:10px;">
   <div class="panel-heading">
-    <h3 class="panel-title">Current Body Composition</h3>
+    <h2 class="panel-title">Your Stats</h2>
   </div>
   <div class="panel-body">
-    Current Weight: {{currentUser.weight}}</li>
+    <h3>Current Weight: {{currentUser.weight}} lbs</h3>
+    <h3>Current Body Fat: {{currentUser.body_fat}}%</h3>
+    <h3>Lean Body Mass: {{currentUser.weight * (1-(currentUser.body_fat*0.01)) | number:1}} lbs</h3>
+    <h3>Body Fat: {{currentUser.weight * (currentUser.body_fat*0.01)}} lbs</h3>
   </div>
 </div>
