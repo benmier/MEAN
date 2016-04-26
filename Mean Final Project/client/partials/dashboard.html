@@ -41,7 +41,7 @@
 
 <div class="panel panel-default" style="width: 500px; height:400px; padding:10px; display: inline-block; margin: 0px 20px 20px 0px; vertical-align: top">
   <div class="panel-heading">
-    <h2 class="panel-title">Your Goals <span style="margin-left: 315px">Edit:<input type="checkbox" ng-model='edit'></input></span>
+    <h2 class="panel-title">Your Goals <span style="margin-left: 315px">Edit:<input type="checkbox" ng-model='edit1'></input></span>
 </h2>
   </div>
   <div class="panel-body">
@@ -56,7 +56,10 @@
 	  </div>
 	  <div style="display: inline-block;">
 	  	<h3>{{currentUser.goal}}</h3>
-	  	<h3>{{currentUser.target_weight}} lbs</h3>
+	  	<h3 ng-model='currentUser.target_weight' ng-show='!edit1' >{{currentUser.target_weight}} lbs</h3>
+	  	<div ng-show='edit1'>
+	  		<input ng-model='currentUser.target_weight'  value="{{currentUser.target_weight}}" style="width: 70px; height:25px; margin: 10px 10px 0px 0px;">
+	  	</div>
 	  	<h3>{{currentUser.target_weight - currentUser.weight | number:1}} lbs</h3>
 	  	
 	  	<div ng-if='currentUser.goal == "Gain Muscle"'>
