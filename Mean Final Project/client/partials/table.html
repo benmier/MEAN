@@ -1,6 +1,6 @@
 <input ng-model='filterer' placeholder="Search all categories..."></input><br><br>
 <div class="table-responsive" style="height:800px">
-<table class="table table-striped" id="lift_table">
+<table class="table table-striped">
     <thead>
     	<tr>
     		<th>Name</th>
@@ -14,7 +14,7 @@
     		<th>Type</th>
     	</tr>
     </thead>
-    <tbody>
+    <tbody id="lift_table">
    		<tr ng-repeat='lift in lifts | filter:filterer'>
             <td><a href="#/exercise/{{lift.name}}">{{lift.name}}</a></td>
             <td><a href="#/data/{{lift.main_muscle}}">{{lift.main_muscle}}</a></td>
@@ -29,8 +29,8 @@
             <td><a href="#/data/{{lift.type}}">{{lift.type}}</a></td>
    		</tr>
     </tbody>
-      </div>
+    </table>
+</div>
     <div class="col-md-12 text-center">
       <ul class="pagination pagination-lg pager" id="myPager"></ul>
-      </div>
-</table>
+    </div>
