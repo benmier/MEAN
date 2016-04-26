@@ -60,10 +60,14 @@ myApp.factory('liftFactory', function($http){
     var factory = {};
 
     factory.show = function(callback){
-        $http.get('/lifts').success(function(data){
+        if(!factory.lifts){
+            $http.get('/lifts').success(function(data){
             factory.lifts = data;
             callback(factory.lifts);
-        });
+            })
+        }
+        else
+            callback(factory.lifts)
     };
 
     factory.showOne = function(lift,callback){
