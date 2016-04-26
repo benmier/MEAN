@@ -6,13 +6,13 @@
 </div>
 <h2>Log a Workout</h2>
 
-<div class="panel panel-default" style="width: 350px; height: 100%; padding:10px; display: inline-block; vertical-align: top">
+<div class="panel panel-default" style="width: 320px; height: 100%; padding:10px; display: inline-block; vertical-align: top">
   <div class="panel-heading">
     <h2 class="panel-title" style="display: inline-block; margin-right: 10px">Seach</h2> 
     <input ng-model='filterer' placeholder="e.g. squat, running"></input>
   </div>
   <div class="panel-body" ng-if='filterer'>
-	  <div ng-repeat='lift in lifts | filter:filterer' style="margin-bottom: 10px max-height:50px">
+	  <div ng-repeat='lift in lifts | filter:filterer' style="margin-bottom: 10px" ng-click='addExercise(lift)'>
 	  		<img src="{{lift.pic_left}}" height="50px" width='50px' style="display: inline-block;"> 
 	  		<div style="display: inline-block; word-wrap: break-word; height: 40px; width: 210px; padding: 2px 5px; vertical-align: middle;">
 	  			<div style="word-wrap: break-word; display: inline-block">
@@ -21,4 +21,8 @@
 	  		</div>
 	  </div>
   </div>
+</div>
+
+<div>
+	
 </div>
