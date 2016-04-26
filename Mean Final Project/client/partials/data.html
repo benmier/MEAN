@@ -1,10 +1,12 @@
 <h1>{{data.name}}</h1>
-<div style="border: 1px solid black; width:325px; padding: 10px; display: inline-block; vertical-align: top" ng-if='data.main_muscle.length>0'>
+<div style="border: 1px solid black; width:600px; padding: 10px; display: inline-block; vertical-align: top" ng-if='data.main_muscle.length>0'>
 	<h3>Main Muscle</h3>
 	<input ng-model='main_muscle' placeholder="Search..."></input><br><br>
-	<ul>
-		<li ng-repeat="item in data.main_muscle | filter:main_muscle"><a href='#/exercise/{{item.name}}'>{{item.name}}</a></li>
-	</ul>
+	<div ng-repeat="item in data.main_muscle | filter:main_muscle" style="border: 1px solid black;">
+		<img src="{{item.pic_left}}" style="margin-right: 10px;" width="100px" height="100px">
+		<img src="{{item.pic_right}}" style="margin-right: 10px;" width="100px" height="100px">
+		<a href='#/exercise/{{item.name}}'>{{item.name}}</a></li>
+	</div>
 </div>
 
 <div style="border: 1px solid black; width:325px; padding: 10px; display: inline-block; vertical-align: top" ng-if='data.other_muscles.length>0'>
