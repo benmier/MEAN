@@ -1,5 +1,5 @@
 <h1>{{data.name}}</h1>
-<div style="border: 1px solid black; width:600px; padding: 10px; display: inline-block; vertical-align: top" ng-if='data.main_muscle.length>0'>
+<div style="border: 1px solid black; width:650px; padding: 10px; display: inline-block; vertical-align: top" ng-if='data.main_muscle.length>0'>
 	<h3>Main Muscle</h3>
 	<input ng-model='main_muscle' placeholder="Search..."></input><br><br>
 	<div ng-repeat="item in data.main_muscle | filter:main_muscle" style="border: 1px solid black; margin-bottom: 10px">
@@ -9,7 +9,7 @@
 	</div>
 </div>
 
-<div style="border: 1px solid black; width:600px; padding: 10px; display: inline-block; vertical-align: top" ng-if='data.other_muscles.length>0'>
+<div style="border: 1px solid black; width:650px; padding: 10px; display: inline-block; vertical-align: top" ng-if='data.other_muscles.length>0'>
 	<h3>Secondary Muscle</h3>
 	<input ng-model='other_muscles' placeholder="Search..."></input><br><br>
 	<div ng-repeat="item in data.other_muscles | filter:other_muscles" style="border: 1px solid black; margin-bottom: 10px">
@@ -19,50 +19,62 @@
 	</div>
 </div>
 
-<div style="border: 1px solid black; width:600px; padding: 10px; display: inline-block; vertical-align: top" ng-if='data.force.length>0'>
+<div style="border: 1px solid black; width:650px; padding: 10px; display: inline-block; vertical-align: top" ng-if='data.force.length>0'>
 	<h3>Force</h3>
 	<input ng-model='force' placeholder="Search..."></input><br><br>
-	<ul>
-		<li ng-repeat="item in data.force | filter:force"><a href='#/exercise/{{item.name}}'>{{item.name}}</a></li>
-	</ul>
+	<div ng-repeat="item in data.force | filter:force" style="border: 1px solid black; margin-bottom: 10px">
+		<img src="{{item.pic_left}}" style="margin-right: 10px;" width="100px" height="100px">
+		<img src="{{item.pic_right}}" style="margin-right: 10px;" width="100px" height="100px">
+		<a href='#/exercise/{{item.name}}'>{{item.name}}</a></li>
+	</div>
 </div>
 
-<div style="border: 1px solid black; width:600px; padding: 10px; display: inline-block; vertical-align: top" ng-if='data.level.length>0'>
+<div style="border: 1px solid black; width:650px; padding: 10px; display: inline-block; vertical-align: top" ng-if='data.level.length>0'>
 	<h3>Difficulty</h3>
 	<input ng-model='level' placeholder="Search..."></input><br><br>
-	<ul>
-		<li ng-repeat="item in data.level | filter:level"><a href='#/exercise/{{item.name}}'>{{item.name}}</a></li>
-	</ul>
+	<div ng-repeat="item in data.level | filter:level" style="border: 1px solid black; margin-bottom: 10px">
+		<img src="{{item.pic_left}}" style="margin-right: 10px;" width="100px" height="100px">
+		<img src="{{item.pic_right}}" style="margin-right: 10px;" width="100px" height="100px">
+		<a href='#/exercise/{{item.name}}'>{{item.name}}</a></li>
+	</div>
 </div>
 
-<div style="border: 1px solid black; width:600px; padding: 10px; display: inline-block; vertical-align: top" ng-if='data.mechanics.length>0'>
+<div style="border: 1px solid black; width:650px; padding: 10px; display: inline-block; vertical-align: top" ng-if='data.mechanics.length>0'>
 	<h3>Mechanics</h3>
 	<input ng-model='mechanics' placeholder="Search..."></input><br><br>
-	<ul>
-		<li ng-repeat="item in data.mechanics | filter:mechanics"><a href='#/exercise/{{item.name}}'>{{item.name}}</a></li>
-	</ul>
+	<div ng-repeat="item in data.mechanics | filter:mechanics" style="border: 1px solid black; margin-bottom: 10px">
+		<img src="{{item.pic_left}}" style="margin-right: 10px;" width="100px" height="100px">
+		<img src="{{item.pic_right}}" style="margin-right: 10px;" width="100px" height="100px">
+		<a href='#/exercise/{{item.name}}'>{{item.name}}</a></li>
+	</div>
 </div>
 
-<div style="border: 1px solid black; width:600px; padding: 10px; display: inline-block; vertical-align: top" ng-if='data.equipment.length>0'>
+<div style="border: 1px solid black; width:650px; padding: 10px; display: inline-block; vertical-align: top" ng-if='data.equipment.length>0'>
 	<h3>Equipment</h3>
 	<input ng-model='equipment' placeholder="Search..."></input><br><br>
-	<ul>
-		<li ng-repeat="item in data.equipment | filter:equipment"><a href='#/exercise/{{item.name}}'>{{item.name}}</a></li>
-	</ul>
+	<div ng-repeat="item in data.equipment | filter:equipment" style="border: 1px solid black; margin-bottom: 10px">
+		<img src="{{item.pic_left}}" style="margin-right: 10px;" width="100px" height="100px">
+		<img src="{{item.pic_right}}" style="margin-right: 10px;" width="100px" height="100px">
+		<a href='#/exercise/{{item.name}}'>{{item.name}}</a></li>
+	</div>
 </div>
 
-<div style="border: 1px solid black; width:600px; padding: 10px; display: inline-block; vertical-align: top" ng-if='data.sport.length>0'>
+<div style="border: 1px solid black; width:650px; padding: 10px; display: inline-block; vertical-align: top" ng-if='data.sport.length>0'>
 	<h3>Sport</h3>
 	<input ng-model='sport' placeholder="Search..."></input><br><br>
-	<ul>
-		<li ng-repeat="item in data.sport | filter:sport"><a href='#/exercise/{{item.name}}'>{{item.name}}</a></li>
-	</ul>
+	<div ng-repeat="item in data.sport | filter:sport" style="border: 1px solid black; margin-bottom: 10px">
+		<img src="{{item.pic_left}}" style="margin-right: 10px;" width="100px" height="100px">
+		<img src="{{item.pic_right}}" style="margin-right: 10px;" width="100px" height="100px">
+		<a href='#/exercise/{{item.name}}'>{{item.name}}</a></li>
+	</div>
 </div>
 
-<div style="border: 1px solid black; width:600px; padding: 10px; display: inline-block; vertical-align: top" ng-if='data.type.length>0'>
+<div style="border: 1px solid black; width:650px; padding: 10px; display: inline-block; vertical-align: top" ng-if='data.type.length>0'>
 	<h3>Type</h3>
 	<input ng-model='type' placeholder="Search..."></input><br><br>
-	<ul>
-		<li ng-repeat="item in data.type | filter:type"><a href='#/exercise/{{item.name}}'>{{item.name}}</a></li>
-	</ul>
+	<div ng-repeat="item in data.type | filter:type" style="border: 1px solid black; margin-bottom: 10px">
+		<img src="{{item.pic_left}}" style="margin-right: 10px;" width="100px" height="100px">
+		<img src="{{item.pic_right}}" style="margin-right: 10px;" width="100px" height="100px">
+		<a href='#/exercise/{{item.name}}'>{{item.name}}</a></li>
+	</div>
 </div>
