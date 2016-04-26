@@ -12,9 +12,9 @@
     <input ng-model='filterer' placeholder="e.g. squat, running"></input>
   </div>
   <div class="panel-body" ng-if='filterer'>
-	  <div ng-repeat='lift in lifts | filter:filterer' style="margin-bottom: 10px">
-	  		<img src="{{lift.pic_left}}" height="50px" width='50px'> 
-	  		<p>{{lift.name}}</p>
+	  <div ng-repeat='lift in lifts | filter:filterer' style="margin-bottom: 10px; height: 50px">
+	  		<img src="{{lift.pic_left}}" height="50px" width='50px' style="display: inline;"> 
+	  		<div style="display: inline;"><span >{{lift.name}}</span></div>
 	  </div>
   </div>
 </div>
