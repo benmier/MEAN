@@ -6,7 +6,7 @@
 
 <h2>Welcome {{currentUser.name}}!</h2><br>
 
-<div class="panel panel-default" style="width: 400px; height:400px; padding:10px;">
+<div class="panel panel-default" style="width: 500px; height:400px; padding:10px;">
   <div class="panel-heading">
     <h2 class="panel-title">Your Stats</h2>
   </div>
@@ -16,7 +16,7 @@
     <h3>Lean Body Mass: {{currentUser.weight * (1-(currentUser.body_fat*0.01)) | number:1}} lbs</h3>
     <h3>Body Fat: {{currentUser.weight * (currentUser.body_fat*0.01) | number:1}} lbs</h3>
     <h3>BMI: {{(currentUser.weight*703)/(currentUser.height*currentUser.height) | number:1}}</h3>
-    <h3>Current Body Fat: {{currentUser.body_fat}}%</h3>
+    <h3>Basal Metabolic Rate: {{370+(21.6*(currentUser.weight * (1-(currentUser.body_fat*0.01))/2.2)) | number:0}} calories</h3>
     <h3>Current Body Fat: {{currentUser.body_fat}}%</h3>
   </div>
 </div>
