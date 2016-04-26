@@ -52,7 +52,7 @@ module.exports = {
                 else if(data.main_muscle=="Abductors")
                     data.muscle_img = "http://assets.bodybuilding.com/images/trackers/exercise/heatmap/18.gif"
                 if(data.muscle_img){
-                    console.log(data)
+                    console.log(data.muscle_img)
                     res.json(data);
                 }
             }

@@ -42,6 +42,7 @@ myApp.factory('liftFactory', function($http){
 
     factory.showOne = function(lift,callback){
         $http.get('/lifts/'+lift.name).success(function(data){
+            console.log(data.muscle_img)
             factory.lift = data;
             callback(factory.lift);
         });
@@ -131,7 +132,6 @@ myApp.controller('showController', function($scope,$location,liftFactory,userFac
     liftFactory.showOne($route.current.params, function(data){
         $scope.lift = data;
         $scope.lift.guide = $scope.lift.guide.split(".,");
-        console.log(data)
     })
 
 });
