@@ -32,7 +32,7 @@
   </div>
 </div>
 
-<div class="panel panel-default" style="width: 500px; height:400px; padding:10px; display: inline-block; margin: 0px 20px 20px 0px">
+<div class="panel panel-default" style="width: 500px; height:400px; padding:10px; display: inline-block; margin: 0px 20px 20px 0px; vertical-align: top">
   <div class="panel-heading">
     <h2 class="panel-title">Your Goals</h2>
   </div>
@@ -41,19 +41,20 @@
 	    <h3>Fitness Goal:</h3>
 	    <h3>Goal Weight:</h3>
 	    <h3>Pounds Left:</h3>
-	    <h3>Body Fat Mass:</h3>
-	    <h3>Body Mass Index:</h3>
-	    <h3>Basal Metabolic Rate:</h3>
-	    <h3>Total Daily Burn:</h3>
+	    <h3>Intake Goal:</h3>
 	  </div>
 	  <div style="display: inline-block;">
 	  	<h3>{{currentUser.goal}}</h3>
 	  	<h3>{{currentUser.target_weight}} lbs</h3>
 	  	<h3>{{currentUser.target_weight - currentUser.weight | number:1}} lbs</h3>
-	  	<h3>{{currentUser.weight * (currentUser.body_fat*0.01) | number:1}} lbs</h3>
-	  	<h3>{{(currentUser.weight*703)/(currentUser.height*currentUser.height) | number:1}}</h3>
-	  	<h3>{{370+(21.6*(currentUser.weight * (1-(currentUser.body_fat*0.01))/2.2)) | number:0}} calories</h3>
-	  	<h3>{{(370+(21.6*(currentUser.weight * (1-(currentUser.body_fat*0.01))/2.2)))*currentUser.multiplier | number:0}} calories</h3>
+	  	
+	  	<h3 ng-if='currentUser.goal == "Gain Muscle"'>{{(370+(21.6*(currentUser.weight * (1-(currentUser.body_fat*0.01))/2.2)))*currentUser.multiplier*1.2 | number:0}} calories</h3>
+
+	  	<h3 ng-if='currentUser.goal == "Lose Fat"'>{{(370+(21.6*(currentUser.weight * (1-(currentUser.body_fat*0.01))/2.2)))*currentUser.multiplier*0.8 | number:0}} calories</h3>
+
+	  	<h3 ng-if='currentUser.goal == "Maintain"'>{{(370+(21.6*(currentUser.weight * (1-(currentUser.body_fat*0.01))/2.2)))*currentUser.multiplier | number:0}} calories</h3>
+
+	  	
 	  </div>
   </div>
 </div>
