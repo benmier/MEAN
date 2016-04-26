@@ -14,6 +14,10 @@ myApp.config(function($routeProvider){
             templateUrl: 'partials/dashboard.html',
             controller: "dashboardController"
         })
+        .when('/track',{
+            templateUrl: 'partials/track.html',
+            controller: "trackController"
+        })
         .when('/data/:name',{
             templateUrl: 'partials/data.html',
             controller: "dataController"
