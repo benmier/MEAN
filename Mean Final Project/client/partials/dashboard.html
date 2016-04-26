@@ -21,7 +21,7 @@
 	    <h3>Total Daily Burn:</h3>
 	  </div>
 	  <div style="display: inline-block;">
-	  	<h3>{{currentUser.weight}} lbs</h3>
+	  	<h3 ng-model='currentUser.weight' ng-show='!checkbox'>{{currentUser.weight}} lbs <span style="font-size: 12pt">Edit<input type="checkbox" ng-model='checkbox'></input></span></h3>
 	  	<h3>{{currentUser.body_fat}}%</h3>
 	  	<h3>{{currentUser.weight * (1-(currentUser.body_fat*0.01)) | number:1}} lbs</h3>
 	  	<h3>{{currentUser.weight * (currentUser.body_fat*0.01) | number:1}} lbs</h3>
