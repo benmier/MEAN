@@ -3,21 +3,25 @@ var myApp = angular.module('myApp',['ngRoute']);
 myApp.config(function($routeProvider){
     $routeProvider
         .when('/',{
-            templateUrl: 'partials/table.html',
+            templateUrl: 'partials/login.html',
             controller: "loginController"
         })
         .when('/exercise/:name',{
             templateUrl: 'partials/show.html',
             controller: "showController"
         })
+        .when('/dashboard',{
+            templateUrl: 'partials/dashboard.html',
+            controller: "dashboardController"
+        })
         .when('/data/:name',{
             templateUrl: 'partials/data.html',
             controller: "dataController"
         })
-        // .when('/create',{
-        //     templateUrl: 'partials/create.html',
-        //     controller: "createController"
-        // })
+        .when('/table',{
+            templateUrl: 'partials/table.html',
+            controller: "tableController"
+        })
         .otherwise({
             redirectTo: '/'
         })
@@ -43,6 +47,11 @@ myApp.factory('userFactory', function($http){
             callback(data);
         });
     };
+
+    factory.logout = function(callback){
+        factory.currentUser = {};
+        callback(factory.currentUser);
+    }
 
     return factory;
 });
@@ -115,6 +124,10 @@ myApp.controller('loginController', function($scope,$location,userFactory,liftFa
             });
         }
     };
+
+    $scope.create = function(){
+        userFactory.create($scope.newUser,function())
+    }
 });
 
 myApp.controller('dashboardController', function($scope,$location,userFactory,liftFactory){
@@ -123,6 +136,7 @@ myApp.controller('dashboardController', function($scope,$location,userFactory,li
         if(!data.name)
             $location.url('/');
     });
+
 
     
 
@@ -135,11 +149,11 @@ myApp.controller('dashboardController', function($scope,$location,userFactory,li
 });
 
 myApp.controller('showController', function($scope,$location,liftFactory,userFactory,$route){
-    // userFactory.showCurrentUser(function(data){
-    //     $scope.currentUser = data;
-    //     if(!data.name)
-    //         $location.url('/');
-    // });
+    userFactory.showCurrentUser(function(data){
+        $scope.currentUser = data;
+        if(!data.name)
+            $location.url('/');
+    });
 
     liftFactory.showOne($route.current.params, function(data){
         $scope.lift = data;
@@ -149,11 +163,11 @@ myApp.controller('showController', function($scope,$location,liftFactory,userFac
 });
 
 myApp.controller('dataController', function($scope,$location,liftFactory,userFactory,$route){
-    // userFactory.showCurrentUser(function(data){
-    //     $scope.currentUser = data;
-    //     if(!data.name)
-    //         $location.url('/');
-    // });
+    userFactory.showCurrentUser(function(data){
+        $scope.currentUser = data;
+        if(!data.name)
+            $location.url('/');
+    });
 
     liftFactory.showData($route.current.params, function(data){
         $scope.data = data;
