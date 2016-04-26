@@ -35,8 +35,10 @@ module.exports = {
                     data.muscle_img = "http://assets.bodybuilding.com/images/trackers/exercise/heatmap/4.gif"
                 else if(data.main_muscle=="Shoulders")
                     data.muscle_img = "http://assets.bodybuilding.com/images/trackers/exercise/heatmap/12.gif"
-                else if(data.main_muscle=="Traps")
+                else if(data.main_muscle=="Traps"){
                     data.muscle_img = "http://assets.bodybuilding.com/images/trackers/exercise/heatmap/11.gif"
+                    console.log(data.main_muscle)
+                }
                 else if(data.main_muscle=="Adductors")
                     data.muscle_img = "http://assets.bodybuilding.com/images/trackers/exercise/heatmap/17.gif"
                 else if(data.main_muscle=="Lower Back")
@@ -51,10 +53,8 @@ module.exports = {
                     data.muscle_img = "http://assets.bodybuilding.com/images/trackers/exercise/heatmap/6.gif"
                 else if(data.main_muscle=="Abductors")
                     data.muscle_img = "http://assets.bodybuilding.com/images/trackers/exercise/heatmap/18.gif"
-                if(data.muscle_img){
-                    console.log(data.muscle_img)
+                if(data.muscle_img)
                     res.json(data);
-                }
             }
         });
     },
