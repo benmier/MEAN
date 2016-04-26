@@ -12,7 +12,7 @@
     <input ng-model='filterer' placeholder="e.g. squat, running"></input>
   </div>
   <div class="panel-body" ng-if='filterer'>
-	  <div ng-repeat='lift in lifts | filter:filterer' style="margin-bottom: 10px" ng-click='addExercise(lift)' a:hover='background-color: black'>
+	  <div ng-repeat='lift in lifts | filter:filterer' style="margin-bottom: 10px" ng-click='addExercise(lift)'>
 	  		<img src="{{lift.pic_left}}" height="50px" width='50px' style="display: inline-block;"> 
 	  		<div style="display: inline-block; word-wrap: break-word; height: 40px; width: 210px; padding: 2px 5px; vertical-align: middle;">
 	  			<div style="word-wrap: break-word; display: inline-block">
@@ -23,6 +23,18 @@
   </div>
 </div>
 
-<div>
-	
+<div class="panel panel-default" style="width: 320px; height: 100%; padding:10px; display: inline-block; vertical-align: top">
+  <div class="panel-heading">
+    <h2 class="panel-title">Workout</h2> 
+  </div>
+  <div class="panel-body">
+	  <div ng-repeat='exercise in exercises' style="margin-bottom: 10px">
+	  		<img src="{{exercise.pic_left}}" height="50px" width='50px' style="display: inline-block;"> 
+	  		<div style="display: inline-block; word-wrap: break-word; height: 40px; width: 210px; padding: 2px 5px; vertical-align: middle;">
+	  			<div style="word-wrap: break-word; display: inline-block">
+	  				<a href="" style="color:black">{{exercise.name}}</a>
+	  			</div>
+	  		</div>
+	  </div>
+  </div>
 </div>

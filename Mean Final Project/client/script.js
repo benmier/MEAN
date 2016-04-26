@@ -192,11 +192,13 @@ myApp.controller('tableController', function($scope,liftFactory){
 });
 
 myApp.controller('trackController', function($scope,liftFactory){
+    $scope.exercises = [];
+
     liftFactory.show(function(data){
         $scope.lifts = data;
     });
 
     $scope.addExercise = function(lift){
-        alert(lift.name)
+        $scope.exercises.push(lift);
     };
 });
