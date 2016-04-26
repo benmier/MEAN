@@ -37,6 +37,13 @@ myApp.factory('userFactory', function($http){
             callback(factory.currentUser);
     };
 
+    factory.create = function(newUser,callback){
+        $http.post('/users/create',newUser).success(function(data){
+            factory.currentUser = data;
+            callback(data);
+        });
+    };
+
     return factory;
 });
 
@@ -99,11 +106,6 @@ myApp.factory('liftFactory', function($http){
 })
 
 myApp.controller('loginController', function($scope,$location,userFactory,liftFactory){
-    liftFactory.show(function(data){
-        $scope.lifts = data;
-    })
-
-
     $scope.login = function(){
         if(!$scope.newUser)
             alert("Name cannot be blank")
@@ -158,3 +160,9 @@ myApp.controller('dataController', function($scope,$location,liftFactory,userFac
     });
     
 });
+
+myApp.controller('tableController', function($scope,liftFactory){
+    liftFactory.show(function(data){
+        $scope.lifts = data;
+    })
+})
