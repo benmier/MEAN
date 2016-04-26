@@ -64,7 +64,6 @@ myApp.factory('liftFactory', function($http){
                 if(data[i].main_muscle==input.name)
                     factory.data.main_muscle.push(data[i]);
                 for(j in data[i].other_muscles){
-                    console.log(data[i].name,data[i].other_muscles[j].name)
                     if(data[i].other_muscles[j].name==input.name){
                         factory.data.other_muscles.push(data[i]);
                     }

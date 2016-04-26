@@ -31,6 +31,12 @@ module.exports = {
                     for(lift in data[i]){
                         if(data[i][lift]==req.params.name)
                             newData[i]=data[i];
+                        else{
+                            for(j in data[i]["other_muscles"]){
+                                if(data[i]["other_muscles"][j].name==req.params.name)
+                                    newData[i]=data[i];
+                            }
+                        }
                     };
                 };
                 res.json(newData);
