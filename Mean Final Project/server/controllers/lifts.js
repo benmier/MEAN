@@ -19,10 +19,8 @@ module.exports = {
             else{
                 if(data.main_muscle=="Abdominals")
                     data.muscle_img = "http://assets.bodybuilding.com/images/trackers/exercise/heatmap/13.gif"
-                else if(data.main_muscle=="Biceps"){
-                    console.log("hit biceps")
+                else if(data.main_muscle=="Biceps")
                     data.muscle_img = "http://assets.bodybuilding.com/images/trackers/exercise/heatmap/15.gif"
-                }
                 else if(data.main_muscle=="Triceps")
                     data.muscle_img = "http://assets.bodybuilding.com/images/trackers/exercise/heatmap/10.gif"
                 else if(data.main_muscle=="Chest")
@@ -53,7 +51,10 @@ module.exports = {
                     data.muscle_img = "http://assets.bodybuilding.com/images/trackers/exercise/heatmap/6.gif"
                 else if(data.main_muscle=="Abductors")
                     data.muscle_img = "http://assets.bodybuilding.com/images/trackers/exercise/heatmap/18.gif"
-                res.json(data);
+                if(data.muscle_img){
+                    console.log(data)
+                    res.json(data);
+                }
             }
         });
     },
