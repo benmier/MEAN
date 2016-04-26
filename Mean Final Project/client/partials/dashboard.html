@@ -8,7 +8,8 @@
 
 <div class="panel panel-default" style="width: 500px; height:400px; padding:10px; display: inline-block; margin: 0px 20px 20px 0px; vertical-align: top">
   <div class="panel-heading">
-    <h2 class="panel-title">Your Stats</h2>
+    <h2 class="panel-title">Your Stats <span style="margin-left: 320px">Edit:<input type="checkbox" ng-model='edit'></input></span>
+</h2>
   </div>
   <div class="panel-body">
 	  <div style="display: inline-block; margin-right: 20px">
@@ -20,8 +21,8 @@
 	    <h3>Basal Metabolic Rate:</h3>
 	    <h3>Total Daily Burn:</h3>
 	  </div>
-	  <div style="display: inline-block;">
-	  	<h3 ng-model='currentUser.weight' ng-show='!checkbox'>{{currentUser.weight}} lbs <span style="font-size: 12pt">Edit<input type="checkbox" ng-model='checkbox'></input></span></h3>
+	  <div style="display: inline-block; vertical-align: top">
+	  	<h3 ng-model='currentUser.weight' ng-show='!edit' >{{currentUser.weight}} lbs</h3>
 	  	<h3>{{currentUser.body_fat}}%</h3>
 	  	<h3>{{currentUser.weight * (1-(currentUser.body_fat*0.01)) | number:1}} lbs</h3>
 	  	<h3>{{currentUser.weight * (currentUser.body_fat*0.01) | number:1}} lbs</h3>
