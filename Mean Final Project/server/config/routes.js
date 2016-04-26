@@ -11,7 +11,7 @@ module.exports = function(app){
         users.create(req,res);
     });
 
-    app.get('/users/:id', function(req, res) {
+    app.get('/users/:name', function(req, res) {
         users.showOne(req,res);
     });
 

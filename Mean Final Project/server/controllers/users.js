@@ -13,7 +13,7 @@ module.exports = {
     },
 
     showOne: function(req,res){
-        Users.findOne({_id:req.params.id},function(err,data){
+        Users.findOne({name:req.params.name},function(err,data){
             if(err)
                 console.log(err);
             else
