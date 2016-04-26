@@ -18,7 +18,7 @@
 <div style="overflow-y: auto; height: 800px;">
 <table class="table table-striped" style="table-layout: fixed">
     <tbody id="lift_table">
-   		<tr ng-repeat='lift in lifts | filter:filterer | orderBy:'>
+   		<tr ng-repeat='lift in lifts | filter:filterer'>
             <td><a href="#/exercise/{{lift.name}}">{{lift.name}}</a></td>
             <td><a href="#/data/{{lift.main_muscle}}">{{lift.main_muscle}}</a></td>
             <td style="width: 20%">

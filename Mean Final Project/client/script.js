@@ -180,5 +180,5 @@ myApp.controller('dataController', function($scope,$location,liftFactory,userFac
 myApp.controller('tableController', function($scope,liftFactory){
     liftFactory.show(function(data){
         $scope.lifts = data;
-    })
-})
+    });
+});
