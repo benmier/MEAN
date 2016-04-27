@@ -28,7 +28,7 @@
     <h2 class="panel-title">Workout</h2> 
   </div>
   <div class="panel-body">
-	  <div ng-repeat='exercise in exercises track by $index' style="margin-bottom: 10px">
+	  <div ng-repeat='exercise in exercises track by exercise.name' style="margin-bottom: 10px">
 	  		<img src="{{exercise.pic_left}}" height="50px" width='50px' style="display: inline-block;"> 
 	  		<div style="display: inline-block; word-wrap: break-word; height: 40px; width: 210px; padding: 2px 5px; vertical-align: middle;">
 	  			<div style="word-wrap: break-word; display: inline-block">
