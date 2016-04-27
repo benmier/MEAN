@@ -256,7 +256,8 @@ myApp.controller('trackController', function($scope,liftFactory){
     };
 
     $scope.submitWorkout = function(newWorkout){
-        console.log(newWorkout)
-        // liftFactory.submitWorkout($scope.exercises)
+        liftFactory.submitWorkout(newWorkout,function(data){
+            alert("Great job! Your workout earned you "+data.points+" points!");
+        });
     }
 });
