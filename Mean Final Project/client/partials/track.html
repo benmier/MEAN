@@ -46,14 +46,16 @@
 	  		</div>
 	  		<div ng-if='exercise.type=="Cardio"'>
 	  			<span style="margin-right: 25px">Set</span>
-	  			<span style="margin-right: 40px">Duration</span>
+	  			<span style="margin-right: 50px">Duration(h:m:s)</span>
 	  			<span style="margin-right: 40px">Distance(mi)</span>
 	  			<span style="margin-right: 25px">Pace(min/mi)</span>
 	  		</div>
 
 	  		<div ng-repeat='set in exercise.sets' ng-if='exercise.type=="Cardio"'>
-			  		<span style="margin-right: 35px">{{$index+1}}</span>
-			  		<input type="time" style="margin: 0px 20px 10px 0px; width:45px; height:25px" value="{{set.duration}}">
+			  		<span style="margin-right: 40px">{{$index+1}}</span>
+			  		<input type="number" style="margin: 0px 5px 10px 0px; width:35px; height:25px" value="{{set.hour}}">
+			  		<input type="number" style="margin: 0px 5px 10px 0px; width:35px; height:25px" value="{{set.min}}">
+			  		<input type="number" style="margin: 0px 20px 10px 0px; width:35px; height:25px" value="{{set.sec}}">
 			  		<input type="number" style="margin: 0px 35px 10px 0px; width:45px; height:25px" value="{{set.distance}}">
 			  		<input type="number" style="margin: 0px 35px 10px 0px; width:45px; height:25px" value="{{set.pace}}">
 		  	</div><!-- <hr style="margin: 10px 0px; border:1px solid black"> -->
