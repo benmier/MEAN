@@ -173,7 +173,7 @@ myApp.factory('liftFactory', function($http){
                     points += Math.floor(newWorkout.exercise[i].set[j].lbs*newWorkout.exercise[i].set[j].reps)/bmi;
                 else if(newWorkout.exercise[i].set[j].distance){
                     console.log("hit it")
-                    var mins = newWorkout.exercise[i].set[j].hour*60+newWorkout.exercise[i].set[j].mins+Math.round(newWorkout.exercise[i].set[j].sec/60);
+                    var mins = newWorkout.exercise[i].set[j].hour*60+newWorkout.exercise[i].set[j].min+Math.floor(newWorkout.exercise[i].set[j].sec/60);
                     var steps = newWorkout.exercise[i].set[j].distance*2241;
                     points += Math.floor((steps/mins)*0.5*bmi);
                     console.log(mins, steps, bmi, points)
