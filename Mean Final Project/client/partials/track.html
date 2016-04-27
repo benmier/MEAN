@@ -66,8 +66,9 @@
 				  		<input type="number" style="margin: 0px 35px 10px 0px; width:45px; height:25px"  ng-model="newWorkout.exercise[exercise.name].set[$index+1].reps">
 			</div>
 			<hr style="margin: 10px 0px; border:1px solid black"><br>
-			<input type="submit" class="btn" value="Finish Workout" ng-click='submitWorkout(newWorkout)'></input>
-
 	  </div>
+	  <div ng-if='exercises.length>0'>
+			<input type="submit" class="btn" value="Finish Workout" ng-click='submitWorkout(newWorkout)'></input>
+		</div>
   </div>
 </div>
