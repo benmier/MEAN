@@ -157,7 +157,7 @@ myApp.factory('liftFactory', function($http){
         callback(factory.exercises);
     };
 
-    factory.dupeSet = function(lift,callback){
+    factory.dupeSet = function(lift,$scope,callback){
         for(i in factory.exercises){
                 if(!factory.exercises[i].sets)
                     factory.exercises[i].sets = [];
@@ -165,7 +165,7 @@ myApp.factory('liftFactory', function($http){
                     if(lift.type=="Cardio")
                         factory.exercises[i].sets.push({duration:null,hour:0,min:0,sec:0,pace:null});
                     else{
-                        console.log(factory.exercises[i].sets[factory.exercises[i].sets.length-1].reps)
+                        console.log($scope.newWorkout.exercise[lift.name].set.length)
                         factory.exercises[i].sets.push({reps:factory.exercises[i].sets[factory.exercises[i].sets.length-1].reps,lbs:factory.exercises[i].sets[factory.exercises[i].sets.length-1].lbs});
                     }
                 }
@@ -294,7 +294,7 @@ myApp.controller('trackController', function($scope,liftFactory,userFactory){
     };
 
     $scope.dupeSet = function(lift){
-        liftFactory.dupeSet(lift,function(data){
+        liftFactory.dupeSet(lift,$scope,function(data){
             $scope.exercises = data;
         });
     };
