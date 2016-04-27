@@ -28,10 +28,9 @@ var UserSchema = new mongoose.Schema({
 				{
 					name: String,
 					pic_left: String,
-					duration: Number,
-					distance: Number,
+					type: String,
 					pace: Number,
-					sets: [{reps: Number},{lbs: Number}]
+					sets: [{reps:Number, lbs:Number, duration:Number, distance:Number}]
 				}
 			],
 			points: Number,
