@@ -53,17 +53,17 @@
 
 	  		<div ng-repeat='set in exercise.sets track by $index' ng-if='exercise.type=="Cardio"'>
 			  		<span style="margin-right: 40px">{{$index+1}}</span>
-			  		<input type="number" style="margin: 0px 5px 10px 0px; width:35px; height:25px" value=0 ng-model="newWorkout.exercise[$index].set[$index2].hour">
-			  		<input type="number" style="margin: 0px 5px 10px 0px; width:35px; height:25px" value=0 ng-model="newWorkout.exercise[$index].set[$index2].min">
-			  		<input type="number" style="margin: 0px 25px 10px 0px; width:35px; height:25px" value=0 ng-model="newWorkout.exercise[$index].set[$index2].sec">
-			  		<input type="number" style="margin: 0px 75px 10px 0px; width:45px; height:25px"  ng-model="newWorkout.exercise[$index].set[$index2].distance">
-			  		<input type="number" style="margin: 0px 35px 10px 0px; width:45px; height:25px" value="{{set.pace}}" ng-model="newWorkout.exercise[$index].set[$index2].pace">
+			  		<input type="number" style="margin: 0px 5px 10px 0px; width:35px; height:25px" value="0" ng-model="newWorkout.exercise[exercise.name].set[$index+1].hour">
+			  		<input type="number" style="margin: 0px 5px 10px 0px; width:35px; height:25px" value="0" ng-model="newWorkout.exercise[exercise.name].set[$index+1].min">
+			  		<input type="number" style="margin: 0px 25px 10px 0px; width:35px; height:25px" value="0" ng-model="newWorkout.exercise[exercise.name].set[$index+1].sec">
+			  		<input type="number" style="margin: 0px 75px 10px 0px; width:45px; height:25px"  ng-model="newWorkout.exercise[exercise.name].set[$index+1].distance">
+			  		<input type="number" style="margin: 0px 35px 10px 0px; width:45px; height:25px" value="{{set.pace}}" ng-model="newWorkout.exercise[exercise.name].set[$index+1].pace">
 		  	</div>
 
 		  	<div ng-repeat='set in exercise.sets' ng-if='exercise.type!="Cardio"'>
 				  		<span style="margin-right: 35px">{{$index+1}}</span>
-				  		<input type="number" style="margin: 0px 20px 10px 0px; width:45px; height:25px"  ng-model="newWorkout.exercise[$index].set[$index2].lbs">
-				  		<input type="number" style="margin: 0px 35px 10px 0px; width:45px; height:25px"  ng-model="newWorkout.exercise[$index].set[$index2].reps">
+				  		<input type="number" style="margin: 0px 20px 10px 0px; width:45px; height:25px"  ng-model="newWorkout.exercise[exercise.name].set[$index+1].lbs">
+				  		<input type="number" style="margin: 0px 35px 10px 0px; width:45px; height:25px"  ng-model="newWorkout.exercise[exercise.name].set[$index+1].reps">
 			</div>
 			<hr style="margin: 10px 0px; border:1px solid black"><br>
 			<input type="submit" class="btn" value="Finish Workout" ng-click='submitWorkout(newWorkout)'></input>
