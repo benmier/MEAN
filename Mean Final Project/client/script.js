@@ -189,6 +189,7 @@ myApp.factory('liftFactory', function($http){
                 }
             }
         };
+        console.log(newWorkout,points)
         callback(points);
     };
 
