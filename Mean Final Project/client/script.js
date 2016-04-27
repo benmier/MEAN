@@ -147,7 +147,15 @@ myApp.factory('liftFactory', function($http){
                 }
             }
         callback(factory.exercises);
-    }
+    };
+
+    factory.removeSet = function(lift,callback){
+        for(i in factory.exercises){
+            if(factory.exercises[i].name==lift.name)
+                factory.exercises[i].sets.pop();
+        };
+        callback(factory.exercises);
+    };
 
     return factory;
 })
@@ -241,9 +249,13 @@ myApp.controller('trackController', function($scope,liftFactory){
     };
 
     $scope.removeSet = function(lift){
-        for(i in $scope.exercises){
-            if($scope.exercises[i].name==lift.name)
-                $scope.exercises[i].sets.pop();
-        }
+        liftFactory.removeSet(lift,function(data){
+            $scope.exercises = data;
+        });
     };
+
+    $scope.submitWorkout = function(){
+        console.log($scope.exercises)
+        // liftFactory.submitWorkout($scope.exercises)
+    }
 });
