@@ -164,8 +164,8 @@ myApp.factory('liftFactory', function($http){
                 points += (newWorkout.exercise[i].set[j].lbs*newWorkout.exercise[i].set[j].reps)
             }
         };
+        points = points/((currentUser.weight*703)/(currentUser.height*currentUser.height));
         callback(points);
-        console.log(points)
     };
 
     return factory;
