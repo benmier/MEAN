@@ -169,7 +169,13 @@ myApp.factory('liftFactory', function($http){
         var points = 0;
         for(i in newWorkout.exercise){
             for(j in newWorkout.exercise[i].set){
-                points += (newWorkout.exercise[i].set[j].lbs*newWorkout.exercise[i].set[j].reps)
+                if(newWorkout.exercise[i].set[j].reps)
+                    points += (newWorkout.exercise[i].set[j].lbs*newWorkout.exercise[i].set[j].reps)
+                else if(newWorkout.exercise[i].set[j].distance){
+                    var mins = newWorkout.exercise[i].set[j].hour*60+newWorkout.exercise[i].set[j].mins+Math.round(newWorkout.exercise[i].set[j].sec/60);
+                    var steps = newWorkout.exercise[i].set[j].distance*2241;
+                    points += Math.floor((steps/mins)*0.5*((currentUser.weight*703)/(currentUser.height*currentUser.height)));
+                }
             }
         };
         points = Math.floor(points/((currentUser.weight*703)/(currentUser.height*currentUser.height)));
