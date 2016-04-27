@@ -254,8 +254,8 @@ myApp.controller('trackController', function($scope,liftFactory){
         });
     };
 
-    $scope.submitWorkout = function(){
-        console.log($scope.exercises)
+    $scope.submitWorkout = function(newWorkout){
+        console.log(newWorkout)
         // liftFactory.submitWorkout($scope.exercises)
     }
 });
