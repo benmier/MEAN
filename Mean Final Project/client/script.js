@@ -207,7 +207,7 @@ myApp.controller('trackController', function($scope,liftFactory){
             if(!$scope.exercises[i].sets)
                 $scope.exercises[i].sets = [];
             if($scope.exercises[i].name==lift.name)
-                $scope.exercises[i].sets.push({reps:null},{lbs:null});
+                $scope.exercises[i].sets.push({reps:null,lbs:null});
         }
     };
 });
