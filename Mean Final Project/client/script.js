@@ -231,6 +231,7 @@ myApp.controller('tableController', function($scope,liftFactory){
 
 myApp.controller('trackController', function($scope,liftFactory){
     $scope.exercises = [];
+    $scope.newWorkout = {};
 
     liftFactory.show(function(data){
         $scope.lifts = data;
