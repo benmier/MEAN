@@ -61,7 +61,7 @@ myApp.factory('userFactory', function($http){
 });
 
 myApp.factory('liftFactory', function($http){
-    var factory = {};
+    var factory = {}, factory.exercises = [];
 
     factory.show = function(callback){
         if(!factory.lifts){
@@ -118,6 +118,20 @@ myApp.factory('liftFactory', function($http){
             callback(factory.data);
         });
     };
+
+    factory.addExercise = function(lift,callback){
+        factory.exercises.push({name:lift.name,pic_left:lift.pic_left});
+            for(i in factory.exercises){
+                if(!factory.exercises[i].sets)
+                    factory.exercises[i].sets = [];
+                if(factory.exercises[i].name==lift.name){
+                    if(lift.type=="Cardio")
+                        factory.exercises[i].sets.push({duration:null,distance:null,pace:null});
+                    else
+                        factory.exercises[i].sets.push({reps:null,lbs:null});
+                }
+            }
+    }
 
     return factory;
 })
@@ -199,13 +213,9 @@ myApp.controller('trackController', function($scope,liftFactory){
     });
 
     $scope.addExercise = function(lift){
-        $scope.exercises.push({name:lift.name,pic_left:lift.pic_left});
-        for(i in $scope.exercises){
-            if(!$scope.exercises[i].sets)
-                $scope.exercises[i].sets = [];
-            if($scope.exercises[i].name==lift.name)
-                $scope.exercises[i].sets.push({reps:null,lbs:null});
-        }
+        liftFactory.addExercise(lift,function(data){
+            $scope.exercises = data;
+        })
     };
 
     $scope.addSet = function(lift){
