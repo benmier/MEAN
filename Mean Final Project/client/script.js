@@ -165,8 +165,10 @@ myApp.factory('liftFactory', function($http){
                     if(lift.type=="Cardio")
                         factory.exercises[i].sets.push({duration:null,hour:0,min:0,sec:0,pace:null});
                     else{
-                        console.log($scope.newWorkout.exercise[lift.name].set[Object.keys($scope.newWorkout.exercise[lift.name].set)[Object.keys($scope.newWorkout.exercise[lift.name].set).length-1]].lbs)
-                        factory.exercises[i].sets.push({reps:factory.exercises[i].sets[factory.exercises[i].sets.length-1].reps,lbs:factory.exercises[i].sets[factory.exercises[i].sets.length-1].lbs});
+                        factory.exercises[i].sets.push({
+                            reps:"$scope.newWorkout.exercise[lift.name].set[Object.keys($scope.newWorkout.exercise[lift.name].set)[Object.keys($scope.newWorkout.exercise[lift.name].set).length-1]].reps",
+                            lbs:"$scope.newWorkout.exercise[lift.name].set[Object.keys($scope.newWorkout.exercise[lift.name].set)[Object.keys($scope.newWorkout.exercise[lift.name].set).length-1]].lbs"
+                        });
                     }
                 }
             }
