@@ -157,14 +157,22 @@ myApp.factory('liftFactory', function($http){
         callback(factory.exercises);
     };
 
-    factory.submitWorkout = function(newWorkout,callback){
+    factory.dupeSet = function(lift,callback){
+        for(i in factory.exercises){
+            if(factory.exercises[i].name==lift.name)
+                factory.exercises[i].sets.pop();
+        };
+        callback(factory.exercises);
+    };
+
+    factory.submitWorkout = function(newWorkout,currentUser,callback){
         var points = 0;
         for(i in newWorkout.exercise){
             for(j in newWorkout.exercise[i].set){
                 points += (newWorkout.exercise[i].set[j].lbs*newWorkout.exercise[i].set[j].reps)
             }
         };
-        points = points/((currentUser.weight*703)/(currentUser.height*currentUser.height));
+        points = Math.floor(points/((currentUser.weight*703)/(currentUser.height*currentUser.height)));
         callback(points);
     };
 
@@ -273,7 +281,7 @@ myApp.controller('trackController', function($scope,liftFactory,userFactory){
     };
 
     $scope.submitWorkout = function(newWorkout){
-        liftFactory.submitWorkout(newWorkout,function(points){
+        liftFactory.submitWorkout(newWorkout,$scope.currentUser,function(points){
             alert("Great job! Your workout earned you "+points+" points!");
         });
     }
