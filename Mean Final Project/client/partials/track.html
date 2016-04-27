@@ -39,13 +39,13 @@
 	  		<span ng-click='removeSet(exercise)' style="margin-right: 15px"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Minus_sign_font_awesome.svg/512px-Minus_sign_font_awesome.svg.png" width="20px" height="20px">Remove Set</span>
 	  		<hr style="margin: 5px 0px">
 	  		<span style="margin-right: 25px">Set</span>
-	  		<span style="margin-right: 25px">lbs</span>
+	  		<span style="margin-right: 45px">lbs</span>
 	  		<span style="margin-right: 25px">Reps</span>
 	  		<hr style="margin: 5px 0px">
 	  		<div ng-repeat='set in exercise.sets'>
-		  		<span style="margin-right: 25px">{{$index+1}}</span>
-		  		<input style="margin: 0px 25px 10px 0px; width:30px; height:25px" value="{{set.lbs}}">
-		  		<input style="margin: 0px 25px 10px 0px; width:30px; height:25px" value="{{set.reps}}">
+		  		<span style="margin-right: 35px">{{$index+1}}</span>
+		  		<input type="number" style="margin: 0px 20px 10px 0px; width:45px; height:25px" value="{{set.lbs}}">
+		  		<input type="number" style="margin: 0px 35px 10px 0px; width:45px; height:25px" value="{{set.reps}}">
 	  		</div><hr style="margin: 10px 0px; border:1px solid black">
 	  </div>
   </div>

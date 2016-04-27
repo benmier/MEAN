@@ -199,7 +199,7 @@ myApp.controller('trackController', function($scope,liftFactory){
     });
 
     $scope.addExercise = function(lift){
-        $scope.exercises.push({name:lift.name});
+        $scope.exercises.push(lift);
         for(i in $scope.exercises){
             if(!$scope.exercises[i].sets)
                 $scope.exercises[i].sets = [];
@@ -212,6 +212,13 @@ myApp.controller('trackController', function($scope,liftFactory){
         for(i in $scope.exercises){
             if($scope.exercises[i].name==lift.name)
                 $scope.exercises[i].sets.push({reps:null,lbs:null});
+        }
+    };
+
+    $scope.removeSet = function(lift){
+        for(i in $scope.exercises){
+            if($scope.exercises[i].name==lift.name)
+                $scope.exercises[i].sets.pop();
         }
     };
 });
