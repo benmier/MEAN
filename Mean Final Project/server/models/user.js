@@ -23,7 +23,6 @@ var UserSchema = new mongoose.Schema({
 		{
 			id: Number,
 			title: String,
-			duration: Number,
 			exercises: [
 				{
 					name: String,

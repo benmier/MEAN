@@ -178,7 +178,15 @@ myApp.factory('liftFactory', function($http){
 
     factory.submitWorkout = function(newWorkout,currentUser,callback){
         var points = 0, bmi = (currentUser.weight*703)/(currentUser.height*currentUser.height);
+        var workout = {
+            id: Math.floor(Math.random()*15),
+            title: newWorkout.title,
+            createdAt: Date.now(),
+            updatedAt: Date.now(),
+        };
         for(i in newWorkout.exercise){
+            // workout.exercises.name = 
+            console.log(i)
             for(j in newWorkout.exercise[i].set){
                 if(newWorkout.exercise[i].set[j].reps)
                     points += Math.floor((newWorkout.exercise[i].set[j].lbs*newWorkout.exercise[i].set[j].reps)/bmi);
@@ -189,7 +197,6 @@ myApp.factory('liftFactory', function($http){
                 }
             }
         };
-        console.log(newWorkout,points)
         callback(points);
     };
 
