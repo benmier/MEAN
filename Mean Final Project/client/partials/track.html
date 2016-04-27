@@ -39,8 +39,17 @@
 	  		<span ng-click='removeSet(exercise)' style="margin-right: 15px"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Minus_sign_font_awesome.svg/512px-Minus_sign_font_awesome.svg.png" width="20px" height="20px">Remove Set</span>
 	  		<hr style="margin: 5px 0px">
 	  		<span style="margin-right: 25px">Set</span>
-	  		<span style="margin-right: 45px">lbs</span>
-	  		<span style="margin-right: 25px">Reps</span>
+	  		
+	  		<div ng-if='exercise.type!="Cardio"' style="display: inline-block;">
+	  			<span style="margin-right: 45px">lbs</span>
+	  			<span style="margin-right: 25px">Reps</span>
+	  		</div>
+	  		<div ng-if='exercise.type=="Cardio"' style="display: inline-block;">
+	  			<span style="margin-right: 40px">Duration</span>
+	  			<span style="margin-right: 40px">Distance(mi)</span>
+	  			<span style="margin-right: 25px">Pace(min/mi)</span>
+	  		</div>
+
 	  		<hr style="margin: 5px 0px">
 	  		<div ng-repeat='set in exercise.sets'>
 		  		<span style="margin-right: 35px">{{$index+1}}</span>

@@ -61,7 +61,8 @@ myApp.factory('userFactory', function($http){
 });
 
 myApp.factory('liftFactory', function($http){
-    var factory = {}, factory.exercises = [];
+    var factory = {}; 
+    factory.exercises = [];
 
     factory.show = function(callback){
         if(!factory.lifts){
@@ -120,7 +121,7 @@ myApp.factory('liftFactory', function($http){
     };
 
     factory.addExercise = function(lift,callback){
-        factory.exercises.push({name:lift.name,pic_left:lift.pic_left});
+        factory.exercises.push({name:lift.name,pic_left:lift.pic_left,type:lift.type});
             for(i in factory.exercises){
                 if(!factory.exercises[i].sets)
                     factory.exercises[i].sets = [];
@@ -131,6 +132,7 @@ myApp.factory('liftFactory', function($http){
                         factory.exercises[i].sets.push({reps:null,lbs:null});
                 }
             }
+        callback(factory.exercises)
     }
 
     return factory;
