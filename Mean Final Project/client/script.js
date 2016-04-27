@@ -159,9 +159,10 @@ myApp.factory('liftFactory', function($http){
 
     factory.submitWorkout = function(newWorkout,callback){
         console.log(newWorkout)
-        for(exercise in newWorkout.exercise){
-            for(set in exercise.set){
-                console.log(set.lbs,set.reps)
+        for(i in newWorkout.exercise){
+            console.log(exercise)
+            for(set in newWorkout.exercise[i].set){
+                console.log(set.lbs)
             }
         };
         callback(newWorkout.points);
