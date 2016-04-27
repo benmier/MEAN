@@ -127,12 +127,26 @@ myApp.factory('liftFactory', function($http){
                     factory.exercises[i].sets = [];
                 if(factory.exercises[i].name==lift.name){
                     if(lift.type=="Cardio")
-                        factory.exercises[i].sets.push({duration:null,distance:null,pace:null});
+                        factory.exercises[i].sets.push({duration:null,hour:0,min:0,sec:0,pace:null});
                     else
                         factory.exercises[i].sets.push({reps:null,lbs:null});
                 }
             }
         callback(factory.exercises)
+    }
+
+    factory.addSet = function(lift,callback){
+        for(i in factory.exercises){
+                if(!factory.exercises[i].sets)
+                    factory.exercises[i].sets = [];
+                if(factory.exercises[i].name==lift.name){
+                    if(lift.type=="Cardio")
+                        factory.exercises[i].sets.push({duration:null,hour:0,min:0,sec:0,pace:null});
+                    else
+                        factory.exercises[i].sets.push({reps:null,lbs:null});
+                }
+            }
+        callback(factory.exercises);
     }
 
     return factory;
@@ -221,10 +235,9 @@ myApp.controller('trackController', function($scope,liftFactory){
     };
 
     $scope.addSet = function(lift){
-        for(i in $scope.exercises){
-            if($scope.exercises[i].name==lift.name)
-                $scope.exercises[i].sets.push({reps:null,lbs:null});
-        }
+        liftFactory.addSet(lift,function(data){
+            $scope.exercises = data;
+        })
     };
 
     $scope.removeSet = function(lift){
