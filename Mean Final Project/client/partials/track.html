@@ -57,7 +57,7 @@
 			  		<input type="number" style="margin: 0px 5px 10px 0px; width:35px; height:25px" value="0" ng-model="newWorkout.exercise[exercise.name].set[$index+1].min">
 			  		<input type="number" style="margin: 0px 25px 10px 0px; width:35px; height:25px" value="0" ng-model="newWorkout.exercise[exercise.name].set[$index+1].sec">
 			  		<input type="number" style="margin: 0px 75px 10px 0px; width:45px; height:25px"  ng-model="newWorkout.exercise[exercise.name].set[$index+1].distance">
-			  		<input type="number" style="margin: 0px 35px 10px 0px; width:45px; height:25px" value="{{set.pace}}" ng-model="newWorkout.exercise[exercise.name].set[$index+1].pace">
+			  		<input type="number" style="margin: 0px 35px 10px 0px; width:45px; height:25px" value="{{(newWorkout.exercise[exercise.name].set[$index+1].hour*60+newWorkout.exercise[exercise.name].set[$index+1].min)/newWorkout.exercise[exercise.name].set[$index+1].distance}}" ng-model="newWorkout.exercise[exercise.name].set[$index+1].pace">
 		  	</div>
 
 		  	<div ng-repeat='set in exercise.sets' ng-if='exercise.type!="Cardio"'>
