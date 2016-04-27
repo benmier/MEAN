@@ -164,8 +164,10 @@ myApp.factory('liftFactory', function($http){
                 if(factory.exercises[i].name==lift.name){
                     if(lift.type=="Cardio")
                         factory.exercises[i].sets.push({duration:null,hour:0,min:0,sec:0,pace:null});
-                    else
+                    else{
+                        console.log(factory.exercises[i].sets[factory.exercises[i].sets.length-1].reps)
                         factory.exercises[i].sets.push({reps:factory.exercises[i].sets[factory.exercises[i].sets.length-1].reps,lbs:factory.exercises[i].sets[factory.exercises[i].sets.length-1].lbs});
+                    }
                 }
             }
         callback(factory.exercises);
@@ -287,6 +289,12 @@ myApp.controller('trackController', function($scope,liftFactory,userFactory){
 
     $scope.removeSet = function(lift){
         liftFactory.removeSet(lift,function(data){
+            $scope.exercises = data;
+        });
+    };
+
+    $scope.dupeSet = function(lift){
+        liftFactory.dupeSet(lift,function(data){
             $scope.exercises = data;
         });
     };
