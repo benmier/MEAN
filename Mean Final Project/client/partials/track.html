@@ -53,17 +53,17 @@
 
 	  		<div ng-repeat='set in exercise.sets' ng-if='exercise.type=="Cardio"'>
 			  		<span style="margin-right: 40px">{{$index+1}}</span>
-			  		<input type="number" style="margin: 0px 5px 10px 0px; width:35px; height:25px" value="{{set.hour}}">
-			  		<input type="number" style="margin: 0px 5px 10px 0px; width:35px; height:25px" value="{{set.min}}">
-			  		<input type="number" style="margin: 0px 25px 10px 0px; width:35px; height:25px" value="{{set.sec}}">
-			  		<input type="number" style="margin: 0px 75px 10px 0px; width:45px; height:25px" value="{{set.distance}}">
-			  		<input type="number" style="margin: 0px 35px 10px 0px; width:45px; height:25px" value="{{set.pace}}">
-		  	</div><!-- <hr style="margin: 10px 0px; border:1px solid black"> -->
+			  		<input type="number" style="margin: 0px 5px 10px 0px; width:35px; height:25px" value="{{set.hour}}" value="{{set.hour}}">
+			  		<input type="number" style="margin: 0px 5px 10px 0px; width:35px; height:25px" value="{{set.min}}" value="{{set.min}}">
+			  		<input type="number" style="margin: 0px 25px 10px 0px; width:35px; height:25px" value="{{set.sec}}" value="{{set.sec}}">
+			  		<input type="number" style="margin: 0px 75px 10px 0px; width:45px; height:25px" value="{{set.distance}}" value="{{set.distance}}">
+			  		<input type="number" style="margin: 0px 35px 10px 0px; width:45px; height:25px" value="{{set.pace}}" value="{{set.pace}}">
+		  	</div>
 
 		  	<div ng-repeat='set in exercise.sets' ng-if='exercise.type!="Cardio"'>
 				  		<span style="margin-right: 35px">{{$index+1}}</span>
-				  		<input type="number" style="margin: 0px 20px 10px 0px; width:45px; height:25px" value="{{set.lbs}}">
-				  		<input type="number" style="margin: 0px 35px 10px 0px; width:45px; height:25px" value="{{set.reps}}">
+				  		<input type="number" style="margin: 0px 20px 10px 0px; width:45px; height:25px" value="{{set.lbs}}" value="{{set.lbs}}">
+				  		<input type="number" style="margin: 0px 35px 10px 0px; width:45px; height:25px" value="{{set.reps}}" value="{{set.reps}}">
 			</div>
 			<hr style="margin: 10px 0px; border:1px solid black"><br>
 			<input type="submit" class="btn" value="Finish Workout" ng-click='submitWorkout(workout)'></input>
