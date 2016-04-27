@@ -52,17 +52,18 @@
 	  		</div>
 
 	  		<div ng-repeat='set in exercise.sets' ng-if='exercise.type=="Cardio"'>
-		  		<span style="margin-right: 35px">{{$index+1}}</span>
-		  		<input type="time" style="margin: 0px 20px 10px 0px; width:45px; height:25px" value="{{set.duration}}">
-		  		<input type="number" style="margin: 0px 35px 10px 0px; width:45px; height:25px" value="{{set.distance}}">
-		  		<input type="number" style="margin: 0px 35px 10px 0px; width:45px; height:25px" value="{{set.pace}}">
-		  	</div><hr style="margin: 10px 0px; border:1px solid black">
+			  		<span style="margin-right: 35px">{{$index+1}}</span>
+			  		<input type="time" style="margin: 0px 20px 10px 0px; width:45px; height:25px" value="{{set.duration}}">
+			  		<input type="number" style="margin: 0px 35px 10px 0px; width:45px; height:25px" value="{{set.distance}}">
+			  		<input type="number" style="margin: 0px 35px 10px 0px; width:45px; height:25px" value="{{set.pace}}">
+		  	</div><!-- <hr style="margin: 10px 0px; border:1px solid black"> -->
 
 		  	<div ng-repeat='set in exercise.sets' ng-if='exercise.type!="Cardio"'>
-		  		<span style="margin-right: 35px">{{$index+1}}</span>
-		  		<input type="number" style="margin: 0px 20px 10px 0px; width:45px; height:25px" value="{{set.lbs}}">
-		  		<input type="number" style="margin: 0px 35px 10px 0px; width:45px; height:25px" value="{{set.reps}}">
-		  	</div><hr style="margin: 10px 0px; border:1px solid black">
+				  		<span style="margin-right: 35px">{{$index+1}}</span>
+				  		<input type="number" style="margin: 0px 20px 10px 0px; width:45px; height:25px" value="{{set.lbs}}">
+				  		<input type="number" style="margin: 0px 35px 10px 0px; width:45px; height:25px" value="{{set.reps}}">
+			</div>
+			<hr style="margin: 10px 0px; border:1px solid black">
 
 	  </div>
   </div>
