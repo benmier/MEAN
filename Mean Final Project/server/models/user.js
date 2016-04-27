@@ -27,6 +27,7 @@ var UserSchema = new mongoose.Schema({
 			exercises: [
 				{
 					name: String,
+					pic_left: String,
 					duration: Number,
 					sets: [{reps: Number},{lbs: Number}]
 				}
