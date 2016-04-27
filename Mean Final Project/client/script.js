@@ -157,6 +157,16 @@ myApp.factory('liftFactory', function($http){
         callback(factory.exercises);
     };
 
+    factory.submitWorkout = function(newWorkout,callback){
+        console.log(newWorkout)
+        for(exercise in newWorkout.exercise){
+            for(set in exercise.set){
+                console.log(set.lbs,set.reps)
+            }
+        };
+        callback(newWorkout.points);
+    };
+
     return factory;
 })
 
@@ -256,8 +266,8 @@ myApp.controller('trackController', function($scope,liftFactory){
     };
 
     $scope.submitWorkout = function(newWorkout){
-        liftFactory.submitWorkout(newWorkout,function(data){
-            alert("Great job! Your workout earned you "+data.points+" points!");
+        liftFactory.submitWorkout(newWorkout,function(points){
+            alert("Great job! Your workout earned you "+points+" points!");
         });
     }
 });
