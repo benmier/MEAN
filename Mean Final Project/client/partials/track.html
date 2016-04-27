@@ -38,13 +38,14 @@
 	  		<span ng-click='addSet(exercise)' style="margin-right: 15px"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Plus_sign_font_awesome.svg/512px-Plus_sign_font_awesome.svg.png" width="20px" height="20px">Add Set</span>
 	  		<span ng-click='removeSet(exercise)' style="margin-right: 15px"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Minus_sign_font_awesome.svg/512px-Minus_sign_font_awesome.svg.png" width="20px" height="20px">Remove Set</span>
 	  		<hr style="margin: 5px 0px">
-	  		<span style="margin-right: 25px">Set</span>
 	  		
-	  		<div ng-if='exercise.type!="Cardio"' style="display: inline-block;">
+	  		<div ng-if='exercise.type!="Cardio"'>
+	  			<span style="margin-right: 25px">Set</span>
 	  			<span style="margin-right: 45px">lbs</span>
 	  			<span style="margin-right: 25px">Reps</span>
 	  		</div>
-	  		<div ng-if='exercise.type=="Cardio"' style="display: inline-block;">
+	  		<div ng-if='exercise.type=="Cardio"'>
+	  			<span style="margin-right: 25px">Set</span>
 	  			<span style="margin-right: 40px">Duration</span>
 	  			<span style="margin-right: 40px">Distance(mi)</span>
 	  			<span style="margin-right: 25px">Pace(min/mi)</span>
