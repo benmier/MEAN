@@ -240,9 +240,15 @@ myApp.controller('tableController', function($scope,liftFactory){
     });
 });
 
-myApp.controller('trackController', function($scope,liftFactory){
+myApp.controller('trackController', function($scope,liftFactory,userFactory){
     $scope.exercises = [];
     $scope.newWorkout = {};
+
+    userFactory.showCurrentUser(function(data){
+        $scope.currentUser = data;
+        if(!data.name)
+            $location.url('/');
+    });
 
     liftFactory.show(function(data){
         $scope.lifts = data;
