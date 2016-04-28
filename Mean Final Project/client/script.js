@@ -191,7 +191,10 @@ myApp.factory('liftFactory', function($http){
                     workout.exercises.push({name:i, pic_left:factory.exercises[k].pic_left, type:factory.exercises[k].type});
             }
             for(j in newWorkout.exercise[i].set){
-                console.log(j)
+                for(m in workout.exercises){
+                    if(workout.exercises[m].name==i)
+                        workout.exercises[m].sets.push(newWorkout.exercise[i].set);
+                }
                 if(newWorkout.exercise[i].set[j].reps)
                     points += Math.floor((newWorkout.exercise[i].set[j].lbs*newWorkout.exercise[i].set[j].reps)/bmi);
                 else if(newWorkout.exercise[i].set[j].distance){
@@ -201,7 +204,7 @@ myApp.factory('liftFactory', function($http){
                 }
             }
         };
-        // console.log(workout)
+        console.log(workout)
         callback(points);
     };
 
