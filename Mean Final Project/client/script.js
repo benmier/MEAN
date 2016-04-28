@@ -49,6 +49,13 @@ myApp.factory('userFactory', function($http){
             callback(factory.currentUser);
     };
 
+    factory.showOne = function(callback){
+        $http.get('/users/'+factory.currentUser.name).success(function(data){
+            factory.currentUser = data;
+            callback(factory.currentUser);
+        });
+    }
+
     factory.create = function(newUser,callback){
         $http.post('/users/create',newUser).success(function(data){
             factory.currentUser = data;
@@ -240,14 +247,11 @@ myApp.controller('loginController', function($scope,$location,userFactory,liftFa
 });
 
 myApp.controller('dashboardController', function($scope,$location,userFactory,liftFactory){
-    userFactory.showCurrentUser(function(data){
+    userFactory.showOne(function(data){
         $scope.currentUser = data;
         if(!data.name)
             $location.url('/');
     });
-
-
-    
 
     $scope.logout = function(){
         userFactory.logout(function(data){
