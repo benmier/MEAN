@@ -36,9 +36,9 @@
 	  			</div>
 	  		</div><hr style="margin: 5px 0px">
 
-	  		<input hidden ng-model='newWorkout.exercise[exercise.name].pic_left' value='{{exercise.pic_left}}'></input>
+	  		<span hidden="" ng-model='newWorkout.exercise[exercise.name].pic_left' value='{{exercise.pic_left}}'></span>
 
-	  		<input hidden ng-model='newWorkout.exercise[exercise.name].type' value='{{exercise.type}}'></input>
+	  		<span hidden="" ng-model='newWorkout.exercise[exercise.name].type'>{{exercise.type}}</span>
 
 	  		<span ng-click='addSet(exercise)' style="margin-right: 15px"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Plus_sign_font_awesome.svg/512px-Plus_sign_font_awesome.svg.png" width="20px" height="20px">Add Set</span>
 	  		<span ng-click='removeSet(exercise)' style="margin-right: 15px"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Minus_sign_font_awesome.svg/512px-Minus_sign_font_awesome.svg.png" width="20px" height="20px">Remove Set</span>

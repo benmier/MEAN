@@ -186,7 +186,8 @@ myApp.factory('liftFactory', function($http){
             exercises: []
         };
         for(i in newWorkout.exercise){
-            workout.exercises.push({name:i, pic_left:, type:});
+            console.log(newWorkout.exercise)
+            workout.exercises.push({name:i, pic_left:5, type:5});
             for(j in newWorkout.exercise[i].set){
                 if(newWorkout.exercise[i].set[j].reps)
                     points += Math.floor((newWorkout.exercise[i].set[j].lbs*newWorkout.exercise[i].set[j].reps)/bmi);
