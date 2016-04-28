@@ -286,7 +286,7 @@ myApp.controller('tableController', function($scope,liftFactory){
     });
 });
 
-myApp.controller('trackController', function($scope,liftFactory,userFactory){
+myApp.controller('trackController', function($scope,liftFactory,userFactory,$location){
     $scope.exercises = [];
     $scope.newWorkout = {};
 
@@ -327,6 +327,7 @@ myApp.controller('trackController', function($scope,liftFactory,userFactory){
     $scope.submitWorkout = function(newWorkout){
         liftFactory.submitWorkout(newWorkout,$scope.currentUser,function(points){
             alert("Great job! Your workout earned you "+points+" points!");
+            $location.url('/dashboard');
         });
     }
 });
