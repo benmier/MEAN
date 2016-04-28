@@ -243,6 +243,9 @@ myApp.controller('loginController', function($scope,$location,userFactory,liftFa
         if(!$scope.newUser.age || !$scope.newUser.height || !$scope.newUser.weight || !$scope.newUser.target_weight || !$scope.newUser.age || !$scope.newUser.goal || !$scope.newUser.multiplier)
             alert('Fields cannot be blank: Height, Weight, Fitness Goal, Goal Weight, and Activity Level')
         else{
+            $scope.newUser.height = Math.floor(scope.newUser.feet*12+$scope.newUser.inches);
+            // $scope.newUser.feet = null;
+            // $scope.newUser.inches = null;
             userFactory.create($scope.newUser,function(){
                 $location.url('/dashboard');
             });
