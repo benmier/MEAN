@@ -11,14 +11,14 @@ var UserSchema = new mongoose.Schema({
 	goal: String,
 	target_weight: Number,
 	body_fat: Number,
-	total_points: Number,
+	total_points: {type:Number, default:0},
 	badges:[
 		{
 			name: String,
 			description: String
 		}
 	],
-	level: Number,
+	level: {type:Number, default:1},
 	workouts: [
 		// {
 		// 	id: Number,
