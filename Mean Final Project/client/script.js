@@ -204,7 +204,7 @@ myApp.factory('liftFactory', function($http){
                 else if(newWorkout.exercise[i].set[j].distance){
                     var mins = newWorkout.exercise[i].set[j].hour*60+newWorkout.exercise[i].set[j].min+Math.floor(newWorkout.exercise[i].set[j].sec/60);
                     var steps = newWorkout.exercise[i].set[j].distance*2241;
-                    points += Math.floor((steps/mins)*0.5*bmi);
+                    points += Math.floor((steps/mins)*bmi);
                 }
             }
         };
