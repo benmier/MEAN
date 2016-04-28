@@ -20,27 +20,27 @@ var UserSchema = new mongoose.Schema({
 	],
 	level: Number,
 	workouts: [
-		{
-			id: Number,
-			title: String,
-			exercises: [
-				{
-					name: String,
-					pic_left: String,
-					type: String,
-					sets: [{
-						reps:Number, 
-						lbs:Number, 
-						duration:Number, 
-						distance:Number, 
-						pace:Number
-					}]
-				}
-			],
-			points: Number,
-			createdAt: Date,
-			updatedAt: Date
-		}
+		// {
+		// 	id: Number,
+		// 	title: String,
+		// 	exercises: [
+		// 		{
+		// 			name: String,
+		// 			pic_left: String,
+		// 			type: String,
+		// 			sets: [{
+		// 				reps:Number, 
+		// 				lbs:Number, 
+		// 				duration:Number, 
+		// 				distance:Number, 
+		// 				pace:Number
+		// 			}]
+		// 		}
+		// 	],
+		// 	points: Number,
+		// 	createdAt: Date,
+		// 	updatedAt: Date
+		// }
 	]
 },{timestamps:true});
 
