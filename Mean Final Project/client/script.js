@@ -192,8 +192,11 @@ myApp.factory('liftFactory', function($http){
             }
             for(j in newWorkout.exercise[i].set){
                 for(m in workout.exercises){
-                    if(workout.exercises[m].name==i)
+                    if(workout.exercises[m].name==i){
+                        if(!workout.exercises[m].sets)
+                            workout.exercises[m].sets = [];
                         workout.exercises[m].sets.push(newWorkout.exercise[i].set);
+                    }
                 }
                 if(newWorkout.exercise[i].set[j].reps)
                     points += Math.floor((newWorkout.exercise[i].set[j].lbs*newWorkout.exercise[i].set[j].reps)/bmi);
@@ -204,7 +207,8 @@ myApp.factory('liftFactory', function($http){
                 }
             }
         };
-        console.log(workout)
+        workout.points = points;
+        console.log(workout);
         callback(points);
     };
 
