@@ -26,8 +26,6 @@ module.exports = {
             if(err)
                 console.log(err);
             else{
-                console.log(user)
-                console.log(req.body.workout)
                 user.workouts.push(req.body.workout);
                 user.save(function(err){
                     if(err)
