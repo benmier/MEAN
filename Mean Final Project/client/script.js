@@ -374,9 +374,5 @@ myApp.controller('workoutController', function($scope,liftFactory,userFactory,$r
                 $scope.currentWorkout = $scope.currentUser.workouts[i];
             }
         };
-        console.log($scope.currentWorkout);
     });
-
-    
-    
 });
