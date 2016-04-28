@@ -358,8 +358,8 @@ myApp.controller('trackController', function($scope,liftFactory,userFactory,$loc
             liftFactory.submitWorkout(newWorkout,$scope.currentUser,function(points){
                 var level = $scope.currentUser.level;
                 alert("Great job! Your workout earned you "+points+" points!");
-                if(currentUser.level>level)
-                    alert("Congratulations! You advanced to level "+currentUser.level+"!");
+                if($scope.currentUser.level>level)
+                    alert("Congratulations! You advanced to level "+$scope.currentUser.level+"!");
                 $location.url('/dashboard');
             });
         }
