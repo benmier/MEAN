@@ -342,4 +342,6 @@ myApp.controller('workoutController', function($scope,liftFactory,userFactory){
         if(!data.name)
             $location.url('/');
     });
+    
+    
 });
