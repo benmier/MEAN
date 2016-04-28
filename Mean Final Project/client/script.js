@@ -141,10 +141,19 @@ myApp.factory('liftFactory', function($http){
                         factory.exercises[i].sets.push({duration:null,hour:0,min:0,sec:0,pace:null});
                     else
                         factory.exercises[i].sets.push({reps:null,lbs:null});
-                }
-            }
-        callback(factory.exercises)
-    }
+                };
+            };
+        callback(factory.exercises);
+    };
+
+    factory.removeExercise = function(lift,callback){
+        console.log(factory.exercises)
+        for(i in factory.exercises){
+            if(factory.exercises[i].name==lift.name)
+                factory.exercises.splice(i,1);
+        };
+        callback(factory.exercises);
+    };
 
     factory.addSet = function(lift,callback){
         for(i in factory.exercises){
@@ -315,6 +324,12 @@ myApp.controller('trackController', function($scope,liftFactory,userFactory,$loc
 
     $scope.addExercise = function(lift){
         liftFactory.addExercise(lift,function(data){
+            $scope.exercises = data;
+        })
+    };
+
+    $scope.removeExercise = function(lift){
+        liftFactory.removeExercise(lift,function(data){
             $scope.exercises = data;
         })
     };
