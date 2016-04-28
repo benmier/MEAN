@@ -7,11 +7,11 @@
 
 <div class="panel panel-default" style="width: 500px; height: 100%; padding:10px; display: inline-block; vertical-align: top">
   <div class="panel-heading">
-    <h2 class="panel-title" style="display: inline-block; margin-right: 10px">{{currentWorkout.title}} - {{currentWorkout.createdAt | date:'MMMM dd, yyyy'}}</h2>
+    <h2 class="panel-title" style="display: inline-block; margin-right: 10px">{{currentWorkout.title}} <span style="margin-left: 30px">{{currentWorkout.points}} points</span> <span style="margin-left: 30px">{{currentWorkout.createdAt | date:'MMMM dd, yyyy'}}</span></h2>
     
   </div>
   <div class="panel-body">
-	  <div ng-repeat='exercise in currentWorkout.exercises track by exercise.name' style="margin-bottom: 10px">
+	  <div ng-repeat='exercise in currentWorkout.exercises track by exercise.name'>
 	  		<img src="{{exercise.pic_left}}" height="50px" width='50px' style="display: inline-block;"> 
 	  		<div style="display: inline-block; word-wrap: break-word; height: 40px; width: 210px; padding: 2px 5px; vertical-align: middle;">
 	  			<div style="word-wrap: break-word; display: inline-block">
@@ -44,7 +44,7 @@
 				  		<span type="number" style="margin: 0px 45px 10px 0px; width:45px; height:25px" >{{set.lbs}}</span>
 				  		<span type="number" style="margin: 0px 35px 10px 0px; width:45px; height:25px" >{{set.reps}}</span>
 			</div>
-			<hr style="margin: 20px 0px; border:1px solid black"><br>
+			<hr style="margin: 20px 0px; border:1px solid grey"><br>
 	  </div>
   </div>
 </div>
