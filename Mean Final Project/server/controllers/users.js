@@ -21,6 +21,24 @@ module.exports = {
         });
     },
 
+    submit: function(req,res){
+        Users.findOne({name:req.body.name},function(err,user){
+            if(err)
+                console.log(err);
+            else{
+                console.log(user)
+                console.log(req.body.workout)
+                user.workouts.push(req.body.workout);
+                user.save(function(err){
+                    if(err)
+                        console.log(err);
+                    else
+                        res.json(true);
+                });
+            };
+        });
+    },
+
     create: function(req,res){
         Users.findOne({name:req.body.name},function(err,data){
             if(err)
