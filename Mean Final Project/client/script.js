@@ -50,7 +50,7 @@ myApp.factory('userFactory', function($http){
     };
 
     factory.showOne = function(callback){
-        $http.get('/users/'+factory.currentUser.name).success(function(data){
+        $http.get('/users/Ben').success(function(data){
             factory.currentUser = data;
             callback(factory.currentUser);
         });
@@ -340,15 +340,17 @@ myApp.controller('trackController', function($scope,liftFactory,userFactory,$loc
     }
 });
 
-myApp.controller('workoutController', function($scope,liftFactory,userFactory){
+myApp.controller('workoutController', function($scope,liftFactory,userFactory,$route){
     userFactory.showCurrentUser(function(data){
         $scope.currentUser = data;
         if(!data.name)
             $location.url('/');
     });
-    for(workout in $scope.currentUser.workouts){
-        if(workout.id == $route.current.params.id)
-            $scope.currentWorkout = workout;
+
+    for(i in $scope.currentUser.workouts){
+        if($scope.currentUser.workouts[i].id == $route.current.params.id){
+            $scope.currentWorkout = $scope.currentUser.workouts[i];
+        }
     };
     console.log($scope.currentWorkout);
 });
