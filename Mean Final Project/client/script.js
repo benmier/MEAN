@@ -195,7 +195,8 @@ myApp.factory('liftFactory', function($http){
                     if(workout.exercises[m].name==i){
                         if(!workout.exercises[m].sets)
                             workout.exercises[m].sets = [];
-                        workout.exercises[m].sets.push(newWorkout.exercise[i].set);
+                        // if(newWorkout.exercise[i].set[j])
+                        workout.exercises[m].sets.push(newWorkout.exercise[i].set[j]);
                     }
                 }
                 if(newWorkout.exercise[i].set[j].reps)
