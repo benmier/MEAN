@@ -3,12 +3,12 @@
 	<a href="#/table">Exercise Table</a> | 
 	<a href="#/track">Track</a>
 	<a href="#/" style="margin-left: 75%">Logout</a>
-</div>
+</div><br>
 
 <div class="panel panel-default" style="width: 500px; height: 100%; padding:10px; display: inline-block; vertical-align: top">
   <div class="panel-heading">
-    <h2 class="panel-title" style="display: inline-block; margin-right: 10px">{{currentWorkout.title}}}</h2>
-    <h2 style="margin-left: 50px;"></h2> 
+    <h2 class="panel-title" style="display: inline-block; margin-right: 10px">{{currentWorkout.title}} - {{currentWorkout.createdAt | date:'MMMM dd, yyyy'}}</h2>
+    
   </div>
   <div class="panel-body">
 	  <div ng-repeat='exercise in currentWorkout.exercises track by exercise.name' style="margin-bottom: 10px">
@@ -35,22 +35,16 @@
 			  		<span style="margin-right: 40px">{{$index+1}}</span>
 			  		<span type="number" style="margin: 0px 5px 10px 0px; width:35px; height:25px" >{{set.duration}}</span>
 			  		<span type="number" style="margin: 0px 5px 10px 0px; width:35px; height:25px" >{{set.distance}}</span>
-			  		<span type="number" style="margin: 0px 25px 10px 0px; width:75px; height:25px">{{set.duration}}</span>
+			  		<span type="number" style="margin: 0px 75px 10px 0px; width:35px; height:25px">{{set.duration}}</span>
 			  		<span  style="margin: 0px 35px 10px 0px; width:45px; height:25px">{{set.duration/set.distance | number:1}}</span>
 		  	</div>
 
 		  	<div ng-repeat='set in exercise.sets' ng-if='exercise.type!="Cardio"'>
-				  		<span style="margin-right: 35px">{{$index+1}}</span>
-				  		<span type="number" style="margin: 0px 20px 10px 0px; width:45px; height:25px" >{{set.lbs}}</span>
+				  		<span style="margin-right: 40px">{{$index+1}}</span>
+				  		<span type="number" style="margin: 0px 45px 10px 0px; width:45px; height:25px" >{{set.lbs}}</span>
 				  		<span type="number" style="margin: 0px 35px 10px 0px; width:45px; height:25px" >{{set.reps}}</span>
 			</div>
-			<hr style="margin: 10px 0px; border:1px solid black"><br>
-			<span hidden ng-model='newWorkout.exercise[exercise.name].pic_left' value='{{exercise.pic_left}}'></span>
-
-	  		<span hidden ng-model='newWorkout.exercise[exercise.name].type'>{{exercise.type}}</span>
+			<hr style="margin: 20px 0px; border:1px solid black"><br>
 	  </div>
-	  <div ng-if='exercises.length>0'>
-			<input type="submit" class="btn" value="Finish Workout" ng-click='submitWorkout(newWorkout)'></input>
-		</div>
   </div>
 </div>
