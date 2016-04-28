@@ -97,6 +97,21 @@
     <h2 class="panel-title">Recent Workouts</h2>
   </div>
   <div class="panel-body">
-	  <div></div>
+  	<table>
+  		<thead>
+  			<tr>
+  				<th>Name</th>
+  				<th>Date</th>
+  				<th>Points</th>
+  			</tr>
+  		</thead>
+  		<tbody>
+  			<tr ng-repeat='workout in currentUser.workouts | limit:5 | orderBy:"createdAt":true'>
+  				<td>{{workout.title}}</td>
+  				<td>{{workout.createdAt | date:'MMMM dd, yyyy'}}</td>
+  				<td>{{workout.points}}</td>
+  			</tr>
+  		</tbody>
+  	</table>
   </div>
 </div>
