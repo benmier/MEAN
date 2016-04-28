@@ -27,6 +27,7 @@ module.exports = {
                 console.log(err);
             else{
                 user.workouts.push(req.body.workout);
+                user.points+=req.body.workout.points;
                 user.save(function(err){
                     if(err)
                         console.log(err);

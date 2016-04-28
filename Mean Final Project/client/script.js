@@ -80,15 +80,14 @@ myApp.factory('liftFactory', function($http){
             $http.get('/lifts').success(function(data){
             factory.lifts = data;
             callback(factory.lifts);
-            })
-        }
+            });
+        };
         else
-            callback(factory.lifts)
+            callback(factory.lifts);
     };
 
     factory.showOne = function(lift,callback){
         $http.get('/lifts/'+lift.name).success(function(data){
-            console.log(data.muscle_img)
             factory.lift = data;
             callback(factory.lift);
         });
@@ -112,8 +111,8 @@ myApp.factory('liftFactory', function($http){
                 for(j in data[i].other_muscles){
                     if(data[i].other_muscles[j].name==input.name){
                         factory.data.other_muscles.push(data[i]);
-                    }
-                }
+                    };
+                };
                 if(data[i].force==input.name)
                     factory.data.force.push(data[i]);
                 if(data[i].level==input.name)
