@@ -40,7 +40,9 @@ module.exports = function(app){
         lifts.showData(req,res);
     });
 
-
+    app.get('/workout/:id', function(req, res) {
+        lifts.showData(req,res);
+    });
     
 
 }
