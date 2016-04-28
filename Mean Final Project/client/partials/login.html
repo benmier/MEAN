@@ -10,14 +10,14 @@
 	<label>Name</label>
 	<input class="form-control"  type="text" ng-model='newUser.name'></input><br>
 	<label>Age (optional)</label>
-	<input class="form-control"  type="number" ng-model='newUser.age'></input><br>
+	<input class="form-control"  type="number" min='1' ng-model='newUser.age'></input><br>
 	<label>Height</label><br>
-	<input class="form-control"  type="number" ng-model='newUser.feet' placeholder="Feet" style="width:148px; display: inline-block;"> 
-	<input class="form-control"  type="number" ng-model='newUser.inches' placeholder="Inches" style="width:148px; display: inline-block;"><br><br>
+	<input class="form-control"  type="number" min='1' ng-model='newUser.feet' placeholder="Feet" style="width:148px; display: inline-block;"> 
+	<input class="form-control"  type="number" min='1' ng-model='newUser.inches' placeholder="Inches" style="width:148px; display: inline-block;"><br><br>
 	<label>Weight (lbs)</label>
-	<input class="form-control"  type="number" ng-model='newUser.weight'></input><br>
+	<input class="form-control"  type="number" min='1' ng-model='newUser.weight'></input><br>
 	<label>Body Fat Percentage</label>
-	<input class="form-control"  type="number" ng-model='newUser.body_fat'></input><br>
+	<input class="form-control"  type="number" min='1' ng-model='newUser.body_fat'></input><br>
 	<label>Fitness Goal</label>
 	<select ng-model='newUser.goal' class="form-control">
 		<option>Lose Fat</option>
@@ -25,7 +25,7 @@
 		<option>Maintain</option>
 	</select><br>
 	<label>Goal Weight (lbs)</label>
-	<input class="form-control"  type="number" ng-model='newUser.target_weight'></input><br>
+	<input class="form-control"  type="number" min='1' ng-model='newUser.target_weight'></input><br>
 	<label>Activity Level</label>
 	<select ng-model='newUser.multiplier' class="form-control">
 		<option value="1.1">< 1 hour exercise per week</option>
