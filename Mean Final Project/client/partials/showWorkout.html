@@ -26,14 +26,14 @@
 	  		</div>
 	  		<div ng-if='exercise.type=="Cardio"'>
 	  			<span style="margin-right: 25px">Set</span>
-	  			<span style="margin-right: 50px">Duration(mins)</span>
+	  			<span style="margin-right: 50px">Duration(h:m:s)</span>
 	  			<span style="margin-right: 40px">Distance(mi)</span>
 	  			<span style="margin-right: 25px">Pace(min/mi)</span>
 	  		</div>
 
 	  		<div ng-repeat='set in exercise.sets track by $index' ng-if='exercise.type=="Cardio"'>
 			  		<span style="margin-right: 40px">{{$index+1}}</span>
-			  		<span type="number" style="margin: 0px 5px 10px 0px; width:35px; height:25px" >{{set.duration}}</span>
+			  		<span type="number" style="margin: 0px 105px 10px 0px; width:35px; height:25px" >{{set.hour}} : {{set.min}} : {{set.sec}}</span>
 			  		<span type="number" style="margin: 0px 5px 10px 0px; width:35px; height:25px" >{{set.distance}}</span>
 			  		<span type="number" style="margin: 0px 75px 10px 0px; width:35px; height:25px">{{set.duration}}</span>
 			  		<span  style="margin: 0px 35px 10px 0px; width:45px; height:25px">{{set.duration/set.distance | number:1}}</span>
