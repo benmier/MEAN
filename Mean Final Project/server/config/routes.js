@@ -41,7 +41,7 @@ module.exports = function(app){
     });
 
     app.get('/workout/:id', function(req, res) {
-        lifts.showData(req,res);
+        users.showOne(req,res);
     });
     
 
