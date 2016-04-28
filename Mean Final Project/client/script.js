@@ -179,16 +179,19 @@ myApp.factory('liftFactory', function($http){
     factory.submitWorkout = function(newWorkout,currentUser,callback){
         var points = 0, bmi = (currentUser.weight*703)/(currentUser.height*currentUser.height);
         var workout = {
-            id: Math.floor(Math.random()*15),
+            id: Math.floor(Math.random()*1000000000000000),
             title: newWorkout.title,
             createdAt: Date.now(),
             updatedAt: Date.now(),
             exercises: []
         };
         for(i in newWorkout.exercise){
-            console.log(newWorkout.exercise)
-            workout.exercises.push({name:i, pic_left:5, type:5});
+            for(k in factory.exercises){
+                if(factory.exercises[k].name==i)
+                    workout.exercises.push({name:i, pic_left:factory.exercises[k].pic_left, type:factory.exercises[k].type});
+            }
             for(j in newWorkout.exercise[i].set){
+                console.log(j)
                 if(newWorkout.exercise[i].set[j].reps)
                     points += Math.floor((newWorkout.exercise[i].set[j].lbs*newWorkout.exercise[i].set[j].reps)/bmi);
                 else if(newWorkout.exercise[i].set[j].distance){
