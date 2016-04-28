@@ -345,12 +345,14 @@ myApp.controller('workoutController', function($scope,liftFactory,userFactory,$r
         $scope.currentUser = data;
         if(!data.name)
             $location.url('/');
+        for(i in $scope.currentUser.workouts){
+            if($scope.currentUser.workouts[i].id == $route.current.params.id){
+                $scope.currentWorkout = $scope.currentUser.workouts[i];
+            }
+        };
+        console.log($scope.currentWorkout);
     });
 
-    for(i in $scope.currentUser.workouts){
-        if($scope.currentUser.workouts[i].id == $route.current.params.id){
-            $scope.currentWorkout = $scope.currentUser.workouts[i];
-        }
-    };
-    console.log($scope.currentWorkout);
+    
+    
 });
