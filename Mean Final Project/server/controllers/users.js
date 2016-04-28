@@ -28,7 +28,7 @@ module.exports = {
             else{
                 user.workouts.push(req.body.workout);
                 user.total_points+=req.body.workout.points;
-                user.level = 1+Math.floor(1/50)*(-25+Math.sqrt(635+10*user.total_points));
+                user.level = Math.floor((1/50)*(-25+Math.sqrt(635+10*user.total_points)));
                 user.save(function(err){
                     if(err)
                         console.log(err);

@@ -81,7 +81,7 @@ myApp.factory('liftFactory', function($http){
             factory.lifts = data;
             callback(factory.lifts);
             });
-        };
+        }
         else
             callback(factory.lifts);
     };
@@ -356,7 +356,7 @@ myApp.controller('trackController', function($scope,liftFactory,userFactory,$loc
             alert("Please provide a workout name")
         else{
             liftFactory.submitWorkout(newWorkout,$scope.currentUser,function(points){
-                var level = currentUser.level;
+                var level = $scope.currentUser.level;
                 alert("Great job! Your workout earned you "+points+" points!");
                 if(currentUser.level>level)
                     alert("Congratulations! You advanced to level "+currentUser.level+"!");
