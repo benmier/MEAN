@@ -333,10 +333,14 @@ myApp.controller('trackController', function($scope,liftFactory,userFactory,$loc
     };
 
     $scope.submitWorkout = function(newWorkout){
-        liftFactory.submitWorkout(newWorkout,$scope.currentUser,function(points){
-            alert("Great job! Your workout earned you "+points+" points!");
-            $location.url('/dashboard');
-        });
+        if(!$scope.newWorkout.title)
+            alert("Please provide a workout name")
+        else{
+            liftFactory.submitWorkout(newWorkout,$scope.currentUser,function(points){
+                alert("Great job! Your workout earned you "+points+" points!");
+                $location.url('/dashboard');
+            });
+        }
     }
 });
 
