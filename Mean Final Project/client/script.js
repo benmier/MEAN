@@ -26,6 +26,10 @@ myApp.config(function($routeProvider){
             templateUrl: 'partials/table.html',
             controller: "tableController"
         })
+        .when('/workout/:id',{
+            templateUrl: 'partials/showWorkout.html',
+            controller: "workoutController"
+        })
         .otherwise({
             redirectTo: '/'
         })
@@ -330,4 +334,12 @@ myApp.controller('trackController', function($scope,liftFactory,userFactory,$loc
             $location.url('/dashboard');
         });
     }
+});
+
+myApp.controller('workoutController', function($scope,liftFactory,userFactory){
+    userFactory.showCurrentUser(function(data){
+        $scope.currentUser = data;
+        if(!data.name)
+            $location.url('/');
+    });
 });
