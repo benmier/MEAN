@@ -195,7 +195,6 @@ myApp.factory('liftFactory', function($http){
                     if(workout.exercises[m].name==i){
                         if(!workout.exercises[m].sets)
                             workout.exercises[m].sets = [];
-                        // if(newWorkout.exercise[i].set[j])
                         workout.exercises[m].sets.push(newWorkout.exercise[i].set[j]);
                     }
                 }
@@ -209,8 +208,10 @@ myApp.factory('liftFactory', function($http){
             }
         };
         workout.points = points;
-        console.log(workout);
-        callback(points);
+        $http.post('/users/submit',{workout:workout,name:currentUser.name}).success(function(status){
+            if(status)
+                callback(points);
+        })
     };
 
     return factory;

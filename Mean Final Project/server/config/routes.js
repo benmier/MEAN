@@ -11,6 +11,10 @@ module.exports = function(app){
         users.create(req,res);
     });
 
+    app.post('/users/submit', function(req,res){
+        users.submit(req,res);
+    });
+
     app.get('/users/:name', function(req, res) {
         users.showOne(req,res);
     });
