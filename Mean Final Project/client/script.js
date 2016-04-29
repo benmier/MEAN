@@ -39,25 +39,27 @@ myApp.factory('userFactory', function($http){
     var factory = {};
 
     factory.showCurrentUser = function(callback){
-        if(!factory.currentUser){
-            $http.get('/users/Ben').success(function(data){
-                factory.currentUser = data;
-                callback(factory.currentUser);
-            });
-        }
-        else
+        // if(!factory.currentUser){
+        //     $http.get('/users/'+factory.currentUser).success(function(data){
+        //         factory.currentUser = data;
+        //         callback(factory.currentUser);
+        //     });
+        // }
+        // else
             callback(factory.currentUser);
     };
 
     factory.showOne = function(callback){
-        $http.get('/users/Ben').success(function(data){
+        $http.get('/users/'+factory.currentUser).success(function(data){
             factory.currentUser = data;
             callback(factory.currentUser);
         });
     }
 
     factory.create = function(newUser,callback){
+        console.log(newUser)
         $http.post('/users/create',newUser).success(function(data){
+            console.log(data)
             factory.currentUser = data;
             callback(data);
         });
