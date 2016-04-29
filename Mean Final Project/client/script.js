@@ -151,6 +151,12 @@ myApp.factory('liftFactory', function($http){
                         factory.exercises[i].sets.push({reps:null,lbs:null});
                 };
             };
+            console.log(factory.exercises)
+        callback(factory.exercises);
+    };
+
+    factory.loadWorkout = function(workout, callback){
+        factory.exercises.push(workout)
         callback(factory.exercises);
     };
 
