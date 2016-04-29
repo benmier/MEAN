@@ -355,8 +355,8 @@ myApp.controller('trackController', function($scope,liftFactory,userFactory,$loc
         });
     };
 
-    $scope.dupeSet = function(lift){
-        liftFactory.dupeSet(lift,$scope,function(data){
+    $scope.loadWorkout = function(workout){
+        liftFactory.loadWorkout(workout,function(data){
             $scope.exercises = data;
         });
     };
