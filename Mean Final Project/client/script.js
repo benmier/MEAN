@@ -146,7 +146,6 @@ myApp.factory('liftFactory', function($http){
     };
 
     factory.removeExercise = function(lift,callback){
-        console.log(factory.exercises)
         for(i in factory.exercises){
             if(factory.exercises[i].name==lift.name)
                 factory.exercises.splice(i,1);
