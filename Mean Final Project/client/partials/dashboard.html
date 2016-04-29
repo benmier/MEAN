@@ -63,7 +63,7 @@
 	  	<div ng-show='edit1'>
 	  		<input ng-model='currentUser.target_weight'  value="{{currentUser.target_weight}}" style="width: 70px; height:25px; margin: 10px 10px 0px 0px;">
 	  	</div>
-	  	<h3>{{currentUser.target_weight - currentUser.weight | number:1}} lbs</h3>
+	  	<h3>{{currentUser.target_weight - currentUser.weight | abs | number:1}} lbs</h3>
 	  	
 	  	<div ng-if='currentUser.goal == "Gain Muscle"'>
 	  	<h3>+{{(370+(21.6*(currentUser.weight * (1-(currentUser.body_fat*0.01))/2.2)))*currentUser.multiplier*0.2 | number:0}} calories</h3>
@@ -85,7 +85,7 @@
 	  	<h3 ng-if='currentUser.multiplier == "1.35"'>4-6 Hours/Week</h3>
 	  	<h3 ng-if='currentUser.multiplier == "1.45"'>6+ Hours/Week</h3>
 
-	  	<h3>{{((currentUser.target_weight - currentUser.weight)*3500)/(0.2*(370+(21.6*(currentUser.weight * (1-(currentUser.body_fat*0.01))/2.2)))*currentUser.multiplier) | makePositive | number:0}} days</h3>
+	  	<h3>{{((currentUser.target_weight - currentUser.weight)*3500)/(0.2*(370+(21.6*(currentUser.weight * (1-(currentUser.body_fat*0.01))/2.2)))*currentUser.multiplier) | abs | number:0}} days</h3>
 	  	
 	  </div>
   </div>

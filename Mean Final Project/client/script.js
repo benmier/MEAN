@@ -1,5 +1,11 @@
 var myApp = angular.module('myApp',['ngRoute']);
 
+myApp.filter('abs', function () {
+  return function(val) {
+    return Math.abs(val);
+  }
+});
+
 myApp.config(function($routeProvider){
     $routeProvider
         .when('/',{
