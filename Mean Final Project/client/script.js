@@ -156,7 +156,9 @@ myApp.factory('liftFactory', function($http){
     };
 
     factory.loadWorkout = function(workout, callback){
-        factory.exercises.push(workout)
+        console.log(workout)
+        for(i in workout.exercises)
+            factory.exercises.push(workout.exercises[i])
         callback(factory.exercises);
     };
 
