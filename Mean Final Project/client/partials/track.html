@@ -23,7 +23,8 @@
   </div><br>
   <h4>Recent Workouts</h4>
   <div ng-repeat='workout in currentUser.workouts | limitTo:5 | orderBy:"createdAt":true'>
-  		<a ng-click=''>{{workout.title}}</a> - {{workout.createdAt | date:'MMMM dd, yyyy'}} - {{workout.points}} points
+  		<a ng-click='loadWorkout(workout)'>{{workout.title}}</a>
+  		<span style="float:right">{{workout.createdAt | date:'MMMM dd, yyyy'}}</span>
   </div>
 
 
