@@ -39,18 +39,18 @@ myApp.factory('userFactory', function($http){
     var factory = {};
 
     factory.showCurrentUser = function(callback){
-        // if(!factory.currentUser){
-        //     $http.get('/users/'+factory.currentUser).success(function(data){
-        //         factory.currentUser = data;
-        //         callback(factory.currentUser);
-        //     });
-        // }
-        // else
+        if(!factory.currentUser){
+            $http.get('/users/'+factory.currentUser.name).success(function(data){
+                factory.currentUser = data;
+                callback(factory.currentUser);
+            });
+        }
+        else
             callback(factory.currentUser);
     };
 
     factory.showOne = function(callback){
-        $http.get('/users/'+factory.currentUser).success(function(data){
+        $http.get('/users/'+factory.currentUser.name).success(function(data){
             factory.currentUser = data;
             callback(factory.currentUser);
         });
@@ -249,7 +249,9 @@ myApp.controller('loginController', function($scope,$location,userFactory,liftFa
     };
 
     $scope.create = function(){
-        if(!$scope.newUser.age || !$scope.newUser.feet || !$scope.newUser.body_fat || $scope.newUser.inches>0 || !$scope.newUser.weight || !$scope.newUser.target_weight || !$scope.newUser.age || !$scope.newUser.goal || !$scope.newUser.multiplier)
+        if(!$scope.newUser.inches)
+            $scope.newUser.inches = 0;
+        if(!$scope.newUser.age || !$scope.newUser.feet || !$scope.newUser.body_fat || $scope.newUser.inches<0 || !$scope.newUser.weight || !$scope.newUser.target_weight || !$scope.newUser.age || !$scope.newUser.goal || !$scope.newUser.multiplier)
             alert('Fields cannot be blank: Height, Weight, Fitness Goal, Goal Weight, and Activity Level')
         else{
             $scope.newUser.height = Math.floor($scope.newUser.feet*12+$scope.newUser.inches);
