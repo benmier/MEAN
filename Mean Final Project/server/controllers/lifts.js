@@ -13,7 +13,7 @@ module.exports = {
     },
 
     showOne: function(req,res){
-        Lifts.findOne({name:req.params.name},function(err,data){
+        Lifts.findOne({_id:req.params.name},function(err,data){
             if(err)
                 console.log(err);
             else{

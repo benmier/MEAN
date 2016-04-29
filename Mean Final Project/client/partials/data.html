@@ -12,7 +12,7 @@
 	<div ng-repeat="item in data.main_muscle | filter:main_muscle" style="border: 1px solid black; margin-bottom: 10px">
 		<img src="{{item.pic_left}}" style="margin-right: 10px;" width="100px" height="100px">
 		<img src="{{item.pic_right}}" style="margin-right: 10px;" width="100px" height="100px">
-		<a href='#/exercise/{{item.name}}'>{{item.name}}</a></li>
+		<a href='#/exercise/{{item._id}}'>{{item.name}}</a></li>
 	</div>
 </div>
 
@@ -22,7 +22,7 @@
 	<div ng-repeat="item in data.other_muscles | filter:other_muscles" style="border: 1px solid black; margin-bottom: 10px">
 		<img src="{{item.pic_left}}" style="margin-right: 10px;" width="100px" height="100px">
 		<img src="{{item.pic_right}}" style="margin-right: 10px;" width="100px" height="100px">
-		<a href='#/exercise/{{item.name}}'>{{item.name}}</a></li>
+		<a href='#/exercise/{{item._id}}'>{{item.name}}</a></li>
 	</div>
 </div>
 
@@ -32,7 +32,7 @@
 	<div ng-repeat="item in data.force | filter:force" style="border: 1px solid black; margin-bottom: 10px">
 		<img src="{{item.pic_left}}" style="margin-right: 10px;" width="100px" height="100px">
 		<img src="{{item.pic_right}}" style="margin-right: 10px;" width="100px" height="100px">
-		<a href='#/exercise/{{item.name}}'>{{item.name}}</a></li>
+		<a href='#/exercise/{{item._id}}'>{{item.name}}</a></li>
 	</div>
 </div>
 
@@ -42,7 +42,7 @@
 	<div ng-repeat="item in data.level | filter:level" style="border: 1px solid black; margin-bottom: 10px">
 		<img src="{{item.pic_left}}" style="margin-right: 10px;" width="100px" height="100px">
 		<img src="{{item.pic_right}}" style="margin-right: 10px;" width="100px" height="100px">
-		<a href='#/exercise/{{item.name}}'>{{item.name}}</a></li>
+		<a href='#/exercise/{{item._id}}'>{{item.name}}</a></li>
 	</div>
 </div>
 
@@ -52,7 +52,7 @@
 	<div ng-repeat="item in data.mechanics | filter:mechanics" style="border: 1px solid black; margin-bottom: 10px">
 		<img src="{{item.pic_left}}" style="margin-right: 10px;" width="100px" height="100px">
 		<img src="{{item.pic_right}}" style="margin-right: 10px;" width="100px" height="100px">
-		<a href='#/exercise/{{item.name}}'>{{item.name}}</a></li>
+		<a href='#/exercise/{{item._id}}'>{{item.name}}</a></li>
 	</div>
 </div>
 
@@ -62,7 +62,7 @@
 	<div ng-repeat="item in data.equipment | filter:equipment" style="border: 1px solid black; margin-bottom: 10px">
 		<img src="{{item.pic_left}}" style="margin-right: 10px;" width="100px" height="100px">
 		<img src="{{item.pic_right}}" style="margin-right: 10px;" width="100px" height="100px">
-		<a href='#/exercise/{{item.name}}'>{{item.name}}</a></li>
+		<a href='#/exercise/{{item._id}}'>{{item.name}}</a></li>
 	</div>
 </div>
 
@@ -72,7 +72,7 @@
 	<div ng-repeat="item in data.sport | filter:sport" style="border: 1px solid black; margin-bottom: 10px">
 		<img src="{{item.pic_left}}" style="margin-right: 10px;" width="100px" height="100px">
 		<img src="{{item.pic_right}}" style="margin-right: 10px;" width="100px" height="100px">
-		<a href='#/exercise/{{item.name}}'>{{item.name}}</a></li>
+		<a href='#/exercise/{{item._id}}'>{{item.name}}</a></li>
 	</div>
 </div>
 
@@ -82,6 +82,6 @@
 	<div ng-repeat="item in data.type | filter:type" style="border: 1px solid black; margin-bottom: 10px">
 		<img src="{{item.pic_left}}" style="margin-right: 10px;" width="100px" height="100px">
 		<img src="{{item.pic_right}}" style="margin-right: 10px;" width="100px" height="100px">
-		<a href='#/exercise/{{item.name}}'>{{item.name}}</a></li>
+		<a href='#/exercise/{{item._id}}'>{{item.name}}</a></li>
 	</div>
 </div>
