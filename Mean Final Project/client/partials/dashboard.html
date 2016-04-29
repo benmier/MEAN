@@ -106,7 +106,7 @@
   			</tr>
   		</thead>
   		<tbody>
-  			<tr ng-repeat='workout in currentUser.workouts | limitTo:9 | orderBy:"createdAt":true'>
+  			<tr ng-repeat='workout in currentUser.workouts | limitTo:8 | orderBy:"createdAt":true'>
   				<td><a href="#/workout/{{workout.id}}">{{workout.title}}</a></td>
   				<td>{{workout.createdAt | date:'MMMM dd, yyyy'}}</td>
   				<td>{{workout.points}}</td>
