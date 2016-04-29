@@ -20,8 +20,13 @@
 	  			</div>
 	  		</div>
 	  </div>
-  <p>hello</p>
+  </div><br>
+  <h4>Recent Workouts</h4>
+  <div ng-repeat='workout in currentUser.workouts | limitTo:5 | orderBy:"createdAt":true'>
+  		<a ng-click=''>{{workout.title}}</a> - {{workout.createdAt | date:'MMMM dd, yyyy'}} - {{workout.points}} points
   </div>
+
+
 </div>
 
 <div class="panel panel-default" style="width: 500px; height: 100%; padding:10px; display: inline-block; vertical-align: top">
