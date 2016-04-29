@@ -245,6 +245,7 @@ myApp.factory('liftFactory', function($http){
 
 myApp.controller('loginController', function($scope,$location,userFactory,liftFactory){
     $scope.login = function(){
+        debugger
         if(!$scope.newUser)
             alert("Name cannot be blank")
         else{
