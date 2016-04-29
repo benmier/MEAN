@@ -195,6 +195,11 @@ myApp.factory('liftFactory', function($http){
         callback(factory.exercises);
     };
 
+    factory.clearAll = function(callback){
+        factory.exercises = [];
+        callback(factory.exercises);
+    };
+
     factory.dupeSet = function(lift,$scope,callback){
         for(i in factory.exercises){
                 if(!factory.exercises[i].sets)
@@ -371,6 +376,12 @@ myApp.controller('trackController', function($scope,liftFactory,userFactory,$loc
             $scope.exercises = data;
         });
     };
+
+    $scope.clearAll = function(){
+        liftFactory.clearAll(function(data){
+            $scope.exercises = data;
+        });
+    }
 
     $scope.submitWorkout = function(newWorkout){
         if(!$scope.newWorkout.title)

@@ -34,11 +34,10 @@
   <div class="panel-heading">
     <h2 class="panel-title" style="display: inline-block; margin-right: 10px">Workout Name:</h2> 
     <input ng-model='newWorkout.title' placeholder="e.g. Chest Day, Recovery Run" style="width: 200px;"></input>
-    <button ng-if='isPopulated' ng-click='addSet(exercise)' style="float:right" class='btn btn-sm'>Remove All</button>
+    <button ng-if='newWorkout.exercise' ng-click='clearAll()' style="float:right" class='btn btn-sm'>Remove All</button>
   </div>
   <div class="panel-body">
 	  <div ng-repeat='exercise in exercises track by exercise.name' style="margin-bottom: 10px">
-	  		<div ng-model='isPopulated' ng-init='isPopulated=true'></div>
 	  		<img src="{{exercise.pic_left}}" height="50px" width='50px' style="display: inline-block;"> 
 	  		<div style="display: inline-block; word-wrap: break-word; height: 40px; width: 210px; padding: 2px 5px; vertical-align: middle;">
 	  			<div style="word-wrap: break-word; display: inline-block">
