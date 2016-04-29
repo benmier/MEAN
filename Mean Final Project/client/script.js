@@ -251,6 +251,7 @@ myApp.factory('liftFactory', function($http){
             }
         };
         workout.points = points;
+        factory.exercises = [];
         $http.post('/users/submit',{workout:workout,name:currentUser.name}).success(function(status){
             if(status)
                 callback(points);
