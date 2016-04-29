@@ -386,3 +386,4 @@ myApp.controller('workoutController', function($scope,liftFactory,userFactory,$r
         };
     });
 });
+

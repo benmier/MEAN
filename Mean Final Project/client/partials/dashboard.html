@@ -85,7 +85,7 @@
 	  	<h3 ng-if='currentUser.multiplier == "1.35"'>4-6 Hours/Week</h3>
 	  	<h3 ng-if='currentUser.multiplier == "1.45"'>6+ Hours/Week</h3>
 
-	  	<h3>{{((currentUser.target_weight - currentUser.weight)*3500)/(0.2*(370+(21.6*(currentUser.weight * (1-(currentUser.body_fat*0.01))/2.2)))*currentUser.multiplier) | number:0}} days</h3>
+	  	<h3>{{((currentUser.target_weight - currentUser.weight)*3500)/(0.2*(370+(21.6*(currentUser.weight * (1-(currentUser.body_fat*0.01))/2.2)))*currentUser.multiplier) | makePositive | number:0}} days</h3>
 	  	
 	  </div>
   </div>
