@@ -355,10 +355,13 @@ myApp.controller('trackController', function($scope,liftFactory,userFactory,$loc
             alert("Please provide a workout name")
         else{
             var level = $scope.currentUser.level;
+            console.log("previous level: "+level)
             liftFactory.submitWorkout(newWorkout,$scope.currentUser,function(points){
                 alert("Great job! Your workout earned you "+points+" points!");
-                if($scope.currentUser.level>level)
+                console.log("new level: "+$scope.currentUser.level)
+                if($scope.currentUser.level>level){
                     alert("Congratulations! You advanced to level "+$scope.currentUser.level+"!");
+                }
                 $scope.exercises = [];
                 $scope.newWorkout = {};
                 $location.url('/dashboard');
