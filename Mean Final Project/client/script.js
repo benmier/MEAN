@@ -46,7 +46,8 @@ myApp.factory('userFactory', function($http){
 
     factory.showCurrentUser = function(callback){
         if(!factory.currentUser){
-            $http.get('/users/'+factory.currentUser.name).success(function(data){
+            $http.get('/users/Ben').success(function(data){
+            // $http.get('/users/'+factory.currentUser.name).success(function(data){
                 factory.currentUser = data;
                 callback(factory.currentUser);
             });
